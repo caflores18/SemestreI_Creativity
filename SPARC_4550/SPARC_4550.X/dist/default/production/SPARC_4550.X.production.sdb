@@ -1,0 +1,271 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+[v _portInit portInit `(v  1 e 1 0 ]
+"7 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaSparc.c
+[v _high_isr high_isr `IIH(v  1 e 1 0 ]
+"11
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+"15
+[v _main main `(v  1 e 1 0 ]
+"5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+[v _UARTinit UARTinit `(v  1 e 1 0 ]
+"21
+[v _receive receive `(uc  1 e 1 0 ]
+"31
+[v _send send `(v  1 e 1 0 ]
+"38
+[v _printf printf `(v  1 e 1 0 ]
+"47
+[v _scanf scanf `(v  1 e 1 0 ]
+[s S116 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"3657 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[s S125 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S134 . 1 `S116 1 . 1 0 `S125 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES134  1 e 1 @3987 ]
+[s S167 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"3875
+[s S174 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S181 . 1 `S167 1 . 1 0 `S174 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES181  1 e 1 @3988 ]
+[s S352 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 SPPIF 1 0 :1:7 
+]
+"4492
+[s S361 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+[u S367 . 1 `S352 1 . 1 0 `S361 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES367  1 e 1 @3998 ]
+[s S298 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"5076
+[s S307 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S310 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S313 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S316 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S319 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S321 . 1 `S298 1 . 1 0 `S307 1 . 1 0 `S310 1 . 1 0 `S313 1 . 1 0 `S316 1 . 1 0 `S319 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES321  1 e 1 @4011 ]
+[s S200 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"5307
+[s S209 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S218 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S221 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S223 . 1 `S200 1 . 1 0 `S209 1 . 1 0 `S218 1 . 1 0 `S221 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES223  1 e 1 @4012 ]
+"5407
+[v _TXREG1 TXREG1 `VEuc  1 e 1 @4013 ]
+"5419
+[v _RCREG1 RCREG1 `VEuc  1 e 1 @4014 ]
+"5426
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S252 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"6098
+[s S261 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S266 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S269 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S272 . 1 `S252 1 . 1 0 `S261 1 . 1 0 `S266 1 . 1 0 `S269 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES272  1 e 1 @4024 ]
+[s S80 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"6606
+[s S83 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S90 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S95 . 1 `S80 1 . 1 0 `S83 1 . 1 0 `S90 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES95  1 e 1 @4033 ]
+"7986
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"15 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaSparc.c
+[v _main main `(v  1 e 1 0 ]
+{
+"32
+[v main@opcionsel opcionsel `uc  1 a 1 16 ]
+"20
+[v main@activarmenu activarmenu `[5]uc  1 a 5 11 ]
+"22
+[v main@pActMenu pActMenu `*.39uc  1 a 2 9 ]
+"23
+[v main@tamanoarray tamanoarray `uc  1 a 1 7 ]
+"51
+} 0
+"47 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+[v _scanf scanf `(v  1 e 1 0 ]
+{
+"48
+[v scanf@i i `uc  1 a 1 5 ]
+"47
+[v scanf@guardarscan guardarscan `*.39uc  1 p 2 2 ]
+[v scanf@numcaracteres numcaracteres `uc  1 p 1 4 ]
+"51
+} 0
+"21
+[v _receive receive `(uc  1 e 1 0 ]
+{
+"22
+[v receive@recibido recibido `uc  1 a 1 1 ]
+"29
+} 0
+"38
+[v _printf printf `(v  1 e 1 0 ]
+{
+"39
+[v printf@i i `uc  1 a 1 6 ]
+"38
+[v printf@PointString PointString `*.25uc  1 p 2 2 ]
+"45
+} 0
+"31
+[v _send send `(v  1 e 1 0 ]
+{
+[v send@enviarpc enviarpc `uc  1 a 1 wreg ]
+[v send@enviarpc enviarpc `uc  1 a 1 wreg ]
+[v send@enviarpc enviarpc `uc  1 a 1 1 ]
+"36
+} 0
+"11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+[v _portInit portInit `(v  1 e 1 0 ]
+{
+"15
+} 0
+"5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+[v _UARTinit UARTinit `(v  1 e 1 0 ]
+{
+"19
+} 0
+"11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaSparc.c
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+{
+"13
+} 0
+"7
+[v _high_isr high_isr `IIH(v  1 e 1 0 ]
+{
+"9
+} 0
