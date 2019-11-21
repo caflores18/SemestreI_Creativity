@@ -1,4 +1,4 @@
-# 1 "PruebaSparc.c"
+# 1 "ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "PruebaSparc.c" 2
-
+# 1 "ADC.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5619,60 +5618,33 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 2 "PruebaSparc.c" 2
-
-# 1 "./Gpio.h" 1
-# 11 "./Gpio.h"
-void portInit(void);
-# 3 "PruebaSparc.c" 2
-
-# 1 "./UART.h" 1
-# 11 "./UART.h"
-void UARTinit(void);
-unsigned char receive();
-
-void send(unsigned char enviarpc);
-
-void printf (unsigned char *PointString);
+# 1 "ADC.c" 2
 
 
-
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 4 "PruebaSparc.c" 2
-
-# 1 "./PWMCCP2.h" 1
-# 11 "./PWMCCP2.h"
-void PWM_CCP2_init(void);
-void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 5 "PruebaSparc.c" 2
+# 1 "./ADC.h" 1
+# 11 "./ADC.h"
+void ADCinit(void);
+unsigned int ADCvalue();
+# 3 "ADC.c" 2
 
 
-
-__attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-    __nop();
+void ADCinit(void) {
+    ADCON0bits.CHS = 0b0000;
+    ADCON1bits.VCFG = 0;
+    ADCON1bits.PCFG = 0b1110;
+    ADCON2bits.ADFM = 1;
+    ADCON2bits.ACQT = 0b100;
+    ADCON2bits.ADCS = 0b100;
+    ADRESH = 0;
+    ADRESL = 0;
+    TRISAbits.TRISA0 = 1;
+    ADCON0bits.ADON = 1;
 }
 
-
-__attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
-    __nop();
-}
-
-
-
-void main(void) {
-    portInit();
-    UARTinit();
-    PWM_CCP2_init();
-    TRISCbits.RC2 = 0;
-
-    while (1) {
-        unsigned char loco = receive();
-        unsigned char PWMCycle = receive();
-        PWM_DutyCycleCCP2(PWMCycle);
-        if (loco == '0') {
-            printf("El valor del PWMDutyValue es de:");
-            send(loco);
-            loco = 0;
-        }
+unsigned int ADCvalue() {
+    ADCON0bits.GO_DONE = 1;
+    while (ADCON0bits.GO_DONE == 1) {
     }
+    unsigned int valorADC = ADRESL + (ADRESH << 8);
+    return valorADC;
 }

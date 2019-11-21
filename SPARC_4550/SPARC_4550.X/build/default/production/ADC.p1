@@ -1,47 +1,98 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T36 __interrupt high_priority ]
-"50 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
-[t T37 __interrupt low_priority ]
-[p mainexit ]
-"11 ./Gpio.h
-[; ;./Gpio.h: 11: void portInit(void);
-[v _portInit `(v ~T0 @X0 0 ef ]
-"11 ./UART.h
-[; ;./UART.h: 11: void UARTinit(void);
-[v _UARTinit `(v ~T0 @X0 0 ef ]
-"11 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 11: void PWM_CCP2_init(void);
-[v _PWM_CCP2_init `(v ~T0 @X0 0 ef ]
-"3858 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3858:     struct {
-[s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S154 . TRISC0 TRISC1 TRISC2 . TRISC6 TRISC7 ]
-"3866
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3866:     struct {
-[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S155 . RC0 RC1 RC2 . RC6 RC7 ]
-"3857
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3857: typedef union {
-[u S153 `S154 1 `S155 1 ]
-[n S153 . . . ]
-"3875
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3875: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
-[v _TRISCbits `VS153 ~T0 @X0 0 e@3988 ]
-"12 ./UART.h
-[; ;./UART.h: 12: unsigned char receive();
-[v _receive `(uc ~T0 @X0 0 e? ]
-"12 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 12: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-[v _PWM_DutyCycleCCP2 `(v ~T0 @X0 0 ef1`uc ]
-"16 ./UART.h
-[; ;./UART.h: 16: void printf (unsigned char *PointString);
-[v _printf `(v ~T0 @X0 0 ef1`*uc ]
-"14
-[; ;./UART.h: 14: void send(unsigned char enviarpc);
-[v _send `(v ~T0 @X0 0 ef1`uc ]
+"6672 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6672:     struct {
+[s S273 :1 `uc 1 :1 `uc 1 ]
+[n S273 . . GO_NOT_DONE ]
+"6676
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6676:     struct {
+[s S274 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S274 . ADON GO_nDONE CHS ]
+"6681
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6681:     struct {
+[s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S275 . . GO_DONE CHS0 CHS1 CHS2 CHS3 ]
+"6689
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6689:     struct {
+[s S276 :1 `uc 1 :1 `uc 1 ]
+[n S276 . . DONE ]
+"6693
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6693:     struct {
+[s S277 :1 `uc 1 :1 `uc 1 ]
+[n S277 . . GO ]
+"6697
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6697:     struct {
+[s S278 :1 `uc 1 :1 `uc 1 ]
+[n S278 . . NOT_DONE ]
+"6701
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6701:     struct {
+[s S279 :1 `uc 1 :1 `uc 1 ]
+[n S279 . . nDONE ]
+"6705
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6705:     struct {
+[s S280 :1 `uc 1 :1 `uc 1 ]
+[n S280 . . GODONE ]
+"6671
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6671: typedef union {
+[u S272 `S273 1 `S274 1 `S275 1 `S276 1 `S277 1 `S278 1 `S279 1 `S280 1 ]
+[n S272 . . . . . . . . . ]
+"6710
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6710: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
+[v _ADCON0bits `VS272 ~T0 @X0 0 e@4034 ]
+"6587
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6587:     struct {
+[s S269 :4 `uc 1 :2 `uc 1 ]
+[n S269 . PCFG VCFG ]
+"6591
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6591:     struct {
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"6599
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6599:     struct {
+[s S271 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S271 . . CHSN3 VCFG01 VCFG11 ]
+"6586
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6586: typedef union {
+[u S268 `S269 1 `S270 1 `S271 1 ]
+[n S268 . . . . ]
+"6606
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6606: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0xFC1)));
+[v _ADCON1bits `VS268 ~T0 @X0 0 e@4033 ]
+"6516
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6516:     struct {
+[s S266 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S266 . ADCS ACQT . ADFM ]
+"6522
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6522:     struct {
+[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S267 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
+"6515
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6515: typedef union {
+[u S265 `S266 1 `S267 1 ]
+[n S265 . . . ]
+"6531
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6531: extern volatile ADCON2bits_t ADCON2bits __attribute__((address(0xFC0)));
+[v _ADCON2bits `VS265 ~T0 @X0 0 e@4032 ]
+"6799
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6799: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"6792
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6792: extern volatile unsigned char ADRESL __attribute__((address(0xFC3)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"3438
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3438:     struct {
+[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S142 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 ]
+"3447
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3447:     struct {
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S143 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
+"3437
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3437: typedef union {
+[u S141 `S142 1 `S143 1 ]
+[n S141 . . . ]
+"3457
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3457: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
+[v _TRISAbits `VS141 ~T0 @X0 0 e@3986 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -552,93 +603,77 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v $root$_high_isr `(v ~T0 @X0 0 e ]
-"8 PruebaSparc.c
-[; ;PruebaSparc.c: 8: __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-[v _high_isr `(v ~T36 @X0 1 ef ]
+"5 ADC.c
+[; ;ADC.c: 5: void ADCinit(void) {
+[v _ADCinit `(v ~T0 @X0 1 ef ]
 {
-[e :U _high_isr ]
+[e :U _ADCinit ]
 [f ]
+"6
+[; ;ADC.c: 6:     ADCON0bits.CHS = 0b0000;
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+"7
+[; ;ADC.c: 7:     ADCON1bits.VCFG = 0;
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+"8
+[; ;ADC.c: 8:     ADCON1bits.PCFG = 0b1110;
+[e = . . _ADCON1bits 0 0 -> -> 14 `i `uc ]
 "9
-[; ;PruebaSparc.c: 9:     __nop();
-[e ( ___nop ..  ]
+[; ;ADC.c: 9:     ADCON2bits.ADFM = 1;
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
 "10
-[; ;PruebaSparc.c: 10: }
+[; ;ADC.c: 10:     ADCON2bits.ACQT = 0b100;
+[e = . . _ADCON2bits 0 1 -> -> 4 `i `uc ]
+"11
+[; ;ADC.c: 11:     ADCON2bits.ADCS = 0b100;
+[e = . . _ADCON2bits 0 0 -> -> 4 `i `uc ]
+"12
+[; ;ADC.c: 12:     ADRESH = 0;
+[e = _ADRESH -> -> 0 `i `uc ]
+"13
+[; ;ADC.c: 13:     ADRESL = 0;
+[e = _ADRESL -> -> 0 `i `uc ]
+"14
+[; ;ADC.c: 14:     TRISAbits.TRISA0 = 1;
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+"15
+[; ;ADC.c: 15:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+"16
+[; ;ADC.c: 16: }
 [e :UE 367 ]
 }
-[v $root$_low_isr `(v ~T0 @X0 0 e ]
-"13
-[; ;PruebaSparc.c: 13: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
-[v _low_isr `(v ~T37 @X0 1 ef ]
+"18
+[; ;ADC.c: 18: unsigned int ADCvalue() {
+[v _ADCvalue `(ui ~T0 @X0 1 ef ]
 {
-[e :U _low_isr ]
+[e :U _ADCvalue ]
 [f ]
-"14
-[; ;PruebaSparc.c: 14:     __nop();
-[e ( ___nop ..  ]
-"15
-[; ;PruebaSparc.c: 15: }
+"19
+[; ;ADC.c: 19:     ADCON0bits.GO_DONE = 1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+"20
+[; ;ADC.c: 20:     while (ADCON0bits.GO_DONE == 1) {
+[e $U 369  ]
+[e :U 370 ]
+{
+"21
+[; ;ADC.c: 21:     }
+}
+[e :U 369 ]
+"20
+[; ;ADC.c: 20:     while (ADCON0bits.GO_DONE == 1) {
+[e $ == -> . . _ADCON0bits 2 1 `i -> 1 `i 370  ]
+[e :U 371 ]
+"22
+[; ;ADC.c: 22:     unsigned int valorADC = ADRESL + (ADRESH << 8);
+[v _valorADC `ui ~T0 @X0 1 a ]
+[e = _valorADC -> + -> _ADRESL `i << -> _ADRESH `i -> 8 `i `ui ]
+"23
+[; ;ADC.c: 23:     return valorADC;
+[e ) _valorADC ]
+[e $UE 368  ]
+"24
+[; ;ADC.c: 24: }
 [e :UE 368 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"19
-[; ;PruebaSparc.c: 19: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"20
-[; ;PruebaSparc.c: 20:     portInit();
-[e ( _portInit ..  ]
-"21
-[; ;PruebaSparc.c: 21:     UARTinit();
-[e ( _UARTinit ..  ]
-"22
-[; ;PruebaSparc.c: 22:     PWM_CCP2_init();
-[e ( _PWM_CCP2_init ..  ]
-"23
-[; ;PruebaSparc.c: 23:     TRISCbits.RC2 = 0;
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-"25
-[; ;PruebaSparc.c: 25:     while (1) {
-[e :U 371 ]
-{
-"26
-[; ;PruebaSparc.c: 26:         unsigned char loco = receive();
-[v _loco `uc ~T0 @X0 1 a ]
-[e = _loco ( _receive ..  ]
-"27
-[; ;PruebaSparc.c: 27:         unsigned char PWMCycle = receive();
-[v _PWMCycle `uc ~T0 @X0 1 a ]
-[e = _PWMCycle ( _receive ..  ]
-"28
-[; ;PruebaSparc.c: 28:         PWM_DutyCycleCCP2(PWMCycle);
-[e ( _PWM_DutyCycleCCP2 (1 _PWMCycle ]
-"29
-[; ;PruebaSparc.c: 29:         if (loco == '0') {
-[e $ ! == -> _loco `ui -> 48 `ui 373  ]
-{
-"30
-[; ;PruebaSparc.c: 30:             printf("El valor del PWMDutyValue es de:");
-[e ( _printf (1 :s 1C ]
-"31
-[; ;PruebaSparc.c: 31:             send(loco);
-[e ( _send (1 _loco ]
-"32
-[; ;PruebaSparc.c: 32:             loco = 0;
-[e = _loco -> -> 0 `i `uc ]
-"33
-[; ;PruebaSparc.c: 33:         }
-}
-[e :U 373 ]
-"34
-[; ;PruebaSparc.c: 34:     }
-}
-[e :U 370 ]
-[e $U 371  ]
-[e :U 372 ]
-"35
-[; ;PruebaSparc.c: 35: }
-[e :UE 369 ]
-}
-[a 1C 69 108 32 118 97 108 111 114 32 100 101 108 32 80 87 77 68 117 116 121 86 97 108 117 101 32 101 115 32 100 101 58 0 ]
