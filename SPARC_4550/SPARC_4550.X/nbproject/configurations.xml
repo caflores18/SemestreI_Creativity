@@ -6,18 +6,22 @@
                    projectFiles="true">
       <itemPath>Gpio.h</itemPath>
       <itemPath>UART.h</itemPath>
+      <itemPath>PWMCCP2.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
       <itemPath>Gpio.c</itemPath>
       <itemPath>UART.c</itemPath>
+      <itemPath>PWMCCP2.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>PruebaSparc.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>PruebaPWMCCP2.c</itemPath>
+      <itemPath>Testing.c</itemPath>
+      <itemPath>PruebaPWMCCP1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -187,6 +191,8 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
+      <item path="PruebaPWMCCP2.c" ex="true" overriding="false">
+      </item>
       <Simulator>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
@@ -589,6 +595,8 @@
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
+      <item path="Testing.c" ex="true" overriding="false">
+      </item>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="gcc-opt-driver-new" value="true"/>
@@ -603,6 +611,12 @@
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
       <item path="main.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
       </item>
     </conf>
   </confs>

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=PruebaSparc.c Gpio.c UART.c
+SOURCEFILES_QUOTED_IF_SPACED=Gpio.c UART.c PWMCCP2.c PruebaPWMCCP1.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/PruebaSparc.p1 ${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/PruebaSparc.p1.d ${OBJECTDIR}/Gpio.p1.d ${OBJECTDIR}/UART.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/PWMCCP2.p1 ${OBJECTDIR}/PruebaPWMCCP1.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/Gpio.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/PWMCCP2.p1.d ${OBJECTDIR}/PruebaPWMCCP1.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/PruebaSparc.p1 ${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1
+OBJECTFILES=${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/PWMCCP2.p1 ${OBJECTDIR}/PruebaPWMCCP1.p1
 
 # Source Files
-SOURCEFILES=PruebaSparc.c Gpio.c UART.c
+SOURCEFILES=Gpio.c UART.c PWMCCP2.c PruebaPWMCCP1.c
 
 
 CFLAGS=
@@ -93,14 +93,6 @@ MP_PROCESSOR_OPTION=18F4550
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/PruebaSparc.p1: PruebaSparc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PruebaSparc.p1.d 
-	@${RM} ${OBJECTDIR}/PruebaSparc.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PruebaSparc.p1 PruebaSparc.c 
-	@-${MV} ${OBJECTDIR}/PruebaSparc.d ${OBJECTDIR}/PruebaSparc.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/PruebaSparc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/Gpio.p1: Gpio.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Gpio.p1.d 
@@ -117,15 +109,23 @@ ${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/UART.d ${OBJECTDIR}/UART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/UART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-else
-${OBJECTDIR}/PruebaSparc.p1: PruebaSparc.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/PWMCCP2.p1: PWMCCP2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PruebaSparc.p1.d 
-	@${RM} ${OBJECTDIR}/PruebaSparc.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PruebaSparc.p1 PruebaSparc.c 
-	@-${MV} ${OBJECTDIR}/PruebaSparc.d ${OBJECTDIR}/PruebaSparc.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/PruebaSparc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/PWMCCP2.p1.d 
+	@${RM} ${OBJECTDIR}/PWMCCP2.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PWMCCP2.p1 PWMCCP2.c 
+	@-${MV} ${OBJECTDIR}/PWMCCP2.d ${OBJECTDIR}/PWMCCP2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PWMCCP2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/PruebaPWMCCP1.p1: PruebaPWMCCP1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PruebaPWMCCP1.p1.d 
+	@${RM} ${OBJECTDIR}/PruebaPWMCCP1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PruebaPWMCCP1.p1 PruebaPWMCCP1.c 
+	@-${MV} ${OBJECTDIR}/PruebaPWMCCP1.d ${OBJECTDIR}/PruebaPWMCCP1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PruebaPWMCCP1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+else
 ${OBJECTDIR}/Gpio.p1: Gpio.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Gpio.p1.d 
@@ -141,6 +141,22 @@ ${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/UART.p1 UART.c 
 	@-${MV} ${OBJECTDIR}/UART.d ${OBJECTDIR}/UART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/UART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PWMCCP2.p1: PWMCCP2.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PWMCCP2.p1.d 
+	@${RM} ${OBJECTDIR}/PWMCCP2.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PWMCCP2.p1 PWMCCP2.c 
+	@-${MV} ${OBJECTDIR}/PWMCCP2.d ${OBJECTDIR}/PWMCCP2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PWMCCP2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/PruebaPWMCCP1.p1: PruebaPWMCCP1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PruebaPWMCCP1.p1.d 
+	@${RM} ${OBJECTDIR}/PruebaPWMCCP1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PruebaPWMCCP1.p1 PruebaPWMCCP1.c 
+	@-${MV} ${OBJECTDIR}/PruebaPWMCCP1.d ${OBJECTDIR}/PruebaPWMCCP1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PruebaPWMCCP1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
