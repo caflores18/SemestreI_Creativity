@@ -18,6 +18,6 @@ void printf (unsigned char *PointString);
     Imprime todo hasta un maximo de 255 caracteres o hasta que encuentra un 
     Caracter nulo */
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-
+    //Se escanea un numcaracteres y se guarda en el arreglo guardarscan
 #endif	/* UART_H */
 

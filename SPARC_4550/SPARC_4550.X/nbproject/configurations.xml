@@ -9,6 +9,7 @@
       <itemPath>PWMCCP2.h</itemPath>
       <itemPath>PWMCCP1.h</itemPath>
       <itemPath>ADC.h</itemPath>
+      <itemPath>Interrupciones.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +19,7 @@
       <itemPath>PWMCCP2.c</itemPath>
       <itemPath>PWMCCP1.c</itemPath>
       <itemPath>ADC.c</itemPath>
+      <itemPath>Interrupciones.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -27,6 +29,7 @@
       <itemPath>Testing.c</itemPath>
       <itemPath>PruebaPWMCCP1.c</itemPath>
       <itemPath>PruebaADC.c</itemPath>
+      <itemPath>PruebaInterrupciones.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -196,6 +199,14 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
+      <item path="PruebaADC.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
       <item path="PruebaPWMCCP1.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>

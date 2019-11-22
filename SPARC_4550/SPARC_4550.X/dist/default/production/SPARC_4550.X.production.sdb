@@ -3,10 +3,6 @@
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-[v _ADCinit ADCinit `(v  1 e 1 0 ]
-"18
-[v _ADCvalue ADCvalue `(ui  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
@@ -37,11 +33,15 @@
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
 [v _portInit portInit `(v  1 e 1 0 ]
-"10 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
+"4 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+[v _interruptsEnable interruptsEnable `(v  1 e 1 0 ]
+"17
+[v _habilitarIntExternas habilitarIntExternas `(v  1 e 1 0 ]
+"15 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
-"15
+"43
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
-"19
+"48
 [v _main main `(v  1 e 1 0 ]
 "4 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
 [v _PWM_CCP1_init PWM_CCP1_init `(v  1 e 1 0 ]
@@ -53,9 +53,34 @@
 [v _receive receive `(uc  1 e 1 0 ]
 "31
 [v _send send `(v  1 e 1 0 ]
+[v i2_send send `(v  1 e 1 0 ]
 "38
 [v _printf printf `(v  1 e 1 0 ]
-[s S722 . 1 `uc 1 TRISA0 1 0 :1:0 
+[v i2_printf printf `(v  1 e 1 0 ]
+[s S69 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2483 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[s S803 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S811 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S814 . 1 `S69 1 . 1 0 `S803 1 . 1 0 `S811 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES814  1 e 1 @3969 ]
+[s S680 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -63,8 +88,8 @@
 `uc 1 TRISA5 1 0 :1:5 
 `uc 1 TRISA6 1 0 :1:6 
 ]
-"3457 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[s S730 . 1 `uc 1 RA0 1 0 :1:0 
+"3457
+[s S688 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -72,8 +97,8 @@
 `uc 1 RA5 1 0 :1:5 
 `uc 1 RA6 1 0 :1:6 
 ]
-[u S738 . 1 `S722 1 . 1 0 `S730 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES738  1 e 1 @3986 ]
+[u S696 . 1 `S680 1 . 1 0 `S688 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES696  1 e 1 @3986 ]
 [s S60 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
@@ -84,15 +109,6 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3657
-[s S69 . 1 `uc 1 RB0 1 0 :1:0 
-`uc 1 RB1 1 0 :1:1 
-`uc 1 RB2 1 0 :1:2 
-`uc 1 RB3 1 0 :1:3 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
 [u S78 . 1 `S60 1 . 1 0 `S69 1 . 1 0 ]
 [v _TRISBbits TRISBbits `VES78  1 e 1 @3987 ]
 [s S111 . 1 `uc 1 TRISC0 1 0 :1:0 
@@ -244,21 +260,21 @@
 [v _CCP1CONbits CCP1CONbits `VES512  1 e 1 @4029 ]
 "6496
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
-[s S692 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S650 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "6531
-[s S697 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S655 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S704 . 1 `S692 1 . 1 0 `S697 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES704  1 e 1 @4032 ]
+[u S662 . 1 `S650 1 . 1 0 `S655 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES662  1 e 1 @4032 ]
 [s S24 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
@@ -277,38 +293,38 @@
 ]
 [u S39 . 1 `S24 1 . 1 0 `S27 1 . 1 0 `S34 1 . 1 0 ]
 [v _ADCON1bits ADCON1bits `VES39  1 e 1 @4033 ]
-[s S604 . 1 `uc 1 . 1 0 :1:0 
+[s S562 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "6710
-[s S607 . 1 `uc 1 ADON 1 0 :1:0 
+[s S565 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S611 . 1 `uc 1 . 1 0 :1:0 
+[s S569 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S618 . 1 `uc 1 . 1 0 :1:0 
+[s S576 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S621 . 1 `uc 1 . 1 0 :1:0 
+[s S579 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S624 . 1 `uc 1 . 1 0 :1:0 
+[s S582 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S627 . 1 `uc 1 . 1 0 :1:0 
+[s S585 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S630 . 1 `uc 1 . 1 0 :1:0 
+[s S588 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S633 . 1 `S604 1 . 1 0 `S607 1 . 1 0 `S611 1 . 1 0 `S618 1 . 1 0 `S621 1 . 1 0 `S624 1 . 1 0 `S627 1 . 1 0 `S630 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES633  1 e 1 @4034 ]
+[u S591 . 1 `S562 1 . 1 0 `S565 1 . 1 0 `S569 1 . 1 0 `S576 1 . 1 0 `S579 1 . 1 0 `S582 1 . 1 0 `S585 1 . 1 0 `S588 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES591  1 e 1 @4034 ]
 "6792
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "6799
@@ -338,31 +354,129 @@
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "7408
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+[s S948 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"7588
+[s S950 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S953 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S956 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S959 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S962 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S971 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_IPEN 1 0 :1:7 
+]
+[s S974 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+`uc 1 . 1 0 :2:5 
+`uc 1 nIPEN 1 0 :1:7 
+]
+[u S982 . 1 `S948 1 . 1 0 `S950 1 . 1 0 `S953 1 . 1 0 `S956 1 . 1 0 `S959 1 . 1 0 `S962 1 . 1 0 `S971 1 . 1 0 `S974 1 . 1 0 ]
+[v _RCONbits RCONbits `VES982  1 e 1 @4048 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"19 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
+[s S840 . 1 `uc 1 INT1IF 1 0 :1:0 
+`uc 1 INT2IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1IE 1 0 :1:3 
+`uc 1 INT2IE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1IP 1 0 :1:6 
+`uc 1 INT2IP 1 0 :1:7 
+]
+"8440
+[s S849 . 1 `uc 1 INT1F 1 0 :1:0 
+`uc 1 INT2F 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1E 1 0 :1:3 
+`uc 1 INT2E 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1P 1 0 :1:6 
+`uc 1 INT2P 1 0 :1:7 
+]
+[u S858 . 1 `S840 1 . 1 0 `S849 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES858  1 e 1 @4080 ]
+[s S1053 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"8532
+[s S1056 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S1065 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S1070 . 1 `S1053 1 . 1 0 `S1056 1 . 1 0 `S1065 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES1070  1 e 1 @4081 ]
+[s S739 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"8614
+[s S748 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S757 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S761 . 1 `S739 1 . 1 0 `S748 1 . 1 0 `S757 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES761  1 e 1 @4082 ]
+"12 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+[v _numPresionesBoton0 numPresionesBoton0 `uc  1 e 1 0 ]
+"13
+[v _numPresionesBoton1 numPresionesBoton1 `uc  1 e 1 0 ]
+"14
+[v _numPresionesBoton2 numPresionesBoton2 `uc  1 e 1 0 ]
+"48
 [v _main main `(v  1 e 1 0 ]
 {
-"28
-[v main@valorADC valorADC `ui  1 a 2 8 ]
-"26
-[v main@entrada entrada `uc  1 a 1 7 ]
-"35
+"65
 } 0
-"21 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-[v _receive receive `(uc  1 e 1 0 ]
-{
-"22
-[v receive@recibido recibido `uc  1 a 1 1 ]
-"29
-} 0
-"38
+"38 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
 [v _printf printf `(v  1 e 1 0 ]
 {
 "39
-[v printf@i i `uc  1 a 1 6 ]
+[v printf@i i `uc  1 a 1 17 ]
 "38
-[v printf@PointString PointString `*.32uc  1 p 2 2 ]
+[v printf@PointString PointString `*.32uc  1 p 2 13 ]
 "45
 } 0
 "31
@@ -370,13 +484,23 @@
 {
 [v send@enviarpc enviarpc `uc  1 a 1 wreg ]
 [v send@enviarpc enviarpc `uc  1 a 1 wreg ]
-[v send@enviarpc enviarpc `uc  1 a 1 1 ]
+[v send@enviarpc enviarpc `uc  1 a 1 12 ]
 "36
 } 0
 "11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
 [v _portInit portInit `(v  1 e 1 0 ]
 {
 "15
+} 0
+"4 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+[v _interruptsEnable interruptsEnable `(v  1 e 1 0 ]
+{
+"9
+} 0
+"17
+[v _habilitarIntExternas habilitarIntExternas `(v  1 e 1 0 ]
+{
+"35
 } 0
 "5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
 [v _UARTinit UARTinit `(v  1 e 1 0 ]
@@ -393,25 +517,28 @@
 {
 "11
 } 0
-"18 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-[v _ADCvalue ADCvalue `(ui  1 e 2 0 ]
-{
-"22
-[v ADCvalue@valorADC valorADC `ui  1 a 2 5 ]
-"24
-} 0
-"5
-[v _ADCinit ADCinit `(v  1 e 1 0 ]
-{
-"16
-} 0
-"15 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
+"43 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
 {
-"17
+"45
 } 0
-"10
+"15
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
 {
-"12
+"40
+} 0
+"38 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+[v i2_printf printf `(v  1 e 1 0 ]
+{
+[v i2printf@i printf `uc  1 a 1 5 ]
+[v i2printf@PointString PointString `*.32uc  1 p 2 1 ]
+"45
+} 0
+"31
+[v i2_send send `(v  1 e 1 0 ]
+{
+[v i2send@enviarpc enviarpc `uc  1 a 1 wreg ]
+[v i2send@enviarpc enviarpc `uc  1 a 1 wreg ]
+[v i2send@enviarpc enviarpc `uc  1 a 1 0 ]
+"36
 } 0

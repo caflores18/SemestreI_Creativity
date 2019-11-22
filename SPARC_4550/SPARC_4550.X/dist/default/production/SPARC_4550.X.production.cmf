@@ -13,23 +13,26 @@
 %PSECTS
 $dist/default/production\SPARC_4550.X.production.o
 intcodelo CODE 0 18 18 10 1
-cinit CODE 0 98E 98E 12 1
-intcode_body CODE 0 9AC 9AC 8 1
-text0 CODE 0 864 864 58 1
-text1 CODE 0 918 918 1A 1
-text2 CODE 0 804 804 60 1
-text3 CODE 0 94C 94C 16 1
-text4 CODE 0 9A0 9A0 C 1
-text5 CODE 0 932 932 1A 1
-text6 CODE 0 962 962 16 1
-text7 CODE 0 978 978 16 1
-text8 CODE 0 8EC 8EC 2C 1
-text9 CODE 0 8BC 8BC 30 1
-cstackCOMRAM COMRAM 1 1 1 A 1
-temp COMRAM 1 B B 1 1
+cinit CODE 0 A50 A50 30 1
+intcode_body CODE 0 848 848 E0 1
+text0 CODE 0 990 990 60 1
+text1 CODE 0 9F0 9F0 60 1
+text2 CODE 0 AB4 AB4 16 1
+text3 CODE 0 B0C B0C C 1
+text4 CODE 0 B18 B18 8 1
+text5 CODE 0 A80 A80 1A 1
+text6 CODE 0 A9A A9A 1A 1
+text7 CODE 0 ACA ACA 16 1
+text8 CODE 0 AE0 AE0 16 1
+text11 CODE 0 928 928 68 1
+text12 CODE 0 AF6 AF6 16 1
+idataCOMRAM CODE 0 B20 B20 3 1
+cstackCOMRAM COMRAM 1 1 1 14 1
+temp COMRAM 1 18 18 1 1
 intcode CODE 0 8 8 6 1
-smallconst SMALLCONST 0 800 800 4 1
-$C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
+smallconst SMALLCONST 0 800 800 48 1
+dataCOMRAM COMRAM 1 15 15 3 1
+$C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 28 28 4 1
 reset_vec CODE 0 0 0 4 1
@@ -53,17 +56,17 @@ BANK7 700-7FF 1
 CONST 4-7 1
 CONST E-17 1
 CONST 2C-7FF 1
-CONST 9B4-7FFF 1
+CONST B23-7FFF 1
 STACK 60-7FF 1
-SMALLCONST 9B4-7FFF 1
+SMALLCONST B23-7FFF 1
 CODE 4-7 1
 CODE E-17 1
 CODE 2C-7FF 1
-CODE 9B4-7FFF 1
-BIGRAM C-7FF 1
-COMRAM C-5F 1
+CODE B23-7FFF 1
+BIGRAM 19-7FF 1
+COMRAM 19-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 9B4-7FFF 1
+MEDIUMCONST B23-7FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -78,112 +81,146 @@ MEDIUMCONST 9B4-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SPARC_4550.X.production.o
-18 intcodelo CODE >3536:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-18 intcodelo CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-1E intcodelo CODE >16:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-20 intcodelo CODE >17:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-8 intcode CODE >3600:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-8 intcode CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-9AC intcode_body CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-9AE intcode_body CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-9B0 intcode_body CODE >12:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-8BC text9 CODE >5:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8BC text9 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8C0 text9 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8C4 text9 CODE >8:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8CC text9 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8CE text9 CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8D6 text9 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8DE text9 CODE >12:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8E2 text9 CODE >13:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8E6 text9 CODE >14:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8E8 text9 CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8EA text9 CODE >16:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8EC text8 CODE >18:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8EC text8 CODE >19:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8EE text8 CODE >20:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8EE text8 CODE >21:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-8FC text8 CODE >22:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-90E text8 CODE >23:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-916 text8 CODE >24:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\ADC.c
-978 text7 CODE >4:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-978 text7 CODE >5:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-97A text7 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-97E text7 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-982 text7 CODE >8:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-986 text7 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-98A text7 CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-98C text7 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-962 text6 CODE >4:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-962 text6 CODE >5:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-964 text6 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-968 text6 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-96C text6 CODE >8:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-970 text6 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-974 text6 CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-976 text6 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
-932 text5 CODE >5:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-932 text5 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-934 text5 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-936 text5 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-93A text5 CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-93C text5 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-93E text5 CODE >13:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-940 text5 CODE >14:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-942 text5 CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-944 text5 CODE >16:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-946 text5 CODE >17:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-948 text5 CODE >18:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-94A text5 CODE >19:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-9A0 text4 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
-9A0 text4 CODE >12:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
-9A4 text4 CODE >13:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
-9A8 text4 CODE >14:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
-9AA text4 CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
-94C text3 CODE >31:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-94E text3 CODE >32:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-94E text3 CODE >34:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-95C text3 CODE >35:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-960 text3 CODE >36:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-804 text2 CODE >38:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-804 text2 CODE >39:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-808 text2 CODE >40:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-834 text2 CODE >43:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-850 text2 CODE >44:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-862 text2 CODE >45:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-918 text1 CODE >21:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-918 text1 CODE >23:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-918 text1 CODE >25:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-926 text1 CODE >26:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-92A text1 CODE >27:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-92E text1 CODE >28:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-930 text1 CODE >29:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
-864 text0 CODE >19:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-864 text0 CODE >20:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-868 text0 CODE >21:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-86C text0 CODE >22:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-870 text0 CODE >23:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-874 text0 CODE >24:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-878 text0 CODE >25:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-878 text0 CODE >26:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-87E text0 CODE >27:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-890 text0 CODE >28:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-89C text0 CODE >29:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-8A2 text0 CODE >30:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-8AE text0 CODE >31:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-8B4 text0 CODE >32:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaADC.c
-98E cinit CODE >2230:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-98E cinit CODE >2232:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-98E cinit CODE >2235:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-98E cinit CODE >2241:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-98E cinit CODE >2243:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-990 cinit CODE >2244:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-992 cinit CODE >2246:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-994 cinit CODE >2247:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-996 cinit CODE >2248:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-998 cinit CODE >2249:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-99A cinit CODE >2250:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
-99C cinit CODE >2251:C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.s
+18 intcodelo CODE >3917:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+18 intcodelo CODE >43:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+1E intcodelo CODE >44:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+20 intcodelo CODE >45:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8 intcode CODE >3982:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+8 intcode CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+AF6 text12 CODE >31:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AF8 text12 CODE >32:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AF8 text12 CODE >34:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+B06 text12 CODE >35:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+B0A text12 CODE >36:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+928 text11 CODE >38:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+928 text11 CODE >39:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+940 text11 CODE >40:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+96C text11 CODE >43:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+988 text11 CODE >44:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+98E text11 CODE >45:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+848 intcode_body CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+85A intcode_body CODE >16:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+868 intcode_body CODE >17:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+878 intcode_body CODE >18:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+886 intcode_body CODE >19:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+892 intcode_body CODE >20:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+896 intcode_body CODE >22:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+898 intcode_body CODE >24:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8A6 intcode_body CODE >25:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8B6 intcode_body CODE >26:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8C4 intcode_body CODE >27:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8D0 intcode_body CODE >28:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8D4 intcode_body CODE >30:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8D6 intcode_body CODE >32:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8E4 intcode_body CODE >33:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+8F4 intcode_body CODE >34:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+902 intcode_body CODE >35:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+90E intcode_body CODE >36:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+912 intcode_body CODE >38:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+914 intcode_body CODE >40:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+AE0 text8 CODE >4:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+AE0 text8 CODE >5:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+AE2 text8 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+AE6 text8 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+AEA text8 CODE >8:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+AEE text8 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+AF2 text8 CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+AF4 text8 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+ACA text7 CODE >4:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+ACA text7 CODE >5:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+ACC text7 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+AD0 text7 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+AD4 text7 CODE >8:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+AD8 text7 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+ADC text7 CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+ADE text7 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
+A9A text6 CODE >5:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+A9A text6 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+A9C text6 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+A9E text6 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AA2 text6 CODE >10:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AA4 text6 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AA6 text6 CODE >13:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AA8 text6 CODE >14:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AAA text6 CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AAC text6 CODE >16:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AAE text6 CODE >17:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AB0 text6 CODE >18:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AB2 text6 CODE >19:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+A80 text5 CODE >17:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A80 text5 CODE >20:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A82 text5 CODE >21:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A84 text5 CODE >22:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A86 text5 CODE >23:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A88 text5 CODE >25:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A8A text5 CODE >26:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A8C text5 CODE >27:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A8E text5 CODE >28:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A90 text5 CODE >30:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A92 text5 CODE >31:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A94 text5 CODE >32:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A96 text5 CODE >33:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+A98 text5 CODE >35:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+B18 text4 CODE >4:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+B18 text4 CODE >6:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+B1A text4 CODE >7:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+B1C text4 CODE >8:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+B1E text4 CODE >9:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
+B0C text3 CODE >11:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+B0C text3 CODE >12:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+B10 text3 CODE >13:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+B14 text3 CODE >14:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+B16 text3 CODE >15:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+AB4 text2 CODE >31:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AB6 text2 CODE >32:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AB6 text2 CODE >34:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AC4 text2 CODE >35:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+AC8 text2 CODE >36:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+9F0 text1 CODE >38:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+9F0 text1 CODE >39:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+9F4 text1 CODE >40:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+A20 text1 CODE >43:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+A3C text1 CODE >44:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+A4E text1 CODE >45:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
+990 text0 CODE >48:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+990 text0 CODE >49:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+994 text0 CODE >50:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+998 text0 CODE >51:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+99C text0 CODE >52:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9A0 text0 CODE >53:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9A4 text0 CODE >54:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9A8 text0 CODE >56:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9A8 text0 CODE >57:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9AE text0 CODE >58:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9B4 text0 CODE >59:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9BA text0 CODE >60:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9C0 text0 CODE >61:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9C6 text0 CODE >62:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+9D2 text0 CODE >63:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PruebaInterrupciones.c
+A50 cinit CODE >2672:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A50 cinit CODE >2674:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A50 cinit CODE >2677:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A50 cinit CODE >2704:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A52 cinit CODE >2705:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A54 cinit CODE >2706:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A56 cinit CODE >2707:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A58 cinit CODE >2708:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A5A cinit CODE >2709:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A5C cinit CODE >2710:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A5E cinit CODE >2711:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A62 cinit CODE >2712:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A64 cinit CODE >2713:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A68 cinit CODE >2714:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A6A cinit CODE >2715:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A6E cinit CODE >2721:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A6E cinit CODE >2723:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A70 cinit CODE >2724:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A72 cinit CODE >2726:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A74 cinit CODE >2727:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A76 cinit CODE >2728:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A78 cinit CODE >2729:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A7A cinit CODE >2730:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
+A7C cinit CODE >2731:C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -197,73 +234,81 @@ $dist/default/production\SPARC_4550.X.production.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\SPARC_4550.X.production.o
+_habilitarIntExternas A80 0 CODE 0 text5 dist/default/production\SPARC_4550.X.production.o
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__Hspace_1 C 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+__Hspace_1 19 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__end_of_portInit 9AC 0 CODE 0 text4 dist/default/production\SPARC_4550.X.production.o
-__end_of_receive 932 0 CODE 0 text1 dist/default/production\SPARC_4550.X.production.o
+__end_of_portInit B18 0 CODE 0 text3 dist/default/production\SPARC_4550.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\SPARC_4550.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\SPARC_4550.X.production.o
 __Lsmallconst 800 0 SMALLCONST 0 smallconst dist/default/production\SPARC_4550.X.production.o
 _TMR2 FCC 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-_main 864 0 CODE 0 text0 dist/default/production\SPARC_4550.X.production.o
-_send 94C 0 CODE 0 text3 dist/default/production\SPARC_4550.X.production.o
-btemp B 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
-start 28 0 CODE 0 init C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
+___sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+_main 990 0 CODE 0 text0 dist/default/production\SPARC_4550.X.production.o
+_send AB4 0 CODE 0 text2 dist/default/production\SPARC_4550.X.production.o
+btemp 18 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+start 28 0 CODE 0 init C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __size_of_send 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+i2_send AF6 0 CODE 0 text12 dist/default/production\SPARC_4550.X.production.o
+_numPresionesBoton0 17 0 COMRAM 1 dataCOMRAM dist/default/production\SPARC_4550.X.production.o
+_numPresionesBoton1 16 0 COMRAM 1 dataCOMRAM dist/default/production\SPARC_4550.X.production.o
+_numPresionesBoton2 15 0 COMRAM 1 dataCOMRAM dist/default/production\SPARC_4550.X.production.o
 __Hpowerup 28 0 CODE 0 powerup dist/default/production\SPARC_4550.X.production.o
-printf@i 7 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
-ttemp5 C 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
-ttemp6 F 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
-ttemp7 13 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+printf@i 12 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
+ttemp5 19 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+ttemp6 1C 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+ttemp7 20 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\SPARC_4550.X.production.o
 __size_of_low_isr 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__size_of_ADCvalue 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-intlevel0 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-intlevel1 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-intlevel2 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-intlevel3 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
+__accesstop 60 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+intlevel0 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+intlevel1 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+intlevel2 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+intlevel3 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
 __size_of_PWM_CCP1_init 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __size_of_PWM_CCP2_init 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\SPARC_4550.X.production.o
-wtemp8 C 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+wtemp8 19 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\SPARC_4550.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\SPARC_4550.X.production.o
+__size_ofi2_send 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+__pidataCOMRAM B20 0 CODE 0 idataCOMRAM dist/default/production\SPARC_4550.X.production.o
 _ADRESH FC4 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _ADRESL FC3 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-printf@PointString 3 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
+printf@PointString E 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\SPARC_4550.X.production.o
 _CCPR1L FBE 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _CCPR2L FBB 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__end_of_PWM_CCP1_init 98E 0 CODE 0 text7 dist/default/production\SPARC_4550.X.production.o
+__end_of_PWM_CCP1_init AF6 0 CODE 0 text8 dist/default/production\SPARC_4550.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\SPARC_4550.X.production.o
-__end_of_PWM_CCP2_init 978 0 CODE 0 text6 dist/default/production\SPARC_4550.X.production.o
+__end_of_PWM_CCP2_init AE0 0 CODE 0 text7 dist/default/production\SPARC_4550.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\SPARC_4550.X.production.o
 _TXSTA1bits FAC 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _BAUDCONbits FB8 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\SPARC_4550.X.production.o
 __Hintcodelo 28 0 CODE 0 intcodelo dist/default/production\SPARC_4550.X.production.o
-_ADCvalue 8EC 0 CODE 0 text8 dist/default/production\SPARC_4550.X.production.o
-__end_of_ADCvalue 918 0 CODE 0 text8 dist/default/production\SPARC_4550.X.production.o
+i2printf@i 6 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
+__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\SPARC_4550.X.production.o
+_INTCON2bits FF1 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+_INTCON3bits FF0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Lintcodelo 18 0 CODE 0 intcodelo dist/default/production\SPARC_4550.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __end_of_low_isr 28 0 CODE 0 intcodelo dist/default/production\SPARC_4550.X.production.o
-start_initialization 98E 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
+start_initialization A50 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
 _OSCCON FD3 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\SPARC_4550.X.production.o
 _TRISAbits F92 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _TRISBbits F93 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _TRISCbits F94 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-_ADCinit 8BC 0 CODE 0 text9 dist/default/production\SPARC_4550.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _RCREG1 FAE 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+__size_ofi2_printf 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _TXREG1 FAD 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__end_of_printf 864 0 CODE 0 text2 dist/default/production\SPARC_4550.X.production.o
-_receive 918 0 CODE 0 text1 dist/default/production\SPARC_4550.X.production.o
+__end_of_printf A50 0 CODE 0 text1 dist/default/production\SPARC_4550.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\SPARC_4550.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\SPARC_4550.X.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\SPARC_4550.X.production.o
@@ -274,7 +319,6 @@ __Hbank6 0 0 ABS 0 bank6 dist/default/production\SPARC_4550.X.production.o
 __Hbank7 0 0 ABS 0 bank7 dist/default/production\SPARC_4550.X.production.o
 __Hcinit 0 0 ABS 0 cinit dist/default/production\SPARC_4550.X.production.o
 __Hconst 0 0 CONST 0 const dist/default/production\SPARC_4550.X.production.o
-main@valorADC 9 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
 __Hidata 0 0 CODE 0 idata dist/default/production\SPARC_4550.X.production.o
 __Hidloc 200008 0 IDLOC 0 idloc dist/default/production\SPARC_4550.X.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\SPARC_4550.X.production.o
@@ -290,10 +334,9 @@ __Htext5 0 0 ABS 0 text5 dist/default/production\SPARC_4550.X.production.o
 __Htext6 0 0 ABS 0 text6 dist/default/production\SPARC_4550.X.production.o
 __Htext7 0 0 ABS 0 text7 dist/default/production\SPARC_4550.X.production.o
 __Htext8 0 0 ABS 0 text8 dist/default/production\SPARC_4550.X.production.o
-__Htext9 0 0 ABS 0 text9 dist/default/production\SPARC_4550.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\SPARC_4550.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\SPARC_4550.X.production.o
-__smallconst 800 0 SMALLCONST 0 smallconst C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
+__smallconst 800 0 SMALLCONST 0 smallconst C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\SPARC_4550.X.production.o
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\SPARC_4550.X.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\SPARC_4550.X.production.o
@@ -321,55 +364,64 @@ __Ltext5 0 0 ABS 0 text5 dist/default/production\SPARC_4550.X.production.o
 __Ltext6 0 0 ABS 0 text6 dist/default/production\SPARC_4550.X.production.o
 __Ltext7 0 0 ABS 0 text7 dist/default/production\SPARC_4550.X.production.o
 __Ltext8 0 0 ABS 0 text8 dist/default/production\SPARC_4550.X.production.o
-__Ltext9 0 0 ABS 0 text9 dist/default/production\SPARC_4550.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\SPARC_4550.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\SPARC_4550.X.production.o
+_PORTBbits F81 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+_INTCONbits FF2 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\SPARC_4550.X.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\SPARC_4550.X.production.o
 __Hinit 2C 0 CODE 0 init dist/default/production\SPARC_4550.X.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\SPARC_4550.X.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\SPARC_4550.X.production.o
-__Htemp C 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+__Htemp 19 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
 __Htext 0 0 ABS 0 text dist/default/production\SPARC_4550.X.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\SPARC_4550.X.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\SPARC_4550.X.production.o
 __Linit 28 0 CODE 0 init dist/default/production\SPARC_4550.X.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\SPARC_4550.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\SPARC_4550.X.production.o
-__Ltemp B 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+__Ltemp 18 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\SPARC_4550.X.production.o
-int$flags B 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
+int$flags 18 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\SPARC_4550.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\SPARC_4550.X.production.o
+i2_printf 928 0 CODE 0 text11 dist/default/production\SPARC_4550.X.production.o
 _PR2 FCB 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __S0 30000E 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__S1 C 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+__S1 19 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __S2 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-?_ADCvalue 2 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
-ADCvalue@valorADC 6 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
+i2send@enviarpc 1 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
+__end_ofi2_printf 990 0 CODE 0 text11 dist/default/production\SPARC_4550.X.production.o
+__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\SPARC_4550.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\SPARC_4550.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\SPARC_4550.X.production.o
-int_func 9AC 0 CODE 0 intcode_body dist/default/production\SPARC_4550.X.production.o
+__size_of_habilitarIntExternas 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+int_func 848 0 CODE 0 intcode_body dist/default/production\SPARC_4550.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\SPARC_4550.X.production.o
 __Hramtop 800 0 RAM 0 ramtop dist/default/production\SPARC_4550.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\SPARC_4550.X.production.o
 __size_of_high_isr 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __activetblptr 1 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\SPARC_4550.X.production.o
-receive@recibido 2 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
-__pintcode_body 9AC 0 CODE 0 intcode_body dist/default/production\SPARC_4550.X.production.o
+_interruptsEnable B18 0 CODE 0 text4 dist/default/production\SPARC_4550.X.production.o
+__Htext11 0 0 ABS 0 text11 dist/default/production\SPARC_4550.X.production.o
+__Htext12 0 0 ABS 0 text12 dist/default/production\SPARC_4550.X.production.o
+__end_of_habilitarIntExternas A9A 0 CODE 0 text5 dist/default/production\SPARC_4550.X.production.o
+__ptext11 928 0 CODE 0 text11 dist/default/production\SPARC_4550.X.production.o
+__ptext12 AF6 0 CODE 0 text12 dist/default/production\SPARC_4550.X.production.o
+__pintcode_body 848 0 CODE 0 intcode_body dist/default/production\SPARC_4550.X.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\SPARC_4550.X.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\SPARC_4550.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\SPARC_4550.X.production.o
 __Lconfig 300000 0 CONFIG 0 config dist/default/production\SPARC_4550.X.production.o
-_printf 804 0 CODE 0 text2 dist/default/production\SPARC_4550.X.production.o
+_printf 9F0 0 CODE 0 text1 dist/default/production\SPARC_4550.X.production.o
 _RCSTA1bits FAB 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\SPARC_4550.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\SPARC_4550.X.production.o
 _low_isr 18 0 CODE 0 intcodelo dist/default/production\SPARC_4550.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-stacklo 60 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
+stackhi 7FF 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+stacklo 60 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\SPARC_4550.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\SPARC_4550.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\SPARC_4550.X.production.o
@@ -384,46 +436,49 @@ __Lspace_2 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _PIR1bits F9E 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
 __CFG_FOSC$INTOSC_EC 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-__end_of_high_isr 9B4 0 CODE 0 intcode_body dist/default/production\SPARC_4550.X.production.o
-end_of_initialization 98E 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
+__end_of_high_isr 928 0 CODE 0 intcode_body dist/default/production\SPARC_4550.X.production.o
+end_of_initialization A6E 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\SPARC_4550.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\SPARC_4550.X.production.o
+_RCONbits FD0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __size_of_printf 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+i2printf@PointString 2 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\SPARC_4550.X.production.o
+__end_of_interruptsEnable B20 0 CODE 0 text4 dist/default/production\SPARC_4550.X.production.o
 __Lramtop 800 0 RAM 0 ramtop dist/default/production\SPARC_4550.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\SPARC_4550.X.production.o
-__pcinit 98E 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
-__ptext0 864 0 CODE 0 text0 dist/default/production\SPARC_4550.X.production.o
-__ptext1 918 0 CODE 0 text1 dist/default/production\SPARC_4550.X.production.o
-__ptext2 804 0 CODE 0 text2 dist/default/production\SPARC_4550.X.production.o
-__ptext3 94C 0 CODE 0 text3 dist/default/production\SPARC_4550.X.production.o
-__ptext4 9A0 0 CODE 0 text4 dist/default/production\SPARC_4550.X.production.o
-__ptext5 932 0 CODE 0 text5 dist/default/production\SPARC_4550.X.production.o
-__ptext6 962 0 CODE 0 text6 dist/default/production\SPARC_4550.X.production.o
-__ptext7 978 0 CODE 0 text7 dist/default/production\SPARC_4550.X.production.o
-__ptext8 8EC 0 CODE 0 text8 dist/default/production\SPARC_4550.X.production.o
-__ptext9 8BC 0 CODE 0 text9 dist/default/production\SPARC_4550.X.production.o
+__pcinit A50 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
+__ptext0 990 0 CODE 0 text0 dist/default/production\SPARC_4550.X.production.o
+__ptext1 9F0 0 CODE 0 text1 dist/default/production\SPARC_4550.X.production.o
+__ptext2 AB4 0 CODE 0 text2 dist/default/production\SPARC_4550.X.production.o
+__ptext3 B0C 0 CODE 0 text3 dist/default/production\SPARC_4550.X.production.o
+__ptext4 B18 0 CODE 0 text4 dist/default/production\SPARC_4550.X.production.o
+__ptext5 A80 0 CODE 0 text5 dist/default/production\SPARC_4550.X.production.o
+__ptext6 A9A 0 CODE 0 text6 dist/default/production\SPARC_4550.X.production.o
+__ptext7 ACA 0 CODE 0 text7 dist/default/production\SPARC_4550.X.production.o
+__ptext8 AE0 0 CODE 0 text8 dist/default/production\SPARC_4550.X.production.o
+__size_of_interruptsEnable 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\SPARC_4550.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\ALEJAN~1\AppData\Local\Temp\sfa4.o
-send@enviarpc 2 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
-__size_of_ADCinit 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+__Ltext11 0 0 ABS 0 text11 dist/default/production\SPARC_4550.X.production.o
+__Ltext12 0 0 ABS 0 text12 dist/default/production\SPARC_4550.X.production.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\ALEJAN~1\AppData\Local\Temp\s4r4.o
+send@enviarpc D 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
 __Lpowerup 28 0 CODE 0 powerup dist/default/production\SPARC_4550.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\SPARC_4550.X.production.o
 __psmallconst 800 0 SMALLCONST 0 smallconst dist/default/production\SPARC_4550.X.production.o
 __size_of_UARTinit 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
+__end_ofi2_send B0C 0 CODE 0 text12 dist/default/production\SPARC_4550.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\SPARC_4550.X.production.o
-__size_of_receive 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\SPARC_4550.X.production.o
-__end_of__initialization 98E 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
+__end_of__initialization A6E 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\SPARC_4550.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\SPARC_4550.X.production.o
 __size_of_portInit 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __pintcodelo 18 0 CODE 0 intcodelo dist/default/production\SPARC_4550.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
-main@entrada 8 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
-__end_of_main 8BC 0 CODE 0 text0 dist/default/production\SPARC_4550.X.production.o
-__end_of_send 962 0 CODE 0 text3 dist/default/production\SPARC_4550.X.production.o
+__end_of_main 9F0 0 CODE 0 text0 dist/default/production\SPARC_4550.X.production.o
+__end_of_send ACA 0 CODE 0 text2 dist/default/production\SPARC_4550.X.production.o
 _CCP2CONbits FBA 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\SPARC_4550.X.production.o
 _SPBRG FAF 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
@@ -435,17 +490,17 @@ __LRAM 1 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\SPARC_4550.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\SPARC_4550.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\SPARC_4550.X.production.o
-_UARTinit 932 0 CODE 0 text5 dist/default/production\SPARC_4550.X.production.o
-_PWM_CCP1_init 978 0 CODE 0 text7 dist/default/production\SPARC_4550.X.production.o
-_PWM_CCP2_init 962 0 CODE 0 text6 dist/default/production\SPARC_4550.X.production.o
-__initialization 98E 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
-__end_of_UARTinit 94C 0 CODE 0 text5 dist/default/production\SPARC_4550.X.production.o
+_UARTinit A9A 0 CODE 0 text6 dist/default/production\SPARC_4550.X.production.o
+_PWM_CCP1_init AE0 0 CODE 0 text8 dist/default/production\SPARC_4550.X.production.o
+_PWM_CCP2_init ACA 0 CODE 0 text7 dist/default/production\SPARC_4550.X.production.o
+__initialization A50 0 CODE 0 cinit dist/default/production\SPARC_4550.X.production.o
+__pdataCOMRAM 15 0 COMRAM 1 dataCOMRAM dist/default/production\SPARC_4550.X.production.o
+__end_of_UARTinit AB4 0 CODE 0 text6 dist/default/production\SPARC_4550.X.production.o
 _T2CONbits FCA 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\SPARC_4550.X.production.o
-__Hsmallconst 804 0 SMALLCONST 0 smallconst dist/default/production\SPARC_4550.X.production.o
-__end_of_ADCinit 8EC 0 CODE 0 text9 dist/default/production\SPARC_4550.X.production.o
+__Hsmallconst 848 0 SMALLCONST 0 smallconst dist/default/production\SPARC_4550.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\SPARC_4550.X.production.o
-_portInit 9A0 0 CODE 0 text4 dist/default/production\SPARC_4550.X.production.o
+_portInit B0C 0 CODE 0 text3 dist/default/production\SPARC_4550.X.production.o
 _CCP1CONbits FBD 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\SPARC_4550.X.production.o
 __Hintcode E 0 CODE 0 intcode dist/default/production\SPARC_4550.X.production.o
@@ -475,11 +530,11 @@ __Hintcode E 0 CODE 0 intcode dist/default/production\SPARC_4550.X.production.o
 %SEGMENTS
 intcodelo 0 18 18 14 1
 idloc 0 200000 200000 8 1
-text2 0 804 804 1B0 1
-cstackCOMRAM 1 1 1 B 1
+intcode_body 0 848 848 2DB 1
+cstackCOMRAM 1 1 1 18 1
 reset_vec 0 0 0 4 1
 intcode 0 8 8 6 1
-smallconst 0 800 800 4 1
+smallconst 0 800 800 48 1
 config 0 300000 300000 E 1
 # OTES Section
 # This section contains data of all the note-psects.  The beginning of the section

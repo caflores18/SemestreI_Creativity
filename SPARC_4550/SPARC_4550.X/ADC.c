@@ -7,7 +7,7 @@ void ADCinit(void) {
     ADCON1bits.VCFG = 0; //ADC tendra como referencia 5V y GND
     ADCON1bits.PCFG = 0b1110; // Se habilita A0 como analogo
     ADCON2bits.ADFM = 1; //Valor de los registros ADRESL Y ADRESH justificado a la derecha 
-    ADCON2bits.ACQT = 0b100; //Tiempo de adquisicion 8 T AD
+    ADCON2bits.ACQT = 0b100; //Tiempo de adquisicion 8 TAD
     ADCON2bits.ADCS = 0b100; // A/D Conversion clock select es de FOSC/4 (8Mhz/4)
     ADRESH = 0;
     ADRESL = 0;
