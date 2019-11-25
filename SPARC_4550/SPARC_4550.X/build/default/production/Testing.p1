@@ -1,92 +1,88 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T36 __interrupt high_priority ]
-"8588 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8588:     struct {
-[s S360 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S360 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"8598
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8598:     struct {
-[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S361 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"8608
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8608:     struct {
-[s S362 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S362 . . GIEL GIEH ]
-"8587
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8587: typedef union {
-[u S359 `S360 1 `S361 1 `S362 1 ]
-[n S359 . . . . ]
-"8614
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8614: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
-[v F3152 `(v ~T0 @X0 1 tf1`ul ]
-"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v __delay `JF3152 ~T0 @X0 0 e ]
-[p i __delay ]
-"2459 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2459:     struct {
-[s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S107 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"2469
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2469:     struct {
-[s S108 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S108 . INT0 INT1 INT2 . PGM PGC PGD ]
-"2478
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2478:     struct {
-[s S109 :3 `uc 1 :1 `uc 1 ]
-[n S109 . . CCP2_PA2 ]
-"2458
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2458: typedef union {
-[u S106 `S107 1 `S108 1 `S109 1 ]
-[n S106 . . . . ]
-"2483
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2483: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
-[v _PORTBbits `VS106 ~T0 @X0 0 e@3969 ]
-"16 ./UART.h
-[; ;./UART.h: 16: void printf (unsigned char *PointString);
-[v _printf `(v ~T0 @X0 0 ef1`*uc ]
-"8419 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8419:     struct {
-[s S353 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S353 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
-"8429
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8429:     struct {
-[s S354 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S354 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
-"8418
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8418: typedef union {
-[u S352 `S353 1 `S354 1 ]
-[n S352 . . . ]
-"8440
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8440: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
-[v _INTCON3bits `VS352 ~T0 @X0 0 e@4080 ]
-[t T37 __interrupt low_priority ]
 "50 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
+[t T37 __interrupt low_priority ]
+"24 Testing.c
+[; ;Testing.c: 24: struct SystemaSPARC {
+[s S369 `i 1 `i 1 `ul 1 ]
+[n S369 SystemaSPARC xWanted yWanted timesToPress ]
 [p mainexit ]
-"11 ./Gpio.h
-[; ;./Gpio.h: 11: void portInit(void);
+"17 ./Gpio.h
+[; ;./Gpio.h: 17: void portInit(void);
 [v _portInit `(v ~T0 @X0 0 ef ]
 "11 ./UART.h
 [; ;./UART.h: 11: void UARTinit(void);
 [v _UARTinit `(v ~T0 @X0 0 ef ]
-"11 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 11: void PWM_CCP2_init(void);
-[v _PWM_CCP2_init `(v ~T0 @X0 0 ef ]
-"11 ./PWMCCP1.h
-[; ;./PWMCCP1.h: 11: void PWM_CCP1_init(void);
-[v _PWM_CCP1_init `(v ~T0 @X0 0 ef ]
-"13 ./Interrupciones.h
-[; ;./Interrupciones.h: 13: void habilitarIntExternas();
-[v _habilitarIntExternas `(v ~T0 @X0 0 e? ]
-"11
-[; ;./Interrupciones.h: 11: void interruptsEnable();
-[v _interruptsEnable `(v ~T0 @X0 0 e? ]
-"14 ./UART.h
+"18 ./Gpio.h
+[; ;./Gpio.h: 18: void motorXinit(void);
+[v _motorXinit `(v ~T0 @X0 0 ef ]
+"19
+[; ;./Gpio.h: 19: void motorYinit(void);
+[v _motorYinit `(v ~T0 @X0 0 ef ]
+"12 ./UART.h
+[; ;./UART.h: 12: unsigned char receive();
+[v _receive `(uc ~T0 @X0 0 e? ]
+"16
+[; ;./UART.h: 16: void printf (unsigned char *PointString);
+[v _printf `(v ~T0 @X0 0 ef1`*uc ]
+"14
 [; ;./UART.h: 14: void send(unsigned char enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
+"3269 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
+[s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S136 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"3279
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3279:     struct {
+[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S137 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"3268
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3268: typedef union {
+[u S135 `S136 1 `S137 1 ]
+[n S135 . . . ]
+"3290
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
+[v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
+"51 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h: 51: int abs (int);
+[v _abs `(i ~T0 @X0 0 ef1`i ]
+"2979 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2979:     struct {
+[s S127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S127 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 ]
+"2988
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2988:     struct {
+[s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S128 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 ]
+"2978
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2978: typedef union {
+[u S126 `S127 1 `S128 1 ]
+[n S126 . . . ]
+"2998
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2998: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
+[v _LATAbits `VS126 ~T0 @X0 0 e@3977 ]
+"3191
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3191:     struct {
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . LATC0 LATC1 LATC2 . LATC6 LATC7 ]
+"3199
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3199:     struct {
+[s S134 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S134 . LC0 LC1 LC2 . LC6 LC7 ]
+"3190
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3190: typedef union {
+[u S132 `S133 1 `S134 1 ]
+[n S132 . . . ]
+"3208
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3208: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
+[v _LATCbits `VS132 ~T0 @X0 0 e@3979 ]
+[v F3152 `(v ~T0 @X0 1 tf1`ul ]
+"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
+[v __delay `JF3152 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -597,194 +593,196 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"12 PruebaInterrupciones.c
-[; ;PruebaInterrupciones.c: 12: unsigned char numPresionesBoton0 = 48;
-[v _numPresionesBoton0 `uc ~T0 @X0 1 e ]
-[i _numPresionesBoton0
--> -> 48 `i `uc
-]
-"13
-[; ;PruebaInterrupciones.c: 13: unsigned char numPresionesBoton1 = 48;
-[v _numPresionesBoton1 `uc ~T0 @X0 1 e ]
-[i _numPresionesBoton1
--> -> 48 `i `uc
-]
-"14
-[; ;PruebaInterrupciones.c: 14: unsigned char numPresionesBoton2 = 48;
-[v _numPresionesBoton2 `uc ~T0 @X0 1 e ]
-[i _numPresionesBoton2
--> -> 48 `i `uc
-]
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-"15
-[; ;PruebaInterrupciones.c: 15: __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
+"13 Testing.c
+[; ;Testing.c: 13: __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
 [v _high_isr `(v ~T36 @X0 1 ef ]
 {
 [e :U _high_isr ]
 [f ]
-"16
-[; ;PruebaInterrupciones.c: 16:     if (INTCONbits.INT0IF == 1) {
-[e $ ! == -> . . _INTCONbits 0 1 `i -> 1 `i 368  ]
-{
-"17
-[; ;PruebaInterrupciones.c: 17:         _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"18
-[; ;PruebaInterrupciones.c: 18:         if (PORTBbits.RB0 == 1) {
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 369  ]
-{
-"19
-[; ;PruebaInterrupciones.c: 19:             printf("Ya entre una vez INT0\n");
-[e ( _printf (1 :s 1C ]
-"20
-[; ;PruebaInterrupciones.c: 20:             numPresionesBoton0 = numPresionesBoton0 + 1;
-[e = _numPresionesBoton0 -> + -> _numPresionesBoton0 `i -> 1 `i `uc ]
-"21
-[; ;PruebaInterrupciones.c: 21:         }
-}
-[e :U 369 ]
-"22
-[; ;PruebaInterrupciones.c: 22:         INTCONbits.INT0IF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"23
-[; ;PruebaInterrupciones.c: 23:     }
-}
-[e :U 368 ]
-"24
-[; ;PruebaInterrupciones.c: 24:     if (INTCON3bits.INT1IF == 1) {
-[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 370  ]
-{
-"25
-[; ;PruebaInterrupciones.c: 25:         _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"26
-[; ;PruebaInterrupciones.c: 26:         if (PORTBbits.RB1 == 1) {
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 371  ]
-{
-"27
-[; ;PruebaInterrupciones.c: 27:             printf("Ya entre una vez INT1\n");
-[e ( _printf (1 :s 2C ]
-"28
-[; ;PruebaInterrupciones.c: 28:             numPresionesBoton1 = numPresionesBoton1 + 1;
-[e = _numPresionesBoton1 -> + -> _numPresionesBoton1 `i -> 1 `i `uc ]
-"29
-[; ;PruebaInterrupciones.c: 29:         }
-}
-[e :U 371 ]
-"30
-[; ;PruebaInterrupciones.c: 30:         INTCON3bits.INT1IF = 0;
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-"31
-[; ;PruebaInterrupciones.c: 31:     }
-}
-[e :U 370 ]
-"32
-[; ;PruebaInterrupciones.c: 32:         if (INTCON3bits.INT2IF == 1) {
-[e $ ! == -> . . _INTCON3bits 0 1 `i -> 1 `i 372  ]
-{
-"33
-[; ;PruebaInterrupciones.c: 33:         _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"34
-[; ;PruebaInterrupciones.c: 34:         if (PORTBbits.RB2 == 1) {
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 373  ]
-{
-"35
-[; ;PruebaInterrupciones.c: 35:             printf("Ya entre una vez INT2\n");
-[e ( _printf (1 :s 3C ]
-"36
-[; ;PruebaInterrupciones.c: 36:             numPresionesBoton2 = numPresionesBoton2 + 1;
-[e = _numPresionesBoton2 -> + -> _numPresionesBoton2 `i -> 1 `i `uc ]
-"37
-[; ;PruebaInterrupciones.c: 37:         }
-}
-[e :U 373 ]
-"38
-[; ;PruebaInterrupciones.c: 38:         INTCON3bits.INT2IF = 0;
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"39
-[; ;PruebaInterrupciones.c: 39:     }
-}
-[e :U 372 ]
-"40
-[; ;PruebaInterrupciones.c: 40: }
+"14
+[; ;Testing.c: 14:     __nop();
+[e ( ___nop ..  ]
+"15
+[; ;Testing.c: 15: }
 [e :UE 367 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"43
-[; ;PruebaInterrupciones.c: 43: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
+"19
+[; ;Testing.c: 19: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
 [v _low_isr `(v ~T37 @X0 1 ef ]
 {
 [e :U _low_isr ]
 [f ]
-"44
-[; ;PruebaInterrupciones.c: 44:     __nop();
+"20
+[; ;Testing.c: 20:     __nop();
 [e ( ___nop ..  ]
-"45
-[; ;PruebaInterrupciones.c: 45: }
-[e :UE 374 ]
+"21
+[; ;Testing.c: 21: }
+[e :UE 368 ]
 }
+"28
+[; ;Testing.c: 28: } coordinates;
+[v _coordinates `S369 ~T0 @X0 1 e ]
+"30
+[; ;Testing.c: 30: int xToAdvance;
+[v _xToAdvance `i ~T0 @X0 1 e ]
+"31
+[; ;Testing.c: 31: int CurrentPosX = 0;
+[v _CurrentPosX `i ~T0 @X0 1 e ]
+[i _CurrentPosX
+-> 0 `i
+]
+"32
+[; ;Testing.c: 32: unsigned char leercoordx[3];
+[v _leercoordx `uc ~T0 @X0 -> 3 `i e ]
+"34
+[; ;Testing.c: 34: int yToAdvance;
+[v _yToAdvance `i ~T0 @X0 1 e ]
+"35
+[; ;Testing.c: 35: int CurrentPosY = 0;
+[v _CurrentPosY `i ~T0 @X0 1 e ]
+[i _CurrentPosY
+-> 0 `i
+]
+"36
+[; ;Testing.c: 36: unsigned char leerCoordy[3];
+[v _leerCoordy `uc ~T0 @X0 -> 3 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"48
-[; ;PruebaInterrupciones.c: 48: void main(void) {
+"39
+[; ;Testing.c: 39: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"49
-[; ;PruebaInterrupciones.c: 49:     portInit();
+"40
+[; ;Testing.c: 40:     portInit();
 [e ( _portInit ..  ]
-"50
-[; ;PruebaInterrupciones.c: 50:     UARTinit();
+"41
+[; ;Testing.c: 41:     UARTinit();
 [e ( _UARTinit ..  ]
-"51
-[; ;PruebaInterrupciones.c: 51:     PWM_CCP2_init();
-[e ( _PWM_CCP2_init ..  ]
-"52
-[; ;PruebaInterrupciones.c: 52:     PWM_CCP1_init();
-[e ( _PWM_CCP1_init ..  ]
-"53
-[; ;PruebaInterrupciones.c: 53:     habilitarIntExternas();
-[e ( _habilitarIntExternas ..  ]
-"54
-[; ;PruebaInterrupciones.c: 54:     interruptsEnable();
-[e ( _interruptsEnable ..  ]
-"56
-[; ;PruebaInterrupciones.c: 56:     while (1) {
-[e :U 377 ]
+"47
+[; ;Testing.c: 47:     motorXinit();
+[e ( _motorXinit ..  ]
+"48
+[; ;Testing.c: 48:     motorYinit();
+[e ( _motorYinit ..  ]
+"50
+[; ;Testing.c: 50:     while (1) {
+[e :U 372 ]
 {
+"51
+[; ;Testing.c: 51:         unsigned char inutil = receive();
+[v _inutil `uc ~T0 @X0 1 a ]
+[e = _inutil ( _receive ..  ]
+"53
+[; ;Testing.c: 53:         printf("Empieza nueva instruccion dame tu coordenada x\n");
+[e ( _printf (1 :s 1C ]
 "57
-[; ;PruebaInterrupciones.c: 57:         send(numPresionesBoton0);
-[e ( _send (1 _numPresionesBoton0 ]
-"58
-[; ;PruebaInterrupciones.c: 58:         send(',');
-[e ( _send (1 -> -> 44 `ui `uc ]
+[; ;Testing.c: 57:         send(0xD);
+[e ( _send (1 -> -> 13 `i `uc ]
 "59
-[; ;PruebaInterrupciones.c: 59:         send(numPresionesBoton1);
-[e ( _send (1 _numPresionesBoton1 ]
+[; ;Testing.c: 59:         printf("Empieza nueva instruccion dame tu coordenada Y\n");
+[e ( _printf (1 :s 2C ]
 "60
-[; ;PruebaInterrupciones.c: 60:         send(',');
-[e ( _send (1 -> -> 44 `ui `uc ]
+[; ;Testing.c: 60:         leerCoordy[0] = receive();
+[e = *U + &U _leerCoordy * -> -> -> 0 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ( _receive ..  ]
 "61
-[; ;PruebaInterrupciones.c: 61:         send(numPresionesBoton2);
-[e ( _send (1 _numPresionesBoton2 ]
+[; ;Testing.c: 61:         leerCoordy[1] = receive();
+[e = *U + &U _leerCoordy * -> -> -> 1 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ( _receive ..  ]
 "62
-[; ;PruebaInterrupciones.c: 62:         printf("\n");
-[e ( _printf (1 :s 4C ]
+[; ;Testing.c: 62:         leerCoordy[2] = receive();
+[e = *U + &U _leerCoordy * -> -> -> 2 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ( _receive ..  ]
 "63
-[; ;PruebaInterrupciones.c: 63:         _delay((unsigned long)((500)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"64
-[; ;PruebaInterrupciones.c: 64:     }
+[; ;Testing.c: 63:         send(0xD);
+[e ( _send (1 -> -> 13 `i `uc ]
+"86
+[; ;Testing.c: 86:         coordinates.yWanted = ((leerCoordy[0] - 48)*100)+((leerCoordy[1] - 48)*10)+(leerCoordy[2] - 48);
+[e = . _coordinates 1 + + * - -> *U + &U _leerCoordy * -> -> -> 0 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _leerCoordy * -> -> -> 1 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _leerCoordy * -> -> -> 2 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux `i -> 48 `i ]
+"87
+[; ;Testing.c: 87:         yToAdvance = coordinates.yWanted - CurrentPosY;
+[e = _yToAdvance - . _coordinates 1 _CurrentPosY ]
+"88
+[; ;Testing.c: 88:         yToAdvance = yToAdvance * 5;
+[e = _yToAdvance * _yToAdvance -> 5 `i ]
+"89
+[; ;Testing.c: 89:         printf("yToAdvance is:");
+[e ( _printf (1 :s 3C ]
+"90
+[; ;Testing.c: 90:         send(yToAdvance);
+[e ( _send (1 -> _yToAdvance `uc ]
+"91
+[; ;Testing.c: 91:         if (yToAdvance > 0) {
+[e $ ! > _yToAdvance -> 0 `i 374  ]
+{
+"92
+[; ;Testing.c: 92:             LATDbits.LATD3 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"93
+[; ;Testing.c: 93:         } else if (yToAdvance < 0) {
+}
+[e $U 375  ]
+[e :U 374 ]
+[e $ ! < _yToAdvance -> 0 `i 376  ]
+{
+"94
+[; ;Testing.c: 94:             LATDbits.LATD3 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"95
+[; ;Testing.c: 95:         }
 }
 [e :U 376 ]
-[e $U 377  ]
-[e :U 378 ]
-"65
-[; ;PruebaInterrupciones.c: 65: }
-[e :UE 375 ]
+[e :U 375 ]
+"96
+[; ;Testing.c: 96:         send(abs(yToAdvance));
+[e ( _send (1 -> ( _abs (1 _yToAdvance `uc ]
+"97
+[; ;Testing.c: 97:         for (unsigned int i = 0; i < abs(yToAdvance); i++) {
+{
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 380  ]
+[e :U 377 ]
+{
+"98
+[; ;Testing.c: 98:             LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+"99
+[; ;Testing.c: 99:             LATCbits.LATC2 = 1;
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+"100
+[; ;Testing.c: 100:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"101
+[; ;Testing.c: 101:             LATCbits.LATC2 = 0;
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+"102
+[; ;Testing.c: 102:             _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"103
+[; ;Testing.c: 103:         }
 }
-[a 3C 89 97 32 101 110 116 114 101 32 117 110 97 32 118 101 122 32 73 78 84 50 10 0 ]
-[a 2C 89 97 32 101 110 116 114 101 32 117 110 97 32 118 101 122 32 73 78 84 49 10 0 ]
-[a 1C 89 97 32 101 110 116 114 101 32 117 110 97 32 118 101 122 32 73 78 84 48 10 0 ]
-[a 4C 10 0 ]
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 380 ]
+[e $ < _i -> ( _abs (1 _yToAdvance `ui 377  ]
+[e :U 378 ]
+}
+"104
+[; ;Testing.c: 104:         LATAbits.LATA2 = 0;
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+"105
+[; ;Testing.c: 105:         CurrentPosY = coordinates.yWanted;
+[e = _CurrentPosY . _coordinates 1 ]
+"106
+[; ;Testing.c: 106:     }
+}
+[e :U 371 ]
+[e $U 372  ]
+[e :U 373 ]
+"107
+[; ;Testing.c: 107: }
+[e :UE 370 ]
+}
+[a 3C 121 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]
+[a 1C 69 109 112 105 101 122 97 32 110 117 101 118 97 32 105 110 115 116 114 117 99 99 105 111 110 32 100 97 109 101 32 116 117 32 99 111 111 114 100 101 110 97 100 97 32 120 10 0 ]
+[a 2C 69 109 112 105 101 122 97 32 110 117 101 118 97 32 105 110 115 116 114 117 99 99 105 111 110 32 100 97 109 101 32 116 117 32 99 111 111 114 100 101 110 97 100 97 32 89 10 0 ]

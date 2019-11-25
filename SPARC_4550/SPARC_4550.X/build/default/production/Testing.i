@@ -1,4 +1,4 @@
-# 1 "PruebaInterrupciones.c"
+# 1 "Testing.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "PruebaInterrupciones.c" 2
+# 1 "Testing.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
@@ -5619,12 +5619,14 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 2 "PruebaInterrupciones.c" 2
+# 2 "Testing.c" 2
 
 # 1 "./Gpio.h" 1
-# 11 "./Gpio.h"
+# 17 "./Gpio.h"
 void portInit(void);
-# 3 "PruebaInterrupciones.c" 2
+void motorXinit(void);
+void motorYinit(void);
+# 3 "Testing.c" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5638,65 +5640,41 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 4 "PruebaInterrupciones.c" 2
+# 4 "Testing.c" 2
 
 # 1 "./PWMCCP2.h" 1
 # 11 "./PWMCCP2.h"
 void PWM_CCP2_init(void);
 void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 5 "PruebaInterrupciones.c" 2
+# 5 "Testing.c" 2
 
 # 1 "./PWMCCP1.h" 1
 # 11 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-# 6 "PruebaInterrupciones.c" 2
+# 6 "Testing.c" 2
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
 void ADCinit(void);
 unsigned int ADCvalue();
-# 7 "PruebaInterrupciones.c" 2
+# 7 "Testing.c" 2
 
 # 1 "./Interrupciones.h" 1
 # 11 "./Interrupciones.h"
 void interruptsEnable();
 void interruptsDisable();
 void habilitarIntExternas();
-# 8 "PruebaInterrupciones.c" 2
+# 8 "Testing.c" 2
 
 
 
 
-unsigned char numPresionesBoton0 = 48;
-unsigned char numPresionesBoton1 = 48;
-unsigned char numPresionesBoton2 = 48;
+
 __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-    if (INTCONbits.INT0IF == 1) {
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        if (PORTBbits.RB0 == 1) {
-            printf("Ya entre una vez INT0\n");
-            numPresionesBoton0 = numPresionesBoton0 + 1;
-        }
-        INTCONbits.INT0IF = 0;
-    }
-    if (INTCON3bits.INT1IF == 1) {
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        if (PORTBbits.RB1 == 1) {
-            printf("Ya entre una vez INT1\n");
-            numPresionesBoton1 = numPresionesBoton1 + 1;
-        }
-        INTCON3bits.INT1IF = 0;
-    }
-        if (INTCON3bits.INT2IF == 1) {
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        if (PORTBbits.RB2 == 1) {
-            printf("Ya entre una vez INT2\n");
-            numPresionesBoton2 = numPresionesBoton2 + 1;
-        }
-        INTCON3bits.INT2IF = 0;
-    }
+    __nop();
 }
+
 
 
 __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
@@ -5704,21 +5682,66 @@ __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
 }
 
 
+struct SystemaSPARC {
+    int xWanted;
+    int yWanted;
+    unsigned long timesToPress;
+} coordinates;
+
+int xToAdvance;
+int CurrentPosX = 0;
+unsigned char leercoordx[3];
+
+int yToAdvance;
+int CurrentPosY = 0;
+unsigned char leerCoordy[3];
+
+
 void main(void) {
     portInit();
     UARTinit();
-    PWM_CCP2_init();
-    PWM_CCP1_init();
-    habilitarIntExternas();
-    interruptsEnable();
+
+
+
+
+
+    motorXinit();
+    motorYinit();
 
     while (1) {
-        send(numPresionesBoton0);
-        send(',');
-        send(numPresionesBoton1);
-        send(',');
-        send(numPresionesBoton2);
-        printf("\n");
-        _delay((unsigned long)((500)*(8000000/4000.0)));
+        unsigned char inutil = receive();
+
+        printf("Empieza nueva instruccion dame tu coordenada x\n");
+
+
+
+        send(0xD);
+
+        printf("Empieza nueva instruccion dame tu coordenada Y\n");
+        leerCoordy[0] = receive();
+        leerCoordy[1] = receive();
+        leerCoordy[2] = receive();
+        send(0xD);
+# 86 "Testing.c"
+        coordinates.yWanted = ((leerCoordy[0] - 48)*100)+((leerCoordy[1] - 48)*10)+(leerCoordy[2] - 48);
+        yToAdvance = coordinates.yWanted - CurrentPosY;
+        yToAdvance = yToAdvance * 5;
+        printf("yToAdvance is:");
+        send(yToAdvance);
+        if (yToAdvance > 0) {
+            LATDbits.LATD3 = 1;
+        } else if (yToAdvance < 0) {
+            LATDbits.LATD3 = 0;
+        }
+        send(abs(yToAdvance));
+        for (unsigned int i = 0; i < abs(yToAdvance); i++) {
+            LATAbits.LATA2 = 1;
+            LATCbits.LATC2 = 1;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+            LATCbits.LATC2 = 0;
+            _delay((unsigned long)((5)*(8000000/4000.0)));
+        }
+        LATAbits.LATA2 = 0;
+        CurrentPosY = coordinates.yWanted;
     }
 }
