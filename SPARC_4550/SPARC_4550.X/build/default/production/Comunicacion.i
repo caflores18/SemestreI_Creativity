@@ -1,4 +1,4 @@
-# 1 "UART.c"
+# 1 "Comunicacion.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "UART.c" 2
+# 1 "Comunicacion.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5618,8 +5618,17 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 1 "UART.c" 2
+# 1 "Comunicacion.c" 2
 
+
+# 1 "./Comunicacion.h" 1
+# 11 "./Comunicacion.h"
+void printf (unsigned char *PointString);
+
+
+
+void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+# 3 "Comunicacion.c" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5633,38 +5642,18 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 3 "UART.c" 2
+# 4 "Comunicacion.c" 2
 
-
-void UARTinit(void) {
-    TRISCbits.RC6 = 1;
-    TRISCbits.RC7 = 1;
-
-    SPBRG = 16;
-    TXSTA1bits.BRGH = 1;
-    BAUDCONbits.BRG16 = 1;
-
-    TXSTA1bits.TX9 = 0;
-    TXSTA1bits.TXEN = 1;
-    TXSTA1bits.SYNC = 0;
-    RCSTA1bits.SPEN = 1;
-    RCSTA1bits.RX9 = 0;
-    RCSTA1bits.CREN = 1;
-}
-
-unsigned char receive() {
-    unsigned char recibido;
-    while (PIR1bits.RCIF == 0) {
-
+void printf(unsigned char *PointString) {
+    for (unsigned char i = 0; i < 255; i++) {
+        if (PointString[i] == ((void*)0)) {
+            break;
+        } else
+            send(PointString[i]);
     }
-    recibido = RCREG1;
-    RCREG1 = 0;
-    return recibido;
 }
-
-void send(unsigned char enviarpc) {
-    while (TXSTA1bits.TRMT == 0) {
-
+void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
+    for (unsigned char i = 0; i < numcaracteres; i++) {
+        guardarscan[i] = receive();
     }
-    TXREG1 = enviarpc;
 }

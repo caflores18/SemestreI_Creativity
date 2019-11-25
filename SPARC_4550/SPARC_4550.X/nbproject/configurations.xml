@@ -10,6 +10,8 @@
       <itemPath>PWMCCP1.h</itemPath>
       <itemPath>ADC.h</itemPath>
       <itemPath>Interrupciones.h</itemPath>
+      <itemPath>Comunicacion.h</itemPath>
+      <itemPath>Timers.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,6 +22,8 @@
       <itemPath>PWMCCP1.c</itemPath>
       <itemPath>ADC.c</itemPath>
       <itemPath>Interrupciones.c</itemPath>
+      <itemPath>Comunicacion.c</itemPath>
+      <itemPath>Timers.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -30,6 +34,7 @@
       <itemPath>PruebaPWMCCP1.c</itemPath>
       <itemPath>PruebaADC.c</itemPath>
       <itemPath>PruebaInterrupciones.c</itemPath>
+      <itemPath>PruebaTimers.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -633,7 +638,7 @@
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
-      <item path="Testing.c" ex="false" overriding="false">
+      <item path="Testing.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>

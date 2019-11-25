@@ -6,6 +6,7 @@
 #include "PWMCCP1.h"
 #include "ADC.h"
 #include "Interrupciones.h"
+#include "Comunicacion.h"
 #define _XTAL_FREQ 8000000
 
 //ISR de alta prioridad

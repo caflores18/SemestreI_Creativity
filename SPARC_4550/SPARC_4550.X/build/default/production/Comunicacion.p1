@@ -1,111 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"7545 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7545:     struct {
-[s S322 :1 `uc 1 ]
-[n S322 . NOT_BOR ]
-"7548
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7548:     struct {
-[s S323 :1 `uc 1 :1 `uc 1 ]
-[n S323 . . NOT_POR ]
-"7552
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7552:     struct {
-[s S324 :2 `uc 1 :1 `uc 1 ]
-[n S324 . . NOT_PD ]
-"7556
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7556:     struct {
-[s S325 :3 `uc 1 :1 `uc 1 ]
-[n S325 . . NOT_TO ]
-"7560
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7560:     struct {
-[s S326 :4 `uc 1 :1 `uc 1 ]
-[n S326 . . NOT_RI ]
-"7564
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7564:     struct {
-[s S327 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S327 . nBOR nPOR nPD nTO nRI . SBOREN IPEN ]
-"7574
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7574:     struct {
-[s S328 :7 `uc 1 :1 `uc 1 ]
-[n S328 . . NOT_IPEN ]
-"7578
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7578:     struct {
-[s S329 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S329 . BOR POR PD TO RI . nIPEN ]
-"7544
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7544: typedef union {
-[u S321 `S322 1 `S323 1 `S324 1 `S325 1 `S326 1 `S327 1 `S328 1 `S329 1 ]
-[n S321 . . . . . . . . . ]
-"7588
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7588: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
-[v _RCONbits `VS321 ~T0 @X0 0 e@4048 ]
-"8588
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8588:     struct {
-[s S360 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S360 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"8598
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8598:     struct {
-[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S361 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"8608
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8608:     struct {
-[s S362 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S362 . . GIEL GIEH ]
-"8587
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8587: typedef union {
-[u S359 `S360 1 `S361 1 `S362 1 ]
-[n S359 . . . . ]
-"8614
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8614: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
-"8511
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8511:     struct {
-[s S356 :7 `uc 1 :1 `uc 1 ]
-[n S356 . . NOT_RBPU ]
-"8515
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8515:     struct {
-[s S357 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S357 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"8525
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8525:     struct {
-[s S358 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S358 . . T0IP . RBPU ]
-"8510
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8510: typedef union {
-[u S355 `S356 1 `S357 1 `S358 1 ]
-[n S355 . . . . ]
-"8532
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8532: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
-[v _INTCON2bits `VS355 ~T0 @X0 0 e@4081 ]
-"3636
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3636:     struct {
-[s S148 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S148 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"3646
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3646:     struct {
-[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S149 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"3635
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3635: typedef union {
-[u S147 `S148 1 `S149 1 ]
-[n S147 . . . ]
-"3657
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3657: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF93)));
-[v _TRISBbits `VS147 ~T0 @X0 0 e@3987 ]
-"8419
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8419:     struct {
-[s S353 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S353 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
-"8429
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8429:     struct {
-[s S354 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S354 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
-"8418
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8418: typedef union {
-[u S352 `S353 1 `S354 1 ]
-[n S352 . . . ]
-"8440
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8440: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
-[v _INTCON3bits `VS352 ~T0 @X0 0 e@4080 ]
+"14 ./UART.h
+[; ;./UART.h: 14: void send(unsigned char enviarpc);
+[v _send `(v ~T0 @X0 0 ef1`uc ]
+"12
+[; ;./UART.h: 12: unsigned char receive();
+[v _receive `(uc ~T0 @X0 0 e? ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -616,87 +515,77 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"4 Interrupciones.c
-[; ;Interrupciones.c: 4: void interruptsEnable() {
-[v _interruptsEnable `(v ~T0 @X0 1 ef ]
+"5 Comunicacion.c
+[; ;Comunicacion.c: 5: void printf(unsigned char *PointString) {
+[v _printf `(v ~T0 @X0 1 ef1`*uc ]
 {
-[e :U _interruptsEnable ]
+[e :U _printf ]
+[v _PointString `*uc ~T0 @X0 1 r1 ]
 [f ]
 "6
-[; ;Interrupciones.c: 6:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
+[; ;Comunicacion.c: 6:     for (unsigned char i = 0; i < 255; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 255 `i 368  ]
+[e $U 369  ]
+[e :U 368 ]
+{
 "7
-[; ;Interrupciones.c: 7:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;Comunicacion.c: 7:         if (PointString[i] == ((void*)0)) {
+[e $ ! == -> -> *U + _PointString * -> _i `ux -> -> # *U _PointString `ui `ux `i `*v -> -> 0 `i `*v 371  ]
+{
 "8
-[; ;Interrupciones.c: 8:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;Comunicacion.c: 8:             break;
+[e $U 369  ]
 "9
-[; ;Interrupciones.c: 9: }
+[; ;Comunicacion.c: 9:         } else
+}
+[e $U 372  ]
+[e :U 371 ]
+"10
+[; ;Comunicacion.c: 10:             send(PointString[i]);
+[e ( _send (1 *U + _PointString * -> _i `ux -> -> # *U _PointString `ui `ux ]
+[e :U 372 ]
+"11
+[; ;Comunicacion.c: 11:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 255 `i 368  ]
+[e :U 369 ]
+}
+"12
+[; ;Comunicacion.c: 12: }
 [e :UE 367 ]
 }
-"10
-[; ;Interrupciones.c: 10: void interruptsDisable() {
-[v _interruptsDisable `(v ~T0 @X0 1 ef ]
-{
-[e :U _interruptsDisable ]
-[f ]
-"12
-[; ;Interrupciones.c: 12:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
 "13
-[; ;Interrupciones.c: 13:     INTCONbits.PEIE = 0;
-[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
+[; ;Comunicacion.c: 13: void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
+[v _scanf `(v ~T0 @X0 1 ef2`*uc`uc ]
+{
+[e :U _scanf ]
+[v _guardarscan `*uc ~T0 @X0 1 r1 ]
+[v _numcaracteres `uc ~T0 @X0 1 r2 ]
+[f ]
 "14
-[; ;Interrupciones.c: 14:     INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;Comunicacion.c: 14:     for (unsigned char i = 0; i < numcaracteres; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 377  ]
+[e :U 374 ]
+{
 "15
-[; ;Interrupciones.c: 15: }
-[e :UE 368 ]
+[; ;Comunicacion.c: 15:         guardarscan[i] = receive();
+[e = *U + _guardarscan * -> _i `ux -> -> # *U _guardarscan `ui `ux ( _receive ..  ]
+"16
+[; ;Comunicacion.c: 16:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 377 ]
+[e $ < -> _i `i -> _numcaracteres `i 374  ]
+[e :U 375 ]
 }
 "17
-[; ;Interrupciones.c: 17: void habilitarIntExternas() {
-[v _habilitarIntExternas `(v ~T0 @X0 1 ef ]
-{
-[e :U _habilitarIntExternas ]
-[f ]
-"20
-[; ;Interrupciones.c: 20:     INTCONbits.INT0IF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"21
-[; ;Interrupciones.c: 21:     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"22
-[; ;Interrupciones.c: 22:     INTCON2bits.INTEDG0 = 1;
-[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
-"23
-[; ;Interrupciones.c: 23:     TRISBbits.RB0 = 1;
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-"25
-[; ;Interrupciones.c: 25:     INTCON3bits.INT1F = 0;
-[e = . . _INTCON3bits 1 0 -> -> 0 `i `uc ]
-"26
-[; ;Interrupciones.c: 26:     INTCON3bits.INT1IE = 1;
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
-"27
-[; ;Interrupciones.c: 27:     INTCON2bits.INTEDG1 = 1;
-[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
-"28
-[; ;Interrupciones.c: 28:     TRISBbits.RB1 = 1;
-[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
-"30
-[; ;Interrupciones.c: 30:     INTCON3bits.INT2IF = 0;
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"31
-[; ;Interrupciones.c: 31:     INTCON3bits.INT2IE = 1;
-[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
-"32
-[; ;Interrupciones.c: 32:     INTCON2bits.INTEDG2 = 1;
-[e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
-"33
-[; ;Interrupciones.c: 33:     TRISBbits.RB2 = 1;
-[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-"34
-[; ;Interrupciones.c: 34: }
-[e :UE 369 ]
+[; ;Comunicacion.c: 17: }
+[e :UE 373 ]
 }

@@ -1,4 +1,4 @@
-# 1 "UART.c"
+# 1 "PruebaTimers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "UART.c" 2
+# 1 "PruebaTimers.c" 2
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5618,8 +5619,15 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 1 "UART.c" 2
+# 2 "PruebaTimers.c" 2
 
+
+# 1 "./Gpio.h" 1
+# 17 "./Gpio.h"
+void portInit(void);
+void motorXinit(void);
+void motorYinit(void);
+# 4 "PruebaTimers.c" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5633,38 +5641,93 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 3 "UART.c" 2
+# 5 "PruebaTimers.c" 2
+
+# 1 "./PWMCCP2.h" 1
+# 11 "./PWMCCP2.h"
+void PWM_CCP2_init(void);
+void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
+# 6 "PruebaTimers.c" 2
+
+# 1 "./PWMCCP1.h" 1
+# 11 "./PWMCCP1.h"
+void PWM_CCP1_init(void);
+void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+# 7 "PruebaTimers.c" 2
+
+# 1 "./ADC.h" 1
+# 11 "./ADC.h"
+void ADCinit(void);
+unsigned int ADCvalue();
+# 8 "PruebaTimers.c" 2
+
+# 1 "./Interrupciones.h" 1
+# 11 "./Interrupciones.h"
+void interruptsEnable();
+void interruptsDisable();
+void habilitarIntExternas();
+# 9 "PruebaTimers.c" 2
+
+# 1 "./Comunicacion.h" 1
+# 11 "./Comunicacion.h"
+void printf (unsigned char *PointString);
 
 
-void UARTinit(void) {
-    TRISCbits.RC6 = 1;
-    TRISCbits.RC7 = 1;
 
-    SPBRG = 16;
-    TXSTA1bits.BRGH = 1;
-    BAUDCONbits.BRG16 = 1;
+void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+# 10 "PruebaTimers.c" 2
 
-    TXSTA1bits.TX9 = 0;
-    TXSTA1bits.TXEN = 1;
-    TXSTA1bits.SYNC = 0;
-    RCSTA1bits.SPEN = 1;
-    RCSTA1bits.RX9 = 0;
-    RCSTA1bits.CREN = 1;
+# 1 "./Timers.h" 1
+# 11 "./Timers.h"
+void tmr0Init( void );
+void tmr1Init( void );
+# 11 "PruebaTimers.c" 2
+
+
+
+
+
+__attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
+    __nop();
 }
 
-unsigned char receive() {
-    unsigned char recibido;
-    while (PIR1bits.RCIF == 0) {
 
-    }
-    recibido = RCREG1;
-    RCREG1 = 0;
-    return recibido;
+
+__attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
+    __nop();
 }
 
-void send(unsigned char enviarpc) {
-    while (TXSTA1bits.TRMT == 0) {
+void main(void) {
+    portInit();
+    UARTinit();
+# 37 "PruebaTimers.c"
+    TRISDbits.RD1 = 0;
+    LATDbits.LATD1 = 0;
+    TRISCbits.RC1 = 0;
+    LATCbits.LATC1 = 1;
 
+    tmr1Init();
+    tmr0Init();
+
+    while (1) {
+        unsigned char leer = receive();
+        if (leer == '0') {
+            printf("El valor del TMR0 es de:");
+            for (unsigned char i = 0; i < 10; i++) {
+                LATDbits.LATD1 = 1;
+                _delay((unsigned long)((1)*(8000000/4000.0)));
+                LATDbits.LATD1 = 0;
+                 _delay((unsigned long)((1)*(8000000/4000.0)));
+
+            }
+            send(TMR0);
+            send('\n');
+            leer = 0;
+        }
+        if (leer == '1') {
+            TMR0 = 0;
+            printf("Resetee este pedo salu2");
+            leer = 0;
+        }
     }
-    TXREG1 = enviarpc;
 }

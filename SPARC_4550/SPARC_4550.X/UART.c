@@ -34,19 +34,3 @@ void send(unsigned char enviarpc) {
     } // Cuando se vacio 
     TXREG1 = enviarpc; // Se envia el nuevo caracter al registro de transmision USART
 }
-
-void printf(unsigned char *PointString) {
-    for (unsigned char i = 0; i < 255; i++) {
-        if (PointString[i] == NULL) {
-            break;
-        } else
-            send(PointString[i]);
-    }
-}
-
-void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
-    for (unsigned char i = 0; i < numcaracteres; i++) {
-        guardarscan[i] = receive();
-    }
-}
-

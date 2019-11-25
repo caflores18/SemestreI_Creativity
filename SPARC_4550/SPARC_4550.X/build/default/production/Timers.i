@@ -1,4 +1,4 @@
-# 1 "Testing.c"
+# 1 "Timers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Testing.c" 2
-
+# 1 "Timers.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5619,129 +5618,36 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 2 "Testing.c" 2
-
-# 1 "./Gpio.h" 1
-# 17 "./Gpio.h"
-void portInit(void);
-void motorXinit(void);
-void motorYinit(void);
-# 3 "Testing.c" 2
-
-# 1 "./UART.h" 1
-# 11 "./UART.h"
-void UARTinit(void);
-unsigned char receive();
-
-void send(unsigned char enviarpc);
-
-void printf (unsigned char *PointString);
+# 1 "Timers.c" 2
 
 
-
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 4 "Testing.c" 2
-
-# 1 "./PWMCCP2.h" 1
-# 11 "./PWMCCP2.h"
-void PWM_CCP2_init(void);
-void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 5 "Testing.c" 2
-
-# 1 "./PWMCCP1.h" 1
-# 11 "./PWMCCP1.h"
-void PWM_CCP1_init(void);
-void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-# 6 "Testing.c" 2
-
-# 1 "./ADC.h" 1
-# 11 "./ADC.h"
-void ADCinit(void);
-unsigned int ADCvalue();
-# 7 "Testing.c" 2
-
-# 1 "./Interrupciones.h" 1
-# 11 "./Interrupciones.h"
-void interruptsEnable();
-void interruptsDisable();
-void habilitarIntExternas();
-# 8 "Testing.c" 2
+# 1 "./Timers.h" 1
+# 11 "./Timers.h"
+void tmr0Init( void );
+void tmr1Init( void );
+# 3 "Timers.c" 2
 
 
+void tmr0Init(void) {
 
-
-
-__attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-    __nop();
+    T0CONbits.TMR0ON = 0;
+    T0CONbits.T08BIT = 0;
+    T0CONbits.T0CS = 1;
+    T0CONbits.T0SE = 0;
+    TRISAbits.RA4 = 1;
+    TMR0 = 0;
+    T0CONbits.TMR0ON = 1;
 }
 
+void tmr1Init() {
 
-
-__attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
-    __nop();
-}
-
-
-struct SystemaSPARC {
-    int xWanted;
-    int yWanted;
-    unsigned long timesToPress;
-} coordinates;
-
-int xToAdvance;
-int CurrentPosX = 0;
-unsigned char leercoordx[3];
-
-int yToAdvance;
-int CurrentPosY = 0;
-unsigned char leerCoordy[3];
-
-
-void main(void) {
-    portInit();
-    UARTinit();
-
-
-
-
-
-    motorXinit();
-    motorYinit();
-
-    while (1) {
-        unsigned char inutil = receive();
-
-        printf("Empieza nueva instruccion dame tu coordenada x\n");
-
-
-
-        send(0xD);
-
-        printf("Empieza nueva instruccion dame tu coordenada Y\n");
-        leerCoordy[0] = receive();
-        leerCoordy[1] = receive();
-        leerCoordy[2] = receive();
-        send(0xD);
-# 86 "Testing.c"
-        coordinates.yWanted = ((leerCoordy[0] - 48)*100)+((leerCoordy[1] - 48)*10)+(leerCoordy[2] - 48);
-        yToAdvance = coordinates.yWanted - CurrentPosY;
-        yToAdvance = yToAdvance * 5;
-        printf("yToAdvance is:");
-        send(yToAdvance);
-        if (yToAdvance > 0) {
-            LATDbits.LATD3 = 1;
-        } else if (yToAdvance < 0) {
-            LATDbits.LATD3 = 0;
-        }
-        send(abs(yToAdvance));
-        for (unsigned int i = 0; i < abs(yToAdvance); i++) {
-            LATAbits.LATA2 = 1;
-            LATCbits.LATC2 = 1;
-            _delay((unsigned long)((5)*(8000000/4000.0)));
-            LATCbits.LATC2 = 0;
-            _delay((unsigned long)((5)*(8000000/4000.0)));
-        }
-        LATAbits.LATA2 = 0;
-        CurrentPosY = coordinates.yWanted;
-    }
+    T1CONbits.TMR1ON = 0;
+    T1CONbits.RD16 = 1;
+    T1CONbits.T1OSCEN = 0;
+    T1CONbits.T1RUN = 1;
+    T1CONbits.TMR1CS = 1;
+    T1CONbits.T1SYNC = 1;
+    TRISCbits.RC0 = 1;
+    TMR1 = 0;
+    T1CONbits.TMR1ON = 1;
 }

@@ -5658,5 +5658,4 @@ void habilitarIntExternas() {
     INTCON3bits.INT2IE = 1;
     INTCON2bits.INTEDG2 = 1;
     TRISBbits.RB2 = 1;
-
 }

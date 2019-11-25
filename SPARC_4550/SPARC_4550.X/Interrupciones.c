@@ -31,5 +31,4 @@ void habilitarIntExternas() {
     INTCON3bits.INT2IE = 1; //Se habilita la interrupcion INT2
     INTCON2bits.INTEDG2 = 1; //La interrupcion de INT2 se genera en flanco ascendente
     TRISBbits.RB2 = 1; //Se declara RB2 como input
-
 }
