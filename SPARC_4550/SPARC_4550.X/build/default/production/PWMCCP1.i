@@ -5627,19 +5627,23 @@ void PWM_CCP1_init(void);
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
 # 3 "PWMCCP1.c" 2
 
+
 void PWM_CCP1_init(void) {
     TRISCbits.RC2 = 0;
-    CCP1CONbits.CCP1M = 0b1111;
-    PR2 = 124;
+    CCP1CONbits.CCP1M = 0b1100;
+
+    PR2 = 249;
     T2CONbits.T2CKPS = 0b11;
+
+    CCP1CONbits.DC1B = 0;
+    CCPR1L = 0;
     TMR2 = 0;
     T2CONbits.TMR2ON = 1;
 }
-
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle) {
 
     unsigned int PWMDutyValue;
-    PWMDutyValue = (WantedDutyCycle * 0.01)*500;
+    PWMDutyValue = (WantedDutyCycle * 0.01)*1000;
 
     CCP1CONbits.DC1B = (PWMDutyValue & 0x03);
     CCPR1L = ((PWMDutyValue >> 2)&0xFF);

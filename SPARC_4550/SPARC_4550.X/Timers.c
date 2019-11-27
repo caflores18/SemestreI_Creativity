@@ -1,6 +1,8 @@
 #include <xc.h>
 #include <pic18f4550.h>
 #include "Timers.h"
+#include "Comunicacion.h"
+#include "UART.h"
 
 void tmr0Init(void) {
     //Declaracion de pines para TMR0
@@ -12,6 +14,7 @@ void tmr0Init(void) {
     TMR0 = 0; //El valor del timer se inicia en 0
     T0CONbits.TMR0ON = 1; //Se enciende el TMR0 despues de haberlo configurado
 }
+
 void tmr1Init() {
     //Declaracion de pines para TM1
     T1CONbits.TMR1ON = 0; //Se apaga el TMR1 para poder configurarlo
@@ -23,4 +26,26 @@ void tmr1Init() {
     TRISCbits.RC0 = 1; //Se declara RC0 como input
     TMR1 = 0; //Se inicia el TMR1 en 0
     T1CONbits.TMR1ON = 1; //Se enciende el TMR1 
+}
+
+void setNumPasosX(unsigned int numPasosX) {
+    if (numPasosX > 0) {
+        unsigned int resultado = (65536 - numPasosX);
+        TMR0H = (resultado >> 8);
+        TMR0L = resultado;
+    } else {
+        TMR0H = (65535 >> 8);
+        TMR0L = 65535;
+    }
+}
+
+void setNumPasosY(unsigned int numPasosY) {
+        if (numPasosY > 0) {
+        unsigned int resultado = (65537 - numPasosY);
+        TMR1H = (resultado >> 8);
+        TMR1L = resultado;
+    } else {
+        TMR1H = (65535 >> 8);
+        TMR1L = 65535;
+    }
 }

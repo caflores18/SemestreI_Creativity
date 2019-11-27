@@ -1,5 +1,5 @@
-build/default/production/PruebaTimers.p1:  \
-PruebaTimers.c  \
+build/default/production/PruebaMotoresX.p1:  \
+PruebaMotoresX.c  \
 Gpio.h  \
 UART.h  \
 PWMCCP2.h  \

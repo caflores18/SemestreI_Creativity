@@ -5623,9 +5623,34 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 # 1 "./Timers.h" 1
 # 11 "./Timers.h"
-void tmr0Init( void );
-void tmr1Init( void );
+void tmr0Init(void);
+void tmr1Init(void);
+void setNumPasosX(unsigned int numPasosX);
+void setNumPasosY(unsigned int numPasosY);
 # 3 "Timers.c" 2
+
+# 1 "./Comunicacion.h" 1
+# 11 "./Comunicacion.h"
+void printf (unsigned char *PointString);
+
+
+
+void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+# 4 "Timers.c" 2
+
+# 1 "./UART.h" 1
+# 11 "./UART.h"
+void UARTinit(void);
+unsigned char receive();
+
+void send(unsigned char enviarpc);
+
+void printf (unsigned char *PointString);
+
+
+
+void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+# 5 "Timers.c" 2
 
 
 void tmr0Init(void) {
@@ -5650,4 +5675,26 @@ void tmr1Init() {
     TRISCbits.RC0 = 1;
     TMR1 = 0;
     T1CONbits.TMR1ON = 1;
+}
+
+void setNumPasosX(unsigned int numPasosX) {
+    if (numPasosX > 0) {
+        unsigned int resultado = (65536 - numPasosX);
+        TMR0H = (resultado >> 8);
+        TMR0L = resultado;
+    } else {
+        TMR0H = (65535 >> 8);
+        TMR0L = 65535;
+    }
+}
+
+void setNumPasosY(unsigned int numPasosY) {
+        if (numPasosY > 0) {
+        unsigned int resultado = (65537 - numPasosY);
+        TMR1H = (resultado >> 8);
+        TMR1L = resultado;
+    } else {
+        TMR1H = (65535 >> 8);
+        TMR1L = 65535;
+    }
 }

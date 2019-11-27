@@ -1,4 +1,4 @@
-# 1 "PruebaTimers.c"
+# 1 "PruebaMotoresX.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "PruebaTimers.c" 2
+# 1 "PruebaMotoresX.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
@@ -5619,15 +5619,14 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 2 "PruebaTimers.c" 2
-
+# 2 "PruebaMotoresX.c" 2
 
 # 1 "./Gpio.h" 1
 # 17 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
-# 4 "PruebaTimers.c" 2
+# 3 "PruebaMotoresX.c" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5641,32 +5640,32 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 5 "PruebaTimers.c" 2
+# 4 "PruebaMotoresX.c" 2
 
 # 1 "./PWMCCP2.h" 1
 # 11 "./PWMCCP2.h"
 void PWM_CCP2_init(void);
 void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 6 "PruebaTimers.c" 2
+# 5 "PruebaMotoresX.c" 2
 
 # 1 "./PWMCCP1.h" 1
 # 11 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-# 7 "PruebaTimers.c" 2
+# 6 "PruebaMotoresX.c" 2
 
 # 1 "./ADC.h" 1
 # 11 "./ADC.h"
 void ADCinit(void);
 unsigned int ADCvalue();
-# 8 "PruebaTimers.c" 2
+# 7 "PruebaMotoresX.c" 2
 
 # 1 "./Interrupciones.h" 1
 # 11 "./Interrupciones.h"
 void interruptsEnable();
 void interruptsDisable();
 void habilitarIntExternas();
-# 9 "PruebaTimers.c" 2
+# 8 "PruebaMotoresX.c" 2
 
 # 1 "./Comunicacion.h" 1
 # 11 "./Comunicacion.h"
@@ -5675,59 +5674,100 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 10 "PruebaTimers.c" 2
+# 9 "PruebaMotoresX.c" 2
 
 # 1 "./Timers.h" 1
 # 11 "./Timers.h"
-void tmr0Init( void );
-void tmr1Init( void );
-# 11 "PruebaTimers.c" 2
+void tmr0Init(void);
+void tmr1Init(void);
+void setNumPasosX(unsigned int numPasosX);
+void setNumPasosY(unsigned int numPasosY);
+# 10 "PruebaMotoresX.c" 2
 
 
+
+
+struct SystemaSPARC {
+    unsigned int xWanted;
+    unsigned int yWanted;
+    unsigned long timesToPress;
+} coordinates;
+
+unsigned int xToAdvance;
+unsigned int CurrentPosX = 0;
+unsigned char leerCoordx[3];
+
+unsigned int yToAdvance;
+unsigned int CurrentPosY = 0;
+unsigned char leerCoordy[3];
+
+unsigned char working = 0;
 
 
 
 __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-    __nop();
+    if (INTCONbits.TMR0IF = 1) {
+        PWM_DutyCycleCCP2(0);
+        LATAbits.LATA2 = 0;
+        CurrentPosX = coordinates.xWanted;
+        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
+        working = 0;
+        INTCONbits.TMR0IF = 0;
+    }
 }
-
 
 
 __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
     __nop();
 }
-
 void main(void) {
     portInit();
     UARTinit();
-# 37 "PruebaTimers.c"
-    TRISDbits.RD1 = 0;
-    LATDbits.LATD1 = 0;
-    TRISCbits.RC1 = 0;
-    LATCbits.LATC1 = 1;
-
-    tmr1Init();
+    PWM_CCP2_init();
+    PWM_DutyCycleCCP2(0);
+    PWM_DutyCycleCCP1(0);
+    interruptsEnable();
+    motorYinit();
+    motorXinit();
     tmr0Init();
+    INTCONbits.TMR0IE = 1;
+    PWM_CCP1_init();
+
+
 
     while (1) {
-        unsigned char leer = receive();
-        if (leer == '0') {
-            printf("El valor del TMR0 es de:");
-            for (unsigned char i = 0; i < 10; i++) {
-                LATDbits.LATD1 = 1;
-                _delay((unsigned long)((1)*(8000000/4000.0)));
-                LATDbits.LATD1 = 0;
-                 _delay((unsigned long)((1)*(8000000/4000.0)));
+        if (working == 0) {
+            unsigned char inutil = receive();
+            inutil = 0;
 
+            printf("Empieza nueva instruccion dame tu coordenada X\n");
+            leerCoordx[0] = receive();
+            leerCoordx[1] = receive();
+            leerCoordx[2] = receive();
+            printf("La coordenada que he recibido es: ");
+            send(leerCoordx[0]);
+            send(leerCoordx[1]);
+            send(leerCoordx[2]);
+            send(0xD);
+
+            coordinates.xWanted = ((leerCoordx[0] - 48)*100)+((leerCoordx[1] - 48)*10)+(leerCoordx[2] - 48);
+            xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5;
+            printf("xToAdvance is:");
+            send(xToAdvance);
+              send('\n');
+            if (coordinates.xWanted > CurrentPosX) {
+                LATDbits.LATD1 = 1;
+            } else if (coordinates.xWanted < CurrentPosX) {
+                LATDbits.LATD1 = 0;
             }
-            send(TMR0);
-            send('\n');
-            leer = 0;
-        }
-        if (leer == '1') {
-            TMR0 = 0;
-            printf("Resetee este pedo salu2");
-            leer = 0;
+            if (coordinates.xWanted != CurrentPosX) {
+                working = 1;
+                LATAbits.LATA2 = 1;
+                setNumPasosX(xToAdvance);
+                PWM_DutyCycleCCP2(50);
+            } else if ((coordinates.xWanted == CurrentPosX)) {
+                printf("\nYa estas en la coordenada deseada, prueba con otra coordenada\n");
+            }
         }
     }
 }

@@ -35,6 +35,8 @@
       <itemPath>PruebaADC.c</itemPath>
       <itemPath>PruebaInterrupciones.c</itemPath>
       <itemPath>PruebaTimers.c</itemPath>
+      <itemPath>PruebaMotoresX.c</itemPath>
+      <itemPath>PruebaMotoresY.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -220,6 +222,8 @@
         <XC8-config-global>
         </XC8-config-global>
       </item>
+      <item path="PruebaMotoresX.c" ex="true" overriding="false">
+      </item>
       <item path="PruebaPWMCCP1.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
@@ -229,6 +233,14 @@
         </XC8-config-global>
       </item>
       <item path="PruebaPWMCCP2.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="PruebaTimers.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>

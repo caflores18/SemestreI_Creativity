@@ -51,12 +51,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7228
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7228: extern volatile T2CONbits_t T2CONbits __attribute__((address(0xFCA)));
 [v _T2CONbits `VS300 ~T0 @X0 0 e@4042 ]
-"7408
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7408: extern volatile unsigned char TMR2 __attribute__((address(0xFCC)));
-[v _TMR2 `Vuc ~T0 @X0 0 e@4044 ]
 "6313
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6313: extern volatile unsigned char CCPR2L __attribute__((address(0xFBB)));
 [v _CCPR2L `Vuc ~T0 @X0 0 e@4027 ]
+"7408
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7408: extern volatile unsigned char TMR2 __attribute__((address(0xFCC)));
+[v _TMR2 `Vuc ~T0 @X0 0 e@4044 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -579,42 +579,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6
 [; ;PWMCCP2.c: 6:     CCP2CONbits.CCP2M = 0b1111;
 [e = . . _CCP2CONbits 0 0 -> -> 15 `i `uc ]
-"7
-[; ;PWMCCP2.c: 7:     PR2 = 124;
-[e = _PR2 -> -> 124 `i `uc ]
 "8
-[; ;PWMCCP2.c: 8:     T2CONbits.T2CKPS = 0b11;
-[e = . . _T2CONbits 0 0 -> -> 3 `i `uc ]
+[; ;PWMCCP2.c: 8:     PR2 = 249;
+[e = _PR2 -> -> 249 `i `uc ]
 "9
-[; ;PWMCCP2.c: 9:     TMR2 = 0;
-[e = _TMR2 -> -> 0 `i `uc ]
-"10
-[; ;PWMCCP2.c: 10:     T2CONbits.TMR2ON = 1;
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;PWMCCP2.c: 9:     T2CONbits.T2CKPS = 0b11;
+[e = . . _T2CONbits 0 0 -> -> 3 `i `uc ]
 "11
-[; ;PWMCCP2.c: 11: }
+[; ;PWMCCP2.c: 11:     CCP2CONbits.DC2B = 0;
+[e = . . _CCP2CONbits 0 1 -> -> 0 `i `uc ]
+"12
+[; ;PWMCCP2.c: 12:     CCPR2L = 0;
+[e = _CCPR2L -> -> 0 `i `uc ]
+"13
+[; ;PWMCCP2.c: 13:     TMR2 = 0;
+[e = _TMR2 -> -> 0 `i `uc ]
+"14
+[; ;PWMCCP2.c: 14:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"15
+[; ;PWMCCP2.c: 15: }
 [e :UE 367 ]
 }
-"13
-[; ;PWMCCP2.c: 13: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle) {
+"16
+[; ;PWMCCP2.c: 16: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle) {
 [v _PWM_DutyCycleCCP2 `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _PWM_DutyCycleCCP2 ]
 [v _WantedDutyCycle `uc ~T0 @X0 1 r1 ]
 [f ]
-"15
-[; ;PWMCCP2.c: 15:     unsigned int PWMDutyValue;
-[v _PWMDutyValue `ui ~T0 @X0 1 a ]
-"16
-[; ;PWMCCP2.c: 16:     PWMDutyValue = (WantedDutyCycle * 0.01)*500;
-[e = _PWMDutyValue -> * * -> -> _WantedDutyCycle `i `d .0.01 -> -> 500 `i `d `ui ]
 "18
-[; ;PWMCCP2.c: 18:     CCP2CONbits.DC2B = (PWMDutyValue & 0x03);
-[e = . . _CCP2CONbits 0 1 -> & _PWMDutyValue -> -> 3 `i `ui `uc ]
+[; ;PWMCCP2.c: 18:     unsigned int PWMDutyValue;
+[v _PWMDutyValue `ui ~T0 @X0 1 a ]
 "19
-[; ;PWMCCP2.c: 19:     CCPR2L = ((PWMDutyValue >> 2)&0xFF);
-[e = _CCPR2L -> & >> _PWMDutyValue -> 2 `i -> -> 255 `i `ui `uc ]
+[; ;PWMCCP2.c: 19:     PWMDutyValue = (WantedDutyCycle * 0.01)*1000;
+[e = _PWMDutyValue -> * * -> -> _WantedDutyCycle `i `d .0.01 -> -> 1000 `i `d `ui ]
 "21
-[; ;PWMCCP2.c: 21: }
+[; ;PWMCCP2.c: 21:     CCP2CONbits.DC2B = (PWMDutyValue & 0x03);
+[e = . . _CCP2CONbits 0 1 -> & _PWMDutyValue -> -> 3 `i `ui `uc ]
+"22
+[; ;PWMCCP2.c: 22:     CCPR2L = ((PWMDutyValue >> 2)&0xFF);
+[e = _CCPR2L -> & >> _PWMDutyValue -> 2 `i -> -> 255 `i `ui `uc ]
+"24
+[; ;PWMCCP2.c: 24: }
 [e :UE 368 ]
 }
