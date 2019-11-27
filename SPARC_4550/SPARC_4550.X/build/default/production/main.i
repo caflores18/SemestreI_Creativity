@@ -1,4 +1,4 @@
-# 1 "PruebaMotoresX.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "PruebaMotoresX.c" 2
+# 1 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
@@ -5619,14 +5619,163 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 2 "PruebaMotoresX.c" 2
+# 2 "main.c" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+# 3 "main.c" 2
+
+# 1 "./ADC.h" 1
+# 11 "./ADC.h"
+void ADCinit(void);
+unsigned int ADCvalue();
+# 4 "main.c" 2
+
+# 1 "./Comunicacion.h" 1
+# 11 "./Comunicacion.h"
+void printf (unsigned char *PointString);
+
+
+
+void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+# 5 "main.c" 2
+
+# 1 "./FuncionesMenu.h" 1
+# 13 "./FuncionesMenu.h"
+uint8_t coordXCentenas [10];
+uint8_t coordXDecenas [10];
+uint8_t coordXUnidades[10];
+
+uint8_t coordYCentenas [10];
+uint8_t coordYDecenas [10];
+uint8_t coordYUnidades[10];
+
+uint8_t presionarZCentenas [10];
+uint8_t presionarZDecenas [10];
+uint8_t presionarZUnidades[10];
+
+uint8_t coordenadaNueva = 0;
+
+void introducirCoordNueva(void);
+void imprimirCoordenadas(void);
+# 6 "main.c" 2
 
 # 1 "./Gpio.h" 1
 # 17 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
-# 3 "PruebaMotoresX.c" 2
+# 7 "main.c" 2
+
+# 1 "./Interrupciones.h" 1
+# 11 "./Interrupciones.h"
+void interruptsEnable(void);
+void interruptsDisable(void);
+void habilitarIntExternas(void);
+void habilitarIntTMR0(void);
+void habilitarIntTMR1(void);
+# 8 "main.c" 2
+
+# 1 "./PWMCCP1.h" 1
+# 11 "./PWMCCP1.h"
+void PWM_CCP1_init(void);
+void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+# 9 "main.c" 2
+
+# 1 "./PWMCCP2.h" 1
+# 11 "./PWMCCP2.h"
+void PWM_CCP2_init(void);
+void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
+# 10 "main.c" 2
+
+# 1 "./Timers.h" 1
+# 11 "./Timers.h"
+void tmr0Init(void);
+void tmr1Init(void);
+void setNumPasosX(unsigned int numPasosX);
+void setNumPasosY(unsigned int numPasosY);
+# 11 "main.c" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5640,49 +5789,8 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 4 "PruebaMotoresX.c" 2
+# 12 "main.c" 2
 
-# 1 "./PWMCCP2.h" 1
-# 11 "./PWMCCP2.h"
-void PWM_CCP2_init(void);
-void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 5 "PruebaMotoresX.c" 2
-
-# 1 "./PWMCCP1.h" 1
-# 11 "./PWMCCP1.h"
-void PWM_CCP1_init(void);
-void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-# 6 "PruebaMotoresX.c" 2
-
-# 1 "./ADC.h" 1
-# 11 "./ADC.h"
-void ADCinit(void);
-unsigned int ADCvalue();
-# 7 "PruebaMotoresX.c" 2
-
-# 1 "./Interrupciones.h" 1
-# 11 "./Interrupciones.h"
-void interruptsEnable();
-void interruptsDisable();
-void habilitarIntExternas();
-# 8 "PruebaMotoresX.c" 2
-
-# 1 "./Comunicacion.h" 1
-# 11 "./Comunicacion.h"
-void printf (unsigned char *PointString);
-
-
-
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 9 "PruebaMotoresX.c" 2
-
-# 1 "./Timers.h" 1
-# 11 "./Timers.h"
-void tmr0Init(void);
-void tmr1Init(void);
-void setNumPasosX(unsigned int numPasosX);
-void setNumPasosY(unsigned int numPasosY);
-# 10 "PruebaMotoresX.c" 2
 
 
 
@@ -5695,79 +5803,75 @@ struct SystemaSPARC {
 
 unsigned int xToAdvance;
 unsigned int CurrentPosX = 0;
-unsigned char leerCoordx[3];
+
 
 unsigned int yToAdvance;
 unsigned int CurrentPosY = 0;
-unsigned char leerCoordy[3];
+
 
 unsigned char working = 0;
 
 
-
 __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-    if (INTCONbits.TMR0IF = 1) {
-        PWM_DutyCycleCCP2(0);
-        LATAbits.LATA2 = 0;
-        CurrentPosX = coordinates.xWanted;
-        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
-        working = 0;
-        INTCONbits.TMR0IF = 0;
-    }
+    __nop();
 }
 
 
 __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
     __nop();
 }
+
+
 void main(void) {
+
     portInit();
     UARTinit();
     PWM_CCP2_init();
+    PWM_CCP1_init();
     PWM_DutyCycleCCP2(0);
     PWM_DutyCycleCCP1(0);
-    interruptsEnable();
-    motorYinit();
     motorXinit();
+    motorYinit();
     tmr0Init();
-    INTCONbits.TMR0IE = 1;
-    PWM_CCP1_init();
+    tmr1Init();
+    interruptsEnable();
+    habilitarIntTMR0();
+    habilitarIntTMR1();
+    habilitarIntExternas();
 
 
+
+    unsigned char activarmenu[5];
+    activarmenu[4] = ((void*)0);
+    unsigned char *pActMenu = (unsigned char *) &activarmenu;
+    unsigned char tamanoarray;
+    unsigned char desechable = receive();
+
+    printf("Escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
 
     while (1) {
-        if (working == 0) {
-            unsigned char inutil = receive();
-            inutil = 0;
+        scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
+        if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
 
-            printf("Empieza nueva instruccion dame tu coordenada X\n");
-            leerCoordx[0] = receive();
-            leerCoordx[1] = receive();
-            leerCoordx[2] = receive();
-            printf("La coordenada que he recibido es: ");
-            send(leerCoordx[0]);
-            send(leerCoordx[1]);
-            send(leerCoordx[2]);
-            send(0xD);
-
-            coordinates.xWanted = ((leerCoordx[0] - 48)*100)+((leerCoordx[1] - 48)*10)+(leerCoordx[2] - 48);
-            xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5;
-            printf("xToAdvance is:");
-            send(xToAdvance);
-              send('\n');
-            if (coordinates.xWanted > CurrentPosX) {
-                LATDbits.LATD1 = 1;
-            } else if (coordinates.xWanted < CurrentPosX) {
-                LATDbits.LATD1 = 0;
+            printf("(0)Ayuda sobre como funciona el programa (1)Introducir coordenada nueva (2)Imprimir las coordenadas recibidas (3)Ir a home\n"
+                    "(4)Modificar coordenada (5)Iniciar Programa (6)Borrar el valor de todas las coordenadas\n");
+            uint8_t opcionsel = receive();
+            while (opcionsel > 57 || opcionsel < 48) {
+                printf("Eleccion no valida vuelva a intentar");
+                opcionsel = receive();
             }
-            if (coordinates.xWanted != CurrentPosX) {
-                working = 1;
-                LATAbits.LATA2 = 1;
-                setNumPasosX(xToAdvance);
-                PWM_DutyCycleCCP2(50);
-            } else if ((coordinates.xWanted == CurrentPosX)) {
-                printf("\nYa estas en la coordenada deseada, prueba con otra coordenada\n");
+            if (opcionsel == '1') {
+                introducirCoordNueva();
             }
-        }
+            if (opcionsel == '2') {
+               imprimirCoordenadas();
+            }
+            if (opcionsel == '3') {
+                printf("Entrase al 3");
+            }
+            if (opcionsel == '4') {
+                printf("Entrase al 4");
+            }
+        } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
     }
 }

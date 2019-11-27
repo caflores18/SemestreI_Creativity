@@ -1,35 +1,4 @@
 
-// Seccion de liberias 
-#include <xc.h>
-#include "Gpio.h"
-#include "UART.h"
-#include "PWMCCP2.h"
-#include "PWMCCP1.h"
-#include "ADC.h"
-#include "Interrupciones.h"
-#include "Comunicacion.h"
-#include "Timers.h"
-#define _XTAL_FREQ 8000000
-// -------------------Declaracion de variables globales------------------------
-
-struct SystemaSPARC {
-    unsigned int xWanted; //coordenada X objetivo
-    unsigned int yWanted; //coordenada Y objetivo
-    unsigned long timesToPress; //Numero de veces a presionar la pantalla
-} coordinates;
-//Procedimiento Motor X
-unsigned int xToAdvance; // X por avanzar en pasos (Xa)
-unsigned int CurrentPosX = 0; // X current posicion actual X (Xc)
-unsigned char leercoordx[3]; //Guarda el valor coord X
-//Procedimiennto Motor Y
-unsigned int yToAdvance; // Y por avanzar en pasos (Ya)
-unsigned int CurrentPosY = 0; // Y current posicion actual (Yc)
-unsigned char leerCoordy[3]; //Guarda el valor coord Y
-//Procedimiento compartido (X) y (Y)
-unsigned char working = 0; //Esta variable se prende cuando alguno de los motores se va a mover
-
-//ISR de alta prioridad
-
 __interrupt(high_priority) void high_isr(void) {
     if (PIR1bits.TMR1IF = 1) { //Si el TMR1 registro OverFlow 
         PWM_DutyCycleCCP1(0);
@@ -41,25 +10,7 @@ __interrupt(high_priority) void high_isr(void) {
     }
 }
 //ISR de baja prioridad
-
-__interrupt(low_priority) void low_isr(void) {
-    Nop(); //Funcion para consumir un ciclo de instruccion
-}
-
 void main(void) {
-    portInit();
-    UARTinit();
-    PWM_CCP1_init(); //Se va a usar CCP1 para mover el motor Y
-    PWM_DutyCycleCCP1(0);
-    interruptsEnable(); //Se enciende el sistema de interrupciones
-    motorYinit(); //Se inicializa lo necesario para el motor Y
-    motorXinit();
-    tmr1Init(); //Se inicializa TMR1
-    PIE1bits.TMR1IE = 1; //Enciende interrupcion del TMR1
-    //PWM_CCP2_init();
-    //habilitarIntExternas();
-    //ADCinit(); 
-
     //Inicio del ciclo infinito 
     while (1) {
         if (working == 0) {

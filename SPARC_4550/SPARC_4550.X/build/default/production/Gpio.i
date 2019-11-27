@@ -5637,7 +5637,7 @@ void motorYinit(void);
 void portInit ( void ) {
     ADCON1bits.PCFG = 0xFF;
     OSCCON = 0x70;
-    TRISBbits.TRISB0= 0;
+
 }
 void motorXinit( void ) {
 

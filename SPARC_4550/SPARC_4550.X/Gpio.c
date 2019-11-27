@@ -10,7 +10,7 @@
 void portInit ( void ) { //Se desarolla el contenido de la funcion portInit
     ADCON1bits.PCFG = 0xFF; //Se declaran todos los pines como digitales
     OSCCON = 0x70;          //Parte de declarar el clk 8Mhz
-    TRISBbits.TRISB0= 0; // Se declara el puerto B0 como salida
+    //TRISBbits.TRISB0= 0; // Se declara el puerto B0 como salida
 }
 void motorXinit( void ) {
     //Para practicar

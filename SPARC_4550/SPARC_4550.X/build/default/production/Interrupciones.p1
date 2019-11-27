@@ -106,6 +106,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8440
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8440: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
 [v _INTCON3bits `VS352 ~T0 @X0 0 e@4080 ]
+"4390
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4390:     struct {
+[s S175 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S175 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE SPPIE ]
+"4400
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4400:     struct {
+[s S176 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S176 . . TX1IE RC1IE . PSPIE ]
+"4389
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4389: typedef union {
+[u S174 `S175 1 `S176 1 ]
+[n S174 . . . ]
+"4408
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4408: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
+[v _PIE1bits `VS174 ~T0 @X0 0 e@3997 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -616,87 +631,113 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"4 Interrupciones.c
-[; ;Interrupciones.c: 4: void interruptsEnable() {
+"5 Interrupciones.c
+[; ;Interrupciones.c: 5: void interruptsEnable(void) {
 [v _interruptsEnable `(v ~T0 @X0 1 ef ]
 {
 [e :U _interruptsEnable ]
 [f ]
-"6
-[; ;Interrupciones.c: 6:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
 "7
-[; ;Interrupciones.c: 7:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 7:     RCONbits.IPEN = 0;
+[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
 "8
-[; ;Interrupciones.c: 8:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 8:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 "9
-[; ;Interrupciones.c: 9: }
+[; ;Interrupciones.c: 9:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"10
+[; ;Interrupciones.c: 10: }
 [e :UE 367 ]
 }
-"10
-[; ;Interrupciones.c: 10: void interruptsDisable() {
+"12
+[; ;Interrupciones.c: 12: void interruptsDisable(void) {
 [v _interruptsDisable `(v ~T0 @X0 1 ef ]
 {
 [e :U _interruptsDisable ]
 [f ]
-"12
-[; ;Interrupciones.c: 12:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-"13
-[; ;Interrupciones.c: 13:     INTCONbits.PEIE = 0;
-[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
 "14
-[; ;Interrupciones.c: 14:     INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;Interrupciones.c: 14:     RCONbits.IPEN = 0;
+[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
 "15
-[; ;Interrupciones.c: 15: }
+[; ;Interrupciones.c: 15:     INTCONbits.PEIE = 0;
+[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
+"16
+[; ;Interrupciones.c: 16:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"17
+[; ;Interrupciones.c: 17: }
 [e :UE 368 ]
 }
-"17
-[; ;Interrupciones.c: 17: void habilitarIntExternas() {
+"19
+[; ;Interrupciones.c: 19: void habilitarIntExternas(void) {
 [v _habilitarIntExternas `(v ~T0 @X0 1 ef ]
 {
 [e :U _habilitarIntExternas ]
 [f ]
-"20
-[; ;Interrupciones.c: 20:     INTCONbits.INT0IF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"21
-[; ;Interrupciones.c: 21:     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
 "22
-[; ;Interrupciones.c: 22:     INTCON2bits.INTEDG0 = 1;
-[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 22:     INTCONbits.INT0IF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
 "23
-[; ;Interrupciones.c: 23:     TRISBbits.RB0 = 1;
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 23:     INTCONbits.INT0IE = 1;
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+"24
+[; ;Interrupciones.c: 24:     INTCON2bits.INTEDG0 = 1;
+[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
 "25
-[; ;Interrupciones.c: 25:     INTCON3bits.INT1F = 0;
-[e = . . _INTCON3bits 1 0 -> -> 0 `i `uc ]
-"26
-[; ;Interrupciones.c: 26:     INTCON3bits.INT1IE = 1;
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 25:     TRISBbits.RB0 = 1;
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
 "27
-[; ;Interrupciones.c: 27:     INTCON2bits.INTEDG1 = 1;
-[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 27:     INTCON3bits.INT1F = 0;
+[e = . . _INTCON3bits 1 0 -> -> 0 `i `uc ]
 "28
-[; ;Interrupciones.c: 28:     TRISBbits.RB1 = 1;
-[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 28:     INTCON3bits.INT1IE = 1;
+[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
+"29
+[; ;Interrupciones.c: 29:     INTCON2bits.INTEDG1 = 1;
+[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
 "30
-[; ;Interrupciones.c: 30:     INTCON3bits.INT2IF = 0;
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"31
-[; ;Interrupciones.c: 31:     INTCON3bits.INT2IE = 1;
-[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 30:     TRISBbits.RB1 = 1;
+[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
 "32
-[; ;Interrupciones.c: 32:     INTCON2bits.INTEDG2 = 1;
-[e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 32:     INTCON3bits.INT2IF = 0;
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
 "33
-[; ;Interrupciones.c: 33:     TRISBbits.RB2 = 1;
-[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+[; ;Interrupciones.c: 33:     INTCON3bits.INT2IE = 1;
+[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
 "34
-[; ;Interrupciones.c: 34: }
+[; ;Interrupciones.c: 34:     INTCON2bits.INTEDG2 = 1;
+[e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
+"35
+[; ;Interrupciones.c: 35:     TRISBbits.RB2 = 1;
+[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+"36
+[; ;Interrupciones.c: 36: }
 [e :UE 369 ]
+}
+"38
+[; ;Interrupciones.c: 38: void habilitarIntTMR0(void) {
+[v _habilitarIntTMR0 `(v ~T0 @X0 1 ef ]
+{
+[e :U _habilitarIntTMR0 ]
+[f ]
+"39
+[; ;Interrupciones.c: 39:     INTCONbits.TMR0IE = 1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+"40
+[; ;Interrupciones.c: 40: }
+[e :UE 370 ]
+}
+"42
+[; ;Interrupciones.c: 42: void habilitarIntTMR1(void) {
+[v _habilitarIntTMR1 `(v ~T0 @X0 1 ef ]
+{
+[e :U _habilitarIntTMR1 ]
+[f ]
+"43
+[; ;Interrupciones.c: 43:     PIE1bits.TMR1IE = 1;
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+"44
+[; ;Interrupciones.c: 44: }
+[e :UE 371 ]
 }

@@ -1,117 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"15 PruebaMotoresY.c
-[; ;PruebaMotoresY.c: 15: struct SystemaSPARC {
-[s S367 `ui 1 `ui 1 `ul 1 ]
-[n S367 SystemaSPARC xWanted yWanted timesToPress ]
-[t ~ __interrupt . k ]
-[t T36 __interrupt high_priority ]
-"4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {
-[s S178 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S178 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF SPPIF ]
-"4484
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4484:     struct {
-[s S179 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S179 . . TX1IF RC1IF . PSPIF ]
-"4473
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4473: typedef union {
-[u S177 `S178 1 `S179 1 ]
-[n S177 . . . ]
-"4492
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4492: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-[v _PIR1bits `VS177 ~T0 @X0 0 e@3998 ]
-"12 ./PWMCCP1.h
-[; ;./PWMCCP1.h: 12: void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-[v _PWM_DutyCycleCCP1 `(v ~T0 @X0 0 ef1`uc ]
-"2979 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2979:     struct {
-[s S127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S127 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 ]
-"2988
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2988:     struct {
-[s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S128 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 ]
-"2978
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2978: typedef union {
-[u S126 `S127 1 `S128 1 ]
-[n S126 . . . ]
-"2998
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2998: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
-[v _LATAbits `VS126 ~T0 @X0 0 e@3977 ]
-"11 ./Comunicacion.h
-[; ;./Comunicacion.h: 11: void printf (unsigned char *PointString);
+"16 ./UART.h
+[; ;./UART.h: 16: void printf (unsigned char *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
-[t T37 __interrupt low_priority ]
-"50 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
-[p mainexit ]
-"17 ./Gpio.h
-[; ;./Gpio.h: 17: void portInit(void);
-[v _portInit `(v ~T0 @X0 0 ef ]
-"11 ./UART.h
-[; ;./UART.h: 11: void UARTinit(void);
-[v _UARTinit `(v ~T0 @X0 0 ef ]
-"11 ./PWMCCP1.h
-[; ;./PWMCCP1.h: 11: void PWM_CCP1_init(void);
-[v _PWM_CCP1_init `(v ~T0 @X0 0 ef ]
-"12 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 12: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-[v _PWM_DutyCycleCCP2 `(v ~T0 @X0 0 ef1`uc ]
-"11 ./Interrupciones.h
-[; ;./Interrupciones.h: 11: void interruptsEnable();
-[v _interruptsEnable `(v ~T0 @X0 0 e? ]
-"19 ./Gpio.h
-[; ;./Gpio.h: 19: void motorYinit(void);
-[v _motorYinit `(v ~T0 @X0 0 ef ]
-"18
-[; ;./Gpio.h: 18: void motorXinit(void);
-[v _motorXinit `(v ~T0 @X0 0 ef ]
-"12 ./Timers.h
-[; ;./Timers.h: 12: void tmr1Init(void);
-[v _tmr1Init `(v ~T0 @X0 0 ef ]
-"4390 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4390:     struct {
-[s S175 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S175 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE SPPIE ]
-"4400
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4400:     struct {
-[s S176 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S176 . . TX1IE RC1IE . PSPIE ]
-"4389
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4389: typedef union {
-[u S174 `S175 1 `S176 1 ]
-[n S174 . . . ]
-"4408
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4408: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
-[v _PIE1bits `VS174 ~T0 @X0 0 e@3997 ]
-"12 ./UART.h
+"12
 [; ;./UART.h: 12: unsigned char receive();
 [v _receive `(uc ~T0 @X0 0 e? ]
 "14
 [; ;./UART.h: 14: void send(unsigned char enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
-"51 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h: 51: int abs (int);
-[v _abs `(i ~T0 @X0 0 ef1`i ]
-"3269 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
-[s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S136 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"3279
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3279:     struct {
-[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S137 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"3268
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3268: typedef union {
-[u S135 `S136 1 `S137 1 ]
-[n S135 . . . ]
-"3290
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
-[v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
-"14 ./Timers.h
-[; ;./Timers.h: 14: void setNumPasosY(unsigned int numPasosY);
-[v _setNumPasosY `(v ~T0 @X0 0 ef1`ui ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -622,253 +518,279 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"19 PruebaMotoresY.c
-[; ;PruebaMotoresY.c: 19: } coordinates;
-[v _coordinates `S367 ~T0 @X0 1 e ]
+"13 ./FuncionesMenu.h
+[; ;./FuncionesMenu.h: 13: uint8_t coordXCentenas [10];
+[v _coordXCentenas `uc ~T0 @X0 -> 10 `i e ]
+"14
+[; ;./FuncionesMenu.h: 14: uint8_t coordXDecenas [10];
+[v _coordXDecenas `uc ~T0 @X0 -> 10 `i e ]
+"15
+[; ;./FuncionesMenu.h: 15: uint8_t coordXUnidades[10];
+[v _coordXUnidades `uc ~T0 @X0 -> 10 `i e ]
+"17
+[; ;./FuncionesMenu.h: 17: uint8_t coordYCentenas [10];
+[v _coordYCentenas `uc ~T0 @X0 -> 10 `i e ]
+"18
+[; ;./FuncionesMenu.h: 18: uint8_t coordYDecenas [10];
+[v _coordYDecenas `uc ~T0 @X0 -> 10 `i e ]
+"19
+[; ;./FuncionesMenu.h: 19: uint8_t coordYUnidades[10];
+[v _coordYUnidades `uc ~T0 @X0 -> 10 `i e ]
 "21
-[; ;PruebaMotoresY.c: 21: unsigned int xToAdvance;
-[v _xToAdvance `ui ~T0 @X0 1 e ]
+[; ;./FuncionesMenu.h: 21: uint8_t presionarZCentenas [10];
+[v _presionarZCentenas `uc ~T0 @X0 -> 10 `i e ]
 "22
-[; ;PruebaMotoresY.c: 22: unsigned int CurrentPosX = 0;
-[v _CurrentPosX `ui ~T0 @X0 1 e ]
-[i _CurrentPosX
--> -> 0 `i `ui
-]
+[; ;./FuncionesMenu.h: 22: uint8_t presionarZDecenas [10];
+[v _presionarZDecenas `uc ~T0 @X0 -> 10 `i e ]
 "23
-[; ;PruebaMotoresY.c: 23: unsigned char leercoordx[3];
-[v _leercoordx `uc ~T0 @X0 -> 3 `i e ]
+[; ;./FuncionesMenu.h: 23: uint8_t presionarZUnidades[10];
+[v _presionarZUnidades `uc ~T0 @X0 -> 10 `i e ]
 "25
-[; ;PruebaMotoresY.c: 25: unsigned int yToAdvance;
-[v _yToAdvance `ui ~T0 @X0 1 e ]
-"26
-[; ;PruebaMotoresY.c: 26: unsigned int CurrentPosY = 0;
-[v _CurrentPosY `ui ~T0 @X0 1 e ]
-[i _CurrentPosY
--> -> 0 `i `ui
-]
-"27
-[; ;PruebaMotoresY.c: 27: unsigned char leerCoordy[3];
-[v _leerCoordy `uc ~T0 @X0 -> 3 `i e ]
-"29
-[; ;PruebaMotoresY.c: 29: unsigned char working = 0;
-[v _working `uc ~T0 @X0 1 e ]
-[i _working
+[; ;./FuncionesMenu.h: 25: uint8_t coordenadaNueva = 0;
+[v _coordenadaNueva `uc ~T0 @X0 1 e ]
+[i _coordenadaNueva
 -> -> 0 `i `uc
 ]
-[v $root$_high_isr `(v ~T0 @X0 0 e ]
-"33
-[; ;PruebaMotoresY.c: 33: __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-[v _high_isr `(v ~T36 @X0 1 ef ]
+"8 FuncionesMenu.c
+[; ;FuncionesMenu.c: 8: void introducirCoordNueva() {
+[v _introducirCoordNueva `(v ~T0 @X0 1 ef ]
 {
-[e :U _high_isr ]
+[e :U _introducirCoordNueva ]
 [f ]
-"34
-[; ;PruebaMotoresY.c: 34:     if (PIR1bits.TMR1IF = 1) {
-[e $ ! != -> = . . _PIR1bits 0 0 -> -> 1 `i `uc `i -> 0 `i 369  ]
-{
-"35
-[; ;PruebaMotoresY.c: 35:         PWM_DutyCycleCCP1(0);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
-"36
-[; ;PruebaMotoresY.c: 36:         LATAbits.LATA2 = 0;
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-"37
-[; ;PruebaMotoresY.c: 37:         CurrentPosY = coordinates.yWanted;
-[e = _CurrentPosY . _coordinates 1 ]
-"38
-[; ;PruebaMotoresY.c: 38:         printf("Interrupcion TMR1, llegaste a coordenada deseada\n");
+"9
+[; ;FuncionesMenu.c: 9:     uint16_t validarCoordX = 0;
+[v _validarCoordX `us ~T0 @X0 1 a ]
+[e = _validarCoordX -> -> 0 `i `us ]
+"10
+[; ;FuncionesMenu.c: 10:     uint16_t validarCoordY = 0;
+[v _validarCoordY `us ~T0 @X0 1 a ]
+[e = _validarCoordY -> -> 0 `i `us ]
+"11
+[; ;FuncionesMenu.c: 11: leerCoordValida:
+[e :U 368 ]
+"12
+[; ;FuncionesMenu.c: 12:     printf("Introduce en el siguiente orden las variables a usar (no uses las comas): coordX,coordY,# de veces a presionar Z");
 [e ( _printf (1 :s 1C ]
-"39
-[; ;PruebaMotoresY.c: 39:         working = 0;
-[e = _working -> -> 0 `i `uc ]
-"40
-[; ;PruebaMotoresY.c: 40:         PIR1bits.TMR1IF = 0;
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"41
-[; ;PruebaMotoresY.c: 41:     }
+"13
+[; ;FuncionesMenu.c: 13:     coordXCentenas[coordenadaNueva] = receive();
+[e = *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux ( _receive ..  ]
+"14
+[; ;FuncionesMenu.c: 14:     coordXDecenas[coordenadaNueva] = receive();
+[e = *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux ( _receive ..  ]
+"15
+[; ;FuncionesMenu.c: 15:     coordXUnidades[coordenadaNueva] = receive();
+[e = *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux ( _receive ..  ]
+"16
+[; ;FuncionesMenu.c: 16:     printf("Recibi coordX");
+[e ( _printf (1 :s 2C ]
+"17
+[; ;FuncionesMenu.c: 17:     coordYCentenas[coordenadaNueva] = receive();
+[e = *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux ( _receive ..  ]
+"18
+[; ;FuncionesMenu.c: 18:     coordYDecenas[coordenadaNueva] = receive();
+[e = *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux ( _receive ..  ]
+"19
+[; ;FuncionesMenu.c: 19:     coordYUnidades[coordenadaNueva] = receive();
+[e = *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux ( _receive ..  ]
+"20
+[; ;FuncionesMenu.c: 20:     printf("Recibi coordY");
+[e ( _printf (1 :s 3C ]
+"21
+[; ;FuncionesMenu.c: 21:     presionarZCentenas[coordenadaNueva] = receive();
+[e = *U + &U _presionarZCentenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZCentenas `ui `ux ( _receive ..  ]
+"22
+[; ;FuncionesMenu.c: 22:     presionarZDecenas[coordenadaNueva] = receive();
+[e = *U + &U _presionarZDecenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZDecenas `ui `ux ( _receive ..  ]
+"23
+[; ;FuncionesMenu.c: 23:     presionarZUnidades[coordenadaNueva] = receive();
+[e = *U + &U _presionarZUnidades * -> _coordenadaNueva `ux -> -> # *U &U _presionarZUnidades `ui `ux ( _receive ..  ]
+"24
+[; ;FuncionesMenu.c: 24:     printf("Recibi # de veces a presionar Z\n");
+[e ( _printf (1 :s 4C ]
+"25
+[; ;FuncionesMenu.c: 25:     validarCoordX = ((coordXCentenas[coordenadaNueva] - 48)*100)+((coordXDecenas[coordenadaNueva] - 48)*10)+(coordXUnidades[coordenadaNueva] - 48);
+[e = _validarCoordX -> + + * - -> *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux `i -> 48 `i `us ]
+"26
+[; ;FuncionesMenu.c: 26:     validarCoordY = ((coordYCentenas[coordenadaNueva] - 48)*100)+((coordYDecenas[coordenadaNueva] - 48)*10)+(coordYUnidades[coordenadaNueva] - 48);
+[e = _validarCoordY -> + + * - -> *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux `i -> 48 `i `us ]
+"27
+[; ;FuncionesMenu.c: 27:     if ((validarCoordX > 300) || (validarCoordY > 300)) {
+[e $ ! || > -> _validarCoordX `ui -> -> 300 `i `ui > -> _validarCoordY `ui -> -> 300 `i `ui 369  ]
+{
+"28
+[; ;FuncionesMenu.c: 28:         printf("Metiste una coordenada invalida\n");
+[e ( _printf (1 :s 5C ]
+"29
+[; ;FuncionesMenu.c: 29:         goto leerCoordValida;
+[e $U 368  ]
+"30
+[; ;FuncionesMenu.c: 30:     }
 }
 [e :U 369 ]
+"31
+[; ;FuncionesMenu.c: 31:     printf("Coordenada recibida, lo que recibimos fue:");
+[e ( _printf (1 :s 6C ]
+"32
+[; ;FuncionesMenu.c: 32:     send(coordXCentenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux ]
+"33
+[; ;FuncionesMenu.c: 33:     send(coordXDecenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux ]
+"34
+[; ;FuncionesMenu.c: 34:     send(coordXUnidades[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux ]
+"35
+[; ;FuncionesMenu.c: 35:     send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"36
+[; ;FuncionesMenu.c: 36:     send(coordYCentenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux ]
+"37
+[; ;FuncionesMenu.c: 37:     send(coordYDecenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux ]
+"38
+[; ;FuncionesMenu.c: 38:     send(coordYUnidades[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux ]
+"39
+[; ;FuncionesMenu.c: 39:     send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"40
+[; ;FuncionesMenu.c: 40:     send(presionarZCentenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _presionarZCentenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZCentenas `ui `ux ]
+"41
+[; ;FuncionesMenu.c: 41:     send(presionarZDecenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _presionarZDecenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZDecenas `ui `ux ]
 "42
-[; ;PruebaMotoresY.c: 42: }
-[e :UE 368 ]
-}
-[v $root$_low_isr `(v ~T0 @X0 0 e ]
+[; ;FuncionesMenu.c: 42:     send(presionarZUnidades[coordenadaNueva]);
+[e ( _send (1 *U + &U _presionarZUnidades * -> _coordenadaNueva `ux -> -> # *U &U _presionarZUnidades `ui `ux ]
+"43
+[; ;FuncionesMenu.c: 43:     send('.');
+[e ( _send (1 -> -> 46 `ui `uc ]
+"44
+[; ;FuncionesMenu.c: 44:     coordenadaNueva++;
+[e ++ _coordenadaNueva -> -> 1 `i `uc ]
 "45
-[; ;PruebaMotoresY.c: 45: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
-[v _low_isr `(v ~T37 @X0 1 ef ]
-{
-[e :U _low_isr ]
-[f ]
+[; ;FuncionesMenu.c: 45: }
+[e :UE 367 ]
+}
 "46
-[; ;PruebaMotoresY.c: 46:     __nop();
-[e ( ___nop ..  ]
-"47
-[; ;PruebaMotoresY.c: 47: }
-[e :UE 370 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"49
-[; ;PruebaMotoresY.c: 49: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+[; ;FuncionesMenu.c: 46: void imprimirCoordenadas(void) {
+[v _imprimirCoordenadas `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _imprimirCoordenadas ]
 [f ]
+"47
+[; ;FuncionesMenu.c: 47:     uint8_t numCoordenadas = coordenadaNueva + 48;
+[v _numCoordenadas `uc ~T0 @X0 1 a ]
+[e = _numCoordenadas -> + -> _coordenadaNueva `i -> 48 `i `uc ]
+"48
+[; ;FuncionesMenu.c: 48:     printf("Elegiste la opcion de imprimir coordenadas\n");
+[e ( _printf (1 :s 7C ]
+"49
+[; ;FuncionesMenu.c: 49:     printf("Agregaste:");
+[e ( _printf (1 :s 8C ]
 "50
-[; ;PruebaMotoresY.c: 50:     portInit();
-[e ( _portInit ..  ]
+[; ;FuncionesMenu.c: 50:     if (coordenadaNueva > 9) {
+[e $ ! > -> _coordenadaNueva `i -> 9 `i 371  ]
+{
 "51
-[; ;PruebaMotoresY.c: 51:     UARTinit();
-[e ( _UARTinit ..  ]
+[; ;FuncionesMenu.c: 51:         send('1');
+[e ( _send (1 -> -> 49 `ui `uc ]
 "52
-[; ;PruebaMotoresY.c: 52:     PWM_CCP1_init();
-[e ( _PWM_CCP1_init ..  ]
+[; ;FuncionesMenu.c: 52:         send('0');
+[e ( _send (1 -> -> 48 `ui `uc ]
 "53
-[; ;PruebaMotoresY.c: 53:     PWM_DutyCycleCCP1(0);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 53:     } else {
+}
+[e $U 372  ]
+[e :U 371 ]
+{
 "54
-[; ;PruebaMotoresY.c: 54:     PWM_DutyCycleCCP2(0);
-[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 54:         send('numCoordenadas');
+[e ( _send (1 -> -> 24947 `ui `uc ]
 "55
-[; ;PruebaMotoresY.c: 55:     interruptsEnable();
-[e ( _interruptsEnable ..  ]
-"56
-[; ;PruebaMotoresY.c: 56:     motorYinit();
-[e ( _motorYinit ..  ]
-"57
-[; ;PruebaMotoresY.c: 57:     motorXinit();
-[e ( _motorXinit ..  ]
-"58
-[; ;PruebaMotoresY.c: 58:     tmr1Init();
-[e ( _tmr1Init ..  ]
-"59
-[; ;PruebaMotoresY.c: 59:     PIE1bits.TMR1IE = 1;
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-"65
-[; ;PruebaMotoresY.c: 65:     while (1) {
-[e :U 373 ]
-{
-"66
-[; ;PruebaMotoresY.c: 66:         if (working == 0) {
-[e $ ! == -> _working `i -> 0 `i 375  ]
-{
-"67
-[; ;PruebaMotoresY.c: 67:             unsigned char inutil = receive();
-[v _inutil `uc ~T0 @X0 1 a ]
-[e = _inutil ( _receive ..  ]
-"68
-[; ;PruebaMotoresY.c: 68:             inutil = 0;
-[e = _inutil -> -> 0 `i `uc ]
-"70
-[; ;PruebaMotoresY.c: 70:             printf("Empieza nueva instruccion, dame tu coordenada Y\n");
-[e ( _printf (1 :s 2C ]
-"71
-[; ;PruebaMotoresY.c: 71:             leerCoordy[0] = receive();
-[e = *U + &U _leerCoordy * -> -> -> 0 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ( _receive ..  ]
-"72
-[; ;PruebaMotoresY.c: 72:             leerCoordy[1] = receive();
-[e = *U + &U _leerCoordy * -> -> -> 1 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ( _receive ..  ]
-"73
-[; ;PruebaMotoresY.c: 73:             leerCoordy[2] = receive();
-[e = *U + &U _leerCoordy * -> -> -> 2 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ( _receive ..  ]
-"74
-[; ;PruebaMotoresY.c: 74:             printf("La coordenada que he recibido es: ");
-[e ( _printf (1 :s 3C ]
-"75
-[; ;PruebaMotoresY.c: 75:             send(leerCoordy[0]);
-[e ( _send (1 *U + &U _leerCoordy * -> -> -> 0 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ]
-"76
-[; ;PruebaMotoresY.c: 76:             send(leerCoordy[1]);
-[e ( _send (1 *U + &U _leerCoordy * -> -> -> 1 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ]
-"77
-[; ;PruebaMotoresY.c: 77:             send(leerCoordy[2]);
-[e ( _send (1 *U + &U _leerCoordy * -> -> -> 2 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux ]
-"78
-[; ;PruebaMotoresY.c: 78:             send(0xD);
-[e ( _send (1 -> -> 13 `i `uc ]
-"81
-[; ;PruebaMotoresY.c: 81:             coordinates.yWanted = ((leerCoordy[0] - 48)*100)+((leerCoordy[1] - 48)*10)+(leerCoordy[2] - 48);
-[e = . _coordinates 1 -> + + * - -> *U + &U _leerCoordy * -> -> -> 0 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _leerCoordy * -> -> -> 1 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _leerCoordy * -> -> -> 2 `i `ui `ux -> -> # *U &U _leerCoordy `ui `ux `i -> 48 `i `ui ]
-"82
-[; ;PruebaMotoresY.c: 82:             yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5;
-[e = _yToAdvance -> * ( _abs (1 -> - . _coordinates 1 _CurrentPosY `i -> 5 `i `ui ]
-"84
-[; ;PruebaMotoresY.c: 84:             printf("yToAdvance is:");
-[e ( _printf (1 :s 4C ]
-"85
-[; ;PruebaMotoresY.c: 85:             send(yToAdvance);
-[e ( _send (1 -> _yToAdvance `uc ]
-"86
-[; ;PruebaMotoresY.c: 86:             send('\n');
-[e ( _send (1 -> -> 10 `ui `uc ]
-"87
-[; ;PruebaMotoresY.c: 87:             if (coordinates.yWanted > CurrentPosY) {
-[e $ ! > . _coordinates 1 _CurrentPosY 376  ]
-{
-"88
-[; ;PruebaMotoresY.c: 88:                 LATDbits.LATD3 = 1;
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-"89
-[; ;PruebaMotoresY.c: 89:             } else if (coordinates.yWanted < CurrentPosY) {
-}
-[e $U 377  ]
-[e :U 376 ]
-[e $ ! < . _coordinates 1 _CurrentPosY 378  ]
-{
-"90
-[; ;PruebaMotoresY.c: 90:                 LATDbits.LATD3 = 0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-"91
-[; ;PruebaMotoresY.c: 91:             }
-}
-[e :U 378 ]
-[e :U 377 ]
-"92
-[; ;PruebaMotoresY.c: 92:             if (coordinates.yWanted != CurrentPosY) {
-[e $ ! != . _coordinates 1 _CurrentPosY 379  ]
-{
-"93
-[; ;PruebaMotoresY.c: 93:                 working = 1;
-[e = _working -> -> 1 `i `uc ]
-"94
-[; ;PruebaMotoresY.c: 94:                 LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-"95
-[; ;PruebaMotoresY.c: 95:                 setNumPasosY(yToAdvance);
-[e ( _setNumPasosY (1 _yToAdvance ]
-"96
-[; ;PruebaMotoresY.c: 96:                 PWM_DutyCycleCCP1(50);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
-"97
-[; ;PruebaMotoresY.c: 97:             } else if ((coordinates.yWanted == CurrentPosY)) {
-}
-[e $U 380  ]
-[e :U 379 ]
-[e $ ! == . _coordinates 1 _CurrentPosY 381  ]
-{
-"98
-[; ;PruebaMotoresY.c: 98:                 printf("\nYa estas en la coordenada deseada, prueba con otra coordenada\n");
-[e ( _printf (1 :s 5C ]
-"99
-[; ;PruebaMotoresY.c: 99:             }
-}
-[e :U 381 ]
-[e :U 380 ]
-"100
-[; ;PruebaMotoresY.c: 100:         }
-}
-[e :U 375 ]
-"101
-[; ;PruebaMotoresY.c: 101:     }
+[; ;FuncionesMenu.c: 55:     }
 }
 [e :U 372 ]
-[e $U 373  ]
-[e :U 374 ]
-"102
-[; ;PruebaMotoresY.c: 102: }
-[e :UE 371 ]
+"56
+[; ;FuncionesMenu.c: 56:     printf("coordenadas, las cuales son: \n");
+[e ( _printf (1 :s 9C ]
+"57
+[; ;FuncionesMenu.c: 57:     for (uint8_t impresionCoordenada = 0; impresionCoordenada < coordenadaNueva; impresionCoordenada++) {
+{
+[v _impresionCoordenada `uc ~T0 @X0 1 a ]
+[e = _impresionCoordenada -> -> 0 `i `uc ]
+[e $U 376  ]
+[e :U 373 ]
+{
+"58
+[; ;FuncionesMenu.c: 58:         printf("La coordenada ");
+[e ( _printf (1 :s 10C ]
+"59
+[; ;FuncionesMenu.c: 59:         send(impresionCoordenada + 48);
+[e ( _send (1 -> + -> _impresionCoordenada `i -> 48 `i `uc ]
+"60
+[; ;FuncionesMenu.c: 60:         printf(" contiene los valores de: ");
+[e ( _printf (1 :s 11C ]
+"61
+[; ;FuncionesMenu.c: 61:         send(coordXCentenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordXCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXCentenas `ui `ux ]
+"62
+[; ;FuncionesMenu.c: 62:         send(coordXDecenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordXDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXDecenas `ui `ux ]
+"63
+[; ;FuncionesMenu.c: 63:         send(coordXUnidades[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordXUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordXUnidades `ui `ux ]
+"64
+[; ;FuncionesMenu.c: 64:         send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"65
+[; ;FuncionesMenu.c: 65:         send(coordYCentenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordYCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYCentenas `ui `ux ]
+"66
+[; ;FuncionesMenu.c: 66:         send(coordYDecenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordYDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYDecenas `ui `ux ]
+"67
+[; ;FuncionesMenu.c: 67:         send(coordYUnidades[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordYUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordYUnidades `ui `ux ]
+"68
+[; ;FuncionesMenu.c: 68:         send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"69
+[; ;FuncionesMenu.c: 69:         send(presionarZCentenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _presionarZCentenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZCentenas `ui `ux ]
+"70
+[; ;FuncionesMenu.c: 70:         send(presionarZDecenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _presionarZDecenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZDecenas `ui `ux ]
+"71
+[; ;FuncionesMenu.c: 71:         send(presionarZUnidades[impresionCoordenada]);
+[e ( _send (1 *U + &U _presionarZUnidades * -> _impresionCoordenada `ux -> -> # *U &U _presionarZUnidades `ui `ux ]
+"72
+[; ;FuncionesMenu.c: 72:         send('.');
+[e ( _send (1 -> -> 46 `ui `uc ]
+"73
+[; ;FuncionesMenu.c: 73:         send ('\n');
+[e ( _send (1 -> -> 10 `ui `uc ]
+"74
+[; ;FuncionesMenu.c: 74:     }
 }
-[a 4C 121 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]
-[a 3C 76 97 32 99 111 111 114 100 101 110 97 100 97 32 113 117 101 32 104 101 32 114 101 99 105 98 105 100 111 32 101 115 58 32 0 ]
-[a 5C 10 89 97 32 101 115 116 97 115 32 101 110 32 108 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 44 32 112 114 117 101 98 97 32 99 111 110 32 111 116 114 97 32 99 111 111 114 100 101 110 97 100 97 10 0 ]
-[a 1C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 49 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 10 0 ]
-[a 2C 69 109 112 105 101 122 97 32 110 117 101 118 97 32 105 110 115 116 114 117 99 99 105 111 110 44 32 100 97 109 101 32 116 117 32 99 111 111 114 100 101 110 97 100 97 32 89 10 0 ]
+[e ++ _impresionCoordenada -> -> 1 `i `uc ]
+[e :U 376 ]
+[e $ < -> _impresionCoordenada `i -> _coordenadaNueva `i 373  ]
+[e :U 374 ]
+}
+"75
+[; ;FuncionesMenu.c: 75: }
+[e :UE 370 ]
+}
+[a 1C 73 110 116 114 111 100 117 99 101 32 101 110 32 101 108 32 115 105 103 117 105 101 110 116 101 32 111 114 100 101 110 32 108 97 115 32 118 97 114 105 97 98 108 101 115 32 97 32 117 115 97 114 32 40 110 111 32 117 115 101 115 32 108 97 115 32 99 111 109 97 115 41 58 32 99 111 111 114 100 88 44 99 111 111 114 100 89 44 35 32 100 101 32 118 101 99 101 115 32 97 32 112 114 101 115 105 111 110 97 114 32 90 0 ]
+[a 3C 82 101 99 105 98 105 32 99 111 111 114 100 89 0 ]
+[a 2C 82 101 99 105 98 105 32 99 111 111 114 100 88 0 ]
+[a 6C 67 111 111 114 100 101 110 97 100 97 32 114 101 99 105 98 105 100 97 44 32 108 111 32 113 117 101 32 114 101 99 105 98 105 109 111 115 32 102 117 101 58 0 ]
+[a 8C 65 103 114 101 103 97 115 116 101 58 0 ]
+[a 10C 76 97 32 99 111 111 114 100 101 110 97 100 97 32 0 ]
+[a 11C 32 99 111 110 116 105 101 110 101 32 108 111 115 32 118 97 108 111 114 101 115 32 100 101 58 32 0 ]
+[a 7C 69 108 101 103 105 115 116 101 32 108 97 32 111 112 99 105 111 110 32 100 101 32 105 109 112 114 105 109 105 114 32 99 111 111 114 100 101 110 97 100 97 115 10 0 ]
+[a 5C 77 101 116 105 115 116 101 32 117 110 97 32 99 111 111 114 100 101 110 97 100 97 32 105 110 118 97 108 105 100 97 10 0 ]
+[a 4C 82 101 99 105 98 105 32 35 32 100 101 32 118 101 99 101 115 32 97 32 112 114 101 115 105 111 110 97 114 32 90 10 0 ]
+[a 9C 99 111 111 114 100 101 110 97 100 97 115 44 32 108 97 115 32 99 117 97 108 101 115 32 115 111 110 58 32 10 0 ]

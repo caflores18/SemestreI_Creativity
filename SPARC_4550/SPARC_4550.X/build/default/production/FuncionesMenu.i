@@ -1,4 +1,4 @@
-# 1 "PruebaMotoresY.c"
+# 1 "FuncionesMenu.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "PruebaMotoresY.c" 2
-
-
+# 1 "FuncionesMenu.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5620,14 +5618,102 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 3 "PruebaMotoresY.c" 2
+# 1 "FuncionesMenu.c" 2
 
-# 1 "./Gpio.h" 1
-# 17 "./Gpio.h"
-void portInit(void);
-void motorXinit(void);
-void motorYinit(void);
-# 4 "PruebaMotoresY.c" 2
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+# 2 "FuncionesMenu.c" 2
+
+
+# 1 "./Comunicacion.h" 1
+# 11 "./Comunicacion.h"
+void printf (unsigned char *PointString);
+
+
+
+void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+# 4 "FuncionesMenu.c" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5641,138 +5727,94 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 5 "PruebaMotoresY.c" 2
+# 5 "FuncionesMenu.c" 2
 
-# 1 "./PWMCCP2.h" 1
-# 11 "./PWMCCP2.h"
-void PWM_CCP2_init(void);
-void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 6 "PruebaMotoresY.c" 2
+# 1 "./FuncionesMenu.h" 1
+# 13 "./FuncionesMenu.h"
+uint8_t coordXCentenas [10];
+uint8_t coordXDecenas [10];
+uint8_t coordXUnidades[10];
 
-# 1 "./PWMCCP1.h" 1
-# 11 "./PWMCCP1.h"
-void PWM_CCP1_init(void);
-void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-# 7 "PruebaMotoresY.c" 2
+uint8_t coordYCentenas [10];
+uint8_t coordYDecenas [10];
+uint8_t coordYUnidades[10];
 
-# 1 "./ADC.h" 1
-# 11 "./ADC.h"
-void ADCinit(void);
-unsigned int ADCvalue();
-# 8 "PruebaMotoresY.c" 2
+uint8_t presionarZCentenas [10];
+uint8_t presionarZDecenas [10];
+uint8_t presionarZUnidades[10];
 
-# 1 "./Interrupciones.h" 1
-# 11 "./Interrupciones.h"
-void interruptsEnable();
-void interruptsDisable();
-void habilitarIntExternas();
-# 9 "PruebaMotoresY.c" 2
+uint8_t coordenadaNueva = 0;
 
-# 1 "./Comunicacion.h" 1
-# 11 "./Comunicacion.h"
-void printf (unsigned char *PointString);
+void introducirCoordNueva(void);
+void imprimirCoordenadas(void);
+# 6 "FuncionesMenu.c" 2
 
 
-
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 10 "PruebaMotoresY.c" 2
-
-# 1 "./Timers.h" 1
-# 11 "./Timers.h"
-void tmr0Init(void);
-void tmr1Init(void);
-void setNumPasosX(unsigned int numPasosX);
-void setNumPasosY(unsigned int numPasosY);
-# 11 "PruebaMotoresY.c" 2
-
-
-
-
-struct SystemaSPARC {
-    unsigned int xWanted;
-    unsigned int yWanted;
-    unsigned long timesToPress;
-} coordinates;
-
-unsigned int xToAdvance;
-unsigned int CurrentPosX = 0;
-unsigned char leercoordx[3];
-
-unsigned int yToAdvance;
-unsigned int CurrentPosY = 0;
-unsigned char leerCoordy[3];
-
-unsigned char working = 0;
-
-
-
-__attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-    if (PIR1bits.TMR1IF = 1) {
-        PWM_DutyCycleCCP1(0);
-        LATAbits.LATA2 = 0;
-        CurrentPosY = coordinates.yWanted;
-        printf("Interrupcion TMR1, llegaste a coordenada deseada\n");
-        working = 0;
-        PIR1bits.TMR1IF = 0;
+void introducirCoordNueva() {
+    uint16_t validarCoordX = 0;
+    uint16_t validarCoordY = 0;
+leerCoordValida:
+    printf("Introduce en el siguiente orden las variables a usar (no uses las comas): coordX,coordY,# de veces a presionar Z");
+    coordXCentenas[coordenadaNueva] = receive();
+    coordXDecenas[coordenadaNueva] = receive();
+    coordXUnidades[coordenadaNueva] = receive();
+    printf("Recibi coordX");
+    coordYCentenas[coordenadaNueva] = receive();
+    coordYDecenas[coordenadaNueva] = receive();
+    coordYUnidades[coordenadaNueva] = receive();
+    printf("Recibi coordY");
+    presionarZCentenas[coordenadaNueva] = receive();
+    presionarZDecenas[coordenadaNueva] = receive();
+    presionarZUnidades[coordenadaNueva] = receive();
+    printf("Recibi # de veces a presionar Z\n");
+    validarCoordX = ((coordXCentenas[coordenadaNueva] - 48)*100)+((coordXDecenas[coordenadaNueva] - 48)*10)+(coordXUnidades[coordenadaNueva] - 48);
+    validarCoordY = ((coordYCentenas[coordenadaNueva] - 48)*100)+((coordYDecenas[coordenadaNueva] - 48)*10)+(coordYUnidades[coordenadaNueva] - 48);
+    if ((validarCoordX > 300) || (validarCoordY > 300)) {
+        printf("Metiste una coordenada invalida\n");
+        goto leerCoordValida;
     }
+    printf("Coordenada recibida, lo que recibimos fue:");
+    send(coordXCentenas[coordenadaNueva]);
+    send(coordXDecenas[coordenadaNueva]);
+    send(coordXUnidades[coordenadaNueva]);
+    send(',');
+    send(coordYCentenas[coordenadaNueva]);
+    send(coordYDecenas[coordenadaNueva]);
+    send(coordYUnidades[coordenadaNueva]);
+    send(',');
+    send(presionarZCentenas[coordenadaNueva]);
+    send(presionarZDecenas[coordenadaNueva]);
+    send(presionarZUnidades[coordenadaNueva]);
+    send('.');
+    coordenadaNueva++;
 }
-
-
-__attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
-    __nop();
-}
-
-void main(void) {
-    portInit();
-    UARTinit();
-    PWM_CCP1_init();
-    PWM_DutyCycleCCP1(0);
-    PWM_DutyCycleCCP2(0);
-    interruptsEnable();
-    motorYinit();
-    motorXinit();
-    tmr1Init();
-    PIE1bits.TMR1IE = 1;
-
-
-
-
-
-    while (1) {
-        if (working == 0) {
-            unsigned char inutil = receive();
-            inutil = 0;
-
-            printf("Empieza nueva instruccion, dame tu coordenada Y\n");
-            leerCoordy[0] = receive();
-            leerCoordy[1] = receive();
-            leerCoordy[2] = receive();
-            printf("La coordenada que he recibido es: ");
-            send(leerCoordy[0]);
-            send(leerCoordy[1]);
-            send(leerCoordy[2]);
-            send(0xD);
-
-
-            coordinates.yWanted = ((leerCoordy[0] - 48)*100)+((leerCoordy[1] - 48)*10)+(leerCoordy[2] - 48);
-            yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5;
-
-            printf("yToAdvance is:");
-            send(yToAdvance);
-            send('\n');
-            if (coordinates.yWanted > CurrentPosY) {
-                LATDbits.LATD3 = 1;
-            } else if (coordinates.yWanted < CurrentPosY) {
-                LATDbits.LATD3 = 0;
-            }
-            if (coordinates.yWanted != CurrentPosY) {
-                working = 1;
-                LATAbits.LATA2 = 1;
-                setNumPasosY(yToAdvance);
-                PWM_DutyCycleCCP1(50);
-            } else if ((coordinates.yWanted == CurrentPosY)) {
-                printf("\nYa estas en la coordenada deseada, prueba con otra coordenada\n");
-            }
-        }
+void imprimirCoordenadas(void) {
+    uint8_t numCoordenadas = coordenadaNueva + 48;
+    printf("Elegiste la opcion de imprimir coordenadas\n");
+    printf("Agregaste:");
+    if (coordenadaNueva > 9) {
+        send('1');
+        send('0');
+    } else {
+        send('numCoordenadas');
+    }
+    printf("coordenadas, las cuales son: \n");
+    for (uint8_t impresionCoordenada = 0; impresionCoordenada < coordenadaNueva; impresionCoordenada++) {
+        printf("La coordenada ");
+        send(impresionCoordenada + 48);
+        printf(" contiene los valores de: ");
+        send(coordXCentenas[impresionCoordenada]);
+        send(coordXDecenas[impresionCoordenada]);
+        send(coordXUnidades[impresionCoordenada]);
+        send(',');
+        send(coordYCentenas[impresionCoordenada]);
+        send(coordYDecenas[impresionCoordenada]);
+        send(coordYUnidades[impresionCoordenada]);
+        send(',');
+        send(presionarZCentenas[impresionCoordenada]);
+        send(presionarZDecenas[impresionCoordenada]);
+        send(presionarZUnidades[impresionCoordenada]);
+        send('.');
+        send ('\n');
     }
 }

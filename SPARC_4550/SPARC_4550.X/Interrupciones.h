@@ -8,9 +8,10 @@
 #ifndef INTERRUPCIONES_H
 #define	INTERRUPCIONES_H
 #include <xc.h>
-void interruptsEnable();
-void interruptsDisable();
-void habilitarIntExternas();
-
+void interruptsEnable(void);
+void interruptsDisable(void);
+void habilitarIntExternas(void);
+void habilitarIntTMR0(void);
+void habilitarIntTMR1(void);
 #endif	/* INTERRUPCIONES_H */
 
