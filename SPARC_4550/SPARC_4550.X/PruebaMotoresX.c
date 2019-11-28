@@ -30,13 +30,13 @@ unsigned char working = 0; //Esta variable se prende cuando alguno de los motore
 //ISR de alta prioridad
 
 __interrupt(high_priority) void high_isr(void) {
-    if (INTCONbits.TMR0IF = 1) {
-        PWM_DutyCycleCCP2(0);
+    if (PIR1bits.TMR1IF = 1) { //Si el TMR1 registro OverFlow 
+        PWM_DutyCycleCCP1(0);
         LATAbits.LATA2 = 0; //Se apaga el foco que indica Y
-        CurrentPosX = coordinates.xWanted; //Se actualiza el valor actual de la Y*/
-        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
+        CurrentPosX = coordinates.xWanted; //Se actualiza el valor actual de la Y
+        printf("Interrupcion TMR1, llegaste a coordenada deseada\n");
         working = 0;
-        INTCONbits.TMR0IF = 0;
+        PIR1bits.TMR1IF = 0; //Se apaga la interrupcion del TMR1
     }
 }
 //ISR de baja prioridad
@@ -44,18 +44,20 @@ __interrupt(high_priority) void high_isr(void) {
 __interrupt(low_priority) void low_isr(void) {
     Nop(); //Funcion para consumir un ciclo de instruccion
 }
+
 void main(void) {
     portInit();
     UARTinit();
-    PWM_CCP2_init(); //Se usara CCP2 para mover el motor X    motorXinit();
+    PWM_CCP1_init(); //Se usara CCP1 para mover el motor X
+    PWM_CCP2_init(); //Se usara CCP2 para mover el motor Y
     PWM_DutyCycleCCP2(0);
     PWM_DutyCycleCCP1(0);
     interruptsEnable();
     motorYinit();
     motorXinit();
-    tmr0Init();
-    INTCONbits.TMR0IE = 1; //Se enciende del TMR0    
-    PWM_CCP1_init();
+    // tmr0Init(); TMR de Y
+    tmr1Init();
+    PIE1bits.TMR1IE = 1; //Enciende interrupcion del TMR1    
     //habilitarIntExternas();
     //ADCinit(); 
     //Inicio del ciclo infinito 
@@ -78,17 +80,17 @@ void main(void) {
             xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5; //X por avanzar es xWanted menos CurrentPosX
             printf("xToAdvance is:");
             send(xToAdvance);
-              send('\n');
+            send('\n');
             if (coordinates.xWanted > CurrentPosX) { //Si el valor por recorrer es positivo
                 dirMotorX = 1; //El motor se mueve hacia un lado
             } else if (coordinates.xWanted < CurrentPosX) {//Si el valor por recorrer es negativo
                 dirMotorX = 0; //El motor se mueve al otro lado
             }
             if (coordinates.xWanted != CurrentPosX) {
-                working = 1; 
+                working = 1;
                 LATAbits.LATA2 = 1; //Se enciende el foco que indica Y
                 setNumPasosX(xToAdvance);
-                PWM_DutyCycleCCP2(50);
+                PWM_DutyCycleCCP1(50);
             } else if ((coordinates.xWanted == CurrentPosX)) {
                 printf("\nYa estas en la coordenada deseada, prueba con otra coordenada\n");
             }

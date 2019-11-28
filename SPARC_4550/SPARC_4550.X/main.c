@@ -6,6 +6,7 @@
 #include "FuncionesMenu.h"
 #include "Gpio.h"
 #include "Interrupciones.h"
+#include "MotoresXY.h"
 #include "PWMCCP1.h"
 #include "PWMCCP2.h"
 #include "Timers.h"
@@ -13,7 +14,7 @@
 #define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
 //---------------------Variables globales ----------------------------------
 
-struct SystemaSPARC {
+/*struct SystemaSPARC {
     unsigned int xWanted; //coordenada X objetivo
     unsigned int yWanted; //coordenada Y objetivo
     unsigned long timesToPress; //Numero de veces a presionar la pantalla
@@ -27,7 +28,7 @@ unsigned int yToAdvance; // Y por avanzar en pasos (Ya)
 unsigned int CurrentPosY = 0; // Y current posicion actual (Yc)
 //unsigned char leerCoordy[3]; //Guarda el valor coord Y
 //Procedimiento compartido (X) y (Y)
-unsigned char working = 0; //Esta variable se prende cuando alguno de los motores se va a mover
+unsigned char working = 0; //Esta variable se prende cuando alguno de los motores se va a mover*/
 //ISR de alta prioridad
 
 __interrupt(high_priority) void high_isr(void) {
@@ -89,8 +90,7 @@ void main(void) {
                 imprimirCoordenadas();
             }
             if (opcionsel == '3') {
-                printf("Entraste a la opcion de modificar coordenada\n");
-                printf("Entraste al 3");
+                printf("Has elegido ir a home\n");
             }
             if (opcionsel == '4') {
                 modificarCoordenada();

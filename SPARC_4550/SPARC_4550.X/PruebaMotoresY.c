@@ -31,13 +31,13 @@ unsigned char working = 0; //Esta variable se prende cuando alguno de los motore
 //ISR de alta prioridad
 
 __interrupt(high_priority) void high_isr(void) {
-    if (PIR1bits.TMR1IF = 1) { //Si el TMR1 registro OverFlow 
-        PWM_DutyCycleCCP1(0);
+    if (INTCONbits.TMR0IF = 1) {
+        PWM_DutyCycleCCP2(0);
         LATAbits.LATA2 = 0; //Se apaga el foco que indica Y
-        CurrentPosY = coordinates.yWanted; //Se actualiza el valor actual de la Y
-        printf("Interrupcion TMR1, llegaste a coordenada deseada\n");
+        CurrentPosY = coordinates.yWanted; //Se actualiza el valor actual de la Y*/
+        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
         working = 0;
-        PIR1bits.TMR1IF = 0; //Se apaga la interrupcion del TMR1
+        INTCONbits.TMR0IF = 0;
     }
 }
 //ISR de baja prioridad
@@ -49,14 +49,16 @@ __interrupt(low_priority) void low_isr(void) {
 void main(void) {
     portInit();
     UARTinit();
-    PWM_CCP1_init(); //Se va a usar CCP1 para mover el motor Y
+    PWM_CCP1_init(); //Se va a usar CCP1 para mover el motor X
+    PWM_CCP2_init(); //Se va a usar CCP1 para mover el motor Y
     PWM_DutyCycleCCP1(0);
+    PWM_DutyCycleCCP2(0);
     interruptsEnable(); //Se enciende el sistema de interrupciones
     motorYinit(); //Se inicializa lo necesario para el motor Y
     motorXinit();
-    tmr1Init(); //Se inicializa TMR1
-    PIE1bits.TMR1IE = 1; //Enciende interrupcion del TMR1
-    //PWM_CCP2_init();
+    //tmr1Init(); //Se inicializa TMR1
+    tmr0Init(); //Se inicializa TMR1
+    INTCONbits.TMR0IE = 1; //Se enciende del TMR0
     //habilitarIntExternas();
     //ADCinit(); 
 
@@ -75,7 +77,6 @@ void main(void) {
             send(leerCoordy[1]);
             send(leerCoordy[2]);
             send(0xD); //Envia salto de linea
-
             //Procedimiento Y
             coordinates.yWanted = ((leerCoordy[0] - 48)*100)+((leerCoordy[1] - 48)*10)+(leerCoordy[2] - 48);
             yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5; //Y por avanzar es yWanted menos CurrentPosY
@@ -92,7 +93,7 @@ void main(void) {
                 working = 1;
                 LATAbits.LATA2 = 1; //Se enciende el foco que indica Y
                 setNumPasosY(yToAdvance);
-                PWM_DutyCycleCCP1(50);
+                PWM_DutyCycleCCP2(50);
             } else if ((coordinates.yWanted == CurrentPosY)) {
                 printf("\nYa estas en la coordenada deseada, prueba con otra coordenada\n");
             }

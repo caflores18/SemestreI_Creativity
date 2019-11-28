@@ -13,6 +13,7 @@
       <itemPath>Comunicacion.h</itemPath>
       <itemPath>Timers.h</itemPath>
       <itemPath>FuncionesMenu.h</itemPath>
+      <itemPath>MotoresXY.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -26,6 +27,7 @@
       <itemPath>Comunicacion.c</itemPath>
       <itemPath>Timers.c</itemPath>
       <itemPath>FuncionesMenu.c</itemPath>
+      <itemPath>MotoresXY.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"

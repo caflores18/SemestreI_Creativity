@@ -5762,17 +5762,19 @@ void habilitarIntTMR0(void);
 void habilitarIntTMR1(void);
 # 8 "main.c" 2
 
+# 1 "./MotoresXY.h" 1
+# 17 "./MotoresXY.h"
 # 1 "./PWMCCP1.h" 1
 # 11 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-# 9 "main.c" 2
+# 17 "./MotoresXY.h" 2
 
 # 1 "./PWMCCP2.h" 1
 # 11 "./PWMCCP2.h"
 void PWM_CCP2_init(void);
 void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 10 "main.c" 2
+# 18 "./MotoresXY.h" 2
 
 # 1 "./Timers.h" 1
 # 11 "./Timers.h"
@@ -5780,7 +5782,7 @@ void tmr0Init(void);
 void tmr1Init(void);
 void setNumPasosX(unsigned int numPasosX);
 void setNumPasosY(unsigned int numPasosY);
-# 11 "main.c" 2
+# 19 "./MotoresXY.h" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5794,9 +5796,7 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
-# 12 "main.c" 2
-
-
+# 20 "./MotoresXY.h" 2
 
 
 struct SystemaSPARC {
@@ -5813,9 +5813,9 @@ unsigned int yToAdvance;
 unsigned int CurrentPosY = 0;
 
 
-unsigned char working = 0;
-
-
+unsigned char sparcEnMovimiento = 0;
+# 9 "main.c" 2
+# 34 "main.c"
 __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
     __nop();
 }
@@ -5865,7 +5865,7 @@ void main(void) {
                 opcionsel = receive();
             }
             if (opcionsel == '0') {
-                printf("Entraste al 0");
+                printf("Funcionamiento del SPARC:");
             }
             if (opcionsel == '1') {
                 introducirCoordNueva();
@@ -5875,8 +5875,7 @@ void main(void) {
                 imprimirCoordenadas();
             }
             if (opcionsel == '3') {
-                printf("Entraste a la opcion de modificar coordenada\n");
-                printf("Entraste al 3");
+                printf("Has elegido ir a home\n");
             }
             if (opcionsel == '4') {
                 modificarCoordenada();

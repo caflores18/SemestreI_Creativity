@@ -5740,17 +5740,6 @@ void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
 # 5 "Timers.c" 2
 
 
-void tmr0Init(void) {
-
-    T0CONbits.TMR0ON = 0;
-    T0CONbits.T08BIT = 0;
-    T0CONbits.T0CS = 1;
-    T0CONbits.T0SE = 0;
-    TRISAbits.RA4 = 1;
-    TMR0 = 0;
-    T0CONbits.TMR0ON = 1;
-}
-
 void tmr1Init() {
 
     T1CONbits.TMR1ON = 0;
@@ -5764,24 +5753,35 @@ void tmr1Init() {
     T1CONbits.TMR1ON = 1;
 }
 
-void setNumPasosX(unsigned int numPasosX) {
-    if (numPasosX > 0) {
-        unsigned int resultado = (65536 - numPasosX);
-        TMR0H = (resultado >> 8);
-        TMR0L = resultado;
-    } else {
-        TMR0H = (65535 >> 8);
-        TMR0L = 65535;
-    }
+void tmr0Init(void) {
+
+    T0CONbits.TMR0ON = 0;
+    T0CONbits.T08BIT = 0;
+    T0CONbits.T0CS = 1;
+    T0CONbits.T0SE = 0;
+    TRISAbits.RA4 = 1;
+    TMR0 = 0;
+    T0CONbits.TMR0ON = 1;
 }
 
-void setNumPasosY(unsigned int numPasosY) {
-        if (numPasosY > 0) {
-        unsigned int resultado = (65537 - numPasosY);
+void setNumPasosX(unsigned int numPasosX) {
+    if (numPasosX > 0) {
+        unsigned int resultado = (65537 - numPasosX);
         TMR1H = (resultado >> 8);
         TMR1L = resultado;
     } else {
         TMR1H = (65535 >> 8);
         TMR1L = 65535;
+    }
+}
+
+void setNumPasosY(unsigned int numPasosY) {
+    if (numPasosY > 0) {
+        unsigned int resultado = (65536 - numPasosY);
+        TMR0H = (resultado >> 8);
+        TMR0L = resultado;
+    } else {
+        TMR0H = (65535 >> 8);
+        TMR0L = 65535;
     }
 }

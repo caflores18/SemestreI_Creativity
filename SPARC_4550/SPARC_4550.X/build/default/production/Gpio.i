@@ -5642,21 +5642,6 @@ void portInit ( void ) {
 }
 void motorXinit( void ) {
 
-    TRISAbits.RA2 = 0;
-    TRISAbits.RA3 = 0;
-    LATAbits.LATA2 = 0;
-    LATAbits.LATA3 = 0;
-
-    TRISDbits.RD0 = 0;
-    TRISDbits.RD1 = 0;
-    TRISCbits.RC1 = 0;
-    LATDbits.LATD0 = 0;
-    LATDbits.LATD1 = 0;
-    LATCbits.LC1 = 0;
-}
-
-void motorYinit( void ) {
-
     TRISDbits.RD2 = 0;
     TRISDbits.RD3 = 0;
     TRISCbits.RC2 = 0;
@@ -5664,4 +5649,18 @@ void motorYinit( void ) {
     LATDbits.LATD3 = 0;
     LATCbits.LATC2 = 0;
 
+}
+void motorYinit( void ) {
+
+
+
+
+
+
+    TRISDbits.RD0 = 0;
+    TRISDbits.RD1 = 0;
+    TRISCbits.RC1 = 0;
+    LATDbits.LATD0 = 0;
+    LATDbits.LATD1 = 0;
+    LATCbits.LC1 = 0;
 }

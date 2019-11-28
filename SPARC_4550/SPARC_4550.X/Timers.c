@@ -4,17 +4,6 @@
 #include "Comunicacion.h"
 #include "UART.h"
 
-void tmr0Init(void) {
-    //Declaracion de pines para TMR0 para motor Y(CCP2)
-    T0CONbits.TMR0ON = 0; //TMR0 esta apagado mientras se configura
-    T0CONbits.T08BIT = 0; //Se configura el TMR0 de 16 bits
-    T0CONbits.T0CS = 1; //Se usa el pin T0CKI como contador de eventos
-    T0CONbits.T0SE = 0; //Incremento en transicion ascendente del T0CKI 
-    TRISAbits.RA4 = 1; //Se declara A4 como input (PIN DE T0CKI), cuenta pulsos CCP2
-    TMR0 = 0; //El valor del timer se inicia en 0
-    T0CONbits.TMR0ON = 1; //Se enciende el TMR0 despues de haberlo configurado
-}
-
 void tmr1Init() {
     //Declaracion de pines para TM1 para motor X (CCP1)
     T1CONbits.TMR1ON = 0; //Se apaga el TMR1 para poder configurarlo
@@ -28,24 +17,35 @@ void tmr1Init() {
     T1CONbits.TMR1ON = 1; //Se enciende el TMR1 
 }
 
-void setNumPasosX(unsigned int numPasosX) {
-    if (numPasosX > 0) {
-        unsigned int resultado = (65536 - numPasosX);
-        TMR0H = (resultado >> 8);
-        TMR0L = resultado;
-    } else {
-        TMR0H = (65535 >> 8);
-        TMR0L = 65535;
-    }
+void tmr0Init(void) {
+    //Declaracion de pines para TMR0 para motor Y(CCP2)
+    T0CONbits.TMR0ON = 0; //TMR0 esta apagado mientras se configura
+    T0CONbits.T08BIT = 0; //Se configura el TMR0 de 16 bits
+    T0CONbits.T0CS = 1; //Se usa el pin T0CKI como contador de eventos
+    T0CONbits.T0SE = 0; //Incremento en transicion ascendente del T0CKI 
+    TRISAbits.RA4 = 1; //Se declara A4 como input (PIN DE T0CKI), cuenta pulsos CCP2
+    TMR0 = 0; //El valor del timer se inicia en 0
+    T0CONbits.TMR0ON = 1; //Se enciende el TMR0 despues de haberlo configurado
 }
 
-void setNumPasosY(unsigned int numPasosY) {
-        if (numPasosY > 0) {
-        unsigned int resultado = (65537 - numPasosY);
+void setNumPasosX(unsigned int numPasosX) {
+    if (numPasosX > 0) {
+        unsigned int resultado = (65537 - numPasosX);
         TMR1H = (resultado >> 8);
         TMR1L = resultado;
     } else {
         TMR1H = (65535 >> 8);
         TMR1L = 65535;
+    }
+}
+
+void setNumPasosY(unsigned int numPasosY) {
+    if (numPasosY > 0) {
+        unsigned int resultado = (65536 - numPasosY);
+        TMR0H = (resultado >> 8);
+        TMR0L = resultado;
+    } else {
+        TMR0H = (65535 >> 8);
+        TMR0L = 65535;
     }
 }

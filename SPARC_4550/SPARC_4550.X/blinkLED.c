@@ -2,8 +2,10 @@
 #include <xc.h>
 #include "Gpio.h"
 #include "UART.h"
+#include "Comunicacion.h"
 #include "PWMCCP2.h"
 #include "PWMCCP1.h"
+
 //ISR de alta prioridad
 #define _XTAL_FREQ 8000000
 

@@ -1,38 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"8075 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8075:     struct {
-[s S347 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S347 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
-"8083
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8083:     struct {
-[s S348 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S348 . T0PS0 T0PS1 T0PS2 ]
-"8074
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8074: typedef union {
-[u S346 `S347 1 `S348 1 ]
-[n S346 . . . ]
-"8089
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8089: extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
-[v _T0CONbits `VS346 ~T0 @X0 0 e@4053 ]
-"3438
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3438:     struct {
-[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S142 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 ]
-"3447
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3447:     struct {
-[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S143 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
-"3437
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3437: typedef union {
-[u S141 `S142 1 `S143 1 ]
-[n S141 . . . ]
-"3457
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3457: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
-[v _TRISAbits `VS141 ~T0 @X0 0 e@3986 ]
-"8139
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8139: extern volatile unsigned short TMR0 __attribute__((address(0xFD6)));
-[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
-"7421
+"7421 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7421:     struct {
 [s S317 :2 `uc 1 :1 `uc 1 ]
 [n S317 . . NOT_T1SYNC ]
@@ -73,18 +40,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7518
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7518: extern volatile unsigned short TMR1 __attribute__((address(0xFCE)));
 [v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
-"8153
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8153: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
-"8146
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8146: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"8075
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8075:     struct {
+[s S347 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S347 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"8083
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8083:     struct {
+[s S348 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S348 . T0PS0 T0PS1 T0PS2 ]
+"8074
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8074: typedef union {
+[u S346 `S347 1 `S348 1 ]
+[n S346 . . . ]
+"8089
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8089: extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
+[v _T0CONbits `VS346 ~T0 @X0 0 e@4053 ]
+"3438
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3438:     struct {
+[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S142 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 ]
+"3447
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3447:     struct {
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S143 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
+"3437
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3437: typedef union {
+[u S141 `S142 1 `S143 1 ]
+[n S141 . . . ]
+"3457
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3457: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
+[v _TRISAbits `VS141 ~T0 @X0 0 e@3986 ]
+"8139
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8139: extern volatile unsigned short TMR0 __attribute__((address(0xFD6)));
+[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
 "7532
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7532: extern volatile unsigned char TMR1H __attribute__((address(0xFCF)));
 [v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
 "7525
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7525: extern volatile unsigned char TMR1L __attribute__((address(0xFCE)));
 [v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
+"8153
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8153: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"8146
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8146: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -596,69 +596,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "7 Timers.c
-[; ;Timers.c: 7: void tmr0Init(void) {
-[v _tmr0Init `(v ~T0 @X0 1 ef ]
-{
-[e :U _tmr0Init ]
-[f ]
-"9
-[; ;Timers.c: 9:     T0CONbits.TMR0ON = 0;
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-"10
-[; ;Timers.c: 10:     T0CONbits.T08BIT = 0;
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-"11
-[; ;Timers.c: 11:     T0CONbits.T0CS = 1;
-[e = . . _T0CONbits 0 3 -> -> 1 `i `uc ]
-"12
-[; ;Timers.c: 12:     T0CONbits.T0SE = 0;
-[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
-"13
-[; ;Timers.c: 13:     TRISAbits.RA4 = 1;
-[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
-"14
-[; ;Timers.c: 14:     TMR0 = 0;
-[e = _TMR0 -> -> 0 `i `us ]
-"15
-[; ;Timers.c: 15:     T0CONbits.TMR0ON = 1;
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"16
-[; ;Timers.c: 16: }
-[e :UE 367 ]
-}
-"18
-[; ;Timers.c: 18: void tmr1Init() {
+[; ;Timers.c: 7: void tmr1Init() {
 [v _tmr1Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _tmr1Init ]
 [f ]
-"20
-[; ;Timers.c: 20:     T1CONbits.TMR1ON = 0;
+"9
+[; ;Timers.c: 9:     T1CONbits.TMR1ON = 0;
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-"21
-[; ;Timers.c: 21:     T1CONbits.RD16 = 1;
+"10
+[; ;Timers.c: 10:     T1CONbits.RD16 = 1;
 [e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
-"22
-[; ;Timers.c: 22:     T1CONbits.T1OSCEN = 0;
+"11
+[; ;Timers.c: 11:     T1CONbits.T1OSCEN = 0;
 [e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
-"23
-[; ;Timers.c: 23:     T1CONbits.T1RUN = 1;
+"12
+[; ;Timers.c: 12:     T1CONbits.T1RUN = 1;
 [e = . . _T1CONbits 1 5 -> -> 1 `i `uc ]
-"24
-[; ;Timers.c: 24:     T1CONbits.TMR1CS = 1;
+"13
+[; ;Timers.c: 13:     T1CONbits.TMR1CS = 1;
 [e = . . _T1CONbits 1 1 -> -> 1 `i `uc ]
-"25
-[; ;Timers.c: 25:     T1CONbits.T1SYNC = 1;
+"14
+[; ;Timers.c: 14:     T1CONbits.T1SYNC = 1;
 [e = . . _T1CONbits 2 1 -> -> 1 `i `uc ]
-"26
-[; ;Timers.c: 26:     TRISCbits.RC0 = 1;
+"15
+[; ;Timers.c: 15:     TRISCbits.RC0 = 1;
 [e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
-"27
-[; ;Timers.c: 27:     TMR1 = 0;
+"16
+[; ;Timers.c: 16:     TMR1 = 0;
 [e = _TMR1 -> -> 0 `i `us ]
-"28
-[; ;Timers.c: 28:     T1CONbits.TMR1ON = 1;
+"17
+[; ;Timers.c: 17:     T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+"18
+[; ;Timers.c: 18: }
+[e :UE 367 ]
+}
+"20
+[; ;Timers.c: 20: void tmr0Init(void) {
+[v _tmr0Init `(v ~T0 @X0 1 ef ]
+{
+[e :U _tmr0Init ]
+[f ]
+"22
+[; ;Timers.c: 22:     T0CONbits.TMR0ON = 0;
+[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+"23
+[; ;Timers.c: 23:     T0CONbits.T08BIT = 0;
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+"24
+[; ;Timers.c: 24:     T0CONbits.T0CS = 1;
+[e = . . _T0CONbits 0 3 -> -> 1 `i `uc ]
+"25
+[; ;Timers.c: 25:     T0CONbits.T0SE = 0;
+[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+"26
+[; ;Timers.c: 26:     TRISAbits.RA4 = 1;
+[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
+"27
+[; ;Timers.c: 27:     TMR0 = 0;
+[e = _TMR0 -> -> 0 `i `us ]
+"28
+[; ;Timers.c: 28:     T0CONbits.TMR0ON = 1;
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
 "29
 [; ;Timers.c: 29: }
 [e :UE 368 ]
@@ -675,15 +675,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! > _numPasosX -> -> 0 `i `ui 370  ]
 {
 "33
-[; ;Timers.c: 33:         unsigned int resultado = (65536 - numPasosX);
+[; ;Timers.c: 33:         unsigned int resultado = (65537 - numPasosX);
 [v _resultado `ui ~T0 @X0 1 a ]
-[e = _resultado -> - -> 65536 `l -> _numPasosX `l `ui ]
+[e = _resultado -> - -> 65537 `l -> _numPasosX `l `ui ]
 "34
-[; ;Timers.c: 34:         TMR0H = (resultado >> 8);
-[e = _TMR0H -> >> _resultado -> 8 `i `uc ]
+[; ;Timers.c: 34:         TMR1H = (resultado >> 8);
+[e = _TMR1H -> >> _resultado -> 8 `i `uc ]
 "35
-[; ;Timers.c: 35:         TMR0L = resultado;
-[e = _TMR0L -> _resultado `uc ]
+[; ;Timers.c: 35:         TMR1L = resultado;
+[e = _TMR1L -> _resultado `uc ]
 "36
 [; ;Timers.c: 36:     } else {
 }
@@ -691,11 +691,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 370 ]
 {
 "37
-[; ;Timers.c: 37:         TMR0H = (65535 >> 8);
-[e = _TMR0H -> >> -> 65535 `l -> 8 `i `uc ]
+[; ;Timers.c: 37:         TMR1H = (65535 >> 8);
+[e = _TMR1H -> >> -> 65535 `l -> 8 `i `uc ]
 "38
-[; ;Timers.c: 38:         TMR0L = 65535;
-[e = _TMR0L -> -> 65535 `l `uc ]
+[; ;Timers.c: 38:         TMR1L = 65535;
+[e = _TMR1L -> -> 65535 `l `uc ]
 "39
 [; ;Timers.c: 39:     }
 }
@@ -712,19 +712,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _numPasosY `ui ~T0 @X0 1 r1 ]
 [f ]
 "43
-[; ;Timers.c: 43:         if (numPasosY > 0) {
+[; ;Timers.c: 43:     if (numPasosY > 0) {
 [e $ ! > _numPasosY -> -> 0 `i `ui 373  ]
 {
 "44
-[; ;Timers.c: 44:         unsigned int resultado = (65537 - numPasosY);
+[; ;Timers.c: 44:         unsigned int resultado = (65536 - numPasosY);
 [v _resultado `ui ~T0 @X0 1 a ]
-[e = _resultado -> - -> 65537 `l -> _numPasosY `l `ui ]
+[e = _resultado -> - -> 65536 `l -> _numPasosY `l `ui ]
 "45
-[; ;Timers.c: 45:         TMR1H = (resultado >> 8);
-[e = _TMR1H -> >> _resultado -> 8 `i `uc ]
+[; ;Timers.c: 45:         TMR0H = (resultado >> 8);
+[e = _TMR0H -> >> _resultado -> 8 `i `uc ]
 "46
-[; ;Timers.c: 46:         TMR1L = resultado;
-[e = _TMR1L -> _resultado `uc ]
+[; ;Timers.c: 46:         TMR0L = resultado;
+[e = _TMR0L -> _resultado `uc ]
 "47
 [; ;Timers.c: 47:     } else {
 }
@@ -732,11 +732,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 373 ]
 {
 "48
-[; ;Timers.c: 48:         TMR1H = (65535 >> 8);
-[e = _TMR1H -> >> -> 65535 `l -> 8 `i `uc ]
+[; ;Timers.c: 48:         TMR0H = (65535 >> 8);
+[e = _TMR0H -> >> -> 65535 `l -> 8 `i `uc ]
 "49
-[; ;Timers.c: 49:         TMR1L = 65535;
-[e = _TMR1L -> -> 65535 `l `uc ]
+[; ;Timers.c: 49:         TMR0L = 65535;
+[e = _TMR0L -> -> 65535 `l `uc ]
 "50
 [; ;Timers.c: 50:     }
 }
