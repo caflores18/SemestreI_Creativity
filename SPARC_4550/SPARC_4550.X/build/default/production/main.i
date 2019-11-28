@@ -5713,12 +5713,14 @@ unsigned int ADCvalue();
 # 4 "main.c" 2
 
 # 1 "./Comunicacion.h" 1
-# 11 "./Comunicacion.h"
+# 12 "./Comunicacion.h"
 void printf (unsigned char *PointString);
 
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+uint8_t receiveNum(void);
 # 5 "main.c" 2
 
 # 1 "./FuncionesMenu.h" 1
@@ -5736,9 +5738,12 @@ uint8_t presionarZDecenas [10];
 uint8_t presionarZUnidades[10];
 
 uint8_t coordenadaNueva = 0;
+uint8_t habilitarModCoord = 0;
 
 void introducirCoordNueva(void);
 void imprimirCoordenadas(void);
+void modificarCoordenada(void);
+void borrarTodasCoordenadas(void);
 # 6 "main.c" 2
 
 # 1 "./Gpio.h" 1
@@ -5794,7 +5799,6 @@ void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
 
 
 
-
 struct SystemaSPARC {
     unsigned int xWanted;
     unsigned int yWanted;
@@ -5834,10 +5838,10 @@ void main(void) {
     motorYinit();
     tmr0Init();
     tmr1Init();
-    interruptsEnable();
+
     habilitarIntTMR0();
     habilitarIntTMR1();
-    habilitarIntExternas();
+
 
 
 
@@ -5860,17 +5864,41 @@ void main(void) {
                 printf("Eleccion no valida vuelva a intentar");
                 opcionsel = receive();
             }
+            if (opcionsel == '0') {
+                printf("Entraste al 0");
+            }
             if (opcionsel == '1') {
                 introducirCoordNueva();
             }
             if (opcionsel == '2') {
-               imprimirCoordenadas();
+                printf("Elegiste la opcion de imprimir coordenadas\n");
+                imprimirCoordenadas();
             }
             if (opcionsel == '3') {
-                printf("Entrase al 3");
+                printf("Entraste a la opcion de modificar coordenada\n");
+                printf("Entraste al 3");
             }
             if (opcionsel == '4') {
-                printf("Entrase al 4");
+                modificarCoordenada();
+            }
+            if (opcionsel == '5') {
+                printf("Entrase al 5");
+            }
+            if (opcionsel == '6') {
+                printf("Vas a borrar todas las coordenadas, seguro? (1) Si (0)No");
+                uint8_t decision = receiveNum();
+                if (decision == '1') {
+                    borrarTodasCoordenadas();
+                } else printf("Regresando al menu");
+            }
+            if (opcionsel == '7') {
+                printf("Entrase al 7");
+            }
+            if (opcionsel == '8') {
+                printf("Entrase al 8");
+            }
+            if (opcionsel == '9') {
+                printf("Entrase al 9");
             }
         } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
     }

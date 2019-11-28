@@ -696,38 +696,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [; ;UART.c: 27:     RCREG1 = 0;
 [e = _RCREG1 -> -> 0 `i `uc ]
-"28
-[; ;UART.c: 28:     return recibido;
+"29
+[; ;UART.c: 29:     return recibido;
 [e ) _recibido ]
 [e $UE 368  ]
-"29
-[; ;UART.c: 29: }
+"30
+[; ;UART.c: 30: }
 [e :UE 368 ]
 }
-"31
-[; ;UART.c: 31: void send(unsigned char enviarpc) {
+"32
+[; ;UART.c: 32: void send(unsigned char enviarpc) {
 [v _send `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _send ]
 [v _enviarpc `uc ~T0 @X0 1 r1 ]
 [f ]
-"32
-[; ;UART.c: 32:     while (TXSTA1bits.TRMT == 0) {
+"33
+[; ;UART.c: 33:     while (TXSTA1bits.TRMT == 0) {
 [e $U 373  ]
 [e :U 374 ]
 {
-"34
-[; ;UART.c: 34:     }
+"35
+[; ;UART.c: 35:     }
 }
 [e :U 373 ]
-"32
-[; ;UART.c: 32:     while (TXSTA1bits.TRMT == 0) {
+"33
+[; ;UART.c: 33:     while (TXSTA1bits.TRMT == 0) {
 [e $ == -> . . _TXSTA1bits 0 1 `i -> 0 `i 374  ]
 [e :U 375 ]
-"35
-[; ;UART.c: 35:     TXREG1 = enviarpc;
-[e = _TXREG1 _enviarpc ]
 "36
-[; ;UART.c: 36: }
+[; ;UART.c: 36:     TXREG1 = enviarpc;
+[e = _TXREG1 _enviarpc ]
+"37
+[; ;UART.c: 37: }
 [e :UE 372 ]
 }

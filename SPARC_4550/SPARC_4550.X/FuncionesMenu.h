@@ -23,8 +23,11 @@ uint8_t presionarZDecenas [10]; //Guarda el valor de las decenas a presionar el 
 uint8_t presionarZUnidades[10]; //Guarda el valor de las unidades a presionar el eje Z de una coordenada
 //Para control interno del programa
 uint8_t coordenadaNueva = 0;
+uint8_t habilitarModCoord = 0;
 //uint8_t coordenadaEscrita[10]; //Bandera para saber cuando se ha escrito en cierta coordenada */
 void introducirCoordNueva(void);
 void imprimirCoordenadas(void);
+void modificarCoordenada(void);
+void borrarTodasCoordenadas(void);
 #endif	/* FUNCIONESMENU_H */
 

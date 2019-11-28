@@ -5707,12 +5707,14 @@ typedef uint32_t uint_fast32_t;
 
 
 # 1 "./Comunicacion.h" 1
-# 11 "./Comunicacion.h"
+# 12 "./Comunicacion.h"
 void printf (unsigned char *PointString);
 
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+uint8_t receiveNum(void);
 # 4 "FuncionesMenu.c" 2
 
 # 1 "./UART.h" 1
@@ -5744,65 +5746,72 @@ uint8_t presionarZDecenas [10];
 uint8_t presionarZUnidades[10];
 
 uint8_t coordenadaNueva = 0;
+uint8_t habilitarModCoord = 0;
 
 void introducirCoordNueva(void);
 void imprimirCoordenadas(void);
+void modificarCoordenada(void);
+void borrarTodasCoordenadas(void);
 # 6 "FuncionesMenu.c" 2
 
 
 void introducirCoordNueva() {
     uint16_t validarCoordX = 0;
     uint16_t validarCoordY = 0;
-leerCoordValida:
-    printf("Introduce en el siguiente orden las variables a usar (no uses las comas): coordX,coordY,# de veces a presionar Z");
-    coordXCentenas[coordenadaNueva] = receive();
-    coordXDecenas[coordenadaNueva] = receive();
-    coordXUnidades[coordenadaNueva] = receive();
-    printf("Recibi coordX");
-    coordYCentenas[coordenadaNueva] = receive();
-    coordYDecenas[coordenadaNueva] = receive();
-    coordYUnidades[coordenadaNueva] = receive();
-    printf("Recibi coordY");
-    presionarZCentenas[coordenadaNueva] = receive();
-    presionarZDecenas[coordenadaNueva] = receive();
-    presionarZUnidades[coordenadaNueva] = receive();
-    printf("Recibi # de veces a presionar Z\n");
-    validarCoordX = ((coordXCentenas[coordenadaNueva] - 48)*100)+((coordXDecenas[coordenadaNueva] - 48)*10)+(coordXUnidades[coordenadaNueva] - 48);
-    validarCoordY = ((coordYCentenas[coordenadaNueva] - 48)*100)+((coordYDecenas[coordenadaNueva] - 48)*10)+(coordYUnidades[coordenadaNueva] - 48);
-    if ((validarCoordX > 300) || (validarCoordY > 300)) {
-        printf("Metiste una coordenada invalida\n");
-        goto leerCoordValida;
-    }
-    printf("Coordenada recibida, lo que recibimos fue:");
-    send(coordXCentenas[coordenadaNueva]);
-    send(coordXDecenas[coordenadaNueva]);
-    send(coordXUnidades[coordenadaNueva]);
-    send(',');
-    send(coordYCentenas[coordenadaNueva]);
-    send(coordYDecenas[coordenadaNueva]);
-    send(coordYUnidades[coordenadaNueva]);
-    send(',');
-    send(presionarZCentenas[coordenadaNueva]);
-    send(presionarZDecenas[coordenadaNueva]);
-    send(presionarZUnidades[coordenadaNueva]);
-    send('.');
-    coordenadaNueva++;
-}
-void imprimirCoordenadas(void) {
-    uint8_t numCoordenadas = coordenadaNueva + 48;
-    printf("Elegiste la opcion de imprimir coordenadas\n");
-    printf("Agregaste:");
-    if (coordenadaNueva > 9) {
-        send('1');
-        send('0');
+    if ((coordenadaNueva < 10) || (habilitarModCoord == 1)) {
+corregirCoord:
+        printf("Introduce en el siguiente orden las variables a usar (no uses las comas): coordX,coordY,# de veces a presionar Z");
+        coordXCentenas[coordenadaNueva] = receiveNum();
+        coordXDecenas[coordenadaNueva] = receiveNum();
+        coordXUnidades[coordenadaNueva] = receiveNum();
+        printf("Recibi coordX");
+        coordYCentenas[coordenadaNueva] = receiveNum();
+        coordYDecenas[coordenadaNueva] = receiveNum();
+        coordYUnidades[coordenadaNueva] = receiveNum();
+        printf("Recibi coordY");
+        presionarZCentenas[coordenadaNueva] = receiveNum();
+        presionarZDecenas[coordenadaNueva] = receiveNum();
+        presionarZUnidades[coordenadaNueva] = receiveNum();
+        printf("Recibi # de veces a presionar Z\n");
+        validarCoordX = ((coordXCentenas[coordenadaNueva] - 48)*100)+((coordXDecenas[coordenadaNueva] - 48)*10)+(coordXUnidades[coordenadaNueva] - 48);
+        validarCoordY = ((coordYCentenas[coordenadaNueva] - 48)*100)+((coordYDecenas[coordenadaNueva] - 48)*10)+(coordYUnidades[coordenadaNueva] - 48);
+        if ((validarCoordX > 300) || (validarCoordY > 300)) {
+            printf("Metiste una coordenada invalida\n");
+            goto corregirCoord;
+        }
+        printf("Coordenada recibida, lo que recibimos fue:");
+        send(coordXCentenas[coordenadaNueva]);
+        send(coordXDecenas[coordenadaNueva]);
+        send(coordXUnidades[coordenadaNueva]);
+        send(',');
+        send(coordYCentenas[coordenadaNueva]);
+        send(coordYDecenas[coordenadaNueva]);
+        send(coordYUnidades[coordenadaNueva]);
+        send(',');
+        send(presionarZCentenas[coordenadaNueva]);
+        send(presionarZDecenas[coordenadaNueva]);
+        send(presionarZUnidades[coordenadaNueva]);
+        send('.');
+        if (habilitarModCoord == 0) {
+            printf("Has agregado este numero de coordenadas:");
+            coordenadaNueva++;
+            send(coordenadaNueva + 48);
+        }
     } else {
-        send('numCoordenadas');
+        printf("Ya estan las 10 coordenadas llenas, no puedes agregar mas");
     }
-    printf("coordenadas, las cuales son: \n");
+}
+
+void imprimirCoordenadas(void) {
+    uint8_t numCoordenadas = 0;
+    numCoordenadas = coordenadaNueva + 48;
+    printf("Agregaste: ");
+    send(numCoordenadas);
+    printf(" coordenadas, las cuales son: \n");
     for (uint8_t impresionCoordenada = 0; impresionCoordenada < coordenadaNueva; impresionCoordenada++) {
-        printf("La coordenada ");
+        printf("Coordenada ");
         send(impresionCoordenada + 48);
-        printf(" contiene los valores de: ");
+        printf(": ");
         send(coordXCentenas[impresionCoordenada]);
         send(coordXDecenas[impresionCoordenada]);
         send(coordXUnidades[impresionCoordenada]);
@@ -5815,6 +5824,45 @@ void imprimirCoordenadas(void) {
         send(presionarZDecenas[impresionCoordenada]);
         send(presionarZUnidades[impresionCoordenada]);
         send('.');
-        send ('\n');
+        send('\n');
     }
+}
+
+void modificarCoordenada(void) {
+    habilitarModCoord = 1;
+    uint8_t modCoord, coordenadaNuevaCopia;
+    habilitarModCoord = 1;
+    imprimirCoordenadas();
+    printf("Cual de estas coordenadas quieres modificar?\n");
+    modCoord = receiveNum();
+    while ((modCoord - 48) >= coordenadaNueva) {
+        printf("Error, estas queriendo modificar una coordenada que aun no agregas\n");
+        printf("Cual coordenada quieres modificar, elige valores validos?\n");
+        modCoord = receiveNum();
+    }
+    printf("Vas a modificar la coordenada ");
+    send(modCoord);
+    send('\n');
+    modCoord = modCoord - 48;
+    coordenadaNuevaCopia = coordenadaNueva;
+    coordenadaNueva = modCoord;
+    introducirCoordNueva();
+    coordenadaNueva = coordenadaNuevaCopia;
+    habilitarModCoord = 0;
+}
+
+void borrarTodasCoordenadas(void) {
+    for (uint8_t impresionCoordenada = 0; impresionCoordenada < 10; impresionCoordenada++) {
+        coordXCentenas[impresionCoordenada] = 0;
+        coordXDecenas[impresionCoordenada] = 0;
+        coordXUnidades[impresionCoordenada] = 0;
+        coordYCentenas[impresionCoordenada] = 0;
+        coordYDecenas[impresionCoordenada] = 0;
+        coordYUnidades[impresionCoordenada] = 0;
+        presionarZCentenas[impresionCoordenada] = 0;
+        presionarZDecenas[impresionCoordenada] = 0;
+        presionarZUnidades[impresionCoordenada] = 0;
+    }
+    coordenadaNueva = 0;
+    printf("Listo, todas las coordenadas han sido borradas\n");
 }

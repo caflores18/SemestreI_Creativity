@@ -3,6 +3,7 @@
 #include "Gpio.h"
 #pragma config FOSC = INTOSC_EC       //CONFIG1H (0-3) = 0010: INTIO2 oscillator, Internal oscillator block, port function on RA6 and RA7.
 #pragma config MCLRE    = OFF        //Master Clear Reset activado
+#pragma config WDT = OFF
 //#pragma config PBADEN   = OFF       //Hace que los puertos A y B sean digitales
 #pragma config LVP      = OFF       //Low-voltage Programming desactivado */
 //Seccion de directivos y defines

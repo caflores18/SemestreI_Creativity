@@ -1,7 +1,7 @@
 #include <xc.h>
 #include <pic18f4550.h>
 #include "UART.h"
-
+#define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
 void UARTinit(void) {
     TRISCbits.RC6 = 1; //Se declara el TX como output
     TRISCbits.RC7 = 1; //Se declara el RX como input
@@ -25,6 +25,7 @@ unsigned char receive() {
     } //Cuando se lleno
     recibido = RCREG1; // se guarda lo que llego de RCREG1 en viene
     RCREG1 = 0; //Se resetea el registro recibidor
+    //__delay_ms(10);
     return recibido;
 }
 

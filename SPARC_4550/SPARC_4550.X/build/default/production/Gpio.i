@@ -5630,6 +5630,7 @@ void motorYinit(void);
 
 #pragma config FOSC = INTOSC_EC
 #pragma config MCLRE = OFF
+#pragma config WDT = OFF
 
 #pragma config LVP = OFF
 

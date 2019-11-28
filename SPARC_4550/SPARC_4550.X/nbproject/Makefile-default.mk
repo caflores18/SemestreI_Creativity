@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Gpio.c UART.c PWMCCP2.c PWMCCP1.c ADC.c Interrupciones.c Comunicacion.c Timers.c main.c FuncionesMenu.c
+SOURCEFILES_QUOTED_IF_SPACED=Gpio.c UART.c PWMCCP2.c PWMCCP1.c ADC.c Interrupciones.c Comunicacion.c Timers.c FuncionesMenu.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/PWMCCP2.p1 ${OBJECTDIR}/PWMCCP1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/Interrupciones.p1 ${OBJECTDIR}/Comunicacion.p1 ${OBJECTDIR}/Timers.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/FuncionesMenu.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/Gpio.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/PWMCCP2.p1.d ${OBJECTDIR}/PWMCCP1.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/Interrupciones.p1.d ${OBJECTDIR}/Comunicacion.p1.d ${OBJECTDIR}/Timers.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/FuncionesMenu.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/PWMCCP2.p1 ${OBJECTDIR}/PWMCCP1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/Interrupciones.p1 ${OBJECTDIR}/Comunicacion.p1 ${OBJECTDIR}/Timers.p1 ${OBJECTDIR}/FuncionesMenu.p1 ${OBJECTDIR}/main.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/Gpio.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/PWMCCP2.p1.d ${OBJECTDIR}/PWMCCP1.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/Interrupciones.p1.d ${OBJECTDIR}/Comunicacion.p1.d ${OBJECTDIR}/Timers.p1.d ${OBJECTDIR}/FuncionesMenu.p1.d ${OBJECTDIR}/main.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/PWMCCP2.p1 ${OBJECTDIR}/PWMCCP1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/Interrupciones.p1 ${OBJECTDIR}/Comunicacion.p1 ${OBJECTDIR}/Timers.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/FuncionesMenu.p1
+OBJECTFILES=${OBJECTDIR}/Gpio.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/PWMCCP2.p1 ${OBJECTDIR}/PWMCCP1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/Interrupciones.p1 ${OBJECTDIR}/Comunicacion.p1 ${OBJECTDIR}/Timers.p1 ${OBJECTDIR}/FuncionesMenu.p1 ${OBJECTDIR}/main.p1
 
 # Source Files
-SOURCEFILES=Gpio.c UART.c PWMCCP2.c PWMCCP1.c ADC.c Interrupciones.c Comunicacion.c Timers.c main.c FuncionesMenu.c
+SOURCEFILES=Gpio.c UART.c PWMCCP2.c PWMCCP1.c ADC.c Interrupciones.c Comunicacion.c Timers.c FuncionesMenu.c main.c
 
 
 CFLAGS=
@@ -157,14 +157,6 @@ ${OBJECTDIR}/Timers.p1: Timers.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/Timers.d ${OBJECTDIR}/Timers.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Timers.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/FuncionesMenu.p1: FuncionesMenu.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/FuncionesMenu.p1.d 
@@ -172,6 +164,14 @@ ${OBJECTDIR}/FuncionesMenu.p1: FuncionesMenu.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FuncionesMenu.p1 FuncionesMenu.c 
 	@-${MV} ${OBJECTDIR}/FuncionesMenu.d ${OBJECTDIR}/FuncionesMenu.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/FuncionesMenu.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/Gpio.p1: Gpio.c  nbproject/Makefile-${CND_CONF}.mk
@@ -238,14 +238,6 @@ ${OBJECTDIR}/Timers.p1: Timers.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/Timers.d ${OBJECTDIR}/Timers.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Timers.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/FuncionesMenu.p1: FuncionesMenu.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/FuncionesMenu.p1.d 
@@ -253,6 +245,14 @@ ${OBJECTDIR}/FuncionesMenu.p1: FuncionesMenu.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FuncionesMenu.p1 FuncionesMenu.c 
 	@-${MV} ${OBJECTDIR}/FuncionesMenu.d ${OBJECTDIR}/FuncionesMenu.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/FuncionesMenu.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

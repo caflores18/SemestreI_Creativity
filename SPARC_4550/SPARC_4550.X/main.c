@@ -10,7 +10,6 @@
 #include "PWMCCP2.h"
 #include "Timers.h"
 #include "UART.h"
-
 #define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
 //---------------------Variables globales ----------------------------------
 
@@ -53,10 +52,10 @@ void main(void) {
     motorYinit(); //Se inicializa lo necesario para el motor Y
     tmr0Init(); //Se inicializa TMR0 usado para contar los pulsos que mueven a X
     tmr1Init(); //Se inicializa TMR1 usado para contar los pulsos que mueven a Y
-    interruptsEnable(); //Se enciende el sistema de interrupciones
+    //interruptsEnable(); //Se enciende el sistema de interrupciones
     habilitarIntTMR0(); //Habilita interrupcion TMRO
     habilitarIntTMR1(); //Habilita interrupcion TMR1
-    habilitarIntExternas();
+    //habilitarIntExternas();
     //ADCinit(); //Habilita el uso del ADC, se declara el RA0 como analogico
 
     //Apuntadores a string para poder hacer uso de la funcion scanf
@@ -79,17 +78,41 @@ void main(void) {
                 printf("Eleccion no valida vuelva a intentar");
                 opcionsel = receive();
             }
+            if (opcionsel == '0') {
+                printf("Funcionamiento del SPARC:");
+            }
             if (opcionsel == '1') {
                 introducirCoordNueva();
             }
             if (opcionsel == '2') {
-               imprimirCoordenadas();
+                printf("Elegiste la opcion de imprimir coordenadas\n");
+                imprimirCoordenadas();
             }
             if (opcionsel == '3') {
-                printf("Entrase al 3");
+                printf("Entraste a la opcion de modificar coordenada\n");
+                printf("Entraste al 3");
             }
             if (opcionsel == '4') {
-                printf("Entrase al 4");
+                modificarCoordenada();
+            }
+            if (opcionsel == '5') {
+                printf("Entrase al 5");
+            }
+            if (opcionsel == '6') {
+                printf("Vas a borrar todas las coordenadas, seguro? (1) Si (0)No");
+                uint8_t decision = receiveNum();
+                if (decision == '1') {
+                    borrarTodasCoordenadas();
+                } else printf("Regresando al menu");
+            }
+            if (opcionsel == '7') {
+                printf("Entrase al 7");
+            }
+            if (opcionsel == '8') {
+                printf("Entrase al 8");
+            }
+            if (opcionsel == '9') {
+                printf("Entrase al 9");
             }
         } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
     }

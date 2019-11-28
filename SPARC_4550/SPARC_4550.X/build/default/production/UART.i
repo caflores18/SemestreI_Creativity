@@ -5659,6 +5659,7 @@ unsigned char receive() {
     }
     recibido = RCREG1;
     RCREG1 = 0;
+
     return recibido;
 }
 
