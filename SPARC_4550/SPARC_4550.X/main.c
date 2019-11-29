@@ -12,27 +12,17 @@
 #include "Timers.h"
 #include "UART.h"
 #define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
-//---------------------Variables globales ----------------------------------
-
-/*struct SystemaSPARC {
-    unsigned int xWanted; //coordenada X objetivo
-    unsigned int yWanted; //coordenada Y objetivo
-    unsigned long timesToPress; //Numero de veces a presionar la pantalla
-} coordinates;
-//Procedimiento Motor X
-unsigned int xToAdvance; // X por avanzar en pasos (Xa)
-unsigned int CurrentPosX = 0; // X current posicion actual X (Xc)
-//unsigned char leercoordx[3]; //Guarda el valor coord X
-//Procedimiennto Motor Y
-unsigned int yToAdvance; // Y por avanzar en pasos (Ya)
-unsigned int CurrentPosY = 0; // Y current posicion actual (Yc)
-//unsigned char leerCoordy[3]; //Guarda el valor coord Y
-//Procedimiento compartido (X) y (Y)
-unsigned char working = 0; //Esta variable se prende cuando alguno de los motores se va a mover*/
-//ISR de alta prioridad
+//ISR de alta prioridad 
 
 __interrupt(high_priority) void high_isr(void) {
-    Nop(); //Funcion para consumir un ciclo de instruccion
+    if (INTCONbits.TMR0IF = 1) {
+        PWM_DutyCycleCCP2(0);
+        LATAbits.LATA2 = 0; //Se apaga el foco que indica Y
+        CurrentPosY = coordinates.yWanted; //Se actualiza el valor actual de la Y*/
+        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
+        sparcEnMovimiento = 0;
+        INTCONbits.TMR0IF = 0;
+    }
 }
 //ISR de baja prioridad 
 
@@ -53,12 +43,11 @@ void main(void) {
     motorYinit(); //Se inicializa lo necesario para el motor Y
     tmr0Init(); //Se inicializa TMR0 usado para contar los pulsos que mueven a X
     tmr1Init(); //Se inicializa TMR1 usado para contar los pulsos que mueven a Y
-    //interruptsEnable(); //Se enciende el sistema de interrupciones
+    interruptsEnable(); //Se enciende el sistema de interrupciones
     habilitarIntTMR0(); //Habilita interrupcion TMRO
     habilitarIntTMR1(); //Habilita interrupcion TMR1
     //habilitarIntExternas();
     //ADCinit(); //Habilita el uso del ADC, se declara el RA0 como analogico
-
     //Apuntadores a string para poder hacer uso de la funcion scanf
     unsigned char activarmenu[5];
     activarmenu[4] = NULL;
@@ -91,6 +80,11 @@ void main(void) {
             }
             if (opcionsel == '3') {
                 printf("Has elegido ir a home\n");
+                unsigned char n1,n2,n3;
+                n1 = receiveNum();
+                n2 = receiveNum();
+                n3 = receiveNum();
+                moverHaciaY(n1,n2,n3);
             }
             if (opcionsel == '4') {
                 modificarCoordenada();

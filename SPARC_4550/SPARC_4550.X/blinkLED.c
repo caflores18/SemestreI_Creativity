@@ -28,11 +28,11 @@ void main(void) {
         __delay_ms(100);
         LATAbits.LATA2 = 0;
         __delay_ms(100);
-        send('0');
+       /* send('0');
         printf("Que pedo");
         unsigned char inutil = receive();
         send(49);
-        send(inutil + 2);
+        send(inutil + 2);*/
     }
 }
 
