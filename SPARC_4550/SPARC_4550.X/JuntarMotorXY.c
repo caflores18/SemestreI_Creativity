@@ -1,29 +1,24 @@
 //ISR de alta prioridad
 
-__interrupt(high_priority) void high_isr(void) {
-    if (INTCONbits.TMR0IF = 1) { //Rutina Y interrupcion TIMER 0
-        PWM_DutyCycleCCP2(0);
-        LATAbits.LATA2 = 0; //Se apaga el foco que indica Y
-        CurrentPosY = coordinates.yWanted; //Se actualiza el valor actual de la Y*/
-        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
-        sparcEnMovimiento = 0;
-        INTCONbits.TMR0IF = 0;
+void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades) {
+    while (sparcEnMovimiento == 1) {
+        //No se hace nada hasta que termine
+    }
+    //Procedimiento X
+    coordinates.xWanted = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
+    xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5; //X por avanzar es xWanted menos CurrentPosX
+    printf("xToAdvance is:");
+    send(xToAdvance);
+    send('\n');
+    if (coordinates.xWanted > CurrentPosX) { //Si el valor por recorrer es positivo
+        dirMotorX = 1; //El motor se mueve hacia un lado
+    } else if (coordinates.xWanted < CurrentPosX) {//Si el valor por recorrer es negativo
+        dirMotorX = 0; //El motor se mueve al otro lado
+    }
+    if (coordinates.xWanted != CurrentPosX) {
+        working = 1;
+        setNumPasosX(xToAdvance);
+        PWM_DutyCycleCCP1(50);
     }
 }
 
-/*unsigned char inutil = receive();
-            inutil = 0;
-            //Pregunta coordenadas Y
-            printf("Empieza nueva instruccion, dame tu coordenada Y\n"); //Envia salto de linea
-            leerCoordy[0] = receive();
-            leerCoordy[1] = receive();
-            leerCoordy[2] = receive();
-            printf("La coordenada que he recibido es: ");
-            send(leerCoordy[0]);
-            send(leerCoordy[1]);
-            send(leerCoordy[2]);
-            send(0xD); //Envia salto de linea*/
-void main(void) {
-    //Inicio del ciclo infinito 
-
-    

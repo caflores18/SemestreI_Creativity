@@ -5784,12 +5784,14 @@ unsigned int CurrentPosY = 0;
 unsigned char sparcEnMovimiento = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
 # 8 "MotoresXY.c" 2
 
 
 
 
-void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas , uint8_t coordYUnidades) {
+
+void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades) {
     while (sparcEnMovimiento == 1) {
 
     }
@@ -5806,8 +5808,33 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas , uint8_t coordYU
     }
     if (coordinates.yWanted != CurrentPosY) {
         sparcEnMovimiento = 1;
-        LATAbits.LATA2 = 1;
         setNumPasosY(yToAdvance);
+        PWM_DutyCycleCCP1(0);
         PWM_DutyCycleCCP2(50);
+    }
+}
+
+void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades) {
+    while (sparcEnMovimiento == 1) {
+
+    }
+
+    coordinates.xWanted = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
+    xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5;
+    printf("xToAdvance is:");
+    send(xToAdvance);
+    send('\n');
+    if (coordinates.xWanted > CurrentPosX) {
+        LATDbits.LATD3 = 1;
+    } else if (coordinates.xWanted < CurrentPosX) {
+        LATDbits.LATD3 = 0;
+    }
+    if (coordinates.xWanted != CurrentPosX) {
+        sparcEnMovimiento = 1;
+        setNumPasosX(xToAdvance);
+        PWM_DutyCycleCCP2(0);
+        TMR0L = 0;
+        TMR0H = 0;
+        PWM_DutyCycleCCP1(50);
     }
 }

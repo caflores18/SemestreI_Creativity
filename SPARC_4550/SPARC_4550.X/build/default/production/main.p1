@@ -27,24 +27,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 ./PWMCCP2.h
 [; ;./PWMCCP2.h: 12: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
 [v _PWM_DutyCycleCCP2 `(v ~T0 @X0 0 ef1`uc ]
-"2979 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2979:     struct {
-[s S127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S127 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 ]
-"2988
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2988:     struct {
-[s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S128 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 ]
-"2978
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2978: typedef union {
-[u S126 `S127 1 `S128 1 ]
-[n S126 . . . ]
-"2998
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2998: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
-[v _LATAbits `VS126 ~T0 @X0 0 e@3977 ]
 "16 ./UART.h
 [; ;./UART.h: 16: void printf (unsigned char *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
+"4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {
+[s S178 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S178 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF SPPIF ]
+"4484
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4484:     struct {
+[s S179 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S179 . . TX1IF RC1IF . PSPIF ]
+"4473
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4473: typedef union {
+[u S177 `S178 1 `S179 1 ]
+[n S177 . . . ]
+"4492
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4492: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
+[v _PIR1bits `VS177 ~T0 @X0 0 e@3998 ]
+"12 ./PWMCCP1.h
+[; ;./PWMCCP1.h: 12: void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+[v _PWM_DutyCycleCCP1 `(v ~T0 @X0 0 ef1`uc ]
 [t T37 __interrupt low_priority ]
 "50 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
@@ -62,9 +65,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./PWMCCP1.h
 [; ;./PWMCCP1.h: 11: void PWM_CCP1_init(void);
 [v _PWM_CCP1_init `(v ~T0 @X0 0 ef ]
-"12
-[; ;./PWMCCP1.h: 12: void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-[v _PWM_DutyCycleCCP1 `(v ~T0 @X0 0 ef1`uc ]
 "18 ./Gpio.h
 [; ;./Gpio.h: 18: void motorXinit(void);
 [v _motorXinit `(v ~T0 @X0 0 ef ]
@@ -101,9 +101,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18 ./Comunicacion.h
 [; ;./Comunicacion.h: 18: uint8_t receiveNum(void);
 [v _receiveNum `(uc ~T0 @X0 0 ef ]
-"28 ./MotoresXY.h
-[; ;./MotoresXY.h: 28: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
-[v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"29 ./MotoresXY.h
+[; ;./MotoresXY.h: 29: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+[v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "30 ./FuncionesMenu.h
 [; ;./FuncionesMenu.h: 30: void modificarCoordenada(void);
 [v _modificarCoordenada `(v ~T0 @X0 0 ef ]
@@ -694,328 +694,349 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _high_isr ]
 [f ]
 "18
-[; ;main.c: 18:     if (INTCONbits.TMR0IF = 1) {
-[e $ ! != -> = . . _INTCONbits 0 2 -> -> 1 `i `uc `i -> 0 `i 369  ]
+[; ;main.c: 18:     if (INTCONbits.TMR0IF == 1) {
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 369  ]
 {
 "19
 [; ;main.c: 19:         PWM_DutyCycleCCP2(0);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
 "20
-[; ;main.c: 20:         LATAbits.LATA2 = 0;
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-"21
-[; ;main.c: 21:         CurrentPosY = coordinates.yWanted;
+[; ;main.c: 20:         CurrentPosY = coordinates.yWanted;
 [e = _CurrentPosY . _coordinates 1 ]
-"22
-[; ;main.c: 22:         printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
+"21
+[; ;main.c: 21:         printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
 [e ( _printf (1 :s 1C ]
-"23
-[; ;main.c: 23:         sparcEnMovimiento = 0;
+"22
+[; ;main.c: 22:         sparcEnMovimiento = 0;
 [e = _sparcEnMovimiento -> -> 0 `i `uc ]
-"24
-[; ;main.c: 24:         INTCONbits.TMR0IF = 0;
+"23
+[; ;main.c: 23:         INTCONbits.TMR0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"25
-[; ;main.c: 25:     }
+"24
+[; ;main.c: 24:     }
 }
 [e :U 369 ]
+"25
+[; ;main.c: 25:     if (PIR1bits.TMR1IF == 1) {
+[e $ ! == -> . . _PIR1bits 0 0 `i -> 1 `i 370  ]
+{
 "26
-[; ;main.c: 26: }
+[; ;main.c: 26:         PWM_DutyCycleCCP1(0);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
+"27
+[; ;main.c: 27:         CurrentPosX = coordinates.xWanted;
+[e = _CurrentPosX . _coordinates 0 ]
+"28
+[; ;main.c: 28:         printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
+[e ( _printf (1 :s 2C ]
+"29
+[; ;main.c: 29:         sparcEnMovimiento = 0;
+[e = _sparcEnMovimiento -> -> 0 `i `uc ]
+"30
+[; ;main.c: 30:         PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"31
+[; ;main.c: 31:     }
+}
+[e :U 370 ]
+"32
+[; ;main.c: 32: }
 [e :UE 368 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"29
-[; ;main.c: 29: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
+"35
+[; ;main.c: 35: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
 [v _low_isr `(v ~T37 @X0 1 ef ]
 {
 [e :U _low_isr ]
 [f ]
-"30
-[; ;main.c: 30:     __nop();
+"36
+[; ;main.c: 36:     __nop();
 [e ( ___nop ..  ]
-"31
-[; ;main.c: 31: }
-[e :UE 370 ]
+"37
+[; ;main.c: 37: }
+[e :UE 371 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"34
-[; ;main.c: 34: void main(void) {
+"40
+[; ;main.c: 40: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"36
-[; ;main.c: 36:     portInit();
-[e ( _portInit ..  ]
-"37
-[; ;main.c: 37:     UARTinit();
-[e ( _UARTinit ..  ]
-"38
-[; ;main.c: 38:     PWM_CCP2_init();
-[e ( _PWM_CCP2_init ..  ]
-"39
-[; ;main.c: 39:     PWM_CCP1_init();
-[e ( _PWM_CCP1_init ..  ]
-"40
-[; ;main.c: 40:     PWM_DutyCycleCCP2(0);
-[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
-"41
-[; ;main.c: 41:     PWM_DutyCycleCCP1(0);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
 "42
-[; ;main.c: 42:     motorXinit();
-[e ( _motorXinit ..  ]
+[; ;main.c: 42:     portInit();
+[e ( _portInit ..  ]
 "43
-[; ;main.c: 43:     motorYinit();
-[e ( _motorYinit ..  ]
+[; ;main.c: 43:     UARTinit();
+[e ( _UARTinit ..  ]
 "44
-[; ;main.c: 44:     tmr0Init();
-[e ( _tmr0Init ..  ]
+[; ;main.c: 44:     PWM_CCP2_init();
+[e ( _PWM_CCP2_init ..  ]
 "45
-[; ;main.c: 45:     tmr1Init();
-[e ( _tmr1Init ..  ]
+[; ;main.c: 45:     PWM_CCP1_init();
+[e ( _PWM_CCP1_init ..  ]
 "46
-[; ;main.c: 46:     interruptsEnable();
-[e ( _interruptsEnable ..  ]
+[; ;main.c: 46:     PWM_DutyCycleCCP2(0);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
 "47
-[; ;main.c: 47:     habilitarIntTMR0();
-[e ( _habilitarIntTMR0 ..  ]
+[; ;main.c: 47:     PWM_DutyCycleCCP1(0);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
 "48
-[; ;main.c: 48:     habilitarIntTMR1();
-[e ( _habilitarIntTMR1 ..  ]
+[; ;main.c: 48:     motorXinit();
+[e ( _motorXinit ..  ]
+"49
+[; ;main.c: 49:     motorYinit();
+[e ( _motorYinit ..  ]
+"50
+[; ;main.c: 50:     tmr0Init();
+[e ( _tmr0Init ..  ]
+"51
+[; ;main.c: 51:     tmr1Init();
+[e ( _tmr1Init ..  ]
 "52
-[; ;main.c: 52:     unsigned char activarmenu[5];
-[v _activarmenu `uc ~T0 @X0 -> 5 `i a ]
+[; ;main.c: 52:     interruptsEnable();
+[e ( _interruptsEnable ..  ]
 "53
-[; ;main.c: 53:     activarmenu[4] = ((void*)0);
-[e = *U + &U _activarmenu * -> -> -> 4 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux -> -> -> 0 `i `*v `uc ]
+[; ;main.c: 53:     habilitarIntTMR0();
+[e ( _habilitarIntTMR0 ..  ]
 "54
-[; ;main.c: 54:     unsigned char *pActMenu = (unsigned char *) &activarmenu;
+[; ;main.c: 54:     habilitarIntTMR1();
+[e ( _habilitarIntTMR1 ..  ]
+"58
+[; ;main.c: 58:     unsigned char activarmenu[5];
+[v _activarmenu `uc ~T0 @X0 -> 5 `i a ]
+"59
+[; ;main.c: 59:     activarmenu[4] = ((void*)0);
+[e = *U + &U _activarmenu * -> -> -> 4 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux -> -> -> 0 `i `*v `uc ]
+"60
+[; ;main.c: 60:     unsigned char *pActMenu = (unsigned char *) &activarmenu;
 [v _pActMenu `*uc ~T0 @X0 1 a ]
 [e = _pActMenu -> &U _activarmenu `*uc ]
-"55
-[; ;main.c: 55:     unsigned char tamanoarray;
+"61
+[; ;main.c: 61:     unsigned char tamanoarray;
 [v _tamanoarray `uc ~T0 @X0 1 a ]
-"56
-[; ;main.c: 56:     unsigned char desechable = receive();
+"62
+[; ;main.c: 62:     unsigned char desechable = receive();
 [v _desechable `uc ~T0 @X0 1 a ]
 [e = _desechable ( _receive ..  ]
-"58
-[; ;main.c: 58:     printf("Escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
-[e ( _printf (1 :s 2C ]
-"60
-[; ;main.c: 60:     while (1) {
-[e :U 373 ]
-{
-"61
-[; ;main.c: 61:         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
-[e ( _scanf (2 , _pActMenu = _tamanoarray -> - -> # _activarmenu `ui -> -> 1 `i `ui `uc ]
-"62
-[; ;main.c: 62:         if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
-[e $ ! && && && || == -> *U + &U _activarmenu * -> -> -> 0 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 77 `ui == -> *U + &U _activarmenu * -> -> -> 0 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 109 `ui == -> *U + &U _activarmenu * -> -> -> 1 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 101 `ui == -> *U + &U _activarmenu * -> -> -> 2 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 110 `ui == -> *U + &U _activarmenu * -> -> -> 3 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 117 `ui 375  ]
-{
 "64
-[; ;main.c: 64:             printf("(0)Ayuda sobre como funciona el programa (1)Introducir coordenada nueva (2)Imprimir las coordenadas recibidas (3)Ir a home\n"
+[; ;main.c: 64:     printf("Escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
 [e ( _printf (1 :s 3C ]
 "66
-[; ;main.c: 66:             uint8_t opcionsel = receive();
+[; ;main.c: 66:     while (1) {
+[e :U 374 ]
+{
+"67
+[; ;main.c: 67:         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
+[e ( _scanf (2 , _pActMenu = _tamanoarray -> - -> # _activarmenu `ui -> -> 1 `i `ui `uc ]
+"68
+[; ;main.c: 68:         if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
+[e $ ! && && && || == -> *U + &U _activarmenu * -> -> -> 0 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 77 `ui == -> *U + &U _activarmenu * -> -> -> 0 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 109 `ui == -> *U + &U _activarmenu * -> -> -> 1 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 101 `ui == -> *U + &U _activarmenu * -> -> -> 2 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 110 `ui == -> *U + &U _activarmenu * -> -> -> 3 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 117 `ui 376  ]
+{
+"70
+[; ;main.c: 70:             printf("(0)Ayuda sobre como funciona el programa (1)Introducir coordenada nueva (2)Imprimir las coordenadas recibidas (3)Ir a home\n"
+[e ( _printf (1 :s 4C ]
+"72
+[; ;main.c: 72:             uint8_t opcionsel = receive();
 [v _opcionsel `uc ~T0 @X0 1 a ]
 [e = _opcionsel ( _receive ..  ]
-"67
-[; ;main.c: 67:             while (opcionsel > 57 || opcionsel < 48) {
-[e $U 376  ]
-[e :U 377 ]
-{
-"68
-[; ;main.c: 68:                 printf("Eleccion no valida vuelva a intentar");
-[e ( _printf (1 :s 4C ]
-"69
-[; ;main.c: 69:                 opcionsel = receive();
-[e = _opcionsel ( _receive ..  ]
-"70
-[; ;main.c: 70:             }
-}
-[e :U 376 ]
-"67
-[; ;main.c: 67:             while (opcionsel > 57 || opcionsel < 48) {
-[e $ || > -> _opcionsel `i -> 57 `i < -> _opcionsel `i -> 48 `i 377  ]
-[e :U 378 ]
-"71
-[; ;main.c: 71:             if (opcionsel == '0') {
-[e $ ! == -> _opcionsel `ui -> 48 `ui 379  ]
-{
-"72
-[; ;main.c: 72:                 printf("Funcionamiento del SPARC:");
-[e ( _printf (1 :s 5C ]
 "73
-[; ;main.c: 73:             }
-}
-[e :U 379 ]
-"74
-[; ;main.c: 74:             if (opcionsel == '1') {
-[e $ ! == -> _opcionsel `ui -> 49 `ui 380  ]
+[; ;main.c: 73:             while (opcionsel > 57 || opcionsel < 48) {
+[e $U 377  ]
+[e :U 378 ]
 {
+"74
+[; ;main.c: 74:                 printf("Eleccion no valida vuelva a intentar");
+[e ( _printf (1 :s 5C ]
 "75
-[; ;main.c: 75:                 introducirCoordNueva();
-[e ( _introducirCoordNueva ..  ]
+[; ;main.c: 75:                 opcionsel = receive();
+[e = _opcionsel ( _receive ..  ]
 "76
 [; ;main.c: 76:             }
 }
-[e :U 380 ]
+[e :U 377 ]
+"73
+[; ;main.c: 73:             while (opcionsel > 57 || opcionsel < 48) {
+[e $ || > -> _opcionsel `i -> 57 `i < -> _opcionsel `i -> 48 `i 378  ]
+[e :U 379 ]
 "77
-[; ;main.c: 77:             if (opcionsel == '2') {
-[e $ ! == -> _opcionsel `ui -> 50 `ui 381  ]
+[; ;main.c: 77:             if (opcionsel == '0') {
+[e $ ! == -> _opcionsel `ui -> 48 `ui 380  ]
 {
 "78
-[; ;main.c: 78:                 printf("Elegiste la opcion de imprimir coordenadas\n");
+[; ;main.c: 78:                 printf("Funcionamiento del SPARC:");
 [e ( _printf (1 :s 6C ]
 "79
-[; ;main.c: 79:                 imprimirCoordenadas();
-[e ( _imprimirCoordenadas ..  ]
+[; ;main.c: 79:             }
+}
+[e :U 380 ]
 "80
-[; ;main.c: 80:             }
+[; ;main.c: 80:             if (opcionsel == '1') {
+[e $ ! == -> _opcionsel `ui -> 49 `ui 381  ]
+{
+"81
+[; ;main.c: 81:                 introducirCoordNueva();
+[e ( _introducirCoordNueva ..  ]
+"82
+[; ;main.c: 82:             }
 }
 [e :U 381 ]
-"81
-[; ;main.c: 81:             if (opcionsel == '3') {
-[e $ ! == -> _opcionsel `ui -> 51 `ui 382  ]
-{
-"82
-[; ;main.c: 82:                 printf("Has elegido ir a home\n");
-[e ( _printf (1 :s 7C ]
 "83
-[; ;main.c: 83:                 unsigned char n1,n2,n3;
+[; ;main.c: 83:             if (opcionsel == '2') {
+[e $ ! == -> _opcionsel `ui -> 50 `ui 382  ]
+{
+"84
+[; ;main.c: 84:                 printf("Elegiste la opcion de imprimir coordenadas\n");
+[e ( _printf (1 :s 7C ]
+"85
+[; ;main.c: 85:                 imprimirCoordenadas();
+[e ( _imprimirCoordenadas ..  ]
+"86
+[; ;main.c: 86:             }
+}
+[e :U 382 ]
+"87
+[; ;main.c: 87:             if (opcionsel == '3') {
+[e $ ! == -> _opcionsel `ui -> 51 `ui 383  ]
+{
+"88
+[; ;main.c: 88:                 printf("Has elegido ir a home\n");
+[e ( _printf (1 :s 8C ]
+"89
+[; ;main.c: 89:                 unsigned char n1, n2, n3;
 [v _n1 `uc ~T0 @X0 1 a ]
 [v _n2 `uc ~T0 @X0 1 a ]
 [v _n3 `uc ~T0 @X0 1 a ]
-"84
-[; ;main.c: 84:                 n1 = receiveNum();
-[e = _n1 ( _receiveNum ..  ]
-"85
-[; ;main.c: 85:                 n2 = receiveNum();
-[e = _n2 ( _receiveNum ..  ]
-"86
-[; ;main.c: 86:                 n3 = receiveNum();
-[e = _n3 ( _receiveNum ..  ]
-"87
-[; ;main.c: 87:                 moverHaciaY(n1,n2,n3);
-[e ( _moverHaciaY (3 , , _n1 _n2 _n3 ]
-"88
-[; ;main.c: 88:             }
-}
-[e :U 382 ]
-"89
-[; ;main.c: 89:             if (opcionsel == '4') {
-[e $ ! == -> _opcionsel `ui -> 52 `ui 383  ]
-{
 "90
-[; ;main.c: 90:                 modificarCoordenada();
-[e ( _modificarCoordenada ..  ]
+[; ;main.c: 90:                 n1 = receiveNum();
+[e = _n1 ( _receiveNum ..  ]
 "91
-[; ;main.c: 91:             }
+[; ;main.c: 91:                 n2 = receiveNum();
+[e = _n2 ( _receiveNum ..  ]
+"92
+[; ;main.c: 92:                 n3 = receiveNum();
+[e = _n3 ( _receiveNum ..  ]
+"94
+[; ;main.c: 94:                 moverHaciaX(n1, n2, n3);
+[e ( _moverHaciaX (3 , , _n1 _n2 _n3 ]
+"95
+[; ;main.c: 95:             }
 }
 [e :U 383 ]
-"92
-[; ;main.c: 92:             if (opcionsel == '5') {
-[e $ ! == -> _opcionsel `ui -> 53 `ui 384  ]
+"96
+[; ;main.c: 96:             if (opcionsel == '4') {
+[e $ ! == -> _opcionsel `ui -> 52 `ui 384  ]
 {
-"93
-[; ;main.c: 93:                 printf("Entrase al 5");
-[e ( _printf (1 :s 8C ]
-"94
-[; ;main.c: 94:             }
+"97
+[; ;main.c: 97:                 modificarCoordenada();
+[e ( _modificarCoordenada ..  ]
+"98
+[; ;main.c: 98:             }
 }
 [e :U 384 ]
-"95
-[; ;main.c: 95:             if (opcionsel == '6') {
-[e $ ! == -> _opcionsel `ui -> 54 `ui 385  ]
-{
-"96
-[; ;main.c: 96:                 printf("Vas a borrar todas las coordenadas, seguro? (1) Si (0)No");
-[e ( _printf (1 :s 9C ]
-"97
-[; ;main.c: 97:                 uint8_t decision = receiveNum();
-[v _decision `uc ~T0 @X0 1 a ]
-[e = _decision ( _receiveNum ..  ]
-"98
-[; ;main.c: 98:                 if (decision == '1') {
-[e $ ! == -> _decision `ui -> 49 `ui 386  ]
-{
 "99
-[; ;main.c: 99:                     borrarTodasCoordenadas();
-[e ( _borrarTodasCoordenadas ..  ]
+[; ;main.c: 99:             if (opcionsel == '5') {
+[e $ ! == -> _opcionsel `ui -> 53 `ui 385  ]
+{
 "100
-[; ;main.c: 100:                 } else printf("Regresando al menu");
-}
-[e $U 387  ]
-[e :U 386 ]
-[e ( _printf (1 :s 10C ]
-[e :U 387 ]
+[; ;main.c: 100:                 printf("Entrase al 5");
+[e ( _printf (1 :s 9C ]
 "101
 [; ;main.c: 101:             }
 }
 [e :U 385 ]
 "102
-[; ;main.c: 102:             if (opcionsel == '7') {
-[e $ ! == -> _opcionsel `ui -> 55 `ui 388  ]
+[; ;main.c: 102:             if (opcionsel == '6') {
+[e $ ! == -> _opcionsel `ui -> 54 `ui 386  ]
 {
 "103
-[; ;main.c: 103:                 printf("Entrase al 7");
-[e ( _printf (1 :s 11C ]
+[; ;main.c: 103:                 printf("Vas a borrar todas las coordenadas, seguro? (1) Si (0)No");
+[e ( _printf (1 :s 10C ]
 "104
-[; ;main.c: 104:             }
-}
-[e :U 388 ]
+[; ;main.c: 104:                 uint8_t decision = receiveNum();
+[v _decision `uc ~T0 @X0 1 a ]
+[e = _decision ( _receiveNum ..  ]
 "105
-[; ;main.c: 105:             if (opcionsel == '8') {
-[e $ ! == -> _opcionsel `ui -> 56 `ui 389  ]
+[; ;main.c: 105:                 if (decision == '1') {
+[e $ ! == -> _decision `ui -> 49 `ui 387  ]
 {
 "106
-[; ;main.c: 106:                 printf("Entrase al 8");
-[e ( _printf (1 :s 12C ]
+[; ;main.c: 106:                     borrarTodasCoordenadas();
+[e ( _borrarTodasCoordenadas ..  ]
 "107
-[; ;main.c: 107:             }
+[; ;main.c: 107:                 } else printf("Regresando al menu");
+}
+[e $U 388  ]
+[e :U 387 ]
+[e ( _printf (1 :s 11C ]
+[e :U 388 ]
+"108
+[; ;main.c: 108:             }
+}
+[e :U 386 ]
+"109
+[; ;main.c: 109:             if (opcionsel == '7') {
+[e $ ! == -> _opcionsel `ui -> 55 `ui 389  ]
+{
+"110
+[; ;main.c: 110:                 printf("Entrase al 7");
+[e ( _printf (1 :s 12C ]
+"111
+[; ;main.c: 111:             }
 }
 [e :U 389 ]
-"108
-[; ;main.c: 108:             if (opcionsel == '9') {
-[e $ ! == -> _opcionsel `ui -> 57 `ui 390  ]
+"112
+[; ;main.c: 112:             if (opcionsel == '8') {
+[e $ ! == -> _opcionsel `ui -> 56 `ui 390  ]
 {
-"109
-[; ;main.c: 109:                 printf("Entrase al 9");
+"113
+[; ;main.c: 113:                 printf("Entrase al 8");
 [e ( _printf (1 :s 13C ]
-"110
-[; ;main.c: 110:             }
+"114
+[; ;main.c: 114:             }
 }
 [e :U 390 ]
-"111
-[; ;main.c: 111:         } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
-}
-[e $U 391  ]
-[e :U 375 ]
+"115
+[; ;main.c: 115:             if (opcionsel == '9') {
+[e $ ! == -> _opcionsel `ui -> 57 `ui 391  ]
+{
+"116
+[; ;main.c: 116:                 printf("Entrase al 9");
 [e ( _printf (1 :s 14C ]
+"117
+[; ;main.c: 117:             }
+}
 [e :U 391 ]
-"112
-[; ;main.c: 112:     }
+"118
+[; ;main.c: 118:         } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
 }
-[e :U 372 ]
-[e $U 373  ]
-[e :U 374 ]
-"113
-[; ;main.c: 113: }
-[e :UE 371 ]
+[e $U 392  ]
+[e :U 376 ]
+[e ( _printf (1 :s 15C ]
+[e :U 392 ]
+"119
+[; ;main.c: 119:     }
 }
-[a 10C 82 101 103 114 101 115 97 110 100 111 32 97 108 32 109 101 110 117 0 ]
-[a 4C 69 108 101 99 99 105 111 110 32 110 111 32 118 97 108 105 100 97 32 118 117 101 108 118 97 32 97 32 105 110 116 101 110 116 97 114 0 ]
-[a 9C 86 97 115 32 97 32 98 111 114 114 97 114 32 116 111 100 97 115 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 44 32 115 101 103 117 114 111 63 32 40 49 41 32 83 105 32 40 48 41 78 111 0 ]
-[a 5C 70 117 110 99 105 111 110 97 109 105 101 110 116 111 32 100 101 108 32 83 80 65 82 67 58 0 ]
-[a 13C 69 110 116 114 97 115 101 32 97 108 32 57 0 ]
-[a 12C 69 110 116 114 97 115 101 32 97 108 32 56 0 ]
-[a 11C 69 110 116 114 97 115 101 32 97 108 32 55 0 ]
-[a 8C 69 110 116 114 97 115 101 32 97 108 32 53 0 ]
-[a 14C 84 117 118 105 115 116 101 32 117 110 32 101 114 114 111 114 44 32 101 115 99 114 105 98 101 32 108 97 32 112 97 108 97 98 114 97 32 39 77 101 110 117 39 32 111 32 39 109 101 110 117 39 32 112 97 114 97 32 97 99 99 101 100 101 114 32 97 108 32 109 101 110 117 10 0 ]
-[a 2C 69 115 99 114 105 98 101 32 108 97 32 112 97 108 97 98 114 97 32 39 77 101 110 117 39 32 111 32 39 109 101 110 117 39 32 112 97 114 97 32 97 99 99 101 100 101 114 32 97 108 32 109 101 110 117 10 0 ]
-[a 3C 40 48 41 65 121 117 100 97 32 115 111 98 114 101 32 99 111 109 111 32 102 117 110 99 105 111 110 97 32 101 108 32 112 114 111 103 114 97 109 97 32 40 49 41 73 110 116 114 111 100 117 99 105 114 32 99 111 111 114 100 101 110 97 100 97 32 110 117 101 118 97 32 40 50 41 73 109 112 114 105 109 105 114 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 114 101 99 105 98 105 100 97 115 32 40 51 41 73 114 32 97 32 104 111 109 101 10 40 52 41 77 111 100 105 102 105 99 97 114 32 99 111 111 114 100 101 110 97 100 97 32 40 53 41 73 110 105 99 105 97 114 32 80 114 111 103 114 97 109 97 32 40 54 41 66 111 114 114 97 114 32 101 108 32 118 97 108 111 114 32 100 101 32 116 111 100 97 115 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 10 0 ]
-[a 6C 69 108 101 103 105 115 116 101 32 108 97 32 111 112 99 105 111 110 32 100 101 32 105 109 112 114 105 109 105 114 32 99 111 111 114 100 101 110 97 100 97 115 10 0 ]
-[a 7C 72 97 115 32 101 108 101 103 105 100 111 32 105 114 32 97 32 104 111 109 101 10 0 ]
-[a 1C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 48 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 10 0 ]
+[e :U 373 ]
+[e $U 374  ]
+[e :U 375 ]
+"120
+[; ;main.c: 120: }
+[e :UE 372 ]
+}
+[a 11C 82 101 103 114 101 115 97 110 100 111 32 97 108 32 109 101 110 117 0 ]
+[a 5C 69 108 101 99 99 105 111 110 32 110 111 32 118 97 108 105 100 97 32 118 117 101 108 118 97 32 97 32 105 110 116 101 110 116 97 114 0 ]
+[a 10C 86 97 115 32 97 32 98 111 114 114 97 114 32 116 111 100 97 115 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 44 32 115 101 103 117 114 111 63 32 40 49 41 32 83 105 32 40 48 41 78 111 0 ]
+[a 6C 70 117 110 99 105 111 110 97 109 105 101 110 116 111 32 100 101 108 32 83 80 65 82 67 58 0 ]
+[a 14C 69 110 116 114 97 115 101 32 97 108 32 57 0 ]
+[a 13C 69 110 116 114 97 115 101 32 97 108 32 56 0 ]
+[a 12C 69 110 116 114 97 115 101 32 97 108 32 55 0 ]
+[a 9C 69 110 116 114 97 115 101 32 97 108 32 53 0 ]
+[a 15C 84 117 118 105 115 116 101 32 117 110 32 101 114 114 111 114 44 32 101 115 99 114 105 98 101 32 108 97 32 112 97 108 97 98 114 97 32 39 77 101 110 117 39 32 111 32 39 109 101 110 117 39 32 112 97 114 97 32 97 99 99 101 100 101 114 32 97 108 32 109 101 110 117 10 0 ]
+[a 3C 69 115 99 114 105 98 101 32 108 97 32 112 97 108 97 98 114 97 32 39 77 101 110 117 39 32 111 32 39 109 101 110 117 39 32 112 97 114 97 32 97 99 99 101 100 101 114 32 97 108 32 109 101 110 117 10 0 ]
+[a 4C 40 48 41 65 121 117 100 97 32 115 111 98 114 101 32 99 111 109 111 32 102 117 110 99 105 111 110 97 32 101 108 32 112 114 111 103 114 97 109 97 32 40 49 41 73 110 116 114 111 100 117 99 105 114 32 99 111 111 114 100 101 110 97 100 97 32 110 117 101 118 97 32 40 50 41 73 109 112 114 105 109 105 114 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 114 101 99 105 98 105 100 97 115 32 40 51 41 73 114 32 97 32 104 111 109 101 10 40 52 41 77 111 100 105 102 105 99 97 114 32 99 111 111 114 100 101 110 97 100 97 32 40 53 41 73 110 105 99 105 97 114 32 80 114 111 103 114 97 109 97 32 40 54 41 66 111 114 114 97 114 32 101 108 32 118 97 108 111 114 32 100 101 32 116 111 100 97 115 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 10 0 ]
+[a 7C 69 108 101 103 105 115 116 101 32 108 97 32 111 112 99 105 111 110 32 100 101 32 105 109 112 114 105 109 105 114 32 99 111 111 114 100 101 110 97 100 97 115 10 0 ]
+[a 8C 72 97 115 32 101 108 101 103 105 100 111 32 105 114 32 97 32 104 111 109 101 10 0 ]
+[a 1C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 48 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 32 89 10 0 ]
+[a 2C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 49 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 32 88 10 0 ]

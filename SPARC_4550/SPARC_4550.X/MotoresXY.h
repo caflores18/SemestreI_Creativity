@@ -26,6 +26,7 @@ unsigned int CurrentPosY = 0; // Y current posicion actual (Yc)
 unsigned char sparcEnMovimiento = 0; //Esta variable se prende cuando alguno de los motores se va a mover
 //----------------------------  ESTAS VARIABLES SE COMPARTEN TANTO PARA X como para Y  ------------------------------
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
 #endif	/* MOTORESXY_H */
 
 
