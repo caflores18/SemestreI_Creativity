@@ -5,6 +5,7 @@ Comunicacion.h  \
 FuncionesMenu.h  \
 Gpio.h  \
 Interrupciones.h  \
+Leds.h  \
 MotoresXY.h  \
 PWMCCP1.h  \
 PWMCCP2.h  \

@@ -65,11 +65,11 @@
 [v _habilitarIntTMR0 habilitarIntTMR0 `(v  1 e 1 0 ]
 "42
 [v _habilitarIntTMR1 habilitarIntTMR1 `(v  1 e 1 0 ]
-"17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
+"18 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
-"35
+"36
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
-"40
+"41
 [v _main main `(v  1 e 1 0 ]
 "36 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXY.c
 [v _moverHaciaX moverHaciaX `(v  1 e 1 0 ]
@@ -133,6 +133,27 @@
 [v _CurrentPosY CurrentPosY `ui  1 e 2 0 ]
 "26
 [v _sparcEnMovimiento sparcEnMovimiento `uc  1 e 1 0 ]
+[s S1653 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"3100 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[s S1662 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S1671 . 1 `S1653 1 . 1 0 `S1662 1 . 1 0 ]
+[v _LATBbits LATBbits `VES1671  1 e 1 @3978 ]
 [s S172 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
@@ -140,7 +161,7 @@
 `uc 1 LATC6 1 0 :1:6 
 `uc 1 LATC7 1 0 :1:7 
 ]
-"3208 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+"3208
 [s S179 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
@@ -649,24 +670,24 @@
 ]
 [u S940 . 1 `S918 1 . 1 0 `S927 1 . 1 0 `S936 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES940  1 e 1 @4082 ]
-"40 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
+"41 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"104
+"105
 [v main@decision decision `uc  1 a 1 76 ]
-"89
+"90
 [v main@n3 n3 `uc  1 a 1 75 ]
 [v main@n2 n2 `uc  1 a 1 74 ]
 [v main@n1 n1 `uc  1 a 1 73 ]
-"72
+"73
 [v main@opcionsel opcionsel `uc  1 a 1 77 ]
-"58
+"59
 [v main@activarmenu activarmenu `[5]uc  1 a 5 68 ]
-"60
-[v main@pActMenu pActMenu `*.39uc  1 a 2 66 ]
 "61
+[v main@pActMenu pActMenu `*.39uc  1 a 2 66 ]
+"62
 [v main@tamanoarray tamanoarray `uc  1 a 1 64 ]
-"120
+"121
 } 0
 "7 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
 [v _tmr1Init tmr1Init `(v  1 e 1 0 ]
@@ -708,7 +729,7 @@
 [v moverHaciaX@coordXDecenas coordXDecenas `uc  1 p 1 59 ]
 [v moverHaciaX@coordXUnidades coordXUnidades `uc  1 p 1 60 ]
 [v moverHaciaX@coordXCentenas coordXCentenas `uc  1 a 1 63 ]
-"59
+"57
 } 0
 "31 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
 [v _setNumPasosX setNumPasosX `(v  1 e 1 0 ]
@@ -787,17 +808,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S1940 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2013 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S1945 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1948 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1940 1 fAsBytes 4 0 `S1945 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1948  1 a 4 34 ]
+[s S2018 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2021 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2013 1 fAsBytes 4 0 `S2018 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2021  1 a 4 34 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S2016 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2089 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2019 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2016 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2019  1 a 2 38 ]
+[u S2092 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2089 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2092  1 a 2 38 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 33 ]
 "11
@@ -906,15 +927,15 @@
 {
 "16
 } 0
-"35 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
+"36 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
 {
-"37
+"38
 } 0
-"17
+"18
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
 {
-"32
+"33
 } 0
 "6 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Comunicacion.c
 [v i2_printf printf `(v  1 e 1 0 ]
@@ -974,14 +995,14 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v i2___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S1940 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-[s S1945 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1948 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1940 1 fAsBytes 4 0 `S1945 1 fAsWords 4 0 ]
-[v i2___flmul@prod __flmul `S1948  1 a 4 33 ]
+[s S2013 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2018 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2021 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2013 1 fAsBytes 4 0 `S2018 1 fAsWords 4 0 ]
+[v i2___flmul@prod __flmul `S2021  1 a 4 33 ]
 [v i2___flmul@grs __flmul `ul  1 a 4 27 ]
-[s S2016 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-[u S2019 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2016 1 nAsBytes 2 0 ]
-[v i2___flmul@temp __flmul `S2019  1 a 2 37 ]
+[s S2089 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[u S2092 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2089 1 nAsBytes 2 0 ]
+[v i2___flmul@temp __flmul `S2092  1 a 2 37 ]
 [v i2___flmul@bexp __flmul `uc  1 a 1 32 ]
 [v i2___flmul@aexp __flmul `uc  1 a 1 31 ]
 [v i2___flmul@sign __flmul `uc  1 a 1 26 ]

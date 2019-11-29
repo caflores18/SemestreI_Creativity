@@ -39,12 +39,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./Timers.h
 [; ;./Timers.h: 13: void setNumPasosX(unsigned int numPasosX);
 [v _setNumPasosX `(v ~T0 @X0 0 ef1`ui ]
-"8146 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8146: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-"8153
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8153: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -738,20 +732,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MotoresXY.c: 54:         PWM_DutyCycleCCP2(0);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
 "55
-[; ;MotoresXY.c: 55:         TMR0L = 0;
-[e = _TMR0L -> -> 0 `i `uc ]
-"56
-[; ;MotoresXY.c: 56:         TMR0H = 0;
-[e = _TMR0H -> -> 0 `i `uc ]
-"57
-[; ;MotoresXY.c: 57:         PWM_DutyCycleCCP1(50);
+[; ;MotoresXY.c: 55:         PWM_DutyCycleCCP1(50);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
-"58
-[; ;MotoresXY.c: 58:     }
+"56
+[; ;MotoresXY.c: 56:     }
 }
 [e :U 383 ]
-"59
-[; ;MotoresXY.c: 59: }
+"57
+[; ;MotoresXY.c: 57: }
 [e :UE 376 ]
 }
 [a 1C 121 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]

@@ -5833,8 +5833,6 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
         sparcEnMovimiento = 1;
         setNumPasosX(xToAdvance);
         PWM_DutyCycleCCP2(0);
-        TMR0L = 0;
-        TMR0H = 0;
         PWM_DutyCycleCCP1(50);
     }
 }
