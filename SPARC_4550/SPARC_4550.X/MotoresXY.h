@@ -9,16 +9,6 @@
 #define	MOTORESXY_H
 #include <xc.h>
 #include <stdint.h>
-#include "ADC.h"
-#include "Comunicacion.h"
-#include "FuncionesMenu.h"
-#include "Gpio.h"
-#include "Interrupciones.h"
-#include "PWMCCP1.h"
-#include "PWMCCP2.h"
-#include "Timers.h"
-#include "UART.h"
-
 struct SystemaSPARC {
     unsigned int xWanted; //coordenada X objetivo
     unsigned int yWanted; //coordenada Y objetivo
@@ -35,9 +25,7 @@ unsigned int CurrentPosY = 0; // Y current posicion actual (Yc)
 //Procedimiento compartido (X) y (Y)
 unsigned char sparcEnMovimiento = 0; //Esta variable se prende cuando alguno de los motores se va a mover
 //----------------------------  ESTAS VARIABLES SE COMPARTEN TANTO PARA X como para Y  ------------------------------
-//void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
-
-
+void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
 #endif	/* MOTORESXY_H */
 
 

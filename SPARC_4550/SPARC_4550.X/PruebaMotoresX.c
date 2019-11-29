@@ -32,7 +32,7 @@ unsigned char working = 0; //Esta variable se prende cuando alguno de los motore
 __interrupt(high_priority) void high_isr(void) {
     if (PIR1bits.TMR1IF = 1) { //Si el TMR1 registro OverFlow 
         PWM_DutyCycleCCP1(0);
-        LATAbits.LATA2 = 0; //Se apaga el foco que indica Y
+        //LATAbits.LATA2 = 0; //Se apaga el foco que indica Y
         CurrentPosX = coordinates.xWanted; //Se actualiza el valor actual de la Y
         printf("Interrupcion TMR1, llegaste a coordenada deseada\n");
         working = 0;
