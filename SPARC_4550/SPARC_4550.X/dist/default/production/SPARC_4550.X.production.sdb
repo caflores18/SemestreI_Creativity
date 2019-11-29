@@ -67,16 +67,17 @@
 [v _habilitarIntTMR1 habilitarIntTMR1 `(v  1 e 1 0 ]
 "17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
-"29
+"35
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
-"34
+"40
 [v _main main `(v  1 e 1 0 ]
-"12 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXY.c
-[v _moverHaciaY moverHaciaY `(v  1 e 1 0 ]
+"36 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXY.c
+[v _moverHaciaX moverHaciaX `(v  1 e 1 0 ]
 "5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
 [v _PWM_CCP1_init PWM_CCP1_init `(v  1 e 1 0 ]
 "17
 [v _PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]
+[v i2_PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]
 "4 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
 [v _PWM_CCP2_init PWM_CCP2_init `(v  1 e 1 0 ]
 "16
@@ -86,6 +87,8 @@
 [v _tmr1Init tmr1Init `(v  1 e 1 0 ]
 "20
 [v _tmr0Init tmr0Init `(v  1 e 1 0 ]
+"31
+[v _setNumPasosX setNumPasosX `(v  1 e 1 0 ]
 "42
 [v _setNumPasosY setNumPasosY `(v  1 e 1 0 ]
 "5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
@@ -120,31 +123,16 @@
 [s S1424 SystemaSPARC 8 `ui 1 xWanted 2 0 `ui 1 yWanted 2 2 `ul 1 timesToPress 4 4 ]
 "16 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X/MotoresXY.h
 [v _coordinates coordinates `S1424  1 e 8 0 ]
+"18
+[v _xToAdvance xToAdvance `ui  1 e 2 0 ]
+"19
+[v _CurrentPosX CurrentPosX `ui  1 e 2 0 ]
 "22
 [v _yToAdvance yToAdvance `ui  1 e 2 0 ]
 "23
 [v _CurrentPosY CurrentPosY `ui  1 e 2 0 ]
 "26
 [v _sparcEnMovimiento sparcEnMovimiento `uc  1 e 1 0 ]
-[s S1456 . 1 `uc 1 LATA0 1 0 :1:0 
-`uc 1 LATA1 1 0 :1:1 
-`uc 1 LATA2 1 0 :1:2 
-`uc 1 LATA3 1 0 :1:3 
-`uc 1 LATA4 1 0 :1:4 
-`uc 1 LATA5 1 0 :1:5 
-`uc 1 LATA6 1 0 :1:6 
-]
-"2998 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[s S1464 . 1 `uc 1 LA0 1 0 :1:0 
-`uc 1 LA1 1 0 :1:1 
-`uc 1 LA2 1 0 :1:2 
-`uc 1 LA3 1 0 :1:3 
-`uc 1 LA4 1 0 :1:4 
-`uc 1 LA5 1 0 :1:5 
-`uc 1 LA6 1 0 :1:6 
-]
-[u S1472 . 1 `S1456 1 . 1 0 `S1464 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1472  1 e 1 @3977 ]
 [s S172 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
@@ -152,7 +140,7 @@
 `uc 1 LATC6 1 0 :1:6 
 `uc 1 LATC7 1 0 :1:7 
 ]
-"3208
+"3208 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [s S179 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
@@ -661,24 +649,24 @@
 ]
 [u S940 . 1 `S918 1 . 1 0 `S927 1 . 1 0 `S936 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES940  1 e 1 @4082 ]
-"34 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
+"40 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"97
+"104
 [v main@decision decision `uc  1 a 1 76 ]
-"83
+"89
 [v main@n3 n3 `uc  1 a 1 75 ]
 [v main@n2 n2 `uc  1 a 1 74 ]
 [v main@n1 n1 `uc  1 a 1 73 ]
-"66
+"72
 [v main@opcionsel opcionsel `uc  1 a 1 77 ]
-"52
+"58
 [v main@activarmenu activarmenu `[5]uc  1 a 5 68 ]
-"54
+"60
 [v main@pActMenu pActMenu `*.39uc  1 a 2 66 ]
-"55
+"61
 [v main@tamanoarray tamanoarray `uc  1 a 1 64 ]
-"113
+"120
 } 0
 "7 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
 [v _tmr1Init tmr1Init `(v  1 e 1 0 ]
@@ -712,24 +700,24 @@
 {
 "15
 } 0
-"12 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXY.c
-[v _moverHaciaY moverHaciaY `(v  1 e 1 0 ]
+"36 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXY.c
+[v _moverHaciaX moverHaciaX `(v  1 e 1 0 ]
 {
-[v moverHaciaY@coordYCentenas coordYCentenas `uc  1 a 1 wreg ]
-[v moverHaciaY@coordYCentenas coordYCentenas `uc  1 a 1 wreg ]
-[v moverHaciaY@coordYDecenas coordYDecenas `uc  1 p 1 59 ]
-[v moverHaciaY@coordYUnidades coordYUnidades `uc  1 p 1 60 ]
-[v moverHaciaY@coordYCentenas coordYCentenas `uc  1 a 1 63 ]
-"33
+[v moverHaciaX@coordXCentenas coordXCentenas `uc  1 a 1 wreg ]
+[v moverHaciaX@coordXCentenas coordXCentenas `uc  1 a 1 wreg ]
+[v moverHaciaX@coordXDecenas coordXDecenas `uc  1 p 1 59 ]
+[v moverHaciaX@coordXUnidades coordXUnidades `uc  1 p 1 60 ]
+[v moverHaciaX@coordXCentenas coordXCentenas `uc  1 a 1 63 ]
+"59
 } 0
-"42 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
-[v _setNumPasosY setNumPasosY `(v  1 e 1 0 ]
+"31 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
+[v _setNumPasosX setNumPasosX `(v  1 e 1 0 ]
 {
-"44
-[v setNumPasosY@resultado resultado `ui  1 a 2 3 ]
-"42
-[v setNumPasosY@numPasosY numPasosY `ui  1 p 2 1 ]
-"51
+"33
+[v setNumPasosX@resultado resultado `ui  1 a 2 3 ]
+"31
+[v setNumPasosX@numPasosX numPasosX `ui  1 p 2 1 ]
+"40
 } 0
 "1 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
@@ -758,6 +746,68 @@
 "19
 [v PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 56 ]
 "24
+} 0
+"17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+[v _PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]
+{
+[v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
+"19
+[v PWM_DutyCycleCCP1@PWMDutyValue PWMDutyValue `ui  1 a 2 57 ]
+"17
+[v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
+"20
+[v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 56 ]
+"25
+} 0
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 11 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 10 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 1 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 9 ]
+"44
+} 0
+"43 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 49 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 48 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 40 ]
+"70
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S1940 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S1945 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1948 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1940 1 fAsBytes 4 0 `S1945 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1948  1 a 4 34 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 28 ]
+[s S2016 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S2019 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2016 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2019  1 a 2 38 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 33 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 32 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 27 ]
+"8
+[v ___flmul@b b `d  1 p 4 15 ]
+[v ___flmul@a a `d  1 p 4 19 ]
+"205
 } 0
 "26 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
 [v _motorYinit motorYinit `(v  1 e 1 0 ]
@@ -846,68 +896,6 @@
 {
 "19
 } 0
-"17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
-[v _PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]
-{
-[v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
-"19
-[v PWM_DutyCycleCCP1@PWMDutyValue PWMDutyValue `ui  1 a 2 57 ]
-"17
-[v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
-"20
-[v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 56 ]
-"25
-} 0
-"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 11 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 10 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 1 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 9 ]
-"44
-} 0
-"43 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 49 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 48 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 40 ]
-"70
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
-{
-[s S1973 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"13
-[s S1978 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1981 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1973 1 fAsBytes 4 0 `S1978 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1981  1 a 4 34 ]
-"12
-[v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S2049 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-"14
-[u S2052 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2049 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2052  1 a 2 38 ]
-"10
-[v ___flmul@bexp bexp `uc  1 a 1 33 ]
-"11
-[v ___flmul@aexp aexp `uc  1 a 1 32 ]
-"9
-[v ___flmul@sign sign `uc  1 a 1 27 ]
-"8
-[v ___flmul@b b `d  1 p 4 15 ]
-[v ___flmul@a a `d  1 p 4 19 ]
-"205
-} 0
 "4 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
 [v _PWM_CCP2_init PWM_CCP2_init `(v  1 e 1 0 ]
 {
@@ -918,15 +906,15 @@
 {
 "16
 } 0
-"29 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
+"35 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
 {
-"31
+"37
 } 0
 "17
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
 {
-"26
+"32
 } 0
 "6 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Comunicacion.c
 [v i2_printf printf `(v  1 e 1 0 ]
@@ -953,6 +941,16 @@
 [v i2PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 55 ]
 "24
 } 0
+"17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
+[v i2_PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]
+{
+[v i2PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
+[v i2PWM_DutyCycleCCP1@PWMDutyValue PWM_DutyCycleCCP1 `ui  1 a 2 56 ]
+[v i2PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
+"20
+[v i2PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 55 ]
+"25
+} 0
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
 [v i2___xxtofl __xxtofl `(d  1 e 4 0 ]
 {
@@ -976,14 +974,14 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v i2___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S1973 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-[s S1978 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1981 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1973 1 fAsBytes 4 0 `S1978 1 fAsWords 4 0 ]
-[v i2___flmul@prod __flmul `S1981  1 a 4 33 ]
+[s S1940 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1945 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1948 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1940 1 fAsBytes 4 0 `S1945 1 fAsWords 4 0 ]
+[v i2___flmul@prod __flmul `S1948  1 a 4 33 ]
 [v i2___flmul@grs __flmul `ul  1 a 4 27 ]
-[s S2049 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-[u S2052 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2049 1 nAsBytes 2 0 ]
-[v i2___flmul@temp __flmul `S2052  1 a 2 37 ]
+[s S2016 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[u S2019 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2016 1 nAsBytes 2 0 ]
+[v i2___flmul@temp __flmul `S2019  1 a 2 37 ]
 [v i2___flmul@bexp __flmul `uc  1 a 1 32 ]
 [v i2___flmul@aexp __flmul `uc  1 a 1 31 ]
 [v i2___flmul@sign __flmul `uc  1 a 1 26 ]

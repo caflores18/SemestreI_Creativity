@@ -5781,6 +5781,7 @@ unsigned int CurrentPosY = 0;
 unsigned char sparcEnMovimiento = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
 # 9 "main.c" 2
 
 # 1 "./PWMCCP1.h" 1
@@ -5821,13 +5822,19 @@ void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
 
 
 __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
-    if (INTCONbits.TMR0IF = 1) {
+    if (INTCONbits.TMR0IF == 1) {
         PWM_DutyCycleCCP2(0);
-        LATAbits.LATA2 = 0;
         CurrentPosY = coordinates.yWanted;
-        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
+        printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
         sparcEnMovimiento = 0;
         INTCONbits.TMR0IF = 0;
+    }
+    if (PIR1bits.TMR1IF == 1) {
+        PWM_DutyCycleCCP1(0);
+        CurrentPosX = coordinates.xWanted;
+        printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
+        sparcEnMovimiento = 0;
+        PIR1bits.TMR1IF = 0;
     }
 }
 
@@ -5886,11 +5893,12 @@ void main(void) {
             }
             if (opcionsel == '3') {
                 printf("Has elegido ir a home\n");
-                unsigned char n1,n2,n3;
+                unsigned char n1, n2, n3;
                 n1 = receiveNum();
                 n2 = receiveNum();
                 n3 = receiveNum();
-                moverHaciaY(n1,n2,n3);
+
+                moverHaciaX(n1, n2, n3);
             }
             if (opcionsel == '4') {
                 modificarCoordenada();

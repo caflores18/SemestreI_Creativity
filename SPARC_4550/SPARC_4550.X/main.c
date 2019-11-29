@@ -15,13 +15,19 @@
 //ISR de alta prioridad 
 
 __interrupt(high_priority) void high_isr(void) {
-    if (INTCONbits.TMR0IF = 1) {
+    if (INTCONbits.TMR0IF == 1) {
         PWM_DutyCycleCCP2(0);
-        LATAbits.LATA2 = 0; //Se apaga el foco que indica Y
         CurrentPosY = coordinates.yWanted; //Se actualiza el valor actual de la Y*/
-        printf("Interrupcion TMR0, llegaste a coordenada deseada\n");
+        printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
         sparcEnMovimiento = 0;
         INTCONbits.TMR0IF = 0;
+    }
+    if (PIR1bits.TMR1IF == 1) { //Si el TMR1 registro OverFlow 
+        PWM_DutyCycleCCP1(0);
+        CurrentPosX = coordinates.xWanted; //Se actualiza el valor actual de la Y
+        printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
+        sparcEnMovimiento = 0;
+        PIR1bits.TMR1IF = 0; //Se apaga la interrupcion del TMR1
     }
 }
 //ISR de baja prioridad 
@@ -80,11 +86,12 @@ void main(void) {
             }
             if (opcionsel == '3') {
                 printf("Has elegido ir a home\n");
-                unsigned char n1,n2,n3;
+                unsigned char n1, n2, n3;
                 n1 = receiveNum();
                 n2 = receiveNum();
                 n3 = receiveNum();
-                moverHaciaY(n1,n2,n3);
+                //moverHaciaY(n1,n2,n3);
+                moverHaciaX(n1, n2, n3);
             }
             if (opcionsel == '4') {
                 modificarCoordenada();
