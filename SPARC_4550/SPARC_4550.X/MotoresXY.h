@@ -9,6 +9,7 @@
 #define	MOTORESXY_H
 #include <xc.h>
 #include <stdint.h>
+
 struct SystemaSPARC {
     unsigned int xWanted; //coordenada X objetivo
     unsigned int yWanted; //coordenada Y objetivo
@@ -27,6 +28,10 @@ unsigned char sparcEnMovimiento = 0; //Esta variable se prende cuando alguno de 
 //----------------------------  ESTAS VARIABLES SE COMPARTEN TANTO PARA X como para Y  ------------------------------
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+void moverHomeX(void);
+void moverHomeY(void);
+void moverXInfinito(void);
+void moverYInfinito(void);
 #endif	/* MOTORESXY_H */
 
 

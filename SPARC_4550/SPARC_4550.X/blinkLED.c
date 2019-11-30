@@ -42,7 +42,6 @@ void main(void) {
         ledAzul = 0;
         __delay_ms(250);
     }
-
 }
 
 

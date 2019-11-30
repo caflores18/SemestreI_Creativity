@@ -5747,14 +5747,14 @@ void borrarTodasCoordenadas(void);
 # 6 "main.c" 2
 
 # 1 "./Gpio.h" 1
-# 17 "./Gpio.h"
+# 23 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
 # 7 "main.c" 2
 
 # 1 "./Interrupciones.h" 1
-# 11 "./Interrupciones.h"
+# 16 "./Interrupciones.h"
 void interruptsEnable(void);
 void interruptsDisable(void);
 void habilitarIntExternas(void);
@@ -5771,7 +5771,7 @@ void alertaAzul(void);
 # 9 "main.c" 2
 
 # 1 "./MotoresXY.h" 1
-# 12 "./MotoresXY.h"
+# 13 "./MotoresXY.h"
 struct SystemaSPARC {
     unsigned int xWanted;
     unsigned int yWanted;
@@ -5790,6 +5790,10 @@ unsigned char sparcEnMovimiento = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+void moverHomeX(void);
+void moverHomeY(void);
+void moverXInfinito(void);
+void moverYInfinito(void);
 # 10 "main.c" 2
 
 # 1 "./PWMCCP1.h" 1
@@ -5844,6 +5848,34 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         sparcEnMovimiento = 0;
         PIR1bits.TMR1IF = 0;
     }
+    if (INTCONbits.INT0IF) {
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+        if (PORTBbits.RB0 == 1) {
+            printf("Ocurrio la interrupcion limitSwitch3Esquinas\n");
+        }
+        moverHomeX();
+        INTCONbits.INT0IF = 0;
+    }
+    if (INTCON3bits.INT1IF == 1) {
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+        if (PORTBbits.RB1 == 1) {
+            printf("Ocurrio la interrupcion limitSwitchHomeX\n");
+        }
+        PWM_DutyCycleCCP2(0);
+        PWM_DutyCycleCCP1(0);
+        sparcEnMovimiento = 0;
+        INTCON3bits.INT1IF = 0;
+    }
+    if (INTCON3bits.INT2IF == 1) {
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+        if (PORTBbits.RB2 == 1) {
+            printf("Ocurrio la interrupcion limitSwitchHomeY\n");
+        }
+        PWM_DutyCycleCCP2(0);
+        PWM_DutyCycleCCP1(0);
+        sparcEnMovimiento = 0;
+        INTCON3bits.INT2IF = 0;
+    }
 }
 
 
@@ -5856,6 +5888,7 @@ void main(void) {
 
     portInit();
     UARTinit();
+
     PWM_CCP2_init();
     PWM_CCP1_init();
     PWM_DutyCycleCCP2(0);
@@ -5867,7 +5900,7 @@ void main(void) {
     interruptsEnable();
     habilitarIntTMR0();
     habilitarIntTMR1();
-
+    habilitarIntExternas();
 
 
     unsigned char activarmenu[5];
@@ -5883,7 +5916,7 @@ void main(void) {
         if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
 
             printf("(0)Ayuda sobre como funciona el programa (1)Introducir coordenada nueva (2)Imprimir las coordenadas recibidas (3)Ir a home\n"
-                    "(4)Modificar coordenada (5)Iniciar Programa (6)Borrar el valor de todas las coordenadas\n");
+                    "(4)Modificar coordenada (5)Iniciar Programa (6)Borrar el valor de todas las coordenadas (7)Mandar infinito o home\n");
             uint8_t opcionsel = receive();
             while (opcionsel > 57 || opcionsel < 48) {
                 printf("Eleccion no valida vuelva a intentar");
@@ -5923,6 +5956,15 @@ void main(void) {
             }
             if (opcionsel == '7') {
                 printf("Entrase al 7");
+                printf("Elige (1) infinito o 0 (home)");
+                unsigned char loco = receiveNum();
+                if (loco == '1') {
+                    moverXInfinito();
+
+                } else {
+                    moverHomeX();
+
+                }
             }
             if (opcionsel == '8') {
                 printf("Entrase al 8");

@@ -5725,7 +5725,7 @@ uint8_t receiveNum(void);
 # 2 "MotoresXY.c" 2
 
 # 1 "./Gpio.h" 1
-# 17 "./Gpio.h"
+# 23 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
@@ -5766,7 +5766,7 @@ void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
 # 7 "MotoresXY.c" 2
 
 # 1 "./MotoresXY.h" 1
-# 12 "./MotoresXY.h"
+# 13 "./MotoresXY.h"
 struct SystemaSPARC {
     unsigned int xWanted;
     unsigned int yWanted;
@@ -5785,6 +5785,10 @@ unsigned char sparcEnMovimiento = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+void moverHomeX(void);
+void moverHomeY(void);
+void moverXInfinito(void);
+void moverYInfinito(void);
 # 8 "MotoresXY.c" 2
 
 
@@ -5835,4 +5839,29 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
         PWM_DutyCycleCCP2(0);
         PWM_DutyCycleCCP1(50);
     }
+}
+
+void moverHomeX(void) {
+    LATDbits.LATD3 = 0;
+    sparcEnMovimiento = 1;
+
+    PWM_DutyCycleCCP1(50);
+}
+void moverHomeY(void) {
+    LATDbits.LATD1 = 0;
+    sparcEnMovimiento = 1;
+
+    PWM_DutyCycleCCP2(50);
+}
+void moverXInfinito() {
+    LATDbits.LATD3 = 1;
+    sparcEnMovimiento = 1;
+    PWM_DutyCycleCCP2(0);
+    PWM_DutyCycleCCP1(50);
+}
+void moverYInfinito() {
+    LATDbits.LATD1 = 1;
+    sparcEnMovimiento = 1;
+    PWM_DutyCycleCCP1(0);
+    PWM_DutyCycleCCP2(50);
 }

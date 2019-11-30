@@ -5622,7 +5622,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./Gpio.h" 1
-# 17 "./Gpio.h"
+# 23 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);

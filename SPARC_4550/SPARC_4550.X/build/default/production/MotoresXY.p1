@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"12 ./MotoresXY.h
-[; ;./MotoresXY.h: 12: struct SystemaSPARC {
+"13 ./MotoresXY.h
+[; ;./MotoresXY.h: 13: struct SystemaSPARC {
 [s S367 `ui 1 `ui 1 `ul 1 ]
 [n S367 SystemaSPARC xWanted yWanted timesToPress ]
 "51 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
@@ -549,29 +549,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 ./MotoresXY.h
-[; ;./MotoresXY.h: 16: } coordinates;
+"17 ./MotoresXY.h
+[; ;./MotoresXY.h: 17: } coordinates;
 [v _coordinates `S367 ~T0 @X0 1 e ]
-"18
-[; ;./MotoresXY.h: 18: unsigned int xToAdvance;
-[v _xToAdvance `ui ~T0 @X0 1 e ]
 "19
-[; ;./MotoresXY.h: 19: unsigned int CurrentPosX = 0;
+[; ;./MotoresXY.h: 19: unsigned int xToAdvance;
+[v _xToAdvance `ui ~T0 @X0 1 e ]
+"20
+[; ;./MotoresXY.h: 20: unsigned int CurrentPosX = 0;
 [v _CurrentPosX `ui ~T0 @X0 1 e ]
 [i _CurrentPosX
 -> -> 0 `i `ui
 ]
-"22
-[; ;./MotoresXY.h: 22: unsigned int yToAdvance;
-[v _yToAdvance `ui ~T0 @X0 1 e ]
 "23
-[; ;./MotoresXY.h: 23: unsigned int CurrentPosY = 0;
+[; ;./MotoresXY.h: 23: unsigned int yToAdvance;
+[v _yToAdvance `ui ~T0 @X0 1 e ]
+"24
+[; ;./MotoresXY.h: 24: unsigned int CurrentPosY = 0;
 [v _CurrentPosY `ui ~T0 @X0 1 e ]
 [i _CurrentPosY
 -> -> 0 `i `ui
 ]
-"26
-[; ;./MotoresXY.h: 26: unsigned char sparcEnMovimiento = 0;
+"27
+[; ;./MotoresXY.h: 27: unsigned char sparcEnMovimiento = 0;
 [v _sparcEnMovimiento `uc ~T0 @X0 1 e ]
 [i _sparcEnMovimiento
 -> -> 0 `i `uc
@@ -741,6 +741,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 "57
 [; ;MotoresXY.c: 57: }
 [e :UE 376 ]
+}
+"59
+[; ;MotoresXY.c: 59: void moverHomeX(void) {
+[v _moverHomeX `(v ~T0 @X0 1 ef ]
+{
+[e :U _moverHomeX ]
+[f ]
+"60
+[; ;MotoresXY.c: 60:     LATDbits.LATD3 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"61
+[; ;MotoresXY.c: 61:     sparcEnMovimiento = 1;
+[e = _sparcEnMovimiento -> -> 1 `i `uc ]
+"63
+[; ;MotoresXY.c: 63:     PWM_DutyCycleCCP1(50);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
+"64
+[; ;MotoresXY.c: 64: }
+[e :UE 384 ]
+}
+"65
+[; ;MotoresXY.c: 65: void moverHomeY(void) {
+[v _moverHomeY `(v ~T0 @X0 1 ef ]
+{
+[e :U _moverHomeY ]
+[f ]
+"66
+[; ;MotoresXY.c: 66:     LATDbits.LATD1 = 0;
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+"67
+[; ;MotoresXY.c: 67:     sparcEnMovimiento = 1;
+[e = _sparcEnMovimiento -> -> 1 `i `uc ]
+"69
+[; ;MotoresXY.c: 69:     PWM_DutyCycleCCP2(50);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
+"70
+[; ;MotoresXY.c: 70: }
+[e :UE 385 ]
+}
+"71
+[; ;MotoresXY.c: 71: void moverXInfinito() {
+[v _moverXInfinito `(v ~T0 @X0 1 ef ]
+{
+[e :U _moverXInfinito ]
+[f ]
+"72
+[; ;MotoresXY.c: 72:     LATDbits.LATD3 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"73
+[; ;MotoresXY.c: 73:     sparcEnMovimiento = 1;
+[e = _sparcEnMovimiento -> -> 1 `i `uc ]
+"74
+[; ;MotoresXY.c: 74:     PWM_DutyCycleCCP2(0);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
+"75
+[; ;MotoresXY.c: 75:     PWM_DutyCycleCCP1(50);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
+"76
+[; ;MotoresXY.c: 76: }
+[e :UE 386 ]
+}
+"77
+[; ;MotoresXY.c: 77: void moverYInfinito() {
+[v _moverYInfinito `(v ~T0 @X0 1 ef ]
+{
+[e :U _moverYInfinito ]
+[f ]
+"78
+[; ;MotoresXY.c: 78:     LATDbits.LATD1 = 1;
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+"79
+[; ;MotoresXY.c: 79:     sparcEnMovimiento = 1;
+[e = _sparcEnMovimiento -> -> 1 `i `uc ]
+"80
+[; ;MotoresXY.c: 80:     PWM_DutyCycleCCP1(0);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
+"81
+[; ;MotoresXY.c: 81:     PWM_DutyCycleCCP2(50);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
+"82
+[; ;MotoresXY.c: 82: }
+[e :UE 387 ]
 }
 [a 1C 121 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]
 [a 2C 120 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]
