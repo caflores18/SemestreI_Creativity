@@ -29,5 +29,8 @@ void introducirCoordNueva(void);
 void imprimirCoordenadas(void);
 void modificarCoordenada(void);
 void borrarTodasCoordenadas(void);
+void iniciarPrograma(void);
+void movimientoLibre(void);
+void impCoordActual(void);
 #endif	/* FUNCIONESMENU_H */
 

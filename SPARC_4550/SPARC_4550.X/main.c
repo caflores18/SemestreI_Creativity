@@ -17,14 +17,18 @@
 
 __interrupt(high_priority) void high_isr(void) {
     if (overFlowTMR0 == 1) {
-        PWM_DutyCycleCCP2(0);
+        if (destinoHomeY == 0) {
+            PWM_DutyCycleCCP2(0);
+        }
         CurrentPosY = coordinates.yWanted; //Se actualiza el valor actual de la Y*/
         printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
         sparcEnMovimiento = 0;
         overFlowTMR0 = 0;
     }
     if (overFlowTMR1 == 1) { //Si el TMR1 registro OverFlow 
-        PWM_DutyCycleCCP1(0);
+        if (destinoHomeX == 0) {
+            PWM_DutyCycleCCP1(0);
+        }
         CurrentPosX = coordinates.xWanted; //Se actualiza el valor actual de la Y
         printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
         sparcEnMovimiento = 0;
@@ -36,6 +40,7 @@ __interrupt(high_priority) void high_isr(void) {
             printf("Ocurrio la interrupcion limitSwitch3Esquinas\n");
         }
         moverHomeX();
+        moverHomeY();
         intLimitSwitch3Esquinas = 0; //Se apaga la bandera INT0 de interrupcion
     }
     if (intLimitSwitchHomeX == 1) {
@@ -43,8 +48,10 @@ __interrupt(high_priority) void high_isr(void) {
         if (pinlimitSwitchHomeX == 1) {
             printf("Ocurrio la interrupcion limitSwitchHomeX\n");
         }
-        PWM_DutyCycleCCP2(0);
         PWM_DutyCycleCCP1(0);
+        CurrentPosX = 0;
+        destinoHomeX = 0;
+        //llegoHomeX = 1;
         sparcEnMovimiento = 0;
         intLimitSwitchHomeX = 0; //Se apaga la bandera INT1 de interrupcion
     }
@@ -54,7 +61,9 @@ __interrupt(high_priority) void high_isr(void) {
             printf("Ocurrio la interrupcion limitSwitchHomeY\n");
         }
         PWM_DutyCycleCCP2(0);
-        PWM_DutyCycleCCP1(0);
+        CurrentPosY = 0;
+        destinoHomeY = 0;
+        //llegoHomeY = 1;
         sparcEnMovimiento = 0;
         intLimitSwitchHomeY = 0; //Se apaga la bandera INT2 de interrupcion
     }
@@ -65,7 +74,7 @@ __interrupt(low_priority) void low_isr(void) {
     Nop(); //Funcion para consumir un ciclo de instruccion
 }
 // -------------------Declaracion de variables globales------------------------   
-// oli prro
+
 void main(void) {
     // -------------------Inicializacion de funciones --------------------------
     portInit(); //Inicializa todos los pines como digitales hasta que entra el ADC
@@ -94,11 +103,17 @@ void main(void) {
     printf("Escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
     //Inicio del ciclo infinito 
     while (1) {
+        if (llegoHomeX == 1) {
+            printf("Simon si llegue a este pedo");
+            moverHaciaX(0, 0, 5);
+            llegoHomeX = 0;
+        }
         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1)); //Se escanean 4 caracteres
         if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
             //Si los 4 caracteres previamente escaneados son Menu o menu se entra al menu del SPARC
-            printf("(0)Ayuda sobre como funciona el programa (1)Introducir coordenada nueva (2)Imprimir las coordenadas recibidas (3)Ir a home\n"
-                    "(4)Modificar coordenada (5)Iniciar Programa (6)Borrar el valor de todas las coordenadas (7)Mandar infinito o home\n");
+            printf("\n(0)Ayuda sobre como funciona el programa      (1)Introducir coordenada nueva  (2)Imprimir las coordenadas recibidas\n"
+                    "(3)Modificar coordenada        (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
+                    "(6)Imprimir coordenad actual       (7)MovimientoLibre      (8)Mandar infinito o home\n");
             uint8_t opcionsel = receive();
             while (opcionsel > 57 || opcionsel < 48) {
                 printf("Eleccion no valida vuelva a intentar");
@@ -115,41 +130,40 @@ void main(void) {
                 imprimirCoordenadas();
             }
             if (opcionsel == '3') {
-                printf("Has elegido ir a home\n");
-                unsigned char n1, n2, n3;
-                n1 = receiveNum();
-                n2 = receiveNum();
-                n3 = receiveNum();
-                //moverHaciaY(n1,n2,n3);
-                moverHaciaX(n1, n2, n3);
-            }// se hizo lo que se pudo
-            if (opcionsel == '4') {
                 modificarCoordenada();
             }
+            if (opcionsel == '4') {
+                printf("Estas por inicar el programa, estas seguro? (1) Si (X) No");
+                uint8_t decision5 = receiveNum();
+                if (decision5 == '1') {
+                    iniciarPrograma();
+                } else printf("Regresando al menu");
+            }
             if (opcionsel == '5') {
-                printf("Entrase al 5");
-            }// puto el que lo lea
-            if (opcionsel == '6') {
-                printf("Vas a borrar todas las coordenadas, seguro? (1) Si (0)No");
-                uint8_t decision = receiveNum();
-                if (decision == '1') {
+                printf("Vas a borrar todas las coordenadas, seguro? (1) Si (X)No");
+                uint8_t decision6 = receiveNum();
+                if (decision6 == '1') {
                     borrarTodasCoordenadas();
                 } else printf("Regresando al menu");
-            } // que son 6 we
+            }
+            if (opcionsel == '6') {
+                impCoordActual();
+            }
             if (opcionsel == '7') {
-                printf("Entrase al 7"); // No mme no mme
+                printf("Has elegido movimiento libre\n");
+                void movimientoLibre();
+            }
+            if (opcionsel == '8') {
+                printf("Entrase al 8");
                 printf("Elige (1) infinito o 0 (home)");
                 unsigned char loco = receiveNum();
                 if (loco == '1') {
                     moverXInfinito();
                     //moverYInfinito();
-                } else {
+                } else if (loco == '0') {
                     moverHomeX();
                     //moverHomeY();
                 }
-            }// puto el que lo borre
-            if (opcionsel == '8') {
-                printf("Entrase al 8");
             }
             if (opcionsel == '9') {
                 printf("Entrase al 9");
@@ -160,3 +174,5 @@ void main(void) {
 // Funcion coordenada actual
 //Modificar coordenada en 0 se traba
 //Cuanto entro a inthome x o homey poner current pos de 0
+
+//Corregir motores XY el mensaje que envia si la coordenada es la misma no deberia pasar

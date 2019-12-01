@@ -5782,6 +5782,10 @@ unsigned int CurrentPosY = 0;
 
 
 unsigned char sparcEnMovimiento = 0;
+uint8_t destinoHomeX = 0;
+uint8_t destinoHomeY = 0;
+uint8_t llegoHomeX = 0;
+uint8_t llegoHomeY = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
@@ -5842,23 +5846,28 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
 }
 
 void moverHomeX(void) {
+    destinoHomeX = 1;
     LATDbits.LATD3 = 0;
     sparcEnMovimiento = 1;
 
     PWM_DutyCycleCCP1(50);
 }
+
 void moverHomeY(void) {
+    destinoHomeX = 1;
     LATDbits.LATD1 = 0;
     sparcEnMovimiento = 1;
 
     PWM_DutyCycleCCP2(50);
 }
+
 void moverXInfinito() {
     LATDbits.LATD3 = 1;
     sparcEnMovimiento = 1;
     PWM_DutyCycleCCP2(0);
     PWM_DutyCycleCCP1(50);
 }
+
 void moverYInfinito() {
     LATDbits.LATD1 = 1;
     sparcEnMovimiento = 1;

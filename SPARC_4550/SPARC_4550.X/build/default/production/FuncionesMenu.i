@@ -5752,7 +5752,40 @@ void introducirCoordNueva(void);
 void imprimirCoordenadas(void);
 void modificarCoordenada(void);
 void borrarTodasCoordenadas(void);
+void iniciarPrograma(void);
+void movimientoLibre(void);
+void impCoordActual(void);
 # 6 "FuncionesMenu.c" 2
+
+# 1 "./MotoresXY.h" 1
+# 13 "./MotoresXY.h"
+struct SystemaSPARC {
+    unsigned int xWanted;
+    unsigned int yWanted;
+    unsigned long timesToPress;
+} coordinates;
+
+unsigned int xToAdvance;
+unsigned int CurrentPosX = 0;
+
+
+unsigned int yToAdvance;
+unsigned int CurrentPosY = 0;
+
+
+unsigned char sparcEnMovimiento = 0;
+uint8_t destinoHomeX = 0;
+uint8_t destinoHomeY = 0;
+uint8_t llegoHomeX = 0;
+uint8_t llegoHomeY = 0;
+
+void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+void moverHomeX(void);
+void moverHomeY(void);
+void moverXInfinito(void);
+void moverYInfinito(void);
+# 7 "FuncionesMenu.c" 2
 
 
 void introducirCoordNueva() {
@@ -5829,26 +5862,27 @@ void imprimirCoordenadas(void) {
 }
 
 void modificarCoordenada(void) {
-    habilitarModCoord = 1;
-    uint8_t modCoord, coordenadaNuevaCopia;
-    habilitarModCoord = 1;
-    imprimirCoordenadas();
-    printf("Cual de estas coordenadas quieres modificar?\n");
-    modCoord = receiveNum();
-    while ((modCoord - 48) >= coordenadaNueva) {
-        printf("Error, estas queriendo modificar una coordenada que aun no agregas\n");
-        printf("Cual coordenada quieres modificar, elige valores validos?\n");
+    if (coordenadaNueva != 0) {
+        uint8_t modCoord, coordenadaNuevaCopia;
+        habilitarModCoord = 1;
+        imprimirCoordenadas();
+        printf("Cual de estas coordenadas quieres modificar?\n");
         modCoord = receiveNum();
-    }
-    printf("Vas a modificar la coordenada ");
-    send(modCoord);
-    send('\n');
-    modCoord = modCoord - 48;
-    coordenadaNuevaCopia = coordenadaNueva;
-    coordenadaNueva = modCoord;
-    introducirCoordNueva();
-    coordenadaNueva = coordenadaNuevaCopia;
-    habilitarModCoord = 0;
+        while ((modCoord - 48) >= coordenadaNueva) {
+            printf("Error, estas queriendo modificar una coordenada que aun no agregas\n");
+            printf("Cual coordenada quieres modificar, elige valores validos?\n");
+            modCoord = receiveNum();
+        }
+        printf("Vas a modificar la coordenada ");
+        send(modCoord);
+        send('\n');
+        modCoord = modCoord - 48;
+        coordenadaNuevaCopia = coordenadaNueva;
+        coordenadaNueva = modCoord;
+        introducirCoordNueva();
+        coordenadaNueva = coordenadaNuevaCopia;
+        habilitarModCoord = 0;
+    } else printf("No puedes modificar coordenadas por que aun no has agregado ninguna\n");
 }
 
 void borrarTodasCoordenadas(void) {
@@ -5865,4 +5899,43 @@ void borrarTodasCoordenadas(void) {
     }
     coordenadaNueva = 0;
     printf("Listo, todas las coordenadas han sido borradas\n");
+}
+
+void iniciarPrograma(void) {
+    if (coordenadaNueva != 0) {
+        for (uint8_t coordenadaA_Mover = 0; coordenadaA_Mover < coordenadaNueva; coordenadaA_Mover++) {
+            printf("Yendo a coordenada: ");
+            send(coordenadaA_Mover + 48);
+            send('\n');
+            moverHaciaX(coordXCentenas[coordenadaA_Mover], coordXDecenas[coordenadaA_Mover], coordXUnidades[coordenadaA_Mover]);
+            moverHaciaY(coordYCentenas[coordenadaA_Mover], coordYDecenas[coordenadaA_Mover], coordYUnidades[coordenadaA_Mover]);
+
+        }
+    } else printf("No has agregado ninguna coordenada");
+}
+
+void movimientoLibre(void) {
+    printf("Dame X\n");
+    uint8_t lx1, lx2, lx3, ly1, ly2, ly3;
+    lx1 = receiveNum();
+    lx2 = receiveNum();
+    lx3 = receiveNum();
+    printf("Dame Y\n");
+    ly1 = receiveNum();
+    ly2 = receiveNum();
+    ly3 = receiveNum();
+    moverHaciaX(lx1, lx2, lx3);
+    moverHaciaY(ly1, ly2, ly3);
+}
+
+void impCoordActual(void) {
+    printf("Las coordenadas actuales son (X, Y, Toques Z) \n");
+    send((CurrentPosX * 0.01) + 48);
+    send(((CurrentPosX % 100)*0.1) + 48);
+    send(((CurrentPosX % 100) % 10) + 48);
+    send(',');
+    send((CurrentPosY * 0.01) + 48);
+    send(((CurrentPosY % 100)*0.1) + 48);
+    send(((CurrentPosY % 100) % 10) + 48);
+    send('.');
 }

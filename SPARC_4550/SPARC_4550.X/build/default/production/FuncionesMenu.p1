@@ -1,4 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"13 ./MotoresXY.h
+[; ;./MotoresXY.h: 13: struct SystemaSPARC {
+[s S367 `ui 1 `ui 1 `ul 1 ]
+[n S367 SystemaSPARC xWanted yWanted timesToPress ]
 "16 ./UART.h
 [; ;./UART.h: 16: void printf (unsigned char *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
@@ -8,6 +12,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./UART.h
 [; ;./UART.h: 14: void send(unsigned char enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
+"34 ./MotoresXY.h
+[; ;./MotoresXY.h: 34: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+[v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"33
+[; ;./MotoresXY.h: 33: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+[v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -557,387 +567,584 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _habilitarModCoord
 -> -> 0 `i `uc
 ]
-"8 FuncionesMenu.c
-[; ;FuncionesMenu.c: 8: void introducirCoordNueva() {
+"17 ./MotoresXY.h
+[; ;./MotoresXY.h: 17: } coordinates;
+[v _coordinates `S367 ~T0 @X0 1 e ]
+"19
+[; ;./MotoresXY.h: 19: unsigned int xToAdvance;
+[v _xToAdvance `ui ~T0 @X0 1 e ]
+"20
+[; ;./MotoresXY.h: 20: unsigned int CurrentPosX = 0;
+[v _CurrentPosX `ui ~T0 @X0 1 e ]
+[i _CurrentPosX
+-> -> 0 `i `ui
+]
+"23
+[; ;./MotoresXY.h: 23: unsigned int yToAdvance;
+[v _yToAdvance `ui ~T0 @X0 1 e ]
+"24
+[; ;./MotoresXY.h: 24: unsigned int CurrentPosY = 0;
+[v _CurrentPosY `ui ~T0 @X0 1 e ]
+[i _CurrentPosY
+-> -> 0 `i `ui
+]
+"27
+[; ;./MotoresXY.h: 27: unsigned char sparcEnMovimiento = 0;
+[v _sparcEnMovimiento `uc ~T0 @X0 1 e ]
+[i _sparcEnMovimiento
+-> -> 0 `i `uc
+]
+"28
+[; ;./MotoresXY.h: 28: uint8_t destinoHomeX = 0;
+[v _destinoHomeX `uc ~T0 @X0 1 e ]
+[i _destinoHomeX
+-> -> 0 `i `uc
+]
+"29
+[; ;./MotoresXY.h: 29: uint8_t destinoHomeY = 0;
+[v _destinoHomeY `uc ~T0 @X0 1 e ]
+[i _destinoHomeY
+-> -> 0 `i `uc
+]
+"30
+[; ;./MotoresXY.h: 30: uint8_t llegoHomeX = 0;
+[v _llegoHomeX `uc ~T0 @X0 1 e ]
+[i _llegoHomeX
+-> -> 0 `i `uc
+]
+"31
+[; ;./MotoresXY.h: 31: uint8_t llegoHomeY = 0;
+[v _llegoHomeY `uc ~T0 @X0 1 e ]
+[i _llegoHomeY
+-> -> 0 `i `uc
+]
+"9 FuncionesMenu.c
+[; ;FuncionesMenu.c: 9: void introducirCoordNueva() {
 [v _introducirCoordNueva `(v ~T0 @X0 1 ef ]
 {
 [e :U _introducirCoordNueva ]
 [f ]
-"9
-[; ;FuncionesMenu.c: 9:     uint16_t validarCoordX = 0;
+"10
+[; ;FuncionesMenu.c: 10:     uint16_t validarCoordX = 0;
 [v _validarCoordX `us ~T0 @X0 1 a ]
 [e = _validarCoordX -> -> 0 `i `us ]
-"10
-[; ;FuncionesMenu.c: 10:     uint16_t validarCoordY = 0;
+"11
+[; ;FuncionesMenu.c: 11:     uint16_t validarCoordY = 0;
 [v _validarCoordY `us ~T0 @X0 1 a ]
 [e = _validarCoordY -> -> 0 `i `us ]
-"11
-[; ;FuncionesMenu.c: 11:     if ((coordenadaNueva < 10) || (habilitarModCoord == 1)) {
-[e $ ! || < -> _coordenadaNueva `i -> 10 `i == -> _habilitarModCoord `i -> 1 `i 368  ]
-{
 "12
-[; ;FuncionesMenu.c: 12: corregirCoord:
-[e :U 369 ]
+[; ;FuncionesMenu.c: 12:     if ((coordenadaNueva < 10) || (habilitarModCoord == 1)) {
+[e $ ! || < -> _coordenadaNueva `i -> 10 `i == -> _habilitarModCoord `i -> 1 `i 369  ]
+{
 "13
-[; ;FuncionesMenu.c: 13:         printf("Introduce en el siguiente orden las variables a usar (no uses las comas): coordX,coordY,# de veces a presionar Z");
-[e ( _printf (1 :s 1C ]
-"14
-[; ;FuncionesMenu.c: 14:         coordXCentenas[coordenadaNueva] = receiveNum();
-[e = *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux ( _receiveNum ..  ]
-"15
-[; ;FuncionesMenu.c: 15:         coordXDecenas[coordenadaNueva] = receiveNum();
-[e = *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux ( _receiveNum ..  ]
-"16
-[; ;FuncionesMenu.c: 16:         coordXUnidades[coordenadaNueva] = receiveNum();
-[e = *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux ( _receiveNum ..  ]
-"17
-[; ;FuncionesMenu.c: 17:         printf("Recibi coordX");
-[e ( _printf (1 :s 2C ]
-"18
-[; ;FuncionesMenu.c: 18:         coordYCentenas[coordenadaNueva] = receiveNum();
-[e = *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux ( _receiveNum ..  ]
-"19
-[; ;FuncionesMenu.c: 19:         coordYDecenas[coordenadaNueva] = receiveNum();
-[e = *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux ( _receiveNum ..  ]
-"20
-[; ;FuncionesMenu.c: 20:         coordYUnidades[coordenadaNueva] = receiveNum();
-[e = *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux ( _receiveNum ..  ]
-"21
-[; ;FuncionesMenu.c: 21:         printf("Recibi coordY");
-[e ( _printf (1 :s 3C ]
-"22
-[; ;FuncionesMenu.c: 22:         presionarZCentenas[coordenadaNueva] = receiveNum();
-[e = *U + &U _presionarZCentenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZCentenas `ui `ux ( _receiveNum ..  ]
-"23
-[; ;FuncionesMenu.c: 23:         presionarZDecenas[coordenadaNueva] = receiveNum();
-[e = *U + &U _presionarZDecenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZDecenas `ui `ux ( _receiveNum ..  ]
-"24
-[; ;FuncionesMenu.c: 24:         presionarZUnidades[coordenadaNueva] = receiveNum();
-[e = *U + &U _presionarZUnidades * -> _coordenadaNueva `ux -> -> # *U &U _presionarZUnidades `ui `ux ( _receiveNum ..  ]
-"25
-[; ;FuncionesMenu.c: 25:         printf("Recibi # de veces a presionar Z\n");
-[e ( _printf (1 :s 4C ]
-"26
-[; ;FuncionesMenu.c: 26:         validarCoordX = ((coordXCentenas[coordenadaNueva] - 48)*100)+((coordXDecenas[coordenadaNueva] - 48)*10)+(coordXUnidades[coordenadaNueva] - 48);
-[e = _validarCoordX -> + + * - -> *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux `i -> 48 `i `us ]
-"27
-[; ;FuncionesMenu.c: 27:         validarCoordY = ((coordYCentenas[coordenadaNueva] - 48)*100)+((coordYDecenas[coordenadaNueva] - 48)*10)+(coordYUnidades[coordenadaNueva] - 48);
-[e = _validarCoordY -> + + * - -> *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux `i -> 48 `i `us ]
-"28
-[; ;FuncionesMenu.c: 28:         if ((validarCoordX > 300) || (validarCoordY > 300)) {
-[e $ ! || > -> _validarCoordX `ui -> -> 300 `i `ui > -> _validarCoordY `ui -> -> 300 `i `ui 370  ]
-{
-"29
-[; ;FuncionesMenu.c: 29:             printf("Metiste una coordenada invalida\n");
-[e ( _printf (1 :s 5C ]
-"30
-[; ;FuncionesMenu.c: 30:             goto corregirCoord;
-[e $U 369  ]
-"31
-[; ;FuncionesMenu.c: 31:         }
-}
+[; ;FuncionesMenu.c: 13: corregirCoord:
 [e :U 370 ]
-"32
-[; ;FuncionesMenu.c: 32:         printf("Coordenada recibida, lo que recibimos fue:");
-[e ( _printf (1 :s 6C ]
-"33
-[; ;FuncionesMenu.c: 33:         send(coordXCentenas[coordenadaNueva]);
-[e ( _send (1 *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux ]
-"34
-[; ;FuncionesMenu.c: 34:         send(coordXDecenas[coordenadaNueva]);
-[e ( _send (1 *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux ]
-"35
-[; ;FuncionesMenu.c: 35:         send(coordXUnidades[coordenadaNueva]);
-[e ( _send (1 *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux ]
-"36
-[; ;FuncionesMenu.c: 36:         send(',');
-[e ( _send (1 -> -> 44 `ui `uc ]
-"37
-[; ;FuncionesMenu.c: 37:         send(coordYCentenas[coordenadaNueva]);
-[e ( _send (1 *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux ]
-"38
-[; ;FuncionesMenu.c: 38:         send(coordYDecenas[coordenadaNueva]);
-[e ( _send (1 *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux ]
-"39
-[; ;FuncionesMenu.c: 39:         send(coordYUnidades[coordenadaNueva]);
-[e ( _send (1 *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux ]
-"40
-[; ;FuncionesMenu.c: 40:         send(',');
-[e ( _send (1 -> -> 44 `ui `uc ]
-"41
-[; ;FuncionesMenu.c: 41:         send(presionarZCentenas[coordenadaNueva]);
-[e ( _send (1 *U + &U _presionarZCentenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZCentenas `ui `ux ]
-"42
-[; ;FuncionesMenu.c: 42:         send(presionarZDecenas[coordenadaNueva]);
-[e ( _send (1 *U + &U _presionarZDecenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZDecenas `ui `ux ]
-"43
-[; ;FuncionesMenu.c: 43:         send(presionarZUnidades[coordenadaNueva]);
-[e ( _send (1 *U + &U _presionarZUnidades * -> _coordenadaNueva `ux -> -> # *U &U _presionarZUnidades `ui `ux ]
-"44
-[; ;FuncionesMenu.c: 44:         send('.');
-[e ( _send (1 -> -> 46 `ui `uc ]
-"45
-[; ;FuncionesMenu.c: 45:         if (habilitarModCoord == 0) {
-[e $ ! == -> _habilitarModCoord `i -> 0 `i 371  ]
+"14
+[; ;FuncionesMenu.c: 14:         printf("Introduce en el siguiente orden las variables a usar (no uses las comas): coordX,coordY,# de veces a presionar Z");
+[e ( _printf (1 :s 1C ]
+"15
+[; ;FuncionesMenu.c: 15:         coordXCentenas[coordenadaNueva] = receiveNum();
+[e = *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux ( _receiveNum ..  ]
+"16
+[; ;FuncionesMenu.c: 16:         coordXDecenas[coordenadaNueva] = receiveNum();
+[e = *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux ( _receiveNum ..  ]
+"17
+[; ;FuncionesMenu.c: 17:         coordXUnidades[coordenadaNueva] = receiveNum();
+[e = *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux ( _receiveNum ..  ]
+"18
+[; ;FuncionesMenu.c: 18:         printf("Recibi coordX");
+[e ( _printf (1 :s 2C ]
+"19
+[; ;FuncionesMenu.c: 19:         coordYCentenas[coordenadaNueva] = receiveNum();
+[e = *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux ( _receiveNum ..  ]
+"20
+[; ;FuncionesMenu.c: 20:         coordYDecenas[coordenadaNueva] = receiveNum();
+[e = *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux ( _receiveNum ..  ]
+"21
+[; ;FuncionesMenu.c: 21:         coordYUnidades[coordenadaNueva] = receiveNum();
+[e = *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux ( _receiveNum ..  ]
+"22
+[; ;FuncionesMenu.c: 22:         printf("Recibi coordY");
+[e ( _printf (1 :s 3C ]
+"23
+[; ;FuncionesMenu.c: 23:         presionarZCentenas[coordenadaNueva] = receiveNum();
+[e = *U + &U _presionarZCentenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZCentenas `ui `ux ( _receiveNum ..  ]
+"24
+[; ;FuncionesMenu.c: 24:         presionarZDecenas[coordenadaNueva] = receiveNum();
+[e = *U + &U _presionarZDecenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZDecenas `ui `ux ( _receiveNum ..  ]
+"25
+[; ;FuncionesMenu.c: 25:         presionarZUnidades[coordenadaNueva] = receiveNum();
+[e = *U + &U _presionarZUnidades * -> _coordenadaNueva `ux -> -> # *U &U _presionarZUnidades `ui `ux ( _receiveNum ..  ]
+"26
+[; ;FuncionesMenu.c: 26:         printf("Recibi # de veces a presionar Z\n");
+[e ( _printf (1 :s 4C ]
+"27
+[; ;FuncionesMenu.c: 27:         validarCoordX = ((coordXCentenas[coordenadaNueva] - 48)*100)+((coordXDecenas[coordenadaNueva] - 48)*10)+(coordXUnidades[coordenadaNueva] - 48);
+[e = _validarCoordX -> + + * - -> *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux `i -> 48 `i `us ]
+"28
+[; ;FuncionesMenu.c: 28:         validarCoordY = ((coordYCentenas[coordenadaNueva] - 48)*100)+((coordYDecenas[coordenadaNueva] - 48)*10)+(coordYUnidades[coordenadaNueva] - 48);
+[e = _validarCoordY -> + + * - -> *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux `i -> 48 `i -> 100 `i * - -> *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux `i -> 48 `i -> 10 `i - -> *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux `i -> 48 `i `us ]
+"29
+[; ;FuncionesMenu.c: 29:         if ((validarCoordX > 300) || (validarCoordY > 300)) {
+[e $ ! || > -> _validarCoordX `ui -> -> 300 `i `ui > -> _validarCoordY `ui -> -> 300 `i `ui 371  ]
 {
-"46
-[; ;FuncionesMenu.c: 46:             printf("Has agregado este numero de coordenadas:");
-[e ( _printf (1 :s 7C ]
-"47
-[; ;FuncionesMenu.c: 47:             coordenadaNueva++;
-[e ++ _coordenadaNueva -> -> 1 `i `uc ]
-"48
-[; ;FuncionesMenu.c: 48:             send(coordenadaNueva + 48);
-[e ( _send (1 -> + -> _coordenadaNueva `i -> 48 `i `uc ]
-"49
-[; ;FuncionesMenu.c: 49:         }
+"30
+[; ;FuncionesMenu.c: 30:             printf("Metiste una coordenada invalida\n");
+[e ( _printf (1 :s 5C ]
+"31
+[; ;FuncionesMenu.c: 31:             goto corregirCoord;
+[e $U 370  ]
+"32
+[; ;FuncionesMenu.c: 32:         }
 }
 [e :U 371 ]
-"50
-[; ;FuncionesMenu.c: 50:     } else {
-}
-[e $U 372  ]
-[e :U 368 ]
+"33
+[; ;FuncionesMenu.c: 33:         printf("Coordenada recibida, lo que recibimos fue:");
+[e ( _printf (1 :s 6C ]
+"34
+[; ;FuncionesMenu.c: 34:         send(coordXCentenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordXCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXCentenas `ui `ux ]
+"35
+[; ;FuncionesMenu.c: 35:         send(coordXDecenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordXDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordXDecenas `ui `ux ]
+"36
+[; ;FuncionesMenu.c: 36:         send(coordXUnidades[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordXUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordXUnidades `ui `ux ]
+"37
+[; ;FuncionesMenu.c: 37:         send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"38
+[; ;FuncionesMenu.c: 38:         send(coordYCentenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordYCentenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYCentenas `ui `ux ]
+"39
+[; ;FuncionesMenu.c: 39:         send(coordYDecenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordYDecenas * -> _coordenadaNueva `ux -> -> # *U &U _coordYDecenas `ui `ux ]
+"40
+[; ;FuncionesMenu.c: 40:         send(coordYUnidades[coordenadaNueva]);
+[e ( _send (1 *U + &U _coordYUnidades * -> _coordenadaNueva `ux -> -> # *U &U _coordYUnidades `ui `ux ]
+"41
+[; ;FuncionesMenu.c: 41:         send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"42
+[; ;FuncionesMenu.c: 42:         send(presionarZCentenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _presionarZCentenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZCentenas `ui `ux ]
+"43
+[; ;FuncionesMenu.c: 43:         send(presionarZDecenas[coordenadaNueva]);
+[e ( _send (1 *U + &U _presionarZDecenas * -> _coordenadaNueva `ux -> -> # *U &U _presionarZDecenas `ui `ux ]
+"44
+[; ;FuncionesMenu.c: 44:         send(presionarZUnidades[coordenadaNueva]);
+[e ( _send (1 *U + &U _presionarZUnidades * -> _coordenadaNueva `ux -> -> # *U &U _presionarZUnidades `ui `ux ]
+"45
+[; ;FuncionesMenu.c: 45:         send('.');
+[e ( _send (1 -> -> 46 `ui `uc ]
+"46
+[; ;FuncionesMenu.c: 46:         if (habilitarModCoord == 0) {
+[e $ ! == -> _habilitarModCoord `i -> 0 `i 372  ]
 {
-"51
-[; ;FuncionesMenu.c: 51:         printf("Ya estan las 10 coordenadas llenas, no puedes agregar mas");
-[e ( _printf (1 :s 8C ]
-"52
-[; ;FuncionesMenu.c: 52:     }
+"47
+[; ;FuncionesMenu.c: 47:             printf("Has agregado este numero de coordenadas:");
+[e ( _printf (1 :s 7C ]
+"48
+[; ;FuncionesMenu.c: 48:             coordenadaNueva++;
+[e ++ _coordenadaNueva -> -> 1 `i `uc ]
+"49
+[; ;FuncionesMenu.c: 49:             send(coordenadaNueva + 48);
+[e ( _send (1 -> + -> _coordenadaNueva `i -> 48 `i `uc ]
+"50
+[; ;FuncionesMenu.c: 50:         }
 }
 [e :U 372 ]
-"53
-[; ;FuncionesMenu.c: 53: }
-[e :UE 367 ]
+"51
+[; ;FuncionesMenu.c: 51:     } else {
 }
-"55
-[; ;FuncionesMenu.c: 55: void imprimirCoordenadas(void) {
+[e $U 373  ]
+[e :U 369 ]
+{
+"52
+[; ;FuncionesMenu.c: 52:         printf("Ya estan las 10 coordenadas llenas, no puedes agregar mas");
+[e ( _printf (1 :s 8C ]
+"53
+[; ;FuncionesMenu.c: 53:     }
+}
+[e :U 373 ]
+"54
+[; ;FuncionesMenu.c: 54: }
+[e :UE 368 ]
+}
+"56
+[; ;FuncionesMenu.c: 56: void imprimirCoordenadas(void) {
 [v _imprimirCoordenadas `(v ~T0 @X0 1 ef ]
 {
 [e :U _imprimirCoordenadas ]
 [f ]
-"56
-[; ;FuncionesMenu.c: 56:     uint8_t numCoordenadas = 0;
+"57
+[; ;FuncionesMenu.c: 57:     uint8_t numCoordenadas = 0;
 [v _numCoordenadas `uc ~T0 @X0 1 a ]
 [e = _numCoordenadas -> -> 0 `i `uc ]
-"57
-[; ;FuncionesMenu.c: 57:     numCoordenadas = coordenadaNueva + 48;
-[e = _numCoordenadas -> + -> _coordenadaNueva `i -> 48 `i `uc ]
 "58
-[; ;FuncionesMenu.c: 58:     printf("Agregaste: ");
-[e ( _printf (1 :s 9C ]
+[; ;FuncionesMenu.c: 58:     numCoordenadas = coordenadaNueva + 48;
+[e = _numCoordenadas -> + -> _coordenadaNueva `i -> 48 `i `uc ]
 "59
-[; ;FuncionesMenu.c: 59:     send(numCoordenadas);
-[e ( _send (1 _numCoordenadas ]
+[; ;FuncionesMenu.c: 59:     printf("Agregaste: ");
+[e ( _printf (1 :s 9C ]
 "60
-[; ;FuncionesMenu.c: 60:     printf(" coordenadas, las cuales son: \n");
-[e ( _printf (1 :s 10C ]
+[; ;FuncionesMenu.c: 60:     send(numCoordenadas);
+[e ( _send (1 _numCoordenadas ]
 "61
-[; ;FuncionesMenu.c: 61:     for (uint8_t impresionCoordenada = 0; impresionCoordenada < coordenadaNueva; impresionCoordenada++) {
+[; ;FuncionesMenu.c: 61:     printf(" coordenadas, las cuales son: \n");
+[e ( _printf (1 :s 10C ]
+"62
+[; ;FuncionesMenu.c: 62:     for (uint8_t impresionCoordenada = 0; impresionCoordenada < coordenadaNueva; impresionCoordenada++) {
 {
 [v _impresionCoordenada `uc ~T0 @X0 1 a ]
 [e = _impresionCoordenada -> -> 0 `i `uc ]
-[e $U 377  ]
-[e :U 374 ]
+[e $U 378  ]
+[e :U 375 ]
 {
-"62
-[; ;FuncionesMenu.c: 62:         printf("Coordenada ");
-[e ( _printf (1 :s 11C ]
 "63
-[; ;FuncionesMenu.c: 63:         send(impresionCoordenada + 48);
-[e ( _send (1 -> + -> _impresionCoordenada `i -> 48 `i `uc ]
+[; ;FuncionesMenu.c: 63:         printf("Coordenada ");
+[e ( _printf (1 :s 11C ]
 "64
-[; ;FuncionesMenu.c: 64:         printf(": ");
-[e ( _printf (1 :s 12C ]
+[; ;FuncionesMenu.c: 64:         send(impresionCoordenada + 48);
+[e ( _send (1 -> + -> _impresionCoordenada `i -> 48 `i `uc ]
 "65
-[; ;FuncionesMenu.c: 65:         send(coordXCentenas[impresionCoordenada]);
-[e ( _send (1 *U + &U _coordXCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXCentenas `ui `ux ]
+[; ;FuncionesMenu.c: 65:         printf(": ");
+[e ( _printf (1 :s 12C ]
 "66
-[; ;FuncionesMenu.c: 66:         send(coordXDecenas[impresionCoordenada]);
-[e ( _send (1 *U + &U _coordXDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXDecenas `ui `ux ]
+[; ;FuncionesMenu.c: 66:         send(coordXCentenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordXCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXCentenas `ui `ux ]
 "67
-[; ;FuncionesMenu.c: 67:         send(coordXUnidades[impresionCoordenada]);
-[e ( _send (1 *U + &U _coordXUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordXUnidades `ui `ux ]
+[; ;FuncionesMenu.c: 67:         send(coordXDecenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordXDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXDecenas `ui `ux ]
 "68
-[; ;FuncionesMenu.c: 68:         send(',');
-[e ( _send (1 -> -> 44 `ui `uc ]
+[; ;FuncionesMenu.c: 68:         send(coordXUnidades[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordXUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordXUnidades `ui `ux ]
 "69
-[; ;FuncionesMenu.c: 69:         send(coordYCentenas[impresionCoordenada]);
-[e ( _send (1 *U + &U _coordYCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYCentenas `ui `ux ]
-"70
-[; ;FuncionesMenu.c: 70:         send(coordYDecenas[impresionCoordenada]);
-[e ( _send (1 *U + &U _coordYDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYDecenas `ui `ux ]
-"71
-[; ;FuncionesMenu.c: 71:         send(coordYUnidades[impresionCoordenada]);
-[e ( _send (1 *U + &U _coordYUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordYUnidades `ui `ux ]
-"72
-[; ;FuncionesMenu.c: 72:         send(',');
+[; ;FuncionesMenu.c: 69:         send(',');
 [e ( _send (1 -> -> 44 `ui `uc ]
+"70
+[; ;FuncionesMenu.c: 70:         send(coordYCentenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordYCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYCentenas `ui `ux ]
+"71
+[; ;FuncionesMenu.c: 71:         send(coordYDecenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordYDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYDecenas `ui `ux ]
+"72
+[; ;FuncionesMenu.c: 72:         send(coordYUnidades[impresionCoordenada]);
+[e ( _send (1 *U + &U _coordYUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordYUnidades `ui `ux ]
 "73
-[; ;FuncionesMenu.c: 73:         send(presionarZCentenas[impresionCoordenada]);
-[e ( _send (1 *U + &U _presionarZCentenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZCentenas `ui `ux ]
+[; ;FuncionesMenu.c: 73:         send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
 "74
-[; ;FuncionesMenu.c: 74:         send(presionarZDecenas[impresionCoordenada]);
-[e ( _send (1 *U + &U _presionarZDecenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZDecenas `ui `ux ]
+[; ;FuncionesMenu.c: 74:         send(presionarZCentenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _presionarZCentenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZCentenas `ui `ux ]
 "75
-[; ;FuncionesMenu.c: 75:         send(presionarZUnidades[impresionCoordenada]);
-[e ( _send (1 *U + &U _presionarZUnidades * -> _impresionCoordenada `ux -> -> # *U &U _presionarZUnidades `ui `ux ]
+[; ;FuncionesMenu.c: 75:         send(presionarZDecenas[impresionCoordenada]);
+[e ( _send (1 *U + &U _presionarZDecenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZDecenas `ui `ux ]
 "76
-[; ;FuncionesMenu.c: 76:         send('.');
-[e ( _send (1 -> -> 46 `ui `uc ]
+[; ;FuncionesMenu.c: 76:         send(presionarZUnidades[impresionCoordenada]);
+[e ( _send (1 *U + &U _presionarZUnidades * -> _impresionCoordenada `ux -> -> # *U &U _presionarZUnidades `ui `ux ]
 "77
-[; ;FuncionesMenu.c: 77:         send('\n');
-[e ( _send (1 -> -> 10 `ui `uc ]
+[; ;FuncionesMenu.c: 77:         send('.');
+[e ( _send (1 -> -> 46 `ui `uc ]
 "78
-[; ;FuncionesMenu.c: 78:     }
+[; ;FuncionesMenu.c: 78:         send('\n');
+[e ( _send (1 -> -> 10 `ui `uc ]
+"79
+[; ;FuncionesMenu.c: 79:     }
 }
 [e ++ _impresionCoordenada -> -> 1 `i `uc ]
-[e :U 377 ]
-[e $ < -> _impresionCoordenada `i -> _coordenadaNueva `i 374  ]
-[e :U 375 ]
+[e :U 378 ]
+[e $ < -> _impresionCoordenada `i -> _coordenadaNueva `i 375  ]
+[e :U 376 ]
 }
-"79
-[; ;FuncionesMenu.c: 79: }
-[e :UE 373 ]
+"80
+[; ;FuncionesMenu.c: 80: }
+[e :UE 374 ]
 }
-"81
-[; ;FuncionesMenu.c: 81: void modificarCoordenada(void) {
+"82
+[; ;FuncionesMenu.c: 82: void modificarCoordenada(void) {
 [v _modificarCoordenada `(v ~T0 @X0 1 ef ]
 {
 [e :U _modificarCoordenada ]
 [f ]
-"82
-[; ;FuncionesMenu.c: 82:     habilitarModCoord = 1;
-[e = _habilitarModCoord -> -> 1 `i `uc ]
 "83
-[; ;FuncionesMenu.c: 83:     uint8_t modCoord, coordenadaNuevaCopia;
+[; ;FuncionesMenu.c: 83:     if (coordenadaNueva != 0) {
+[e $ ! != -> _coordenadaNueva `i -> 0 `i 380  ]
+{
+"84
+[; ;FuncionesMenu.c: 84:         uint8_t modCoord, coordenadaNuevaCopia;
 [v _modCoord `uc ~T0 @X0 1 a ]
 [v _coordenadaNuevaCopia `uc ~T0 @X0 1 a ]
-"84
-[; ;FuncionesMenu.c: 84:     habilitarModCoord = 1;
-[e = _habilitarModCoord -> -> 1 `i `uc ]
 "85
-[; ;FuncionesMenu.c: 85:     imprimirCoordenadas();
-[e ( _imprimirCoordenadas ..  ]
+[; ;FuncionesMenu.c: 85:         habilitarModCoord = 1;
+[e = _habilitarModCoord -> -> 1 `i `uc ]
 "86
-[; ;FuncionesMenu.c: 86:     printf("Cual de estas coordenadas quieres modificar?\n");
-[e ( _printf (1 :s 13C ]
+[; ;FuncionesMenu.c: 86:         imprimirCoordenadas();
+[e ( _imprimirCoordenadas ..  ]
 "87
-[; ;FuncionesMenu.c: 87:     modCoord = receiveNum();
-[e = _modCoord ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 87:         printf("Cual de estas coordenadas quieres modificar?\n");
+[e ( _printf (1 :s 13C ]
 "88
-[; ;FuncionesMenu.c: 88:     while ((modCoord - 48) >= coordenadaNueva) {
-[e $U 379  ]
-[e :U 380 ]
-{
+[; ;FuncionesMenu.c: 88:         modCoord = receiveNum();
+[e = _modCoord ( _receiveNum ..  ]
 "89
-[; ;FuncionesMenu.c: 89:         printf("Error, estas queriendo modificar una coordenada que aun no agregas\n");
-[e ( _printf (1 :s 14C ]
+[; ;FuncionesMenu.c: 89:         while ((modCoord - 48) >= coordenadaNueva) {
+[e $U 381  ]
+[e :U 382 ]
+{
 "90
-[; ;FuncionesMenu.c: 90:         printf("Cual coordenada quieres modificar, elige valores validos?\n");
-[e ( _printf (1 :s 15C ]
+[; ;FuncionesMenu.c: 90:             printf("Error, estas queriendo modificar una coordenada que aun no agregas\n");
+[e ( _printf (1 :s 14C ]
 "91
-[; ;FuncionesMenu.c: 91:         modCoord = receiveNum();
-[e = _modCoord ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 91:             printf("Cual coordenada quieres modificar, elige valores validos?\n");
+[e ( _printf (1 :s 15C ]
 "92
-[; ;FuncionesMenu.c: 92:     }
-}
-[e :U 379 ]
-"88
-[; ;FuncionesMenu.c: 88:     while ((modCoord - 48) >= coordenadaNueva) {
-[e $ >= - -> _modCoord `i -> 48 `i -> _coordenadaNueva `i 380  ]
-[e :U 381 ]
+[; ;FuncionesMenu.c: 92:             modCoord = receiveNum();
+[e = _modCoord ( _receiveNum ..  ]
 "93
-[; ;FuncionesMenu.c: 93:     printf("Vas a modificar la coordenada ");
-[e ( _printf (1 :s 16C ]
-"94
-[; ;FuncionesMenu.c: 94:     send(modCoord);
-[e ( _send (1 _modCoord ]
-"95
-[; ;FuncionesMenu.c: 95:     send('\n');
-[e ( _send (1 -> -> 10 `ui `uc ]
-"96
-[; ;FuncionesMenu.c: 96:     modCoord = modCoord - 48;
-[e = _modCoord -> - -> _modCoord `i -> 48 `i `uc ]
-"97
-[; ;FuncionesMenu.c: 97:     coordenadaNuevaCopia = coordenadaNueva;
-[e = _coordenadaNuevaCopia _coordenadaNueva ]
-"98
-[; ;FuncionesMenu.c: 98:     coordenadaNueva = modCoord;
-[e = _coordenadaNueva _modCoord ]
-"99
-[; ;FuncionesMenu.c: 99:     introducirCoordNueva();
-[e ( _introducirCoordNueva ..  ]
-"100
-[; ;FuncionesMenu.c: 100:     coordenadaNueva = coordenadaNuevaCopia;
-[e = _coordenadaNueva _coordenadaNuevaCopia ]
-"101
-[; ;FuncionesMenu.c: 101:     habilitarModCoord = 0;
-[e = _habilitarModCoord -> -> 0 `i `uc ]
-"102
-[; ;FuncionesMenu.c: 102: }
-[e :UE 378 ]
+[; ;FuncionesMenu.c: 93:         }
 }
+[e :U 381 ]
+"89
+[; ;FuncionesMenu.c: 89:         while ((modCoord - 48) >= coordenadaNueva) {
+[e $ >= - -> _modCoord `i -> 48 `i -> _coordenadaNueva `i 382  ]
+[e :U 383 ]
+"94
+[; ;FuncionesMenu.c: 94:         printf("Vas a modificar la coordenada ");
+[e ( _printf (1 :s 16C ]
+"95
+[; ;FuncionesMenu.c: 95:         send(modCoord);
+[e ( _send (1 _modCoord ]
+"96
+[; ;FuncionesMenu.c: 96:         send('\n');
+[e ( _send (1 -> -> 10 `ui `uc ]
+"97
+[; ;FuncionesMenu.c: 97:         modCoord = modCoord - 48;
+[e = _modCoord -> - -> _modCoord `i -> 48 `i `uc ]
+"98
+[; ;FuncionesMenu.c: 98:         coordenadaNuevaCopia = coordenadaNueva;
+[e = _coordenadaNuevaCopia _coordenadaNueva ]
+"99
+[; ;FuncionesMenu.c: 99:         coordenadaNueva = modCoord;
+[e = _coordenadaNueva _modCoord ]
+"100
+[; ;FuncionesMenu.c: 100:         introducirCoordNueva();
+[e ( _introducirCoordNueva ..  ]
+"101
+[; ;FuncionesMenu.c: 101:         coordenadaNueva = coordenadaNuevaCopia;
+[e = _coordenadaNueva _coordenadaNuevaCopia ]
+"102
+[; ;FuncionesMenu.c: 102:         habilitarModCoord = 0;
+[e = _habilitarModCoord -> -> 0 `i `uc ]
+"103
+[; ;FuncionesMenu.c: 103:     } else printf("No puedes modificar coordenadas por que aun no has agregado ninguna\n");
+}
+[e $U 384  ]
+[e :U 380 ]
+[e ( _printf (1 :s 17C ]
+[e :U 384 ]
 "104
-[; ;FuncionesMenu.c: 104: void borrarTodasCoordenadas(void) {
+[; ;FuncionesMenu.c: 104: }
+[e :UE 379 ]
+}
+"106
+[; ;FuncionesMenu.c: 106: void borrarTodasCoordenadas(void) {
 [v _borrarTodasCoordenadas `(v ~T0 @X0 1 ef ]
 {
 [e :U _borrarTodasCoordenadas ]
 [f ]
-"105
-[; ;FuncionesMenu.c: 105:     for (uint8_t impresionCoordenada = 0; impresionCoordenada < 10; impresionCoordenada++) {
+"107
+[; ;FuncionesMenu.c: 107:     for (uint8_t impresionCoordenada = 0; impresionCoordenada < 10; impresionCoordenada++) {
 {
 [v _impresionCoordenada `uc ~T0 @X0 1 a ]
 [e = _impresionCoordenada -> -> 0 `i `uc ]
-[e $ < -> _impresionCoordenada `i -> 10 `i 383  ]
-[e $U 384  ]
-[e :U 383 ]
+[e $ < -> _impresionCoordenada `i -> 10 `i 386  ]
+[e $U 387  ]
+[e :U 386 ]
 {
-"106
-[; ;FuncionesMenu.c: 106:         coordXCentenas[impresionCoordenada] = 0;
-[e = *U + &U _coordXCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXCentenas `ui `ux -> -> 0 `i `uc ]
-"107
-[; ;FuncionesMenu.c: 107:         coordXDecenas[impresionCoordenada] = 0;
-[e = *U + &U _coordXDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXDecenas `ui `ux -> -> 0 `i `uc ]
 "108
-[; ;FuncionesMenu.c: 108:         coordXUnidades[impresionCoordenada] = 0;
-[e = *U + &U _coordXUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordXUnidades `ui `ux -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 108:         coordXCentenas[impresionCoordenada] = 0;
+[e = *U + &U _coordXCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXCentenas `ui `ux -> -> 0 `i `uc ]
 "109
-[; ;FuncionesMenu.c: 109:         coordYCentenas[impresionCoordenada] = 0;
-[e = *U + &U _coordYCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYCentenas `ui `ux -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 109:         coordXDecenas[impresionCoordenada] = 0;
+[e = *U + &U _coordXDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordXDecenas `ui `ux -> -> 0 `i `uc ]
 "110
-[; ;FuncionesMenu.c: 110:         coordYDecenas[impresionCoordenada] = 0;
-[e = *U + &U _coordYDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYDecenas `ui `ux -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 110:         coordXUnidades[impresionCoordenada] = 0;
+[e = *U + &U _coordXUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordXUnidades `ui `ux -> -> 0 `i `uc ]
 "111
-[; ;FuncionesMenu.c: 111:         coordYUnidades[impresionCoordenada] = 0;
-[e = *U + &U _coordYUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordYUnidades `ui `ux -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 111:         coordYCentenas[impresionCoordenada] = 0;
+[e = *U + &U _coordYCentenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYCentenas `ui `ux -> -> 0 `i `uc ]
 "112
-[; ;FuncionesMenu.c: 112:         presionarZCentenas[impresionCoordenada] = 0;
-[e = *U + &U _presionarZCentenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZCentenas `ui `ux -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 112:         coordYDecenas[impresionCoordenada] = 0;
+[e = *U + &U _coordYDecenas * -> _impresionCoordenada `ux -> -> # *U &U _coordYDecenas `ui `ux -> -> 0 `i `uc ]
 "113
-[; ;FuncionesMenu.c: 113:         presionarZDecenas[impresionCoordenada] = 0;
-[e = *U + &U _presionarZDecenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZDecenas `ui `ux -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 113:         coordYUnidades[impresionCoordenada] = 0;
+[e = *U + &U _coordYUnidades * -> _impresionCoordenada `ux -> -> # *U &U _coordYUnidades `ui `ux -> -> 0 `i `uc ]
 "114
-[; ;FuncionesMenu.c: 114:         presionarZUnidades[impresionCoordenada] = 0;
-[e = *U + &U _presionarZUnidades * -> _impresionCoordenada `ux -> -> # *U &U _presionarZUnidades `ui `ux -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 114:         presionarZCentenas[impresionCoordenada] = 0;
+[e = *U + &U _presionarZCentenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZCentenas `ui `ux -> -> 0 `i `uc ]
 "115
-[; ;FuncionesMenu.c: 115:     }
+[; ;FuncionesMenu.c: 115:         presionarZDecenas[impresionCoordenada] = 0;
+[e = *U + &U _presionarZDecenas * -> _impresionCoordenada `ux -> -> # *U &U _presionarZDecenas `ui `ux -> -> 0 `i `uc ]
+"116
+[; ;FuncionesMenu.c: 116:         presionarZUnidades[impresionCoordenada] = 0;
+[e = *U + &U _presionarZUnidades * -> _impresionCoordenada `ux -> -> # *U &U _presionarZUnidades `ui `ux -> -> 0 `i `uc ]
+"117
+[; ;FuncionesMenu.c: 117:     }
 }
 [e ++ _impresionCoordenada -> -> 1 `i `uc ]
-[e $ < -> _impresionCoordenada `i -> 10 `i 383  ]
-[e :U 384 ]
+[e $ < -> _impresionCoordenada `i -> 10 `i 386  ]
+[e :U 387 ]
 }
-"116
-[; ;FuncionesMenu.c: 116:     coordenadaNueva = 0;
-[e = _coordenadaNueva -> -> 0 `i `uc ]
-"117
-[; ;FuncionesMenu.c: 117:     printf("Listo, todas las coordenadas han sido borradas\n");
-[e ( _printf (1 :s 17C ]
 "118
-[; ;FuncionesMenu.c: 118: }
-[e :UE 382 ]
+[; ;FuncionesMenu.c: 118:     coordenadaNueva = 0;
+[e = _coordenadaNueva -> -> 0 `i `uc ]
+"119
+[; ;FuncionesMenu.c: 119:     printf("Listo, todas las coordenadas han sido borradas\n");
+[e ( _printf (1 :s 18C ]
+"120
+[; ;FuncionesMenu.c: 120: }
+[e :UE 385 ]
+}
+"122
+[; ;FuncionesMenu.c: 122: void iniciarPrograma(void) {
+[v _iniciarPrograma `(v ~T0 @X0 1 ef ]
+{
+[e :U _iniciarPrograma ]
+[f ]
+"123
+[; ;FuncionesMenu.c: 123:     if (coordenadaNueva != 0) {
+[e $ ! != -> _coordenadaNueva `i -> 0 `i 390  ]
+{
+"124
+[; ;FuncionesMenu.c: 124:         for (uint8_t coordenadaA_Mover = 0; coordenadaA_Mover < coordenadaNueva; coordenadaA_Mover++) {
+{
+[v _coordenadaA_Mover `uc ~T0 @X0 1 a ]
+[e = _coordenadaA_Mover -> -> 0 `i `uc ]
+[e $U 394  ]
+[e :U 391 ]
+{
+"125
+[; ;FuncionesMenu.c: 125:             printf("Yendo a coordenada: ");
+[e ( _printf (1 :s 19C ]
+"126
+[; ;FuncionesMenu.c: 126:             send(coordenadaA_Mover + 48);
+[e ( _send (1 -> + -> _coordenadaA_Mover `i -> 48 `i `uc ]
+"127
+[; ;FuncionesMenu.c: 127:             send('\n');
+[e ( _send (1 -> -> 10 `ui `uc ]
+"128
+[; ;FuncionesMenu.c: 128:             moverHaciaX(coordXCentenas[coordenadaA_Mover], coordXDecenas[coordenadaA_Mover], coordXUnidades[coordenadaA_Mover]);
+[e ( _moverHaciaX (3 , , *U + &U _coordXCentenas * -> _coordenadaA_Mover `ux -> -> # *U &U _coordXCentenas `ui `ux *U + &U _coordXDecenas * -> _coordenadaA_Mover `ux -> -> # *U &U _coordXDecenas `ui `ux *U + &U _coordXUnidades * -> _coordenadaA_Mover `ux -> -> # *U &U _coordXUnidades `ui `ux ]
+"129
+[; ;FuncionesMenu.c: 129:             moverHaciaY(coordYCentenas[coordenadaA_Mover], coordYDecenas[coordenadaA_Mover], coordYUnidades[coordenadaA_Mover]);
+[e ( _moverHaciaY (3 , , *U + &U _coordYCentenas * -> _coordenadaA_Mover `ux -> -> # *U &U _coordYCentenas `ui `ux *U + &U _coordYDecenas * -> _coordenadaA_Mover `ux -> -> # *U &U _coordYDecenas `ui `ux *U + &U _coordYUnidades * -> _coordenadaA_Mover `ux -> -> # *U &U _coordYUnidades `ui `ux ]
+"131
+[; ;FuncionesMenu.c: 131:         }
+}
+[e ++ _coordenadaA_Mover -> -> 1 `i `uc ]
+[e :U 394 ]
+[e $ < -> _coordenadaA_Mover `i -> _coordenadaNueva `i 391  ]
+[e :U 392 ]
+}
+"132
+[; ;FuncionesMenu.c: 132:     } else printf("No has agregado ninguna coordenada");
+}
+[e $U 395  ]
+[e :U 390 ]
+[e ( _printf (1 :s 20C ]
+[e :U 395 ]
+"133
+[; ;FuncionesMenu.c: 133: }
+[e :UE 389 ]
+}
+"135
+[; ;FuncionesMenu.c: 135: void movimientoLibre(void) {
+[v _movimientoLibre `(v ~T0 @X0 1 ef ]
+{
+[e :U _movimientoLibre ]
+[f ]
+"136
+[; ;FuncionesMenu.c: 136:     printf("Dame X\n");
+[e ( _printf (1 :s 21C ]
+"137
+[; ;FuncionesMenu.c: 137:     uint8_t lx1, lx2, lx3, ly1, ly2, ly3;
+[v _lx1 `uc ~T0 @X0 1 a ]
+[v _lx2 `uc ~T0 @X0 1 a ]
+[v _lx3 `uc ~T0 @X0 1 a ]
+[v _ly1 `uc ~T0 @X0 1 a ]
+[v _ly2 `uc ~T0 @X0 1 a ]
+[v _ly3 `uc ~T0 @X0 1 a ]
+"138
+[; ;FuncionesMenu.c: 138:     lx1 = receiveNum();
+[e = _lx1 ( _receiveNum ..  ]
+"139
+[; ;FuncionesMenu.c: 139:     lx2 = receiveNum();
+[e = _lx2 ( _receiveNum ..  ]
+"140
+[; ;FuncionesMenu.c: 140:     lx3 = receiveNum();
+[e = _lx3 ( _receiveNum ..  ]
+"141
+[; ;FuncionesMenu.c: 141:     printf("Dame Y\n");
+[e ( _printf (1 :s 22C ]
+"142
+[; ;FuncionesMenu.c: 142:     ly1 = receiveNum();
+[e = _ly1 ( _receiveNum ..  ]
+"143
+[; ;FuncionesMenu.c: 143:     ly2 = receiveNum();
+[e = _ly2 ( _receiveNum ..  ]
+"144
+[; ;FuncionesMenu.c: 144:     ly3 = receiveNum();
+[e = _ly3 ( _receiveNum ..  ]
+"145
+[; ;FuncionesMenu.c: 145:     moverHaciaX(lx1, lx2, lx3);
+[e ( _moverHaciaX (3 , , _lx1 _lx2 _lx3 ]
+"146
+[; ;FuncionesMenu.c: 146:     moverHaciaY(ly1, ly2, ly3);
+[e ( _moverHaciaY (3 , , _ly1 _ly2 _ly3 ]
+"147
+[; ;FuncionesMenu.c: 147: }
+[e :UE 396 ]
+}
+"149
+[; ;FuncionesMenu.c: 149: void impCoordActual(void) {
+[v _impCoordActual `(v ~T0 @X0 1 ef ]
+{
+[e :U _impCoordActual ]
+[f ]
+"150
+[; ;FuncionesMenu.c: 150:     printf("Las coordenadas actuales son (X, Y, Toques Z) \n");
+[e ( _printf (1 :s 23C ]
+"151
+[; ;FuncionesMenu.c: 151:     send((CurrentPosX * 0.01) + 48);
+[e ( _send (1 -> + * -> _CurrentPosX `d .0.01 -> -> 48 `i `d `uc ]
+"152
+[; ;FuncionesMenu.c: 152:     send(((CurrentPosX % 100)*0.1) + 48);
+[e ( _send (1 -> + * -> % _CurrentPosX -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
+"153
+[; ;FuncionesMenu.c: 153:     send(((CurrentPosX % 100) % 10) + 48);
+[e ( _send (1 -> + % % _CurrentPosX -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+"154
+[; ;FuncionesMenu.c: 154:     send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"155
+[; ;FuncionesMenu.c: 155:     send((CurrentPosY * 0.01) + 48);
+[e ( _send (1 -> + * -> _CurrentPosY `d .0.01 -> -> 48 `i `d `uc ]
+"156
+[; ;FuncionesMenu.c: 156:     send(((CurrentPosY % 100)*0.1) + 48);
+[e ( _send (1 -> + * -> % _CurrentPosY -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
+"157
+[; ;FuncionesMenu.c: 157:     send(((CurrentPosY % 100) % 10) + 48);
+[e ( _send (1 -> + % % _CurrentPosY -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+"158
+[; ;FuncionesMenu.c: 158:     send('.');
+[e ( _send (1 -> -> 46 `ui `uc ]
+"159
+[; ;FuncionesMenu.c: 159: }
+[e :UE 397 ]
 }
 [a 8C 89 97 32 101 115 116 97 110 32 108 97 115 32 49 48 32 99 111 111 114 100 101 110 97 100 97 115 32 108 108 101 110 97 115 44 32 110 111 32 112 117 101 100 101 115 32 97 103 114 101 103 97 114 32 109 97 115 0 ]
+[a 20C 78 111 32 104 97 115 32 97 103 114 101 103 97 100 111 32 110 105 110 103 117 110 97 32 99 111 111 114 100 101 110 97 100 97 0 ]
 [a 1C 73 110 116 114 111 100 117 99 101 32 101 110 32 101 108 32 115 105 103 117 105 101 110 116 101 32 111 114 100 101 110 32 108 97 115 32 118 97 114 105 97 98 108 101 115 32 97 32 117 115 97 114 32 40 110 111 32 117 115 101 115 32 108 97 115 32 99 111 109 97 115 41 58 32 99 111 111 114 100 88 44 99 111 111 114 100 89 44 35 32 100 101 32 118 101 99 101 115 32 97 32 112 114 101 115 105 111 110 97 114 32 90 0 ]
 [a 3C 82 101 99 105 98 105 32 99 111 111 114 100 89 0 ]
 [a 2C 82 101 99 105 98 105 32 99 111 111 114 100 88 0 ]
@@ -946,11 +1153,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 16C 86 97 115 32 97 32 109 111 100 105 102 105 99 97 114 32 108 97 32 99 111 111 114 100 101 110 97 100 97 32 0 ]
 [a 11C 67 111 111 114 100 101 110 97 100 97 32 0 ]
 [a 9C 65 103 114 101 103 97 115 116 101 58 32 0 ]
+[a 19C 89 101 110 100 111 32 97 32 99 111 111 114 100 101 110 97 100 97 58 32 0 ]
 [a 12C 58 32 0 ]
 [a 14C 69 114 114 111 114 44 32 101 115 116 97 115 32 113 117 101 114 105 101 110 100 111 32 109 111 100 105 102 105 99 97 114 32 117 110 97 32 99 111 111 114 100 101 110 97 100 97 32 113 117 101 32 97 117 110 32 110 111 32 97 103 114 101 103 97 115 10 0 ]
-[a 17C 76 105 115 116 111 44 32 116 111 100 97 115 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 104 97 110 32 115 105 100 111 32 98 111 114 114 97 100 97 115 10 0 ]
+[a 18C 76 105 115 116 111 44 32 116 111 100 97 115 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 104 97 110 32 115 105 100 111 32 98 111 114 114 97 100 97 115 10 0 ]
+[a 17C 78 111 32 112 117 101 100 101 115 32 109 111 100 105 102 105 99 97 114 32 99 111 111 114 100 101 110 97 100 97 115 32 112 111 114 32 113 117 101 32 97 117 110 32 110 111 32 104 97 115 32 97 103 114 101 103 97 100 111 32 110 105 110 103 117 110 97 10 0 ]
 [a 5C 77 101 116 105 115 116 101 32 117 110 97 32 99 111 111 114 100 101 110 97 100 97 32 105 110 118 97 108 105 100 97 10 0 ]
 [a 4C 82 101 99 105 98 105 32 35 32 100 101 32 118 101 99 101 115 32 97 32 112 114 101 115 105 111 110 97 114 32 90 10 0 ]
+[a 22C 68 97 109 101 32 89 10 0 ]
+[a 21C 68 97 109 101 32 88 10 0 ]
 [a 15C 67 117 97 108 32 99 111 111 114 100 101 110 97 100 97 32 113 117 105 101 114 101 115 32 109 111 100 105 102 105 99 97 114 44 32 101 108 105 103 101 32 118 97 108 111 114 101 115 32 118 97 108 105 100 111 115 63 10 0 ]
 [a 13C 67 117 97 108 32 100 101 32 101 115 116 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 113 117 105 101 114 101 115 32 109 111 100 105 102 105 99 97 114 63 10 0 ]
 [a 10C 32 99 111 111 114 100 101 110 97 100 97 115 44 32 108 97 115 32 99 117 97 108 101 115 32 115 111 110 58 32 10 0 ]
+[a 23C 76 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 97 99 116 117 97 108 101 115 32 115 111 110 32 40 88 44 32 89 44 32 84 111 113 117 101 115 32 90 41 32 10 0 ]

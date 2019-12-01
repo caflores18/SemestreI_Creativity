@@ -576,6 +576,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _sparcEnMovimiento
 -> -> 0 `i `uc
 ]
+"28
+[; ;./MotoresXY.h: 28: uint8_t destinoHomeX = 0;
+[v _destinoHomeX `uc ~T0 @X0 1 e ]
+[i _destinoHomeX
+-> -> 0 `i `uc
+]
+"29
+[; ;./MotoresXY.h: 29: uint8_t destinoHomeY = 0;
+[v _destinoHomeY `uc ~T0 @X0 1 e ]
+[i _destinoHomeY
+-> -> 0 `i `uc
+]
+"30
+[; ;./MotoresXY.h: 30: uint8_t llegoHomeX = 0;
+[v _llegoHomeX `uc ~T0 @X0 1 e ]
+[i _llegoHomeX
+-> -> 0 `i `uc
+]
+"31
+[; ;./MotoresXY.h: 31: uint8_t llegoHomeY = 0;
+[v _llegoHomeY `uc ~T0 @X0 1 e ]
+[i _llegoHomeY
+-> -> 0 `i `uc
+]
 "13 MotoresXY.c
 [; ;MotoresXY.c: 13: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades) {
 [v _moverHaciaY `(v ~T0 @X0 1 ef3`uc`uc`uc ]
@@ -749,79 +773,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _moverHomeX ]
 [f ]
 "60
-[; ;MotoresXY.c: 60:     LATDbits.LATD3 = 0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;MotoresXY.c: 60:     destinoHomeX = 1;
+[e = _destinoHomeX -> -> 1 `i `uc ]
 "61
-[; ;MotoresXY.c: 61:     sparcEnMovimiento = 1;
+[; ;MotoresXY.c: 61:     LATDbits.LATD3 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"62
+[; ;MotoresXY.c: 62:     sparcEnMovimiento = 1;
 [e = _sparcEnMovimiento -> -> 1 `i `uc ]
-"63
-[; ;MotoresXY.c: 63:     PWM_DutyCycleCCP1(50);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
 "64
-[; ;MotoresXY.c: 64: }
+[; ;MotoresXY.c: 64:     PWM_DutyCycleCCP1(50);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
+"65
+[; ;MotoresXY.c: 65: }
 [e :UE 384 ]
 }
-"65
-[; ;MotoresXY.c: 65: void moverHomeY(void) {
+"67
+[; ;MotoresXY.c: 67: void moverHomeY(void) {
 [v _moverHomeY `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverHomeY ]
 [f ]
-"66
-[; ;MotoresXY.c: 66:     LATDbits.LATD1 = 0;
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"67
-[; ;MotoresXY.c: 67:     sparcEnMovimiento = 1;
-[e = _sparcEnMovimiento -> -> 1 `i `uc ]
+"68
+[; ;MotoresXY.c: 68:     destinoHomeX = 1;
+[e = _destinoHomeX -> -> 1 `i `uc ]
 "69
-[; ;MotoresXY.c: 69:     PWM_DutyCycleCCP2(50);
-[e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
+[; ;MotoresXY.c: 69:     LATDbits.LATD1 = 0;
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
 "70
-[; ;MotoresXY.c: 70: }
+[; ;MotoresXY.c: 70:     sparcEnMovimiento = 1;
+[e = _sparcEnMovimiento -> -> 1 `i `uc ]
+"72
+[; ;MotoresXY.c: 72:     PWM_DutyCycleCCP2(50);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
+"73
+[; ;MotoresXY.c: 73: }
 [e :UE 385 ]
 }
-"71
-[; ;MotoresXY.c: 71: void moverXInfinito() {
+"75
+[; ;MotoresXY.c: 75: void moverXInfinito() {
 [v _moverXInfinito `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverXInfinito ]
 [f ]
-"72
-[; ;MotoresXY.c: 72:     LATDbits.LATD3 = 1;
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-"73
-[; ;MotoresXY.c: 73:     sparcEnMovimiento = 1;
-[e = _sparcEnMovimiento -> -> 1 `i `uc ]
-"74
-[; ;MotoresXY.c: 74:     PWM_DutyCycleCCP2(0);
-[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
-"75
-[; ;MotoresXY.c: 75:     PWM_DutyCycleCCP1(50);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
 "76
-[; ;MotoresXY.c: 76: }
+[; ;MotoresXY.c: 76:     LATDbits.LATD3 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+"77
+[; ;MotoresXY.c: 77:     sparcEnMovimiento = 1;
+[e = _sparcEnMovimiento -> -> 1 `i `uc ]
+"78
+[; ;MotoresXY.c: 78:     PWM_DutyCycleCCP2(0);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
+"79
+[; ;MotoresXY.c: 79:     PWM_DutyCycleCCP1(50);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
+"80
+[; ;MotoresXY.c: 80: }
 [e :UE 386 ]
 }
-"77
-[; ;MotoresXY.c: 77: void moverYInfinito() {
+"82
+[; ;MotoresXY.c: 82: void moverYInfinito() {
 [v _moverYInfinito `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverYInfinito ]
 [f ]
-"78
-[; ;MotoresXY.c: 78:     LATDbits.LATD1 = 1;
+"83
+[; ;MotoresXY.c: 83:     LATDbits.LATD1 = 1;
 [e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-"79
-[; ;MotoresXY.c: 79:     sparcEnMovimiento = 1;
+"84
+[; ;MotoresXY.c: 84:     sparcEnMovimiento = 1;
 [e = _sparcEnMovimiento -> -> 1 `i `uc ]
-"80
-[; ;MotoresXY.c: 80:     PWM_DutyCycleCCP1(0);
+"85
+[; ;MotoresXY.c: 85:     PWM_DutyCycleCCP1(0);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
-"81
-[; ;MotoresXY.c: 81:     PWM_DutyCycleCCP2(50);
+"86
+[; ;MotoresXY.c: 86:     PWM_DutyCycleCCP2(50);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
-"82
-[; ;MotoresXY.c: 82: }
+"87
+[; ;MotoresXY.c: 87: }
 [e :UE 387 ]
 }
 [a 1C 121 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]

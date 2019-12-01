@@ -57,23 +57,28 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
 }
 
 void moverHomeX(void) {
+    destinoHomeX = 1;
     dirMotorX = 0;
     sparcEnMovimiento = 1;
     //PWM_DutyCycleCCP2(0);
     PWM_DutyCycleCCP1(50);
 }
+
 void moverHomeY(void) {
+    destinoHomeX = 1;
     dirMotorY = 0;
     sparcEnMovimiento = 1;
     //PWM_DutyCycleCCP1(0);
     PWM_DutyCycleCCP2(50);
 }
+
 void moverXInfinito() {
     dirMotorX = 1;
     sparcEnMovimiento = 1;
     PWM_DutyCycleCCP2(0);
     PWM_DutyCycleCCP1(50);
 }
+
 void moverYInfinito() {
     dirMotorY = 1;
     sparcEnMovimiento = 1;

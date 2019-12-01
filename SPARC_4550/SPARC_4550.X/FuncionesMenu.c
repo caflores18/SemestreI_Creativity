@@ -4,6 +4,7 @@
 #include "Comunicacion.h" 
 #include "UART.h" 
 #include "FuncionesMenu.h" 
+#include "MotoresXY.h"
 
 void introducirCoordNueva() {
     uint16_t validarCoordX = 0;
@@ -79,26 +80,27 @@ void imprimirCoordenadas(void) {
 }
 
 void modificarCoordenada(void) {
-    habilitarModCoord = 1; //Habilita que se puede ejecutar la funcion de agregar coordenada
-    uint8_t modCoord, coordenadaNuevaCopia; //Variable que almacena coordenada a modificar
-    habilitarModCoord = 1; //Habilita que se puede ejecutar la funcion de agregar coordenada, pues en esta funcion se usa para modificar un valor
-    imprimirCoordenadas();
-    printf("Cual de estas coordenadas quieres modificar?\n");
-    modCoord = receiveNum();
-    while ((modCoord - 48) >= coordenadaNueva) { //Si se intenta modificar alguna coordenada que aun no se ha recibido
-        printf("Error, estas queriendo modificar una coordenada que aun no agregas\n");
-        printf("Cual coordenada quieres modificar, elige valores validos?\n");
+    if (coordenadaNueva != 0) {
+        uint8_t modCoord, coordenadaNuevaCopia; //Variable que almacena coordenada a modificar
+        habilitarModCoord = 1; //Habilita que se puede ejecutar la funcion de agregar coordenada, pues en esta funcion se usa para modificar un valor
+        imprimirCoordenadas();
+        printf("Cual de estas coordenadas quieres modificar?\n");
         modCoord = receiveNum();
-    }
-    printf("Vas a modificar la coordenada ");
-    send(modCoord);
-    send('\n');
-    modCoord = modCoord - 48;
-    coordenadaNuevaCopia = coordenadaNueva; //Se guarda una copia de la variable coordenadaNueva
-    coordenadaNueva = modCoord; //Se modifica el valor de coordenadaNueva para modificar es  numero de coordenada en la funcion introducirCoordNueva
-    introducirCoordNueva(); //Se usa la funcion introducirCoordNueva para modificar una coordenada
-    coordenadaNueva = coordenadaNuevaCopia; //Se regresa el valor de coordenadaNueva al original
-    habilitarModCoord = 0; //Deshabilita que se puede ejecutar la funcion de agregar coordenada, para no generar OVF
+        while ((modCoord - 48) >= coordenadaNueva) { //Si se intenta modificar alguna coordenada que aun no se ha recibido
+            printf("Error, estas queriendo modificar una coordenada que aun no agregas\n");
+            printf("Cual coordenada quieres modificar, elige valores validos?\n");
+            modCoord = receiveNum();
+        }
+        printf("Vas a modificar la coordenada ");
+        send(modCoord);
+        send('\n');
+        modCoord = modCoord - 48;
+        coordenadaNuevaCopia = coordenadaNueva; //Se guarda una copia de la variable coordenadaNueva
+        coordenadaNueva = modCoord; //Se modifica el valor de coordenadaNueva para modificar es  numero de coordenada en la funcion introducirCoordNueva
+        introducirCoordNueva(); //Se usa la funcion introducirCoordNueva para modificar una coordenada
+        coordenadaNueva = coordenadaNuevaCopia; //Se regresa el valor de coordenadaNueva al original
+        habilitarModCoord = 0; //Deshabilita que se puede ejecutar la funcion de agregar coordenada, para no generar OVF
+    } else printf("No puedes modificar coordenadas por que aun no has agregado ninguna\n");
 }
 
 void borrarTodasCoordenadas(void) {
@@ -115,4 +117,43 @@ void borrarTodasCoordenadas(void) {
     }
     coordenadaNueva = 0;
     printf("Listo, todas las coordenadas han sido borradas\n");
+}
+
+void iniciarPrograma(void) {
+    if (coordenadaNueva != 0) {
+        for (uint8_t coordenadaA_Mover = 0; coordenadaA_Mover < coordenadaNueva; coordenadaA_Mover++) {
+            printf("Yendo a coordenada: ");
+            send(coordenadaA_Mover + 48);
+            send('\n');
+            moverHaciaX(coordXCentenas[coordenadaA_Mover], coordXDecenas[coordenadaA_Mover], coordXUnidades[coordenadaA_Mover]);
+            moverHaciaY(coordYCentenas[coordenadaA_Mover], coordYDecenas[coordenadaA_Mover], coordYUnidades[coordenadaA_Mover]);
+            //presionPantalla();
+        }
+    } else printf("No has agregado ninguna coordenada");
+}
+
+void movimientoLibre(void) {
+    printf("Dame X\n");
+    uint8_t lx1, lx2, lx3, ly1, ly2, ly3;
+    lx1 = receiveNum();
+    lx2 = receiveNum();
+    lx3 = receiveNum();
+    printf("Dame Y\n");
+    ly1 = receiveNum();
+    ly2 = receiveNum();
+    ly3 = receiveNum();
+    moverHaciaX(lx1, lx2, lx3);
+    moverHaciaY(ly1, ly2, ly3);
+}
+
+void impCoordActual(void) {
+    printf("Las coordenadas actuales son (X, Y, Toques Z) \n");
+    send((CurrentPosX * 0.01) + 48);
+    send(((CurrentPosX % 100)*0.1) + 48);
+    send(((CurrentPosX % 100) % 10) + 48);
+    send(',');
+    send((CurrentPosY * 0.01) + 48);
+    send(((CurrentPosY % 100)*0.1) + 48);
+    send(((CurrentPosY % 100) % 10) + 48);
+    send('.');
 }
