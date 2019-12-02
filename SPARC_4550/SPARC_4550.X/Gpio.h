@@ -20,8 +20,10 @@
 #define enableMotorY                LATDbits.LATD0  //Enciende enable motor Y (Negado)
 #define dirMotorY                   LATDbits.LATD1  //DIR Y 
 #define stepY                       LATCbits.LC1    //Step motor Y
+#define piston                      LATEbits.LATE0  //Accionamiento del piston Z
 void portInit(void); // Se declara la funcion para inicializar los puertos
 void motorXinit(void);
 void motorYinit(void);
+void pistonInit(void); 
 #endif	/* GPIO_H */
 

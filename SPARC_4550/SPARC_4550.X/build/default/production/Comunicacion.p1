@@ -1,5 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"14 ./UART.h
+"22 ./UART.h
+[; ;./UART.h: 22: void errorUART(void);
+[v _errorUART `(v ~T0 @X0 0 ef ]
+"14
 [; ;./UART.h: 14: void send(unsigned char enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
 "12
@@ -541,7 +544,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PointString `*uc ~T0 @X0 1 r1 ]
 [f ]
 "7
-[; ;Comunicacion.c: 7:     for (unsigned char i = 0; i < 255; i++) {
+[; ;Comunicacion.c: 7:     errorUART();
+[e ( _errorUART ..  ]
+"8
+[; ;Comunicacion.c: 8:     for (unsigned char i = 0; i < 255; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -549,123 +555,129 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 369  ]
 [e :U 368 ]
 {
-"8
-[; ;Comunicacion.c: 8:         if (PointString[i] == ((void*)0)) {
+"9
+[; ;Comunicacion.c: 9:         if (PointString[i] == ((void*)0)) {
 [e $ ! == -> -> *U + _PointString * -> _i `ux -> -> # *U _PointString `ui `ux `i `*v -> -> 0 `i `*v 371  ]
 {
-"9
-[; ;Comunicacion.c: 9:             break;
-[e $U 369  ]
 "10
-[; ;Comunicacion.c: 10:         } else
+[; ;Comunicacion.c: 10:             break;
+[e $U 369  ]
+"11
+[; ;Comunicacion.c: 11:         } else
 }
 [e $U 372  ]
 [e :U 371 ]
-"11
-[; ;Comunicacion.c: 11:             send(PointString[i]);
+"12
+[; ;Comunicacion.c: 12:             send(PointString[i]);
 [e ( _send (1 *U + _PointString * -> _i `ux -> -> # *U _PointString `ui `ux ]
 [e :U 372 ]
-"12
-[; ;Comunicacion.c: 12:     }
+"13
+[; ;Comunicacion.c: 13:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 255 `i 368  ]
 [e :U 369 ]
 }
-"13
-[; ;Comunicacion.c: 13: }
+"14
+[; ;Comunicacion.c: 14: }
 [e :UE 367 ]
 }
-"15
-[; ;Comunicacion.c: 15: void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
+"16
+[; ;Comunicacion.c: 16: void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
 [v _scanf `(v ~T0 @X0 1 ef2`*uc`uc ]
 {
 [e :U _scanf ]
 [v _guardarscan `*uc ~T0 @X0 1 r1 ]
 [v _numcaracteres `uc ~T0 @X0 1 r2 ]
 [f ]
-"16
-[; ;Comunicacion.c: 16:     for (unsigned char i = 0; i < numcaracteres; i++) {
+"17
+[; ;Comunicacion.c: 17:     errorUART();
+[e ( _errorUART ..  ]
+"18
+[; ;Comunicacion.c: 18:     for (unsigned char i = 0; i < numcaracteres; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 377  ]
 [e :U 374 ]
 {
-"17
-[; ;Comunicacion.c: 17:         guardarscan[i] = receive();
+"19
+[; ;Comunicacion.c: 19:         guardarscan[i] = receive();
 [e = *U + _guardarscan * -> _i `ux -> -> # *U _guardarscan `ui `ux ( _receive ..  ]
-"18
-[; ;Comunicacion.c: 18:     }
+"20
+[; ;Comunicacion.c: 20:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 377 ]
 [e $ < -> _i `i -> _numcaracteres `i 374  ]
 [e :U 375 ]
 }
-"19
-[; ;Comunicacion.c: 19: }
+"21
+[; ;Comunicacion.c: 21: }
 [e :UE 373 ]
 }
-"21
-[; ;Comunicacion.c: 21: uint8_t receiveNum(void) {
+"23
+[; ;Comunicacion.c: 23: uint8_t receiveNum(void) {
 [v _receiveNum `(uc ~T0 @X0 1 ef ]
 {
 [e :U _receiveNum ]
 [f ]
-"22
-[; ;Comunicacion.c: 22:     unsigned char recibido = 0;
+"24
+[; ;Comunicacion.c: 24:     errorUART();
+[e ( _errorUART ..  ]
+"25
+[; ;Comunicacion.c: 25:     unsigned char recibido = 0;
 [v _recibido `uc ~T0 @X0 1 a ]
 [e = _recibido -> -> 0 `i `uc ]
-"23
-[; ;Comunicacion.c: 23:     while(recibido>57 || recibido<48) {
+"26
+[; ;Comunicacion.c: 26:     while (recibido > 57 || recibido < 48) {
 [e $U 379  ]
 [e :U 380 ]
 {
-"24
-[; ;Comunicacion.c: 24:         while (PIR1bits.RCIF == 0) {
+"27
+[; ;Comunicacion.c: 27:         while (PIR1bits.RCIF == 0) {
 [e $U 382  ]
 [e :U 383 ]
 {
-"26
-[; ;Comunicacion.c: 26:         }
+"29
+[; ;Comunicacion.c: 29:         }
 }
 [e :U 382 ]
-"24
-[; ;Comunicacion.c: 24:         while (PIR1bits.RCIF == 0) {
+"27
+[; ;Comunicacion.c: 27:         while (PIR1bits.RCIF == 0) {
 [e $ == -> . . _PIR1bits 0 5 `i -> 0 `i 383  ]
 [e :U 384 ]
-"27
-[; ;Comunicacion.c: 27:         recibido = RCREG1;
+"30
+[; ;Comunicacion.c: 30:         recibido = RCREG1;
 [e = _recibido _RCREG1 ]
-"28
-[; ;Comunicacion.c: 28:         RCREG1 = 0;
+"31
+[; ;Comunicacion.c: 31:         RCREG1 = 0;
 [e = _RCREG1 -> -> 0 `i `uc ]
-"29
-[; ;Comunicacion.c: 29:         if(recibido>57 || recibido<48){
+"32
+[; ;Comunicacion.c: 32:         if (recibido > 57 || recibido < 48) {
 [e $ ! || > -> _recibido `i -> 57 `i < -> _recibido `i -> 48 `i 385  ]
 {
-"30
-[; ;Comunicacion.c: 30:             printf("Solo puedes introducir numeros, prueba de nuevo");
+"33
+[; ;Comunicacion.c: 33:             printf("Solo puedes introducir numeros, prueba de nuevo");
 [e ( _printf (1 :s 1C ]
-"31
-[; ;Comunicacion.c: 31:         }
+"34
+[; ;Comunicacion.c: 34:         }
 }
 [e :U 385 ]
-"32
-[; ;Comunicacion.c: 32:     }return recibido;
+"35
+[; ;Comunicacion.c: 35:     }
 }
 [e :U 379 ]
-"23
-[; ;Comunicacion.c: 23:     while(recibido>57 || recibido<48) {
+"26
+[; ;Comunicacion.c: 26:     while (recibido > 57 || recibido < 48) {
 [e $ || > -> _recibido `i -> 57 `i < -> _recibido `i -> 48 `i 380  ]
 [e :U 381 ]
-"32
-[; ;Comunicacion.c: 32:     }return recibido;
+"36
+[; ;Comunicacion.c: 36:     return recibido;
 [e ) _recibido ]
 [e $UE 378  ]
-"33
-[; ;Comunicacion.c: 33: }
+"37
+[; ;Comunicacion.c: 37: }
 [e :UE 378 ]
 }
 [a 1C 83 111 108 111 32 112 117 101 100 101 115 32 105 110 116 114 111 100 117 99 105 114 32 110 117 109 101 114 111 115 44 32 112 114 117 101 98 97 32 100 101 32 110 117 101 118 111 0 ]

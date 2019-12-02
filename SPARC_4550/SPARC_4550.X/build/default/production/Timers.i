@@ -5737,6 +5737,8 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+void errorUART(void);
 # 5 "Timers.c" 2
 
 

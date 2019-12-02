@@ -81,6 +81,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3208
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3208: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
 [v _LATCbits `VS132 ~T0 @X0 0 e@3979 ]
+"4234
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4234:     struct {
+[s S166 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S166 . TRISE0 TRISE1 TRISE2 ]
+"4239
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4239:     struct {
+[s S167 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S167 . RE0 RE1 RE2 ]
+"4233
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4233: typedef union {
+[u S165 `S166 1 `S167 1 ]
+[n S165 . . . ]
+"4245
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4245: extern volatile TRISEbits_t TRISEbits __attribute__((address(0xF96)));
+[v _TRISEbits `VS165 ~T0 @X0 0 e@3990 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -596,7 +611,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x FOSC = INTOSC_EC ]
 "5
 [; ;Gpio.c: 5: }
-[p x MCLRE    = OFF ]
+[p x MCLRE    = ON ]
 "6
 [; ;Gpio.c: 6: void motorXinit( void ) {
 [p x WDT = OFF ]
@@ -654,6 +669,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _motorYinit ]
 [f ]
 "33
+[; ;Gpio.c: 33: }
 [e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
 "34
 [e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
@@ -667,4 +683,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
 "39
 [e :UE 369 ]
+}
+"40
+[v _pistonInit `(v ~T0 @X0 1 ef ]
+{
+[e :U _pistonInit ]
+[f ]
+"41
+[e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
+"43
+[e :UE 370 ]
 }

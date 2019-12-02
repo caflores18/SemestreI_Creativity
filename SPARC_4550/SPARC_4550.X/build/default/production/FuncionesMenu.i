@@ -5729,6 +5729,8 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+void errorUART(void);
 # 5 "FuncionesMenu.c" 2
 
 # 1 "./FuncionesMenu.h" 1
@@ -5785,6 +5787,7 @@ void moverHomeX(void);
 void moverHomeY(void);
 void moverXInfinito(void);
 void moverYInfinito(void);
+void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
 # 7 "FuncionesMenu.c" 2
 
 
@@ -5909,14 +5912,14 @@ void iniciarPrograma(void) {
             send('\n');
             moverHaciaX(coordXCentenas[coordenadaA_Mover], coordXDecenas[coordenadaA_Mover], coordXUnidades[coordenadaA_Mover]);
             moverHaciaY(coordYCentenas[coordenadaA_Mover], coordYDecenas[coordenadaA_Mover], coordYUnidades[coordenadaA_Mover]);
-
+            presionarPantalla(presionarZCentenas[coordenadaA_Mover], presionarZDecenas[coordenadaA_Mover], presionarZUnidades[coordenadaA_Mover]);
         }
     } else printf("No has agregado ninguna coordenada");
 }
 
 void movimientoLibre(void) {
+    uint8_t lx1, lx2, lx3, ly1, ly2, ly3, lz1, lz2, lz3;
     printf("Dame X\n");
-    uint8_t lx1, lx2, lx3, ly1, ly2, ly3;
     lx1 = receiveNum();
     lx2 = receiveNum();
     lx3 = receiveNum();
@@ -5924,8 +5927,13 @@ void movimientoLibre(void) {
     ly1 = receiveNum();
     ly2 = receiveNum();
     ly3 = receiveNum();
+    printf("Dame veces a presionar Z\n");
+    lz1 = receiveNum();
+    lz2 = receiveNum();
+    lz3 = receiveNum();
     moverHaciaX(lx1, lx2, lx3);
     moverHaciaY(ly1, ly2, ly3);
+    presionarPantalla(lz1, lz2, lz3);
 }
 
 void impCoordActual(void) {

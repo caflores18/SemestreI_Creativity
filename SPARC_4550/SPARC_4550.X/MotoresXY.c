@@ -21,9 +21,9 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
     send(yToAdvance);
     send('\n');
     if (coordinates.yWanted > CurrentPosY) { //Si el valor por recorrer es positivo
-        dirMotorY = 1; //El motor se mueve hacia un lado
+        dirMotorY = 0; //El motor se mueve hacia un lado
     } else if (coordinates.yWanted < CurrentPosY) {//Si el valor por recorrer es negativo
-        dirMotorY = 0; //El motor se mueve al otro lado
+        dirMotorY = 1; //El motor se mueve al otro lado
     }
     if (coordinates.yWanted != CurrentPosY) {
         sparcEnMovimiento = 1;
@@ -44,15 +44,27 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
     send(xToAdvance);
     send('\n');
     if (coordinates.xWanted > CurrentPosX) { //Si el valor por recorrer es positivo
-        dirMotorX = 1; //El motor se mueve hacia un lado
+        dirMotorX = 0; //El motor se mueve hacia un lado
     } else if (coordinates.xWanted < CurrentPosX) {//Si el valor por recorrer es negativo
-        dirMotorX = 0; //El motor se mueve al otro lado
+        dirMotorX = 1; //El motor se mueve al otro lado
     }
     if (coordinates.xWanted != CurrentPosX) {
         sparcEnMovimiento = 1;
         setNumPasosX(xToAdvance);
         PWM_DutyCycleCCP2(0);
         PWM_DutyCycleCCP1(50);
+    }
+}
+
+void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
+    coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
+    if (coordinates.timesToPress != 0) {
+        for (uint8_t toques = 0; toques <coordinates.timesToPress; toques++) {
+            piston = 1;
+            __delay_ms(100);
+            piston = 0;
+            __delay_ms(100);
+        }
     }
 }
 

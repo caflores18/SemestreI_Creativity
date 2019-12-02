@@ -18,6 +18,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;./MotoresXY.h: 33: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
 [v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"39
+[; ;./MotoresXY.h: 39: void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+[v _presionarPantalla `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -1039,6 +1042,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "129
 [; ;FuncionesMenu.c: 129:             moverHaciaY(coordYCentenas[coordenadaA_Mover], coordYDecenas[coordenadaA_Mover], coordYUnidades[coordenadaA_Mover]);
 [e ( _moverHaciaY (3 , , *U + &U _coordYCentenas * -> _coordenadaA_Mover `ux -> -> # *U &U _coordYCentenas `ui `ux *U + &U _coordYDecenas * -> _coordenadaA_Mover `ux -> -> # *U &U _coordYDecenas `ui `ux *U + &U _coordYUnidades * -> _coordenadaA_Mover `ux -> -> # *U &U _coordYUnidades `ui `ux ]
+"130
+[; ;FuncionesMenu.c: 130:             presionarPantalla(presionarZCentenas[coordenadaA_Mover], presionarZDecenas[coordenadaA_Mover], presionarZUnidades[coordenadaA_Mover]);
+[e ( _presionarPantalla (3 , , *U + &U _presionarZCentenas * -> _coordenadaA_Mover `ux -> -> # *U &U _presionarZCentenas `ui `ux *U + &U _presionarZDecenas * -> _coordenadaA_Mover `ux -> -> # *U &U _presionarZDecenas `ui `ux *U + &U _presionarZUnidades * -> _coordenadaA_Mover `ux -> -> # *U &U _presionarZUnidades `ui `ux ]
 "131
 [; ;FuncionesMenu.c: 131:         }
 }
@@ -1065,16 +1071,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _movimientoLibre ]
 [f ]
 "136
-[; ;FuncionesMenu.c: 136:     printf("Dame X\n");
-[e ( _printf (1 :s 21C ]
-"137
-[; ;FuncionesMenu.c: 137:     uint8_t lx1, lx2, lx3, ly1, ly2, ly3;
+[; ;FuncionesMenu.c: 136:     uint8_t lx1, lx2, lx3, ly1, ly2, ly3, lz1, lz2, lz3;
 [v _lx1 `uc ~T0 @X0 1 a ]
 [v _lx2 `uc ~T0 @X0 1 a ]
 [v _lx3 `uc ~T0 @X0 1 a ]
 [v _ly1 `uc ~T0 @X0 1 a ]
 [v _ly2 `uc ~T0 @X0 1 a ]
 [v _ly3 `uc ~T0 @X0 1 a ]
+[v _lz1 `uc ~T0 @X0 1 a ]
+[v _lz2 `uc ~T0 @X0 1 a ]
+[v _lz3 `uc ~T0 @X0 1 a ]
+"137
+[; ;FuncionesMenu.c: 137:     printf("Dame X\n");
+[e ( _printf (1 :s 21C ]
 "138
 [; ;FuncionesMenu.c: 138:     lx1 = receiveNum();
 [e = _lx1 ( _receiveNum ..  ]
@@ -1097,50 +1106,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FuncionesMenu.c: 144:     ly3 = receiveNum();
 [e = _ly3 ( _receiveNum ..  ]
 "145
-[; ;FuncionesMenu.c: 145:     moverHaciaX(lx1, lx2, lx3);
-[e ( _moverHaciaX (3 , , _lx1 _lx2 _lx3 ]
+[; ;FuncionesMenu.c: 145:     printf("Dame veces a presionar Z\n");
+[e ( _printf (1 :s 23C ]
 "146
-[; ;FuncionesMenu.c: 146:     moverHaciaY(ly1, ly2, ly3);
-[e ( _moverHaciaY (3 , , _ly1 _ly2 _ly3 ]
+[; ;FuncionesMenu.c: 146:     lz1 = receiveNum();
+[e = _lz1 ( _receiveNum ..  ]
 "147
-[; ;FuncionesMenu.c: 147: }
+[; ;FuncionesMenu.c: 147:     lz2 = receiveNum();
+[e = _lz2 ( _receiveNum ..  ]
+"148
+[; ;FuncionesMenu.c: 148:     lz3 = receiveNum();
+[e = _lz3 ( _receiveNum ..  ]
+"149
+[; ;FuncionesMenu.c: 149:     moverHaciaX(lx1, lx2, lx3);
+[e ( _moverHaciaX (3 , , _lx1 _lx2 _lx3 ]
+"150
+[; ;FuncionesMenu.c: 150:     moverHaciaY(ly1, ly2, ly3);
+[e ( _moverHaciaY (3 , , _ly1 _ly2 _ly3 ]
+"151
+[; ;FuncionesMenu.c: 151:     presionarPantalla(lz1, lz2, lz3);
+[e ( _presionarPantalla (3 , , _lz1 _lz2 _lz3 ]
+"152
+[; ;FuncionesMenu.c: 152: }
 [e :UE 396 ]
 }
-"149
-[; ;FuncionesMenu.c: 149: void impCoordActual(void) {
+"154
+[; ;FuncionesMenu.c: 154: void impCoordActual(void) {
 [v _impCoordActual `(v ~T0 @X0 1 ef ]
 {
 [e :U _impCoordActual ]
 [f ]
-"150
-[; ;FuncionesMenu.c: 150:     printf("Las coordenadas actuales son (X, Y, Toques Z) \n");
-[e ( _printf (1 :s 23C ]
-"151
-[; ;FuncionesMenu.c: 151:     send((CurrentPosX * 0.01) + 48);
-[e ( _send (1 -> + * -> _CurrentPosX `d .0.01 -> -> 48 `i `d `uc ]
-"152
-[; ;FuncionesMenu.c: 152:     send(((CurrentPosX % 100)*0.1) + 48);
-[e ( _send (1 -> + * -> % _CurrentPosX -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
-"153
-[; ;FuncionesMenu.c: 153:     send(((CurrentPosX % 100) % 10) + 48);
-[e ( _send (1 -> + % % _CurrentPosX -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-"154
-[; ;FuncionesMenu.c: 154:     send(',');
-[e ( _send (1 -> -> 44 `ui `uc ]
 "155
-[; ;FuncionesMenu.c: 155:     send((CurrentPosY * 0.01) + 48);
-[e ( _send (1 -> + * -> _CurrentPosY `d .0.01 -> -> 48 `i `d `uc ]
+[; ;FuncionesMenu.c: 155:     printf("Las coordenadas actuales son (X, Y, Toques Z) \n");
+[e ( _printf (1 :s 24C ]
 "156
-[; ;FuncionesMenu.c: 156:     send(((CurrentPosY % 100)*0.1) + 48);
-[e ( _send (1 -> + * -> % _CurrentPosY -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
+[; ;FuncionesMenu.c: 156:     send((CurrentPosX * 0.01) + 48);
+[e ( _send (1 -> + * -> _CurrentPosX `d .0.01 -> -> 48 `i `d `uc ]
 "157
-[; ;FuncionesMenu.c: 157:     send(((CurrentPosY % 100) % 10) + 48);
-[e ( _send (1 -> + % % _CurrentPosY -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[; ;FuncionesMenu.c: 157:     send(((CurrentPosX % 100)*0.1) + 48);
+[e ( _send (1 -> + * -> % _CurrentPosX -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
 "158
-[; ;FuncionesMenu.c: 158:     send('.');
-[e ( _send (1 -> -> 46 `ui `uc ]
+[; ;FuncionesMenu.c: 158:     send(((CurrentPosX % 100) % 10) + 48);
+[e ( _send (1 -> + % % _CurrentPosX -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
 "159
-[; ;FuncionesMenu.c: 159: }
+[; ;FuncionesMenu.c: 159:     send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"160
+[; ;FuncionesMenu.c: 160:     send((CurrentPosY * 0.01) + 48);
+[e ( _send (1 -> + * -> _CurrentPosY `d .0.01 -> -> 48 `i `d `uc ]
+"161
+[; ;FuncionesMenu.c: 161:     send(((CurrentPosY % 100)*0.1) + 48);
+[e ( _send (1 -> + * -> % _CurrentPosY -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
+"162
+[; ;FuncionesMenu.c: 162:     send(((CurrentPosY % 100) % 10) + 48);
+[e ( _send (1 -> + % % _CurrentPosY -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+"163
+[; ;FuncionesMenu.c: 163:     send('.');
+[e ( _send (1 -> -> 46 `ui `uc ]
+"164
+[; ;FuncionesMenu.c: 164: }
 [e :UE 397 ]
 }
 [a 8C 89 97 32 101 115 116 97 110 32 108 97 115 32 49 48 32 99 111 111 114 100 101 110 97 100 97 115 32 108 108 101 110 97 115 44 32 110 111 32 112 117 101 100 101 115 32 97 103 114 101 103 97 114 32 109 97 115 0 ]
@@ -1159,10 +1183,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 18C 76 105 115 116 111 44 32 116 111 100 97 115 32 108 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 104 97 110 32 115 105 100 111 32 98 111 114 114 97 100 97 115 10 0 ]
 [a 17C 78 111 32 112 117 101 100 101 115 32 109 111 100 105 102 105 99 97 114 32 99 111 111 114 100 101 110 97 100 97 115 32 112 111 114 32 113 117 101 32 97 117 110 32 110 111 32 104 97 115 32 97 103 114 101 103 97 100 111 32 110 105 110 103 117 110 97 10 0 ]
 [a 5C 77 101 116 105 115 116 101 32 117 110 97 32 99 111 111 114 100 101 110 97 100 97 32 105 110 118 97 108 105 100 97 10 0 ]
+[a 23C 68 97 109 101 32 118 101 99 101 115 32 97 32 112 114 101 115 105 111 110 97 114 32 90 10 0 ]
 [a 4C 82 101 99 105 98 105 32 35 32 100 101 32 118 101 99 101 115 32 97 32 112 114 101 115 105 111 110 97 114 32 90 10 0 ]
 [a 22C 68 97 109 101 32 89 10 0 ]
 [a 21C 68 97 109 101 32 88 10 0 ]
 [a 15C 67 117 97 108 32 99 111 111 114 100 101 110 97 100 97 32 113 117 105 101 114 101 115 32 109 111 100 105 102 105 99 97 114 44 32 101 108 105 103 101 32 118 97 108 111 114 101 115 32 118 97 108 105 100 111 115 63 10 0 ]
 [a 13C 67 117 97 108 32 100 101 32 101 115 116 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 113 117 105 101 114 101 115 32 109 111 100 105 102 105 99 97 114 63 10 0 ]
 [a 10C 32 99 111 111 114 100 101 110 97 100 97 115 44 32 108 97 115 32 99 117 97 108 101 115 32 115 111 110 58 32 10 0 ]
-[a 23C 76 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 97 99 116 117 97 108 101 115 32 115 111 110 32 40 88 44 32 89 44 32 84 111 113 117 101 115 32 90 41 32 10 0 ]
+[a 24C 76 97 115 32 99 111 111 114 100 101 110 97 100 97 115 32 97 99 116 117 97 108 101 115 32 115 111 110 32 40 88 44 32 89 44 32 84 111 113 117 101 115 32 90 41 32 10 0 ]

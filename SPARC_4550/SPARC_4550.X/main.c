@@ -92,6 +92,7 @@ void main(void) {
     habilitarIntTMR0(); //Habilita interrupcion TMRO
     habilitarIntTMR1(); //Habilita interrupcion TMR1
     habilitarIntExternas();
+    pistonInit(); //Habilita piston/actuador
     //ADCinit(); //Habilita el uso del ADC, se declara el RA0 como analogico
     //Apuntadores a string para poder hacer uso de la funcion scanf
     unsigned char activarmenu[5];
@@ -104,16 +105,16 @@ void main(void) {
     //Inicio del ciclo infinito 
     while (1) {
         if (llegoHomeX == 1) {
-            printf("Simon si llegue a este pedo");
+            printf("Si  llegue a home X");
             moverHaciaX(0, 0, 5);
             llegoHomeX = 0;
         }
         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1)); //Se escanean 4 caracteres
         if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
             //Si los 4 caracteres previamente escaneados son Menu o menu se entra al menu del SPARC
-            printf("\n(0)Ayuda sobre como funciona el programa      (1)Introducir coordenada nueva  (2)Imprimir las coordenadas recibidas\n"
-                    "(3)Modificar coordenada        (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
-                    "(6)Imprimir coordenad actual       (7)MovimientoLibre      (8)Mandar infinito o home\n");
+            printf("\n(0)Como funciona  (1)Agregar coordenada   (2)Imprimir coordenadas\n"
+                    "(3)Editar coordenada   (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
+                    "(6)Coordenada actual   (7)MovimientoLibre (8)Home/Inf\n");
             uint8_t opcionsel = receive();
             while (opcionsel > 57 || opcionsel < 48) {
                 printf("Eleccion no valida vuelva a intentar");
@@ -151,7 +152,7 @@ void main(void) {
             }
             if (opcionsel == '7') {
                 printf("Has elegido movimiento libre\n");
-                void movimientoLibre();
+                movimientoLibre();
             }
             if (opcionsel == '8') {
                 printf("Entrase al 8");
@@ -159,10 +160,10 @@ void main(void) {
                 unsigned char loco = receiveNum();
                 if (loco == '1') {
                     moverXInfinito();
-                    //moverYInfinito();
+                    moverYInfinito();
                 } else if (loco == '0') {
                     moverHomeX();
-                    //moverHomeY();
+                    moverHomeY();
                 }
             }
             if (opcionsel == '9') {
@@ -171,8 +172,6 @@ void main(void) {
         } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
     }
 }
-// Funcion coordenada actual
-//Modificar coordenada en 0 se traba
-//Cuanto entro a inthome x o homey poner current pos de 0
-
 //Corregir motores XY el mensaje que envia si la coordenada es la misma no deberia pasar
+//Parte de control
+//Deslizar pantalla

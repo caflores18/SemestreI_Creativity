@@ -5750,10 +5750,11 @@ void impCoordActual(void);
 # 6 "main.c" 2
 
 # 1 "./Gpio.h" 1
-# 23 "./Gpio.h"
+# 24 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
+void pistonInit(void);
 # 7 "main.c" 2
 
 # 1 "./Interrupciones.h" 1
@@ -5801,6 +5802,7 @@ void moverHomeX(void);
 void moverHomeY(void);
 void moverXInfinito(void);
 void moverYInfinito(void);
+void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
 # 10 "main.c" 2
 
 # 1 "./PWMCCP1.h" 1
@@ -5835,6 +5837,8 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+void errorUART(void);
 # 14 "main.c" 2
 
 
@@ -5917,6 +5921,7 @@ void main(void) {
     habilitarIntTMR0();
     habilitarIntTMR1();
     habilitarIntExternas();
+    pistonInit();
 
 
     unsigned char activarmenu[5];
@@ -5929,16 +5934,16 @@ void main(void) {
 
     while (1) {
         if (llegoHomeX == 1) {
-            printf("Simon si llegue a este pedo");
+            printf("Si  llegue a home X");
             moverHaciaX(0, 0, 5);
             llegoHomeX = 0;
         }
         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
         if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
 
-            printf("\n(0)Ayuda sobre como funciona el programa      (1)Introducir coordenada nueva  (2)Imprimir las coordenadas recibidas\n"
-                    "(3)Modificar coordenada        (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
-                    "(6)Imprimir coordenad actual       (7)MovimientoLibre      (8)Mandar infinito o home\n");
+            printf("\n(0)Como funciona  (1)Agregar coordenada   (2)Imprimir coordenadas\n"
+                    "(3)Editar coordenada   (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
+                    "(6)Coordenada actual   (7)MovimientoLibre (8)Home/Inf\n");
             uint8_t opcionsel = receive();
             while (opcionsel > 57 || opcionsel < 48) {
                 printf("Eleccion no valida vuelva a intentar");
@@ -5976,7 +5981,7 @@ void main(void) {
             }
             if (opcionsel == '7') {
                 printf("Has elegido movimiento libre\n");
-                void movimientoLibre();
+                movimientoLibre();
             }
             if (opcionsel == '8') {
                 printf("Entrase al 8");
@@ -5984,10 +5989,10 @@ void main(void) {
                 unsigned char loco = receiveNum();
                 if (loco == '1') {
                     moverXInfinito();
-
+                    moverYInfinito();
                 } else if (loco == '0') {
                     moverHomeX();
-
+                    moverHomeY();
                 }
             }
             if (opcionsel == '9') {

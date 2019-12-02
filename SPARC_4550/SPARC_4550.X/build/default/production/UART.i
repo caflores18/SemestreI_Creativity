@@ -5633,7 +5633,10 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+void errorUART(void);
 # 3 "UART.c" 2
+
 
 
 void UARTinit(void) {
@@ -5653,6 +5656,7 @@ void UARTinit(void) {
 }
 
 unsigned char receive() {
+    errorUART();
     unsigned char recibido;
     while (PIR1bits.RCIF == 0) {
 
@@ -5664,8 +5668,30 @@ unsigned char receive() {
 }
 
 void send(unsigned char enviarpc) {
+    errorUART();
     while (TXSTA1bits.TRMT == 0) {
 
     }
     TXREG1 = enviarpc;
+}
+
+void errorUART(void) {
+    unsigned char temp;
+    if (OERR) {
+        do {
+            temp = RCREG;
+            temp = RCREG;
+            temp = RCREG;
+            temp = RCREG;
+            CREN = 0;
+            CREN = 1;
+
+        } while (OERR);
+    }
+
+    if (FERR) {
+        temp = RCREG;
+        TXEN = 0;
+        TXEN = 1;
+    }
 }

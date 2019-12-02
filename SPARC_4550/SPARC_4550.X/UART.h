@@ -19,5 +19,6 @@ void printf (unsigned char *PointString);
     Caracter nulo */
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
     //Se escanea un numcaracteres y se guarda en el arreglo guardarscan
+void errorUART(void);
 #endif	/* UART_H */
 

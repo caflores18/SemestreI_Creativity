@@ -39,6 +39,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./Timers.h
 [; ;./Timers.h: 13: void setNumPasosX(unsigned int numPasosX);
 [v _setNumPasosX `(v ~T0 @X0 0 ef1`ui ]
+"3381 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3381:     struct {
+[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S139 . LATE0 LATE1 LATE2 ]
+"3386
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3386:     struct {
+[s S140 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S140 . LE0 LE1 LE2 ]
+"3380
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3380: typedef union {
+[u S138 `S139 1 `S140 1 ]
+[n S138 . . . ]
+"3392
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3392: extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
+[v _LATEbits `VS138 ~T0 @X0 0 e@3981 ]
+[v F3182 `(v ~T0 @X0 1 tf1`ul ]
+"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
+[v __delay `JF3182 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -642,8 +661,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! > . _coordinates 1 _CurrentPosY 372  ]
 {
 "24
-[; ;MotoresXY.c: 24:         LATDbits.LATD1 = 1;
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+[; ;MotoresXY.c: 24:         LATDbits.LATD1 = 0;
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
 "25
 [; ;MotoresXY.c: 25:     } else if (coordinates.yWanted < CurrentPosY) {
 }
@@ -652,8 +671,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! < . _coordinates 1 _CurrentPosY 374  ]
 {
 "26
-[; ;MotoresXY.c: 26:         LATDbits.LATD1 = 0;
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;MotoresXY.c: 26:         LATDbits.LATD1 = 1;
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
 "27
 [; ;MotoresXY.c: 27:     }
 }
@@ -725,8 +744,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! > . _coordinates 0 _CurrentPosX 380  ]
 {
 "47
-[; ;MotoresXY.c: 47:         LATDbits.LATD3 = 1;
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[; ;MotoresXY.c: 47:         LATDbits.LATD3 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "48
 [; ;MotoresXY.c: 48:     } else if (coordinates.xWanted < CurrentPosX) {
 }
@@ -735,8 +754,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! < . _coordinates 0 _CurrentPosX 382  ]
 {
 "49
-[; ;MotoresXY.c: 49:         LATDbits.LATD3 = 0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;MotoresXY.c: 49:         LATDbits.LATD3 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
 "50
 [; ;MotoresXY.c: 50:     }
 }
@@ -767,92 +786,144 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 376 ]
 }
 "59
-[; ;MotoresXY.c: 59: void moverHomeX(void) {
+[; ;MotoresXY.c: 59: void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
+[v _presionarPantalla `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _presionarPantalla ]
+[v _presionarZCentenas `uc ~T0 @X0 1 r1 ]
+[v _presionarZDecenas `uc ~T0 @X0 1 r2 ]
+[v _presionarZUnidades `uc ~T0 @X0 1 r3 ]
+[f ]
+"60
+[; ;MotoresXY.c: 60:     coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
+[e = . _coordinates 2 -> -> + + * - -> _presionarZCentenas `i -> 48 `i -> 100 `i * - -> _presionarZDecenas `i -> 48 `i -> 10 `i - -> _presionarZUnidades `i -> 48 `i `l `ul ]
+"61
+[; ;MotoresXY.c: 61:     if (coordinates.timesToPress != 0) {
+[e $ ! != . _coordinates 2 -> -> -> 0 `i `l `ul 385  ]
+{
+"62
+[; ;MotoresXY.c: 62:         for (uint8_t toques = 0; toques <coordinates.timesToPress; toques++) {
+{
+[v _toques `uc ~T0 @X0 1 a ]
+[e = _toques -> -> 0 `i `uc ]
+[e $U 389  ]
+[e :U 386 ]
+{
+"63
+[; ;MotoresXY.c: 63:             LATEbits.LATE0 = 1;
+[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
+"64
+[; ;MotoresXY.c: 64:             _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"65
+[; ;MotoresXY.c: 65:             LATEbits.LATE0 = 0;
+[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
+"66
+[; ;MotoresXY.c: 66:             _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"67
+[; ;MotoresXY.c: 67:         }
+}
+[e ++ _toques -> -> 1 `i `uc ]
+[e :U 389 ]
+[e $ < -> _toques `ul . _coordinates 2 386  ]
+[e :U 387 ]
+}
+"68
+[; ;MotoresXY.c: 68:     }
+}
+[e :U 385 ]
+"69
+[; ;MotoresXY.c: 69: }
+[e :UE 384 ]
+}
+"71
+[; ;MotoresXY.c: 71: void moverHomeX(void) {
 [v _moverHomeX `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverHomeX ]
 [f ]
-"60
-[; ;MotoresXY.c: 60:     destinoHomeX = 1;
+"72
+[; ;MotoresXY.c: 72:     destinoHomeX = 1;
 [e = _destinoHomeX -> -> 1 `i `uc ]
-"61
-[; ;MotoresXY.c: 61:     LATDbits.LATD3 = 0;
+"73
+[; ;MotoresXY.c: 73:     LATDbits.LATD3 = 0;
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
-"62
-[; ;MotoresXY.c: 62:     sparcEnMovimiento = 1;
+"74
+[; ;MotoresXY.c: 74:     sparcEnMovimiento = 1;
 [e = _sparcEnMovimiento -> -> 1 `i `uc ]
-"64
-[; ;MotoresXY.c: 64:     PWM_DutyCycleCCP1(50);
+"76
+[; ;MotoresXY.c: 76:     PWM_DutyCycleCCP1(50);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
-"65
-[; ;MotoresXY.c: 65: }
-[e :UE 384 ]
+"77
+[; ;MotoresXY.c: 77: }
+[e :UE 390 ]
 }
-"67
-[; ;MotoresXY.c: 67: void moverHomeY(void) {
+"79
+[; ;MotoresXY.c: 79: void moverHomeY(void) {
 [v _moverHomeY `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverHomeY ]
 [f ]
-"68
-[; ;MotoresXY.c: 68:     destinoHomeX = 1;
+"80
+[; ;MotoresXY.c: 80:     destinoHomeX = 1;
 [e = _destinoHomeX -> -> 1 `i `uc ]
-"69
-[; ;MotoresXY.c: 69:     LATDbits.LATD1 = 0;
+"81
+[; ;MotoresXY.c: 81:     LATDbits.LATD1 = 0;
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"70
-[; ;MotoresXY.c: 70:     sparcEnMovimiento = 1;
+"82
+[; ;MotoresXY.c: 82:     sparcEnMovimiento = 1;
 [e = _sparcEnMovimiento -> -> 1 `i `uc ]
-"72
-[; ;MotoresXY.c: 72:     PWM_DutyCycleCCP2(50);
+"84
+[; ;MotoresXY.c: 84:     PWM_DutyCycleCCP2(50);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
-"73
-[; ;MotoresXY.c: 73: }
-[e :UE 385 ]
+"85
+[; ;MotoresXY.c: 85: }
+[e :UE 391 ]
 }
-"75
-[; ;MotoresXY.c: 75: void moverXInfinito() {
+"87
+[; ;MotoresXY.c: 87: void moverXInfinito() {
 [v _moverXInfinito `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverXInfinito ]
 [f ]
-"76
-[; ;MotoresXY.c: 76:     LATDbits.LATD3 = 1;
+"88
+[; ;MotoresXY.c: 88:     LATDbits.LATD3 = 1;
 [e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-"77
-[; ;MotoresXY.c: 77:     sparcEnMovimiento = 1;
+"89
+[; ;MotoresXY.c: 89:     sparcEnMovimiento = 1;
 [e = _sparcEnMovimiento -> -> 1 `i `uc ]
-"78
-[; ;MotoresXY.c: 78:     PWM_DutyCycleCCP2(0);
+"90
+[; ;MotoresXY.c: 90:     PWM_DutyCycleCCP2(0);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
-"79
-[; ;MotoresXY.c: 79:     PWM_DutyCycleCCP1(50);
+"91
+[; ;MotoresXY.c: 91:     PWM_DutyCycleCCP1(50);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
-"80
-[; ;MotoresXY.c: 80: }
-[e :UE 386 ]
+"92
+[; ;MotoresXY.c: 92: }
+[e :UE 392 ]
 }
-"82
-[; ;MotoresXY.c: 82: void moverYInfinito() {
+"94
+[; ;MotoresXY.c: 94: void moverYInfinito() {
 [v _moverYInfinito `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverYInfinito ]
 [f ]
-"83
-[; ;MotoresXY.c: 83:     LATDbits.LATD1 = 1;
+"95
+[; ;MotoresXY.c: 95:     LATDbits.LATD1 = 1;
 [e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-"84
-[; ;MotoresXY.c: 84:     sparcEnMovimiento = 1;
+"96
+[; ;MotoresXY.c: 96:     sparcEnMovimiento = 1;
 [e = _sparcEnMovimiento -> -> 1 `i `uc ]
-"85
-[; ;MotoresXY.c: 85:     PWM_DutyCycleCCP1(0);
+"97
+[; ;MotoresXY.c: 97:     PWM_DutyCycleCCP1(0);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
-"86
-[; ;MotoresXY.c: 86:     PWM_DutyCycleCCP2(50);
+"98
+[; ;MotoresXY.c: 98:     PWM_DutyCycleCCP2(50);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
-"87
-[; ;MotoresXY.c: 87: }
-[e :UE 387 ]
+"99
+[; ;MotoresXY.c: 99: }
+[e :UE 393 ]
 }
 [a 1C 121 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]
 [a 2C 120 84 111 65 100 118 97 110 99 101 32 105 115 58 0 ]

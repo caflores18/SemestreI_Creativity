@@ -5729,10 +5729,13 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+void errorUART(void);
 # 4 "Comunicacion.c" 2
 
 
 void printf(unsigned char *PointString) {
+    errorUART();
     for (unsigned char i = 0; i < 255; i++) {
         if (PointString[i] == ((void*)0)) {
             break;
@@ -5742,21 +5745,24 @@ void printf(unsigned char *PointString) {
 }
 
 void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
+    errorUART();
     for (unsigned char i = 0; i < numcaracteres; i++) {
         guardarscan[i] = receive();
     }
 }
 
 uint8_t receiveNum(void) {
+    errorUART();
     unsigned char recibido = 0;
-    while(recibido>57 || recibido<48) {
+    while (recibido > 57 || recibido < 48) {
         while (PIR1bits.RCIF == 0) {
 
         }
         recibido = RCREG1;
         RCREG1 = 0;
-        if(recibido>57 || recibido<48){
+        if (recibido > 57 || recibido < 48) {
             printf("Solo puedes introducir numeros, prueba de nuevo");
         }
-    }return recibido;
+    }
+    return recibido;
 }

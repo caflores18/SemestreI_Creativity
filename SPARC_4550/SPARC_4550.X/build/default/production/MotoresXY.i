@@ -5725,10 +5725,11 @@ uint8_t receiveNum(void);
 # 2 "MotoresXY.c" 2
 
 # 1 "./Gpio.h" 1
-# 23 "./Gpio.h"
+# 24 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
+void pistonInit(void);
 # 3 "MotoresXY.c" 2
 
 # 1 "./PWMCCP1.h" 1
@@ -5763,6 +5764,8 @@ void printf (unsigned char *PointString);
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+
+void errorUART(void);
 # 7 "MotoresXY.c" 2
 
 # 1 "./MotoresXY.h" 1
@@ -5793,6 +5796,7 @@ void moverHomeX(void);
 void moverHomeY(void);
 void moverXInfinito(void);
 void moverYInfinito(void);
+void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
 # 8 "MotoresXY.c" 2
 
 
@@ -5810,9 +5814,9 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
     send(yToAdvance);
     send('\n');
     if (coordinates.yWanted > CurrentPosY) {
-        LATDbits.LATD1 = 1;
-    } else if (coordinates.yWanted < CurrentPosY) {
         LATDbits.LATD1 = 0;
+    } else if (coordinates.yWanted < CurrentPosY) {
+        LATDbits.LATD1 = 1;
     }
     if (coordinates.yWanted != CurrentPosY) {
         sparcEnMovimiento = 1;
@@ -5833,15 +5837,27 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
     send(xToAdvance);
     send('\n');
     if (coordinates.xWanted > CurrentPosX) {
-        LATDbits.LATD3 = 1;
-    } else if (coordinates.xWanted < CurrentPosX) {
         LATDbits.LATD3 = 0;
+    } else if (coordinates.xWanted < CurrentPosX) {
+        LATDbits.LATD3 = 1;
     }
     if (coordinates.xWanted != CurrentPosX) {
         sparcEnMovimiento = 1;
         setNumPasosX(xToAdvance);
         PWM_DutyCycleCCP2(0);
         PWM_DutyCycleCCP1(50);
+    }
+}
+
+void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
+    coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
+    if (coordinates.timesToPress != 0) {
+        for (uint8_t toques = 0; toques <coordinates.timesToPress; toques++) {
+            LATEbits.LATE0 = 1;
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+            LATEbits.LATE0 = 0;
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+        }
     }
 }
 

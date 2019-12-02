@@ -5622,14 +5622,15 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./Gpio.h" 1
-# 23 "./Gpio.h"
+# 24 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
+void pistonInit(void);
 # 3 "Gpio.c" 2
 
 #pragma config FOSC = INTOSC_EC
-#pragma config MCLRE = OFF
+#pragma config MCLRE = ON
 #pragma config WDT = OFF
 
 #pragma config LVP = OFF
@@ -5663,4 +5664,8 @@ void motorYinit( void ) {
     LATDbits.LATD0 = 0;
     LATDbits.LATD1 = 0;
     LATCbits.LC1 = 0;
+}
+void pistonInit(void){
+    TRISEbits.RE0 = 0;
+
 }

@@ -2,8 +2,8 @@
 #include <pic18f4550.h>
 #include "Gpio.h"
 #pragma config FOSC = INTOSC_EC       //CONFIG1H (0-3) = 0010: INTIO2 oscillator, Internal oscillator block, port function on RA6 and RA7.
-#pragma config MCLRE    = OFF        //Master Clear Reset activado
-#pragma config WDT = OFF
+#pragma config MCLRE    = ON        //Master Clear Reset activado
+#pragma config WDT = OFF            //Se apaga el WatchDogTimer
 //#pragma config PBADEN   = OFF       //Hace que los puertos A y B sean digitales
 #pragma config LVP      = OFF       //Low-voltage Programming desactivado */
 //Seccion de directivos y defines
@@ -36,4 +36,8 @@ void motorYinit( void ) {
     LATDbits.LATD0 = 0; //Enciende enable del motor Y Negado
     LATDbits.LATD1 = 0; //DIR Y empieza en sentido horario
     LATCbits.LC1 = 0; //Step en Y inicia en 0
+}
+void pistonInit(void){
+    TRISEbits.RE0 = 0; //Se declara el Pin E0 (piston) como output
+   // piston = 0;        //Se deja el piston desactivado (funciona logica negativa)
 }

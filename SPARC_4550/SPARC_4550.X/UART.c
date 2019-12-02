@@ -2,6 +2,7 @@
 #include <pic18f4550.h>
 #include "UART.h"
 #define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
+
 void UARTinit(void) {
     TRISCbits.RC6 = 1; //Se declara el TX como output
     TRISCbits.RC7 = 1; //Se declara el RX como input
@@ -19,6 +20,7 @@ void UARTinit(void) {
 }
 
 unsigned char receive() {
+    errorUART();
     unsigned char recibido;
     while (PIR1bits.RCIF == 0) {
         // Mientras RCRGEG1 este vacio nada hasta
@@ -30,8 +32,30 @@ unsigned char receive() {
 }
 
 void send(unsigned char enviarpc) {
+    errorUART();
     while (TXSTA1bits.TRMT == 0) {
         //Mientres TSR este lleno no hace nada 
     } // Cuando se vacio 
     TXREG1 = enviarpc; // Se envia el nuevo caracter al registro de transmision USART
+}
+
+void errorUART(void) {
+    unsigned char temp;
+    if (OERR) {//¿hubo desborde?
+        do {
+            temp = RCREG; //limpia pila
+            temp = RCREG; //limpia pila
+            temp = RCREG; //limpia pila
+            temp = RCREG; //limpia pila
+            CREN = 0; //deshabilita la recepcion
+            CREN = 1; //habilita la recepcion
+
+        } while (OERR);
+    }
+
+    if (FERR) {
+        temp = RCREG;
+        TXEN = 0;
+        TXEN = 1;
+    }
 }
