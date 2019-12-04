@@ -731,7 +731,7 @@ bssBANK1 100 127 BANK1 100 1
 %locals
 dist/default/production\SPARC_4550.X.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
+C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
 6549 2B5A 0 CODE 0
 6551 2B5A 0 CODE 0
 6554 2B5A 0 CODE 0
@@ -1584,13 +1584,13 @@ PWMCCP1.c
 14 2BCE 0 CODE 0
 15 2BD2 0 CODE 0
 16 2BD4 0 CODE 0
-C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
+C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
 17590 18 0 CODE 0
 main.c
 73 18 0 CODE 0
 74 1E 0 CODE 0
 75 20 0 CODE 0
-C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
+C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
 17659 8 0 CODE 0
 main.c
 18 8 0 CODE 0

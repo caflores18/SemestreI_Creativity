@@ -5942,81 +5942,51 @@ void main(void) {
     pistonInit();
 
 
-    unsigned char activarmenu[5];
-    activarmenu[4] = ((void*)0);
-    unsigned char *pActMenu = (unsigned char *) &activarmenu;
-    unsigned char tamanoarray;
-    unsigned char desechable = receive();
 
-    printf("Escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
+    uint8_t activarmenu[5];
+    activarmenu[4] = ((void*)0);
+    uint8_t *pActMenu = (unsigned char *) &activarmenu;
+    uint8_t tamanoarray;
+    uint8_t calibrarSparc = 0;
+
+    uint8_t desechable = receive();
+    while (calibrarSparc == 0) {
+        printf("Escribe init para calibar el SPARC y poder empezar el programa\n");
+        scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
+        if ((activarmenu[0] == 'i' || activarmenu[0] == 'I') && activarmenu[1] == 'n' && activarmenu[2] == 'i' && activarmenu[3] == 't') {
+            calibrarSparc = 1;
+            printf("Initializing\n");
+        }
+    }
 
     while (1) {
-        if (llegoHomeX == 1) {
-            printf("Si  llegue a home X");
-            moverHaciaX(0, 0, 5);
-            llegoHomeX = 0;
+        if(calibrarSparc == 1){
+            moverHomeX();
+            moverHomeY();
+            calibrarSparc = 0;
         }
-        scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
-        if ((activarmenu[0] == 'M' || activarmenu[0] == 'm') && activarmenu[1] == 'e' && activarmenu[2] == 'n' && activarmenu[3] == 'u') {
-
-            printf("\n(0)Como funciona  (1)Agregar coordenada   (2)Imprimir coordenadas\n"
-                    "(3)Editar coordenada   (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
-                    "(6)Coordenada actual   (7)MovimientoLibre (8)Home/Inf (9)MoverBase \n");
-            uint8_t opcionsel = receive();
-            while (opcionsel > 57 || opcionsel < 48) {
-                printf("Eleccion no valida vuelva a intentar");
-                opcionsel = receive();
-            }
-            if (opcionsel == '0') {
-                printf("Funcionamiento del SPARC:");
-            }
-            if (opcionsel == '1') {
-                introducirCoordNueva();
-            }
-            if (opcionsel == '2') {
-                printf("Elegiste la opcion de imprimir coordenadas\n");
-                imprimirCoordenadas();
-            }
-            if (opcionsel == '3') {
-                modificarCoordenada();
-            }
-            if (opcionsel == '4') {
-                printf("Estas por inicar el programa, estas seguro? (1) Si (X) No");
-                uint8_t decision5 = receiveNum();
-                if (decision5 == '1') {
-                    iniciarPrograma();
-                } else printf("Regresando al menu");
-            }
-            if (opcionsel == '5') {
-                printf("Vas a borrar todas las coordenadas, seguro? (1) Si (X)No");
-                uint8_t decision6 = receiveNum();
-                if (decision6 == '1') {
-                    borrarTodasCoordenadas();
-                } else printf("Regresando al menu");
-            }
-            if (opcionsel == '6') {
-                impCoordActual();
-            }
-            if (opcionsel == '7') {
-                printf("Has elegido movimiento libre\n");
-                movimientoLibre();
-            }
-            if (opcionsel == '8') {
-                printf("Entrase al 8");
-                printf("Elige (1) infinito o 0 (home)");
-                unsigned char loco = receiveNum();
-                if (loco == '1') {
-                    moverXInfinito();
-                    moverYInfinito();
-                } else if (loco == '0') {
-                    moverHomeX();
-                    moverHomeY();
-                }
-            }
-            if (opcionsel == '9') {
-                printf("Para mover la base presiona uno de los botones de arriba o abajo, cuando termines presiona el boton OK");
-                modificarZ();
-            }
-        } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
+        uint8_t opcionsel = receive();
+        if (opcionsel == 'm' || opcionsel == 'M') {
+            printf("Vas a mover el Sparc en X y Y\n");
+            printf("Ok,comV \n");
+        } else if (opcionsel == 'p' || opcionsel == 'P') {
+            printf("Presionar Z cierto numero de veces recibidas\n");
+            printf("Ok,comV \n");
+        } else if (opcionsel == 's' || opcionsel == 'S') {
+            printf("Piston para deslizar o dejar retraido?\n");
+            printf("Ok,comV \n");
+        } else if (opcionsel == 'h' || opcionsel == 'H') {
+            printf("Vas a ir a homeX y home Y\n");
+            printf("Ok,comV \n");
+        } else if (opcionsel == 'i' || opcionsel == 'I') {
+            printf("Vas a ir infinito X e infinito Y\n");
+            printf("Ok,comV \n");
+        } else if (opcionsel == 'c' || opcionsel == 'C') {
+            printf("Imprmir coordenada actual \n");
+            printf("Ok,comV \n");
+        } else if (opcionsel == 'b' || opcionsel == 'B') {
+            printf("Entraste a mover la base\n");
+            printf("Ok,comV \n");
+        }
     }
 }

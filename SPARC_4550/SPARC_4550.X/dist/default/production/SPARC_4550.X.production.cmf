@@ -82,7 +82,7 @@ bssBANK1 BANK1 1 100 100 28 1
 intcode CODE 0 8 8 6 1
 bssCOMRAM COMRAM 1 42 42 17 1
 mediumconst MEDIUMCONST 0 782A 782A 7D6 1
-$C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+$C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 28 28 4 1
 reset_vec CODE 0 0 0 4 1
@@ -132,11 +132,11 @@ MEDIUMCONST 2D62-7829 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SPARC_4550.X.production.o
-18 intcodelo CODE >17590:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
+18 intcodelo CODE >17590:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
 18 intcodelo CODE >73:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 1E intcodelo CODE >74:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 20 intcodelo CODE >75:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
-8 intcode CODE >17659:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
+8 intcode CODE >17659:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
 8 intcode CODE >18:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 91A text60 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 91A text60 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
@@ -1139,34 +1139,34 @@ FFA text0 CODE >160:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\S
 105C text0 CODE >171:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 1068 text0 CODE >172:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
 1070 text0 CODE >174:C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\main.c
-2B5A cinit CODE >6549:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B5A cinit CODE >6551:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B5A cinit CODE >6554:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B5A cinit CODE >6633:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B5E cinit CODE >6634:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B60 cinit CODE >6635:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B60 cinit CODE >6636:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B62 cinit CODE >6637:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B64 cinit CODE >6638:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B66 cinit CODE >6641:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B6A cinit CODE >6642:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B6C cinit CODE >6643:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B6C cinit CODE >6644:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B6E cinit CODE >6645:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B70 cinit CODE >6646:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B72 cinit CODE >6649:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B76 cinit CODE >6650:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B78 cinit CODE >6651:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B78 cinit CODE >6652:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B7A cinit CODE >6653:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B7C cinit CODE >6654:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B7E cinit CODE >6660:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B7E cinit CODE >6662:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B80 cinit CODE >6663:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B82 cinit CODE >6665:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B84 cinit CODE >6666:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B86 cinit CODE >6667:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
-2B88 cinit CODE >6668:C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.s
+2B5A cinit CODE >6549:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B5A cinit CODE >6551:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B5A cinit CODE >6554:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B5A cinit CODE >6633:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B5E cinit CODE >6634:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B60 cinit CODE >6635:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B60 cinit CODE >6636:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B62 cinit CODE >6637:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B64 cinit CODE >6638:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B66 cinit CODE >6641:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B6A cinit CODE >6642:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B6C cinit CODE >6643:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B6C cinit CODE >6644:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B6E cinit CODE >6645:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B70 cinit CODE >6646:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B72 cinit CODE >6649:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B76 cinit CODE >6650:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B78 cinit CODE >6651:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B78 cinit CODE >6652:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B7A cinit CODE >6653:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B7C cinit CODE >6654:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B7E cinit CODE >6660:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B7E cinit CODE >6662:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B80 cinit CODE >6663:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B82 cinit CODE >6665:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B84 cinit CODE >6666:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B86 cinit CODE >6667:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
+2B88 cinit CODE >6668:C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1191,7 +1191,7 @@ __end_of_portInit 2D12 0 CODE 0 text5 dist/default/production\SPARC_4550.X.produ
 __end_of_receive 2BF6 0 CODE 0 text4 dist/default/production\SPARC_4550.X.production.o
 __end_of_receiveNum 28AE 0 CODE 0 text21 dist/default/production\SPARC_4550.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\SPARC_4550.X.production.o
-__mediumconst 782A 0 MEDIUMCONST 0 mediumconst C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+__mediumconst 782A 0 MEDIUMCONST 0 mediumconst C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\SPARC_4550.X.production.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __size_ofi2_PWM_DutyCycleCCP1 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
@@ -1208,13 +1208,13 @@ _TMR0 FD6 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _TMR1 FCE 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _TMR2 FCC 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _TXEN 7D65 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+___sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 _main D44 0 CODE 0 text0 dist/default/production\SPARC_4550.X.production.o
 _send 2C14 0 CODE 0 text44 dist/default/production\SPARC_4550.X.production.o
 abs@a 61 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
 btemp 59 0 COMRAM 1 temp dist/default/production\SPARC_4550.X.production.o
 _impCoordActual$2904 A7 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
-start 28 0 CODE 0 init C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+start 28 0 CODE 0 init C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 ___flmul@aexp 85 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
 ___flmul@bexp 86 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
 ___flmul@prod 87 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
@@ -1246,11 +1246,11 @@ __size_of_low_isr 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __size_ofi2_errorUART 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _motorXinit 2D2E 0 CODE 0 text14 dist/default/production\SPARC_4550.X.production.o
 _motorYinit 2D20 0 CODE 0 text13 dist/default/production\SPARC_4550.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
-intlevel0 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
-intlevel1 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
-intlevel2 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
-intlevel3 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+__accesstop 60 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
+intlevel0 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
+intlevel1 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
+intlevel2 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
+intlevel3 0 0 CODE 0 text C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 __size_of_PWM_CCP1_init 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 presionarPantalla@presionarZCentenas 65 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
 __end_ofi2___xxtofl 19AE 0 CODE 0 text58 dist/default/production\SPARC_4550.X.production.o
@@ -1284,8 +1284,8 @@ _ADRESH FC4 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 _ADRESL FC3 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 printf@PointString 63 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
 _errorUART 29E8 0 CODE 0 text45 dist/default/production\SPARC_4550.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 _borrarTodasCoordenadas 24D0 0 CODE 0 text42 dist/default/production\SPARC_4550.X.production.o
 i2PWM_DutyCycleCCP2@WantedDutyCycle 38 0 COMRAM 1 cstackCOMRAM dist/default/production\SPARC_4550.X.production.o
 _CCPR1L FBE 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
@@ -1405,7 +1405,7 @@ __size_of___xxtofl 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __size_of_modificarCoordenada 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\SPARC_4550.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\SPARC_4550.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 _UCFGbits F6F 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __end_of_moverZArriba 2D4A 0 CODE 0 text16 dist/default/production\SPARC_4550.X.production.o
 ___xxtofl@arg 70 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
@@ -1667,8 +1667,8 @@ __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\SPARC_4550.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\SPARC_4550.X.production.o
 presionarPantalla@presionarZDecenas 61 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
 _low_isr 18 0 CODE 0 intcodelo dist/default/production\SPARC_4550.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
-stacklo 128 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+stackhi 7FF 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
+stacklo 128 0 ABS 0 - C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\SPARC_4550.X.production.o
 __size_ofi2_moverHomeX 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
 __size_ofi2_moverHomeY 0 0 ABS 0 - dist/default/production\SPARC_4550.X.production.o
@@ -1799,7 +1799,7 @@ __Ltext57 0 0 ABS 0 text57 dist/default/production\SPARC_4550.X.production.o
 __Ltext58 0 0 ABS 0 text58 dist/default/production\SPARC_4550.X.production.o
 __Ltext59 0 0 ABS 0 text59 dist/default/production\SPARC_4550.X.production.o
 __Ltext60 0 0 ABS 0 text60 dist/default/production\SPARC_4550.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\ALEJAN~1\AppData\Local\Temp\sd7k.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\ALEJAN~1\AppData\Local\Temp\s2bc.o
 send@enviarpc 62 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
 __Lpowerup 28 0 CODE 0 powerup dist/default/production\SPARC_4550.X.production.o
 ?___xxtofl 66 0 BANK0 1 cstackBANK0 dist/default/production\SPARC_4550.X.production.o
