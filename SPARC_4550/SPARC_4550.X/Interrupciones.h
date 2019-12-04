@@ -13,10 +13,10 @@
 #define intLimitSwitchHomeY                INTCON3bits.INT2IF      //Se define al bit de la int externa INT2
 #define overFlowTMR0                       INTCONbits.TMR0IF       //Se define el bit de interrupcion (overFlow) del TMR0
 #define overFlowTMR1                       PIR1bits.TMR1IF         //Se define el bit de interrupcion (overFlow) del TMR1
-void interruptsEnable(void);
-void interruptsDisable(void);
-void habilitarIntExternas(void);
-void habilitarIntTMR0(void);
-void habilitarIntTMR1(void);
+void interruptsEnable(void);    //Habilita interrupciones
+void interruptsDisable(void);   //Deshabilita interrupciones
+void habilitarIntExternas(void); //Habilita Interripciones Extermas
+void habilitarIntTMR0(void);  //Habilita Timer 0
+void habilitarIntTMR1(void);  //Habilita Timer 1
 #endif	/* INTERRUPCIONES_H */
 

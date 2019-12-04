@@ -4,11 +4,11 @@
  *
  * Created on November 20, 2019, 12:02 PM
  */
-
 #ifndef UART_H
 #define	UART_H
 #include <xc.h>
 void UARTinit(void);
+//Funcion encargada de inicializar registros y pines encargados de la comunicacion UART
 unsigned char receive(); 
     //Se declara la funcion para enviar un caracter
 void send(unsigned char enviarpc); 
@@ -20,5 +20,7 @@ void printf (unsigned char *PointString);
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
     //Se escanea un numcaracteres y se guarda en el arreglo guardarscan
 void errorUART(void);
+//Funcion que verifica si ha habido problemas de comunicacion UART y en caso
+//de tenerlos reinicia la comunicacion
 #endif	/* UART_H */
 

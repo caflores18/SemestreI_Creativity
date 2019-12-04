@@ -5622,7 +5622,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./Comunicacion.h" 1
-# 11 "./Comunicacion.h"
+# 10 "./Comunicacion.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -5706,10 +5706,9 @@ typedef int32_t int_fast32_t;
 typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
-# 11 "./Comunicacion.h" 2
+# 10 "./Comunicacion.h" 2
 
 void printf (unsigned char *PointString);
-
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
@@ -5718,8 +5717,9 @@ uint8_t receiveNum(void);
 # 3 "Comunicacion.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 10 "./UART.h"
 void UARTinit(void);
+
 unsigned char receive();
 
 void send(unsigned char enviarpc);
@@ -5737,6 +5737,7 @@ void errorUART(void);
 void printf(unsigned char *PointString) {
     errorUART();
     for (unsigned char i = 0; i < 255; i++) {
+
         if (PointString[i] == ((void*)0)) {
             break;
         } else
@@ -5747,6 +5748,7 @@ void printf(unsigned char *PointString) {
 void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
     errorUART();
     for (unsigned char i = 0; i < numcaracteres; i++) {
+
         guardarscan[i] = receive();
     }
 }
@@ -5755,12 +5757,14 @@ uint8_t receiveNum(void) {
     errorUART();
     unsigned char recibido = 0;
     while (recibido > 57 || recibido < 48) {
+
         while (PIR1bits.RCIF == 0) {
 
         }
         recibido = RCREG1;
         RCREG1 = 0;
         if (recibido > 57 || recibido < 48) {
+
             printf("Solo puedes introducir numeros, prueba de nuevo");
         }
     }

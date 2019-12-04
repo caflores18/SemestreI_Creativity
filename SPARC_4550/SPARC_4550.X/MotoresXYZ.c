@@ -12,7 +12,7 @@
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades) {
     while (sparcEnMovimiento == 1) {
-        //No se hace nada hasta que termine
+        //No se hace nada hasta que termine de moverse la coordenada anterior
     }
     //Procedimiento Y
     coordinates.yWanted = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
@@ -26,10 +26,15 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
         dirMotorY = 1; //El motor se mueve al otro lado
     }
     if (coordinates.yWanted != CurrentPosY) {
-        sparcEnMovimiento = 1;
-        setNumPasosY(yToAdvance);
+        sparcEnMovimiento = 1; 
+        //Se activa la bandera de que se estara moviendo el eje Y
+        setNumPasosY(yToAdvance); 
+        //Se utiliza el timer 0 como contador de eventos para contar los pulsos requeridos
+        //por el PWM para avanzar la distancia necesaria
         PWM_DutyCycleCCP1(0);
+        //Se deja el ciclo de trabajo de X en 0
         PWM_DutyCycleCCP2(50);
+        //Se deja el ciclo de trabajo de Y EN 50 %
     }
 }
 
@@ -50,15 +55,22 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
     }
     if (coordinates.xWanted != CurrentPosX) {
         sparcEnMovimiento = 1;
+         //Se activa la bandera de que se estara moviendo el eje Y
         setNumPasosX(xToAdvance);
+         //Se utiliza el timer 0 como contador de eventos para contar los pulsos requeridos
+        //por el PWM para avanzar la distancia necesaria
         PWM_DutyCycleCCP2(0);
+         //Se deja el ciclo de trabajo de X en 50%
         PWM_DutyCycleCCP1(50);
+         //Se deja el ciclo de trabajo de Y en 0%
     }
 }
 
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
     coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
+    //Se calcula el numero de veces a presionar la pantalla
     if (coordinates.timesToPress != 0) {
+        //ciclo para activar y desactivar el piston
         for (uint8_t toques = 0; toques <coordinates.timesToPress; toques++) {
             piston = 1;
             __delay_ms(100);
@@ -70,31 +82,43 @@ void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, ui
 
 void moverHomeX(void) {
     destinoHomeX = 1;
-    dirMotorX = 0;
+    //se activa la bandera de que X se dirigira al origen
+    dirMotorX = 0; //Se da la direccion necesaria 
     sparcEnMovimiento = 1;
+    //Se activa la bandera de que se estara moviendo el eje X
+    //PWM_DutyCycleCCP2(0);
+    PWM_DutyCycleCCP1(50);
+    //Se deja el ciclo de trabajo de X en 50%
+}
+
+void moverHomeY(void) {
+    destinoHomeY = 1;
+    //se activa la bandera de que X se dirigira al origen
+    dirMotorY = 0;
+    sparcEnMovimiento = 1;
+     //Se activa la bandera de que se estara moviendo el eje Y
+    //PWM_DutyCycleCCP1(0);
+    PWM_DutyCycleCCP2(50);
+     //Se deja el ciclo de trabajo de Y en 50%
+}
+
+void moverXInfinito() {
+    //Se activa el movimiento de X hacia alguno de los lim swithc de las esquinas ajenos al home
+    dirMotorX = 1;
+    //se da la direccion necesaria para ir en sentido contrario a home
+    sparcEnMovimiento = 1;
+    //Se activa la bandera de que se estara moviendo el eje X
     //PWM_DutyCycleCCP2(0);
     PWM_DutyCycleCCP1(50);
 }
 
-void moverHomeY(void) {
-    destinoHomeX = 1;
-    dirMotorY = 0;
-    sparcEnMovimiento = 1;
-    //PWM_DutyCycleCCP1(0);
-    PWM_DutyCycleCCP2(50);
-}
-
-void moverXInfinito() {
-    dirMotorX = 1;
-    sparcEnMovimiento = 1;
-    PWM_DutyCycleCCP2(0);
-    PWM_DutyCycleCCP1(50);
-}
-
 void moverYInfinito() {
+     //Se activa el movimiento de X hacia alguno de los lim swithc de las esquinas ajenos al home
     dirMotorY = 1;
+    //se da la direccion necesaria para ir en sentido contrario a home
     sparcEnMovimiento = 1;
-    PWM_DutyCycleCCP1(0);
+    //Se activa la bandera de que se estara moviendo el eje Y
+    //PWM_DutyCycleCCP1(0);
     PWM_DutyCycleCCP2(50);
 }
 void moverZArriba(void){

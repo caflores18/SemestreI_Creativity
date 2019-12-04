@@ -43,9 +43,9 @@
 "6 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Comunicacion.c
 [v _printf printf `(v  1 e 1 0 ]
 [v i2_printf printf `(v  1 e 1 0 ]
-"16
+"17
 [v _scanf scanf `(v  1 e 1 0 ]
-"23
+"25
 [v _receiveNum receiveNum `(uc  1 e 1 0 ]
 "10 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\FuncionesMenu.c
 [v _introducirCoordNueva introducirCoordNueva `(v  1 e 1 0 ]
@@ -65,13 +65,13 @@
 [v _modificarZ modificarZ `(v  1 e 1 0 ]
 "11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
 [v _portInit portInit `(v  1 e 1 0 ]
-"18
+"19
 [v _motorXinit motorXinit `(v  1 e 1 0 ]
-"28
+"29
 [v _motorYinit motorYinit `(v  1 e 1 0 ]
-"42
+"38
 [v _motoresZinit motoresZinit `(v  1 e 1 0 ]
-"50
+"47
 [v _pistonInit pistonInit `(v  1 e 1 0 ]
 "5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Interrupciones.c
 [v _interruptsEnable interruptsEnable `(v  1 e 1 0 ]
@@ -87,25 +87,25 @@
 [v _main main `(v  1 e 1 0 ]
 "13 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
 [v _moverHaciaY moverHaciaY `(v  1 e 1 0 ]
-"36
+"41
 [v _moverHaciaX moverHaciaX `(v  1 e 1 0 ]
-"59
+"69
 [v _presionarPantalla presionarPantalla `(v  1 e 1 0 ]
-"71
+"83
 [v _moverHomeX moverHomeX `(v  1 e 1 0 ]
 [v i2_moverHomeX moverHomeX `(v  1 e 1 0 ]
-"79
+"94
 [v _moverHomeY moverHomeY `(v  1 e 1 0 ]
 [v i2_moverHomeY moverHomeY `(v  1 e 1 0 ]
-"87
+"105
 [v _moverXInfinito moverXInfinito `(v  1 e 1 0 ]
-"94
+"115
 [v _moverYInfinito moverYInfinito `(v  1 e 1 0 ]
-"100
+"124
 [v _moverZArriba moverZArriba `(v  1 e 1 0 ]
-"104
+"128
 [v _moverZAbajo moverZAbajo `(v  1 e 1 0 ]
-"108
+"132
 [v _apagarZ apagarZ `(v  1 e 1 0 ]
 "5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
 [v _PWM_CCP1_init PWM_CCP1_init `(v  1 e 1 0 ]
@@ -123,7 +123,7 @@
 [v _tmr0Init tmr0Init `(v  1 e 1 0 ]
 "31
 [v _setNumPasosX setNumPasosX `(v  1 e 1 0 ]
-"42
+"46
 [v _setNumPasosY setNumPasosY `(v  1 e 1 0 ]
 "6 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
 [v _UARTinit UARTinit `(v  1 e 1 0 ]
@@ -135,27 +135,27 @@
 "42
 [v _errorUART errorUART `(v  1 e 1 0 ]
 [v i2_errorUART errorUART `(v  1 e 1 0 ]
-"13 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X/FuncionesMenu.h
+"12 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X/FuncionesMenu.h
 [v _coordXCentenas coordXCentenas `[10]uc  1 e 10 0 ]
-"14
+"13
 [v _coordXDecenas coordXDecenas `[10]uc  1 e 10 0 ]
-"15
+"14
 [v _coordXUnidades coordXUnidades `[10]uc  1 e 10 0 ]
-"17
+"16
 [v _coordYCentenas coordYCentenas `[10]uc  1 e 10 0 ]
-"18
+"17
 [v _coordYDecenas coordYDecenas `[10]uc  1 e 10 0 ]
-"19
+"18
 [v _coordYUnidades coordYUnidades `[10]uc  1 e 10 0 ]
-"21
+"20
 [v _presionarZCentenas presionarZCentenas `[10]uc  1 e 10 0 ]
-"22
+"21
 [v _presionarZDecenas presionarZDecenas `[10]uc  1 e 10 0 ]
-"23
+"22
 [v _presionarZUnidades presionarZUnidades `[10]uc  1 e 10 0 ]
-"25
+"24
 [v _coordenadaNueva coordenadaNueva `uc  1 e 1 0 ]
-"26
+"25
 [v _habilitarModCoord habilitarModCoord `uc  1 e 1 0 ]
 [s S1502 SystemaSPARC 8 `ui 1 xWanted 2 0 `ui 1 yWanted 2 2 `ul 1 timesToPress 4 4 ]
 "17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X/MotoresXYZ.h
@@ -871,15 +871,15 @@
 {
 "29
 } 0
-"16 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Comunicacion.c
+"17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Comunicacion.c
 [v _scanf scanf `(v  1 e 1 0 ]
 {
-"18
+"19
 [v scanf@i i `uc  1 a 1 6 ]
-"16
+"17
 [v scanf@guardarscan guardarscan `*.39uc  1 p 2 3 ]
 [v scanf@numcaracteres numcaracteres `uc  1 p 1 5 ]
-"21
+"23
 } 0
 "22 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
 [v _receive receive `(uc  1 e 1 0 ]
@@ -891,12 +891,12 @@
 "11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
 [v _portInit portInit `(v  1 e 1 0 ]
 {
-"17
+"18
 } 0
-"50
+"47
 [v _pistonInit pistonInit `(v  1 e 1 0 ]
 {
-"53
+"51
 } 0
 "136 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\FuncionesMenu.c
 [v _movimientoLibre movimientoLibre `(v  1 e 1 0 ]
@@ -913,40 +913,40 @@
 [v movimientoLibre@lx1 lx1 `uc  1 a 1 85 ]
 "153
 } 0
-"94 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
+"115 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
 [v _moverYInfinito moverYInfinito `(v  1 e 1 0 ]
 {
-"99
+"123
 } 0
-"87
+"105
 [v _moverXInfinito moverXInfinito `(v  1 e 1 0 ]
+{
+"113
+} 0
+"94
+[v _moverHomeY moverHomeY `(v  1 e 1 0 ]
+{
+"103
+} 0
+"83
+[v _moverHomeX moverHomeX `(v  1 e 1 0 ]
 {
 "92
 } 0
-"79
-[v _moverHomeY moverHomeY `(v  1 e 1 0 ]
-{
-"85
-} 0
-"71
-[v _moverHomeX moverHomeX `(v  1 e 1 0 ]
-{
-"77
-} 0
-"42 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
+"38 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Gpio.c
 [v _motoresZinit motoresZinit `(v  1 e 1 0 ]
 {
-"49
+"46
 } 0
-"28
+"29
 [v _motorYinit motorYinit `(v  1 e 1 0 ]
 {
-"41
+"37
 } 0
-"18
+"19
 [v _motorXinit motorXinit `(v  1 e 1 0 ]
 {
-"27
+"28
 } 0
 "167 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\FuncionesMenu.c
 [v _modificarZ modificarZ `(v  1 e 1 0 ]
@@ -955,20 +955,20 @@
 [v modificarZ@OkEncendido OkEncendido `uc  1 a 1 9 ]
 "197
 } 0
-"100 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
+"124 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
 [v _moverZArriba moverZArriba `(v  1 e 1 0 ]
 {
-"103
+"127
 } 0
-"104
+"128
 [v _moverZAbajo moverZAbajo `(v  1 e 1 0 ]
 {
-"107
+"131
 } 0
-"108
+"132
 [v _apagarZ apagarZ `(v  1 e 1 0 ]
 {
-"111
+"135
 } 0
 "83 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\FuncionesMenu.c
 [v _modificarCoordenada modificarCoordenada `(v  1 e 1 0 ]
@@ -987,12 +987,12 @@
 [v introducirCoordNueva@validarCoordX validarCoordX `us  1 a 2 14 ]
 "55
 } 0
-"23 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Comunicacion.c
+"25 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Comunicacion.c
 [v _receiveNum receiveNum `(uc  1 e 1 0 ]
 {
-"25
+"27
 [v receiveNum@recibido recibido `uc  1 a 1 8 ]
-"37
+"41
 } 0
 "57 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\FuncionesMenu.c
 [v _imprimirCoordenadas imprimirCoordenadas `(v  1 e 1 0 ]
@@ -1015,18 +1015,18 @@
 [v iniciarPrograma@coordenadaA_Mover coordenadaA_Mover `uc  1 a 1 85 ]
 "134
 } 0
-"59 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
+"69 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
 [v _presionarPantalla presionarPantalla `(v  1 e 1 0 ]
 {
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 wreg ]
-"62
+"74
 [v presionarPantalla@toques toques `uc  1 a 1 8 ]
-"59
+"69
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 wreg ]
 [v presionarPantalla@presionarZDecenas presionarZDecenas `uc  1 p 1 1 ]
 [v presionarPantalla@presionarZUnidades presionarZUnidades `uc  1 p 1 2 ]
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 7 ]
-"69
+"81
 } 0
 "13
 [v _moverHaciaY moverHaciaY `(v  1 e 1 0 ]
@@ -1036,18 +1036,18 @@
 [v moverHaciaY@coordYDecenas coordYDecenas `uc  1 p 1 80 ]
 [v moverHaciaY@coordYUnidades coordYUnidades `uc  1 p 1 81 ]
 [v moverHaciaY@coordYCentenas coordYCentenas `uc  1 a 1 84 ]
-"34
+"39
 } 0
-"42 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
+"46 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
 [v _setNumPasosY setNumPasosY `(v  1 e 1 0 ]
 {
-"44
-[v setNumPasosY@resultado resultado `ui  1 a 2 3 ]
-"42
-[v setNumPasosY@numPasosY numPasosY `ui  1 p 2 1 ]
 "51
+[v setNumPasosY@resultado resultado `ui  1 a 2 3 ]
+"46
+[v setNumPasosY@numPasosY numPasosY `ui  1 p 2 1 ]
+"59
 } 0
-"36 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
+"41 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
 [v _moverHaciaX moverHaciaX `(v  1 e 1 0 ]
 {
 [v moverHaciaX@coordXCentenas coordXCentenas `uc  1 a 1 wreg ]
@@ -1055,16 +1055,16 @@
 [v moverHaciaX@coordXDecenas coordXDecenas `uc  1 p 1 80 ]
 [v moverHaciaX@coordXUnidades coordXUnidades `uc  1 p 1 81 ]
 [v moverHaciaX@coordXCentenas coordXCentenas `uc  1 a 1 84 ]
-"57
+"67
 } 0
 "31 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\Timers.c
 [v _setNumPasosX setNumPasosX `(v  1 e 1 0 ]
 {
-"33
+"36
 [v setNumPasosX@resultado resultado `ui  1 a 2 3 ]
 "31
 [v setNumPasosX@numPasosX numPasosX `ui  1 p 2 1 ]
-"40
+"44
 } 0
 "1 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
@@ -1211,7 +1211,7 @@
 [v printf@i i `uc  1 a 1 7 ]
 "6
 [v printf@PointString PointString `*.25uc  1 p 2 3 ]
-"14
+"15
 } 0
 "34 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
 [v _send send `(v  1 e 1 0 ]
@@ -1224,9 +1224,9 @@
 "42
 [v _errorUART errorUART `(v  1 e 1 0 ]
 {
-"43
+"45
 [v errorUART@temp temp `uc  1 a 1 1 ]
-"61
+"63
 } 0
 "6
 [v _UARTinit UARTinit `(v  1 e 1 0 ]
@@ -1258,7 +1258,7 @@
 {
 [v i2printf@i printf `uc  1 a 1 6 ]
 [v i2printf@PointString PointString `*.25uc  1 p 2 2 ]
-"14
+"15
 } 0
 "34 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\UART.c
 [v i2_send send `(v  1 e 1 0 ]
@@ -1272,12 +1272,12 @@
 [v i2_errorUART errorUART `(v  1 e 1 0 ]
 {
 [v i2errorUART@temp errorUART `uc  1 a 1 0 ]
-"61
+"63
 } 0
-"79 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
+"94 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
 [v i2_moverHomeY moverHomeY `(v  1 e 1 0 ]
 {
-"85
+"103
 } 0
 "16 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP2.c
 [v i2_PWM_DutyCycleCCP2 PWM_DutyCycleCCP2 `(v  1 e 1 0 ]
@@ -1289,10 +1289,10 @@
 [v i2PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 55 ]
 "24
 } 0
-"71 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
+"83 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
 [v i2_moverHomeX moverHomeX `(v  1 e 1 0 ]
 {
-"77
+"92
 } 0
 "17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\PWMCCP1.c
 [v i2_PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]

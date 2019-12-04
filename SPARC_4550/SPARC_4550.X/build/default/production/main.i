@@ -5707,15 +5707,14 @@ typedef uint32_t uint_fast32_t;
 # 3 "main.c" 2
 
 # 1 "./ADC.h" 1
-# 11 "./ADC.h"
+# 12 "./ADC.h"
 void ADCinit(void);
-unsigned int ADCvalue();
+uint16_t ADCvalue();
 # 4 "main.c" 2
 
 # 1 "./Comunicacion.h" 1
-# 12 "./Comunicacion.h"
+# 11 "./Comunicacion.h"
 void printf (unsigned char *PointString);
-
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
@@ -5724,7 +5723,7 @@ uint8_t receiveNum(void);
 # 5 "main.c" 2
 
 # 1 "./FuncionesMenu.h" 1
-# 13 "./FuncionesMenu.h"
+# 12 "./FuncionesMenu.h"
 uint8_t coordXCentenas [10];
 uint8_t coordXDecenas [10];
 uint8_t coordXUnidades[10];
@@ -5751,7 +5750,7 @@ void modificarZ(void);
 # 6 "main.c" 2
 
 # 1 "./Gpio.h" 1
-# 24 "./Gpio.h"
+# 23 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
@@ -5799,26 +5798,37 @@ uint8_t llegoHomeX = 0;
 uint8_t llegoHomeY = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+
 void moverHomeX(void);
+
 void moverHomeY(void);
+
 void moverXInfinito(void);
+
 void moverYInfinito(void);
+
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+
 void moverZArriba(void);
+
 void moverZAbajo(void);
+
 void apagarZ(void);
 # 10 "main.c" 2
 
 # 1 "./PWMCCP1.h" 1
 # 11 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
+
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
 # 11 "main.c" 2
 
 # 1 "./PWMCCP2.h" 1
 # 11 "./PWMCCP2.h"
 void PWM_CCP2_init(void);
+
 void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
 # 12 "main.c" 2
 
@@ -5831,8 +5841,9 @@ void setNumPasosY(unsigned int numPasosY);
 # 13 "main.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 10 "./UART.h"
 void UARTinit(void);
+
 unsigned char receive();
 
 void send(unsigned char enviarpc);

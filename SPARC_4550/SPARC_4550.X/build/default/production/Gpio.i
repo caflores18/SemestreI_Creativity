@@ -5622,7 +5622,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./Gpio.h" 1
-# 24 "./Gpio.h"
+# 23 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
@@ -5638,6 +5638,7 @@ void motoresZinit(void);
 
 
 void portInit ( void ) {
+
     ADCON1bits.PCFG = 0xFF;
     OSCCON = 0x70;
     UCONbits.USBEN = 0;
@@ -5656,11 +5657,6 @@ void motorXinit( void ) {
 }
 void motorYinit( void ) {
 
-
-
-
-
-
     TRISDbits.RD0 = 0;
     TRISDbits.RD1 = 0;
     TRISCbits.RC1 = 0;
@@ -5669,6 +5665,7 @@ void motorYinit( void ) {
     LATCbits.LC1 = 0;
 }
 void motoresZinit( void ){
+
     TRISDbits.RD5 = 0;
     TRISDbits.RD6 = 0;
     TRISAbits.RA5 = 1;
@@ -5677,6 +5674,7 @@ void motoresZinit( void ){
     LATDbits.LATD5 = 0;
 }
 void pistonInit(void){
+
     TRISEbits.RE0 = 0;
 
 }

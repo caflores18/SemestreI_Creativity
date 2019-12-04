@@ -24,8 +24,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8614
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8614: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
-"12 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 12: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
+"13 ./PWMCCP2.h
+[; ;./PWMCCP2.h: 13: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
 [v _PWM_DutyCycleCCP2 `(v ~T0 @X0 0 ef1`uc ]
 "16 ./UART.h
 [; ;./UART.h: 16: void printf (unsigned char *PointString);
@@ -45,8 +45,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4492
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4492: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS177 ~T0 @X0 0 e@3998 ]
-"12 ./PWMCCP1.h
-[; ;./PWMCCP1.h: 12: void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+"13 ./PWMCCP1.h
+[; ;./PWMCCP1.h: 13: void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
 [v _PWM_DutyCycleCCP1 `(v ~T0 @X0 0 ef1`uc ]
 [v F3152 `(v ~T0 @X0 1 tf1`ul ]
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
@@ -71,11 +71,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2483
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2483: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
 [v _PORTBbits `VS106 ~T0 @X0 0 e@3969 ]
-"35 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 35: void moverHomeX(void);
+"37 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 37: void moverHomeX(void);
 [v _moverHomeX `(v ~T0 @X0 0 ef ]
-"36
-[; ;./MotoresXYZ.h: 36: void moverHomeY(void);
+"39
+[; ;./MotoresXYZ.h: 39: void moverHomeY(void);
 [v _moverHomeY `(v ~T0 @X0 0 ef ]
 "8419 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8419:     struct {
@@ -97,11 +97,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
 [p mainexit ]
-"24 ./Gpio.h
-[; ;./Gpio.h: 24: void portInit(void);
+"23 ./Gpio.h
+[; ;./Gpio.h: 23: void portInit(void);
 [v _portInit `(v ~T0 @X0 0 ef ]
-"11 ./UART.h
-[; ;./UART.h: 11: void UARTinit(void);
+"10 ./UART.h
+[; ;./UART.h: 10: void UARTinit(void);
 [v _UARTinit `(v ~T0 @X0 0 ef ]
 "11 ./PWMCCP2.h
 [; ;./PWMCCP2.h: 11: void PWM_CCP2_init(void);
@@ -109,11 +109,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./PWMCCP1.h
 [; ;./PWMCCP1.h: 11: void PWM_CCP1_init(void);
 [v _PWM_CCP1_init `(v ~T0 @X0 0 ef ]
-"25 ./Gpio.h
-[; ;./Gpio.h: 25: void motorXinit(void);
+"24 ./Gpio.h
+[; ;./Gpio.h: 24: void motorXinit(void);
 [v _motorXinit `(v ~T0 @X0 0 ef ]
-"26
-[; ;./Gpio.h: 26: void motorYinit(void);
+"25
+[; ;./Gpio.h: 25: void motorYinit(void);
 [v _motorYinit `(v ~T0 @X0 0 ef ]
 "11 ./Timers.h
 [; ;./Timers.h: 11: void tmr0Init(void);
@@ -130,53 +130,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20
 [; ;./Interrupciones.h: 20: void habilitarIntTMR1(void);
 [v _habilitarIntTMR1 `(v ~T0 @X0 0 ef ]
-"28 ./Gpio.h
-[; ;./Gpio.h: 28: void motoresZinit(void);
+"27 ./Gpio.h
+[; ;./Gpio.h: 27: void motoresZinit(void);
 [v _motoresZinit `(v ~T0 @X0 0 ef ]
-"27
-[; ;./Gpio.h: 27: void pistonInit(void);
+"26
+[; ;./Gpio.h: 26: void pistonInit(void);
 [v _pistonInit `(v ~T0 @X0 0 ef ]
 "12 ./UART.h
 [; ;./UART.h: 12: unsigned char receive();
 [v _receive `(uc ~T0 @X0 0 e? ]
-"34 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 34: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+"35 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 35: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
 [v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "20 ./UART.h
 [; ;./UART.h: 20: void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
 [v _scanf `(v ~T0 @X0 0 ef2`*uc`uc ]
-"28 ./FuncionesMenu.h
-[; ;./FuncionesMenu.h: 28: void introducirCoordNueva(void);
+"27 ./FuncionesMenu.h
+[; ;./FuncionesMenu.h: 27: void introducirCoordNueva(void);
 [v _introducirCoordNueva `(v ~T0 @X0 0 ef ]
-"29
-[; ;./FuncionesMenu.h: 29: void imprimirCoordenadas(void);
+"28
+[; ;./FuncionesMenu.h: 28: void imprimirCoordenadas(void);
 [v _imprimirCoordenadas `(v ~T0 @X0 0 ef ]
-"30
-[; ;./FuncionesMenu.h: 30: void modificarCoordenada(void);
+"29
+[; ;./FuncionesMenu.h: 29: void modificarCoordenada(void);
 [v _modificarCoordenada `(v ~T0 @X0 0 ef ]
-"18 ./Comunicacion.h
-[; ;./Comunicacion.h: 18: uint8_t receiveNum(void);
+"16 ./Comunicacion.h
+[; ;./Comunicacion.h: 16: uint8_t receiveNum(void);
 [v _receiveNum `(uc ~T0 @X0 0 ef ]
-"32 ./FuncionesMenu.h
-[; ;./FuncionesMenu.h: 32: void iniciarPrograma(void);
+"31 ./FuncionesMenu.h
+[; ;./FuncionesMenu.h: 31: void iniciarPrograma(void);
 [v _iniciarPrograma `(v ~T0 @X0 0 ef ]
-"31
-[; ;./FuncionesMenu.h: 31: void borrarTodasCoordenadas(void);
+"30
+[; ;./FuncionesMenu.h: 30: void borrarTodasCoordenadas(void);
 [v _borrarTodasCoordenadas `(v ~T0 @X0 0 ef ]
-"34
-[; ;./FuncionesMenu.h: 34: void impCoordActual(void);
-[v _impCoordActual `(v ~T0 @X0 0 ef ]
 "33
-[; ;./FuncionesMenu.h: 33: void movimientoLibre(void);
+[; ;./FuncionesMenu.h: 33: void impCoordActual(void);
+[v _impCoordActual `(v ~T0 @X0 0 ef ]
+"32
+[; ;./FuncionesMenu.h: 32: void movimientoLibre(void);
 [v _movimientoLibre `(v ~T0 @X0 0 ef ]
-"37 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 37: void moverXInfinito(void);
+"41 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 41: void moverXInfinito(void);
 [v _moverXInfinito `(v ~T0 @X0 0 ef ]
-"38
-[; ;./MotoresXYZ.h: 38: void moverYInfinito(void);
+"43
+[; ;./MotoresXYZ.h: 43: void moverYInfinito(void);
 [v _moverYInfinito `(v ~T0 @X0 0 ef ]
-"35 ./FuncionesMenu.h
-[; ;./FuncionesMenu.h: 35: void modificarZ(void);
+"34 ./FuncionesMenu.h
+[; ;./FuncionesMenu.h: 34: void modificarZ(void);
 [v _modificarZ `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
@@ -688,41 +688,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 ./FuncionesMenu.h
-[; ;./FuncionesMenu.h: 13: uint8_t coordXCentenas [10];
+"12 ./FuncionesMenu.h
+[; ;./FuncionesMenu.h: 12: uint8_t coordXCentenas [10];
 [v _coordXCentenas `uc ~T0 @X0 -> 10 `i e ]
-"14
-[; ;./FuncionesMenu.h: 14: uint8_t coordXDecenas [10];
+"13
+[; ;./FuncionesMenu.h: 13: uint8_t coordXDecenas [10];
 [v _coordXDecenas `uc ~T0 @X0 -> 10 `i e ]
-"15
-[; ;./FuncionesMenu.h: 15: uint8_t coordXUnidades[10];
+"14
+[; ;./FuncionesMenu.h: 14: uint8_t coordXUnidades[10];
 [v _coordXUnidades `uc ~T0 @X0 -> 10 `i e ]
-"17
-[; ;./FuncionesMenu.h: 17: uint8_t coordYCentenas [10];
+"16
+[; ;./FuncionesMenu.h: 16: uint8_t coordYCentenas [10];
 [v _coordYCentenas `uc ~T0 @X0 -> 10 `i e ]
-"18
-[; ;./FuncionesMenu.h: 18: uint8_t coordYDecenas [10];
+"17
+[; ;./FuncionesMenu.h: 17: uint8_t coordYDecenas [10];
 [v _coordYDecenas `uc ~T0 @X0 -> 10 `i e ]
-"19
-[; ;./FuncionesMenu.h: 19: uint8_t coordYUnidades[10];
+"18
+[; ;./FuncionesMenu.h: 18: uint8_t coordYUnidades[10];
 [v _coordYUnidades `uc ~T0 @X0 -> 10 `i e ]
-"21
-[; ;./FuncionesMenu.h: 21: uint8_t presionarZCentenas [10];
+"20
+[; ;./FuncionesMenu.h: 20: uint8_t presionarZCentenas [10];
 [v _presionarZCentenas `uc ~T0 @X0 -> 10 `i e ]
-"22
-[; ;./FuncionesMenu.h: 22: uint8_t presionarZDecenas [10];
+"21
+[; ;./FuncionesMenu.h: 21: uint8_t presionarZDecenas [10];
 [v _presionarZDecenas `uc ~T0 @X0 -> 10 `i e ]
-"23
-[; ;./FuncionesMenu.h: 23: uint8_t presionarZUnidades[10];
+"22
+[; ;./FuncionesMenu.h: 22: uint8_t presionarZUnidades[10];
 [v _presionarZUnidades `uc ~T0 @X0 -> 10 `i e ]
-"25
-[; ;./FuncionesMenu.h: 25: uint8_t coordenadaNueva = 0;
+"24
+[; ;./FuncionesMenu.h: 24: uint8_t coordenadaNueva = 0;
 [v _coordenadaNueva `uc ~T0 @X0 1 e ]
 [i _coordenadaNueva
 -> -> 0 `i `uc
 ]
-"26
-[; ;./FuncionesMenu.h: 26: uint8_t habilitarModCoord = 0;
+"25
+[; ;./FuncionesMenu.h: 25: uint8_t habilitarModCoord = 0;
 [v _habilitarModCoord `uc ~T0 @X0 1 e ]
 [i _habilitarModCoord
 -> -> 0 `i `uc

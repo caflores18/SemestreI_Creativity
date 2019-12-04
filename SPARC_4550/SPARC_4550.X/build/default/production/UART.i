@@ -5622,8 +5622,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 10 "./UART.h"
 void UARTinit(void);
+
 unsigned char receive();
 
 void send(unsigned char enviarpc);
@@ -5676,6 +5677,8 @@ void send(unsigned char enviarpc) {
 }
 
 void errorUART(void) {
+
+
     unsigned char temp;
     if (OERR) {
         do {

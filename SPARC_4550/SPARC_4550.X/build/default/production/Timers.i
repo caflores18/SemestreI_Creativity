@@ -5630,7 +5630,7 @@ void setNumPasosY(unsigned int numPasosY);
 # 3 "Timers.c" 2
 
 # 1 "./Comunicacion.h" 1
-# 11 "./Comunicacion.h"
+# 10 "./Comunicacion.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -5714,10 +5714,9 @@ typedef int32_t int_fast32_t;
 typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
-# 11 "./Comunicacion.h" 2
+# 10 "./Comunicacion.h" 2
 
 void printf (unsigned char *PointString);
-
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
@@ -5726,8 +5725,9 @@ uint8_t receiveNum(void);
 # 4 "Timers.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 10 "./UART.h"
 void UARTinit(void);
+
 unsigned char receive();
 
 void send(unsigned char enviarpc);
@@ -5767,22 +5767,30 @@ void tmr0Init(void) {
 }
 
 void setNumPasosX(unsigned int numPasosX) {
+
+
     if (numPasosX > 0) {
+
         unsigned int resultado = (65537 - numPasosX);
         TMR1H = (resultado >> 8);
         TMR1L = resultado;
     } else {
+
         TMR1H = (65535 >> 8);
         TMR1L = 65535;
     }
 }
 
 void setNumPasosY(unsigned int numPasosY) {
+
+
     if (numPasosY > 0) {
+
         unsigned int resultado = (65536 - numPasosY);
         TMR0H = (resultado >> 8);
         TMR0L = resultado;
     } else {
+
         TMR0H = (65535 >> 8);
         TMR0L = 65535;
     }

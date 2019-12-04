@@ -6,20 +6,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./UART.h
 [; ;./UART.h: 16: void printf (unsigned char *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
-"18 ./Comunicacion.h
-[; ;./Comunicacion.h: 18: uint8_t receiveNum(void);
+"16 ./Comunicacion.h
+[; ;./Comunicacion.h: 16: uint8_t receiveNum(void);
 [v _receiveNum `(uc ~T0 @X0 0 ef ]
 "14 ./UART.h
 [; ;./UART.h: 14: void send(unsigned char enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
-"34 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 34: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+"35 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 35: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
 [v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "33
 [; ;./MotoresXYZ.h: 33: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
 [v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"39
-[; ;./MotoresXYZ.h: 39: void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+"45
+[; ;./MotoresXYZ.h: 45: void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
 [v _presionarPantalla `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "2320 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2320:     struct {
@@ -52,8 +52,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
 [v __delay `JF3152 ~T0 @X0 0 e ]
 [p i __delay ]
-"42 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 42: void apagarZ(void);
+"51 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 51: void apagarZ(void);
 [v _apagarZ `(v ~T0 @X0 0 ef ]
 "2569 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2569:     struct {
@@ -82,11 +82,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2605
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2605: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
 [v _PORTCbits `VS110 ~T0 @X0 0 e@3970 ]
-"40 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 40: void moverZArriba(void);
+"47 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 47: void moverZArriba(void);
 [v _moverZArriba `(v ~T0 @X0 0 ef ]
-"41
-[; ;./MotoresXYZ.h: 41: void moverZAbajo(void);
+"49
+[; ;./MotoresXYZ.h: 49: void moverZAbajo(void);
 [v _moverZAbajo `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
@@ -598,41 +598,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 ./FuncionesMenu.h
-[; ;./FuncionesMenu.h: 13: uint8_t coordXCentenas [10];
+"12 ./FuncionesMenu.h
+[; ;./FuncionesMenu.h: 12: uint8_t coordXCentenas [10];
 [v _coordXCentenas `uc ~T0 @X0 -> 10 `i e ]
-"14
-[; ;./FuncionesMenu.h: 14: uint8_t coordXDecenas [10];
+"13
+[; ;./FuncionesMenu.h: 13: uint8_t coordXDecenas [10];
 [v _coordXDecenas `uc ~T0 @X0 -> 10 `i e ]
-"15
-[; ;./FuncionesMenu.h: 15: uint8_t coordXUnidades[10];
+"14
+[; ;./FuncionesMenu.h: 14: uint8_t coordXUnidades[10];
 [v _coordXUnidades `uc ~T0 @X0 -> 10 `i e ]
-"17
-[; ;./FuncionesMenu.h: 17: uint8_t coordYCentenas [10];
+"16
+[; ;./FuncionesMenu.h: 16: uint8_t coordYCentenas [10];
 [v _coordYCentenas `uc ~T0 @X0 -> 10 `i e ]
-"18
-[; ;./FuncionesMenu.h: 18: uint8_t coordYDecenas [10];
+"17
+[; ;./FuncionesMenu.h: 17: uint8_t coordYDecenas [10];
 [v _coordYDecenas `uc ~T0 @X0 -> 10 `i e ]
-"19
-[; ;./FuncionesMenu.h: 19: uint8_t coordYUnidades[10];
+"18
+[; ;./FuncionesMenu.h: 18: uint8_t coordYUnidades[10];
 [v _coordYUnidades `uc ~T0 @X0 -> 10 `i e ]
-"21
-[; ;./FuncionesMenu.h: 21: uint8_t presionarZCentenas [10];
+"20
+[; ;./FuncionesMenu.h: 20: uint8_t presionarZCentenas [10];
 [v _presionarZCentenas `uc ~T0 @X0 -> 10 `i e ]
-"22
-[; ;./FuncionesMenu.h: 22: uint8_t presionarZDecenas [10];
+"21
+[; ;./FuncionesMenu.h: 21: uint8_t presionarZDecenas [10];
 [v _presionarZDecenas `uc ~T0 @X0 -> 10 `i e ]
-"23
-[; ;./FuncionesMenu.h: 23: uint8_t presionarZUnidades[10];
+"22
+[; ;./FuncionesMenu.h: 22: uint8_t presionarZUnidades[10];
 [v _presionarZUnidades `uc ~T0 @X0 -> 10 `i e ]
-"25
-[; ;./FuncionesMenu.h: 25: uint8_t coordenadaNueva = 0;
+"24
+[; ;./FuncionesMenu.h: 24: uint8_t coordenadaNueva = 0;
 [v _coordenadaNueva `uc ~T0 @X0 1 e ]
 [i _coordenadaNueva
 -> -> 0 `i `uc
 ]
-"26
-[; ;./FuncionesMenu.h: 26: uint8_t habilitarModCoord = 0;
+"25
+[; ;./FuncionesMenu.h: 25: uint8_t habilitarModCoord = 0;
 [v _habilitarModCoord `uc ~T0 @X0 1 e ]
 [i _habilitarModCoord
 -> -> 0 `i `uc

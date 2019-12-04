@@ -29,22 +29,30 @@ void tmr0Init(void) {
 }
 
 void setNumPasosX(unsigned int numPasosX) {
+    //Funcion encargada de poner el timer a contar los pulsos necesarios para avanzar
+    //la distancia requerida 
     if (numPasosX > 0) {
+          //Si es mayor a 0 la distancia a recorrer se hace un calculo
         unsigned int resultado = (65537 - numPasosX);
         TMR1H = (resultado >> 8);
         TMR1L = resultado;
     } else {
+          //Si es mayor a 0 la distancia a recorrer se hace un calculo
         TMR1H = (65535 >> 8);
         TMR1L = 65535;
     }
 }
 
 void setNumPasosY(unsigned int numPasosY) {
+    //Funcion encargada de poner el timer a contar los pulsos necesarios para avanzar
+    //la distancia requerida 
     if (numPasosY > 0) {
+        //Si es mayor a 0 la distancia a recorrer se hace un calculo
         unsigned int resultado = (65536 - numPasosY);
         TMR0H = (resultado >> 8);
         TMR0L = resultado;
     } else {
+        //Si no, se deja el timer a un evento de generar interrupcion
         TMR0H = (65535 >> 8);
         TMR0L = 65535;
     }

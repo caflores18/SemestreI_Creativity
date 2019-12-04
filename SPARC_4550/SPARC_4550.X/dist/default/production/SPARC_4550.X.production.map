@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\SPARC_4550.X.production.sym \
   --cmf=dist/default/production\SPARC_4550.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\ALEJAN~1\AppData\Local\Temp\sgm0.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\ALEJAN~1\AppData\Local\Temp\sets.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/SPARC_4550.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0128h-07FFh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ALEJAN~1\AppData\Local\Temp\sgm0.o \
+  C:\Users\ALEJAN~1\AppData\Local\Temp\sets.o \
   dist/default/production\SPARC_4550.X.production.o 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ALEJAN~1\AppData\Local\Temp\sgm0.o
+C:\Users\ALEJAN~1\AppData\Local\Temp\sets.o
                 init                                 28       28        4        C       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -50,9 +50,9 @@ dist/default/production\SPARC_4550.X.production.o
                 text59                             1D8E     1D8E      106        C       0
                 text58                             17FA     17FA      1B4        C       0
                 text57                             270A     270A       B4        C       0
-                text56                             2D22     2D22       14        C       0
+                text56                             2CF6     2CF6       14        C       0
                 text55                             2656     2656       B4        C       0
-                text54                             2D0E     2D0E       14        C       0
+                text54                             2CE2     2CE2       14        C       0
                 text53                             2A54     2A54       46        C       0
                 text52                             2C8A     2C8A       1A        C       0
                 text51                             28D4     28D4       6C        C       0
@@ -64,8 +64,8 @@ dist/default/production\SPARC_4550.X.production.o
                 text44                             2C3A     2C3A       1C        C       0
                 text43                             2940     2940       68        C       0
                 text42                             259C     259C       BA        C       0
-                text41                             2D90     2D90        4        C       0
-                text40                             2D8C     2D8C        4        C       0
+                text41                             2D84     2D84        4        C       0
+                text40                             2D80     2D80        4        C       0
                 text39                               2C       2C      4C2        C       0
                 text38                              4EE      4EE      42C        C       0
                 text37                             1C86     1C86      108        C       0
@@ -82,25 +82,25 @@ dist/default/production\SPARC_4550.X.production.o
                 text26                             208E     208E       F8        C       0
                 text25                             2358     2358       CC        C       0
                 text24                             1F94     1F94       FA        C       0
-                text23                             2D6E     2D6E        8        C       0
+                text23                             2D62     2D62        8        C       0
                 text22                             1B4A     1B4A      13C        C       0
                 text21                             285C     285C       78        C       0
                 text20                             1084     1084      31A        C       0
                 text19                             227E     227E       DA        C       0
-                text18                             2D82     2D82        6        C       0
-                text17                             2D7C     2D7C        6        C       0
-                text16                             2D76     2D76        6        C       0
+                text18                             2D76     2D76        6        C       0
+                text17                             2D70     2D70        6        C       0
+                text16                             2D6A     2D6A        6        C       0
                 text15                             1E94     1E94      100        C       0
-                text14                             2D60     2D60        E        C       0
-                text13                             2D52     2D52        E        C       0
-                text12                             2D44     2D44        E        C       0
-                text11                             2CFA     2CFA       14        C       0
-                text10                             2CE6     2CE6       14        C       0
-                text9                              2CD0     2CD0       16        C       0
-                text8                              2CBA     2CBA       16        C       0
+                text14                             2D54     2D54        E        C       0
+                text13                             2D46     2D46        E        C       0
+                text12                             2D38     2D38        E        C       0
+                text11                             2CCE     2CCE       14        C       0
+                text10                             2CBA     2CBA       14        C       0
+                text9                              2D1A     2D1A       10        C       0
+                text8                              2D0A     2D0A       10        C       0
                 text7                              27BE     27BE       9E        C       0
-                text6                              2D88     2D88        4        C       0
-                text5                              2D36     2D36        E        C       0
+                text6                              2D7C     2D7C        4        C       0
+                text5                              2D2A     2D2A        E        C       0
                 text4                              2BFC     2BFC       20        C       0
                 text3                              2ADC     2ADC       38        C       0
                 text2                              2CA4     2CA4       16        C       0
@@ -125,9 +125,9 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text59                             1D8E     1D8E      106         0
                 text58                             17FA     17FA      1B4         0
                 text57                             270A     270A       B4         0
-                text56                             2D22     2D22       14         0
+                text56                             2CF6     2CF6       14         0
                 text55                             2656     2656       B4         0
-                text54                             2D0E     2D0E       14         0
+                text54                             2CE2     2CE2       14         0
                 text53                             2A54     2A54       46         0
                 text52                             2C8A     2C8A       1A         0
                 text51                             28D4     28D4       6C         0
@@ -139,8 +139,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text44                             2C3A     2C3A       1C         0
                 text43                             2940     2940       68         0
                 text42                             259C     259C       BA         0
-                text41                             2D90     2D90        4         0
-                text40                             2D8C     2D8C        4         0
+                text41                             2D84     2D84        4         0
+                text40                             2D80     2D80        4         0
                 text39                               2C       2C      4C2         0
                 text38                              4EE      4EE      42C         0
                 text37                             1C86     1C86      108         0
@@ -157,25 +157,25 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text26                             208E     208E       F8         0
                 text25                             2358     2358       CC         0
                 text24                             1F94     1F94       FA         0
-                text23                             2D6E     2D6E        8         0
+                text23                             2D62     2D62        8         0
                 text22                             1B4A     1B4A      13C         0
                 text21                             285C     285C       78         0
                 text20                             1084     1084      31A         0
                 text19                             227E     227E       DA         0
-                text18                             2D82     2D82        6         0
-                text17                             2D7C     2D7C        6         0
-                text16                             2D76     2D76        6         0
+                text18                             2D76     2D76        6         0
+                text17                             2D70     2D70        6         0
+                text16                             2D6A     2D6A        6         0
                 text15                             1E94     1E94      100         0
-                text14                             2D60     2D60        E         0
-                text13                             2D52     2D52        E         0
-                text12                             2D44     2D44        E         0
-                text11                             2CFA     2CFA       14         0
-                text10                             2CE6     2CE6       14         0
-                text9                              2CD0     2CD0       16         0
-                text8                              2CBA     2CBA       16         0
+                text14                             2D54     2D54        E         0
+                text13                             2D46     2D46        E         0
+                text12                             2D38     2D38        E         0
+                text11                             2CCE     2CCE       14         0
+                text10                             2CBA     2CBA       14         0
+                text9                              2D1A     2D1A       10         0
+                text8                              2D0A     2D0A       10         0
                 text7                              27BE     27BE       9E         0
-                text6                              2D88     2D88        4         0
-                text5                              2D36     2D36        E         0
+                text6                              2D7C     2D7C        4         0
+                text5                              2D2A     2D2A        E         0
                 text4                              2BFC     2BFC       20         0
                 text3                              2ADC     2ADC       38         0
                 text2                              2CA4     2CA4       16         0
@@ -239,7 +239,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000059  00005A         1       1  COMRAM  
                 intcode                        000008  000006  00000E         4       0  CODE    
-                intcodelo                      000018  002D7C  002D94         C       0  CODE    
+                intcodelo                      000018  002D70  002D88         C       0  CODE    
                 cstackBANK0                    000060  00009D  0000FD        60       1  BANK0   
                 bssBANK1                       000100  000028  000128       100       1  BANK1   
                 mediumconst                    00782A  0007D6  008000      3C15       0  MEDIUMCO
@@ -263,17 +263,17 @@ UNUSED ADDRESS RANGES
                          000128-0007FF              6D8
         CODE             000004-000007                4
                          00000E-000017                A
-                         002D94-007829             4A96
+                         002D88-007829             4AA2
         COMRAM           00005A-00005F                6
         CONST            000004-000007                4
                          00000E-000017                A
-                         002D94-007829             4A96
+                         002D88-007829             4AA2
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      002D94-007829             4A96
+        MEDIUMCONST      002D88-007829             4AA2
         RAM              0000FD-0000FF                3
                          000128-0007FF              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       002D94-007829              100
+        SMALLCONST       002D88-007829              100
         STACK            000128-0007FF              6D8
 
                                   Symbol Table
@@ -655,35 +655,35 @@ __end_of___wmul                            text31       002BDA
 __end_of___xxtofl                          text35       0017FA
 __end_of__initialization                   cinit        002BA4
 __end_of_abs                               text30       002ADC
-__end_of_apagarZ                           text18       002D88
+__end_of_apagarZ                           text18       002D7C
 __end_of_borrarTodasCoordenadas            text42       002656
 __end_of_errorUART                         text45       002A54
-__end_of_habilitarIntTMR0                  text41       002D94
-__end_of_habilitarIntTMR1                  text40       002D90
+__end_of_habilitarIntTMR0                  text41       002D88
+__end_of_habilitarIntTMR1                  text40       002D84
 __end_of_high_isr                          intcode_body 001B4A
 __end_of_impCoordActual                    text34       001642
 __end_of_imprimirCoordenadas               text22       001C86
 __end_of_iniciarPrograma                   text24       00208E
-__end_of_interruptsEnable                  text23       002D76
+__end_of_interruptsEnable                  text23       002D6A
 __end_of_introducirCoordNueva              text20       00139E
 __end_of_low_isr                           intcodelo    000028
 __end_of_main                              text0        001084
 __end_of_modificarCoordenada               text19       002358
 __end_of_modificarZ                        text15       001F94
-__end_of_motorXinit                        text14       002D6E
-__end_of_motorYinit                        text13       002D60
-__end_of_motoresZinit                      text12       002D52
+__end_of_motorXinit                        text14       002D62
+__end_of_motorYinit                        text13       002D54
+__end_of_motoresZinit                      text12       002D46
 __end_of_moverHaciaX                       text28       00227E
 __end_of_moverHaciaY                       text26       002186
-__end_of_moverHomeX                        text11       002D0E
-__end_of_moverHomeY                        text10       002CFA
-__end_of_moverXInfinito                    text9        002CE6
-__end_of_moverYInfinito                    text8        002CD0
-__end_of_moverZAbajo                       text17       002D82
-__end_of_moverZArriba                      text16       002D7C
+__end_of_moverHomeX                        text11       002CE2
+__end_of_moverHomeY                        text10       002CCE
+__end_of_moverXInfinito                    text9        002D2A
+__end_of_moverYInfinito                    text8        002D1A
+__end_of_moverZAbajo                       text17       002D76
+__end_of_moverZArriba                      text16       002D70
 __end_of_movimientoLibre                   text7        00285C
-__end_of_pistonInit                        text6        002D8C
-__end_of_portInit                          text5        002D44
+__end_of_pistonInit                        text6        002D80
+__end_of_portInit                          text5        002D38
 __end_of_presionarPantalla                 text25       002424
 __end_of_printf                            text43       0029A8
 __end_of_receive                           text4        002C1C
@@ -700,8 +700,8 @@ __end_ofi2___flmul                         text60       000D44
 __end_ofi2___fltol                         text59       001E94
 __end_ofi2___xxtofl                        text58       0019AE
 __end_ofi2_errorUART                       text53       002A9A
-__end_ofi2_moverHomeX                      text56       002D36
-__end_ofi2_moverHomeY                      text54       002D22
+__end_ofi2_moverHomeX                      text56       002D0A
+__end_ofi2_moverHomeY                      text54       002CF6
 __end_ofi2_printf                          text51       002940
 __end_ofi2_send                            text52       002CA4
 __initialization                           cinit        002B80
@@ -718,21 +718,21 @@ __pintcodelo                               intcodelo    000018
 __pmediumconst                             mediumconst  00782A
 __ptext0                                   text0        000D44
 __ptext1                                   text1        002C56
-__ptext10                                  text10       002CE6
-__ptext11                                  text11       002CFA
-__ptext12                                  text12       002D44
-__ptext13                                  text13       002D52
-__ptext14                                  text14       002D60
+__ptext10                                  text10       002CBA
+__ptext11                                  text11       002CCE
+__ptext12                                  text12       002D38
+__ptext13                                  text13       002D46
+__ptext14                                  text14       002D54
 __ptext15                                  text15       001E94
-__ptext16                                  text16       002D76
-__ptext17                                  text17       002D7C
-__ptext18                                  text18       002D82
+__ptext16                                  text16       002D6A
+__ptext17                                  text17       002D70
+__ptext18                                  text18       002D76
 __ptext19                                  text19       00227E
 __ptext2                                   text2        002CA4
 __ptext20                                  text20       001084
 __ptext21                                  text21       00285C
 __ptext22                                  text22       001B4A
-__ptext23                                  text23       002D6E
+__ptext23                                  text23       002D62
 __ptext24                                  text24       001F94
 __ptext25                                  text25       002358
 __ptext26                                  text26       00208E
@@ -751,8 +751,8 @@ __ptext37                                  text37       001C86
 __ptext38                                  text38       0004EE
 __ptext39                                  text39       00002C
 __ptext4                                   text4        002BFC
-__ptext40                                  text40       002D8C
-__ptext41                                  text41       002D90
+__ptext40                                  text40       002D80
+__ptext41                                  text41       002D84
 __ptext42                                  text42       00259C
 __ptext43                                  text43       002940
 __ptext44                                  text44       002C3A
@@ -760,21 +760,21 @@ __ptext45                                  text45       002A0E
 __ptext46                                  text46       002C70
 __ptext47                                  text47       002C1C
 __ptext48                                  text48       002BDA
-__ptext5                                   text5        002D36
+__ptext5                                   text5        002D2A
 __ptext51                                  text51       0028D4
 __ptext52                                  text52       002C8A
 __ptext53                                  text53       002A54
-__ptext54                                  text54       002D0E
+__ptext54                                  text54       002CE2
 __ptext55                                  text55       002656
-__ptext56                                  text56       002D22
+__ptext56                                  text56       002CF6
 __ptext57                                  text57       00270A
 __ptext58                                  text58       0017FA
 __ptext59                                  text59       001D8E
-__ptext6                                   text6        002D88
+__ptext6                                   text6        002D7C
 __ptext60                                  text60       00091A
 __ptext7                                   text7        0027BE
-__ptext8                                   text8        002CBA
-__ptext9                                   text9        002CD0
+__ptext8                                   text8        002D0A
+__ptext9                                   text9        002D1A
 __ramtop                                   ramtop       000800
 __size_of_PWM_CCP1_init                    (abs)        000000
 __size_of_PWM_CCP2_init                    (abs)        000000
@@ -839,7 +839,7 @@ __size_ofi2_printf                         (abs)        000000
 __size_ofi2_send                           (abs)        000000
 __smallconst                               smallconst   000000
 _abs                                       text30       002A9A
-_apagarZ                                   text18       002D82
+_apagarZ                                   text18       002D76
 _borrarTodasCoordenadas                    text42       00259C
 _coordXCentenas                            bssBANK0     0000DF
 _coordXDecenas                             bssBANK0     0000D5
@@ -852,15 +852,15 @@ _coordinates                               bssBANK0     0000E9
 _destinoHomeX                              bssCOMRAM    000058
 _destinoHomeY                              bssCOMRAM    000057
 _errorUART                                 text45       002A0E
-_habilitarIntTMR0                          text41       002D90
-_habilitarIntTMR1                          text40       002D8C
+_habilitarIntTMR0                          text41       002D84
+_habilitarIntTMR1                          text40       002D80
 _habilitarModCoord                         bssBANK0     0000FB
 _high_isr                                  intcode      000008
 _impCoordActual                            text34       00139E
 _impCoordActual$2904                       cstackBANK0  0000A7
 _imprimirCoordenadas                       text22       001B4A
 _iniciarPrograma                           text24       001F94
-_interruptsEnable                          text23       002D6E
+_interruptsEnable                          text23       002D62
 _introducirCoordNueva                      text20       001084
 _llegoHomeX                                bssBANK0     0000F9
 _llegoHomeY                                bssCOMRAM    000056
@@ -868,20 +868,20 @@ _low_isr                                   intcodelo    000018
 _main                                      text0        000D44
 _modificarCoordenada                       text19       00227E
 _modificarZ                                text15       001E94
-_motorXinit                                text14       002D60
-_motorYinit                                text13       002D52
-_motoresZinit                              text12       002D44
+_motorXinit                                text14       002D54
+_motorYinit                                text13       002D46
+_motoresZinit                              text12       002D38
 _moverHaciaX                               text28       002186
 _moverHaciaY                               text26       00208E
-_moverHomeX                                text11       002CFA
-_moverHomeY                                text10       002CE6
-_moverXInfinito                            text9        002CD0
-_moverYInfinito                            text8        002CBA
-_moverZAbajo                               text17       002D7C
-_moverZArriba                              text16       002D76
+_moverHomeX                                text11       002CCE
+_moverHomeY                                text10       002CBA
+_moverXInfinito                            text9        002D1A
+_moverYInfinito                            text8        002D0A
+_moverZAbajo                               text17       002D70
+_moverZArriba                              text16       002D6A
 _movimientoLibre                           text7        0027BE
-_pistonInit                                text6        002D88
-_portInit                                  text5        002D36
+_pistonInit                                text6        002D7C
+_portInit                                  text5        002D2A
 _presionarPantalla                         text25       002358
 _presionarZCentenas                        bssBANK1     000114
 _presionarZDecenas                         bssBANK1     00010A
@@ -930,8 +930,8 @@ i2___xxtofl@exp                            cstackCOMRAM 00000A
 i2___xxtofl@sign                           cstackCOMRAM 000009
 i2___xxtofl@val                            cstackCOMRAM 000001
 i2_errorUART                               text53       002A54
-i2_moverHomeX                              text56       002D22
-i2_moverHomeY                              text54       002D0E
+i2_moverHomeX                              text56       002CF6
+i2_moverHomeY                              text54       002CE2
 i2_printf                                  text51       0028D4
 i2_send                                    text52       002C8A
 i2errorUART@temp                           cstackCOMRAM 000001
@@ -1132,7 +1132,7 @@ Total ram usage:        0 bytes
 
  *************** function _scanf *****************
  Defined at:
-		line 16 in file "Comunicacion.c"
+		line 17 in file "Comunicacion.c"
  Parameters:    Size  Location     Type
   guardarscan     2    3[BANK0 ] PTR unsigned char 
 		 -> main@activarmenu(5), 
@@ -1226,7 +1226,7 @@ Total ram usage:        0 bytes
 
  *************** function _pistonInit *****************
  Defined at:
-		line 50 in file "Gpio.c"
+		line 47 in file "Gpio.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1298,7 +1298,7 @@ Total ram usage:        9 bytes
 
  *************** function _moverYInfinito *****************
  Defined at:
-		line 94 in file "MotoresXYZ.c"
+		line 115 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1320,7 +1320,6 @@ Total ram usage:        0 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    7
  This function calls:
-		_PWM_DutyCycleCCP1
 		_PWM_DutyCycleCCP2
  This function is called by:
 		_main
@@ -1329,7 +1328,7 @@ Total ram usage:        0 bytes
 
  *************** function _moverXInfinito *****************
  Defined at:
-		line 87 in file "MotoresXYZ.c"
+		line 105 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1352,7 +1351,6 @@ Total ram usage:        0 bytes
  Hardware stack levels required when called:    7
  This function calls:
 		_PWM_DutyCycleCCP1
-		_PWM_DutyCycleCCP2
  This function is called by:
 		_main
  This function uses a non-reentrant model
@@ -1360,7 +1358,7 @@ Total ram usage:        0 bytes
 
  *************** function _moverHomeY *****************
  Defined at:
-		line 79 in file "MotoresXYZ.c"
+		line 94 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1390,7 +1388,7 @@ Total ram usage:        0 bytes
 
  *************** function _moverHomeX *****************
  Defined at:
-		line 71 in file "MotoresXYZ.c"
+		line 83 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1420,7 +1418,7 @@ Total ram usage:        0 bytes
 
  *************** function _motoresZinit *****************
  Defined at:
-		line 42 in file "Gpio.c"
+		line 38 in file "Gpio.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1450,7 +1448,7 @@ Total ram usage:        0 bytes
 
  *************** function _motorYinit *****************
  Defined at:
-		line 28 in file "Gpio.c"
+		line 29 in file "Gpio.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1480,7 +1478,7 @@ Total ram usage:        0 bytes
 
  *************** function _motorXinit *****************
  Defined at:
-		line 18 in file "Gpio.c"
+		line 19 in file "Gpio.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1543,7 +1541,7 @@ Total ram usage:        2 bytes
 
  *************** function _moverZArriba *****************
  Defined at:
-		line 100 in file "MotoresXYZ.c"
+		line 124 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1573,7 +1571,7 @@ Total ram usage:        0 bytes
 
  *************** function _moverZAbajo *****************
  Defined at:
-		line 104 in file "MotoresXYZ.c"
+		line 128 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1603,7 +1601,7 @@ Total ram usage:        0 bytes
 
  *************** function _apagarZ *****************
  Defined at:
-		line 108 in file "MotoresXYZ.c"
+		line 132 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1702,7 +1700,7 @@ Total ram usage:        9 bytes
 
  *************** function _receiveNum *****************
  Defined at:
-		line 23 in file "Comunicacion.c"
+		line 25 in file "Comunicacion.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1833,7 +1831,7 @@ Total ram usage:        1 bytes
 
  *************** function _presionarPantalla *****************
  Defined at:
-		line 59 in file "MotoresXYZ.c"
+		line 69 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
   presionarZCe    1    wreg     unsigned char 
   presionarZDe    1    1[BANK0 ] unsigned char 
@@ -1906,7 +1904,7 @@ Total ram usage:        5 bytes
 
  *************** function _setNumPasosY *****************
  Defined at:
-		line 42 in file "Timers.c"
+		line 46 in file "Timers.c"
  Parameters:    Size  Location     Type
   numPasosY       2    1[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
@@ -1936,7 +1934,7 @@ Total ram usage:        4 bytes
 
  *************** function _moverHaciaX *****************
  Defined at:
-		line 36 in file "MotoresXYZ.c"
+		line 41 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
   coordXCenten    1    wreg     unsigned char 
   coordXDecena    1   80[BANK0 ] unsigned char 
@@ -2099,7 +2097,6 @@ Total ram usage:        9 bytes
 		_moverHaciaY
 		_moverHaciaX
 		_moverHomeY
-		_moverXInfinito
 		_moverYInfinito
 		_main
  This function uses a non-reentrant model
@@ -2138,7 +2135,6 @@ Total ram usage:        9 bytes
 		_moverHaciaX
 		_moverHomeX
 		_moverXInfinito
-		_moverYInfinito
 		_main
  This function uses a non-reentrant model
 
@@ -2826,7 +2822,7 @@ Total ram usage:        1 bytes
 
  *************** function i2_moverHomeY *****************
  Defined at:
-		line 79 in file "MotoresXYZ.c"
+		line 94 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2890,7 +2886,7 @@ Total ram usage:        9 bytes
 
  *************** function i2_moverHomeX *****************
  Defined at:
-		line 71 in file "MotoresXYZ.c"
+		line 83 in file "MotoresXYZ.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3106,18 +3102,18 @@ Timers.c
 Timers.c estimated size: 160
 
 Interrupciones.c
-		_interruptsEnable		CODE           	2D6E	0000	9
-		_habilitarIntTMR0		CODE           	2D90	0000	5
-		_habilitarIntTMR1		CODE           	2D8C	0000	5
+		_interruptsEnable		CODE           	2D62	0000	9
+		_habilitarIntTMR0		CODE           	2D84	0000	5
+		_habilitarIntTMR1		CODE           	2D80	0000	5
 
 Interrupciones.c estimated size: 19
 
 Gpio.c
-		_portInit      		CODE           	2D36	0000	15
-		_motorXinit    		CODE           	2D60	0000	15
-		_pistonInit    		CODE           	2D88	0000	5
-		_motorYinit    		CODE           	2D52	0000	15
-		_motoresZinit  		CODE           	2D44	0000	15
+		_portInit      		CODE           	2D2A	0000	15
+		_motorXinit    		CODE           	2D54	0000	15
+		_pistonInit    		CODE           	2D7C	0000	5
+		_motorYinit    		CODE           	2D46	0000	15
+		_motoresZinit  		CODE           	2D38	0000	15
 
 Gpio.c estimated size: 65
 
@@ -3125,8 +3121,8 @@ shared
 		i2_printf      		CODE           	28D4	0000	109
 		i2_errorUART   		CODE           	2A54	0000	71
 		i2___fltol     		CODE           	1D8E	0000	263
-		i2_moverHomeX  		CODE           	2D22	0000	21
-		i2_moverHomeY  		CODE           	2D0E	0000	21
+		i2_moverHomeX  		CODE           	2CF6	0000	21
+		i2_moverHomeY  		CODE           	2CE2	0000	21
 		__initialization		CODE           	2B80	0000	37
 		i2___flmul     		CODE           	091A	0000	1067
 		i2_send        		CODE           	2C8A	0000	27
@@ -3156,17 +3152,17 @@ C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c esti
 
 MotoresXYZ.c
 		_presionarPantalla		CODE           	2358	0000	205
-		_moverYInfinito		CODE           	2CBA	0000	23
-		_moverHomeX    		CODE           	2CFA	0000	21
-		_moverHomeY    		CODE           	2CE6	0000	21
-		_apagarZ       		CODE           	2D82	0000	7
+		_moverYInfinito		CODE           	2D0A	0000	17
+		_moverHomeX    		CODE           	2CCE	0000	21
+		_moverHomeY    		CODE           	2CBA	0000	21
+		_apagarZ       		CODE           	2D76	0000	7
 		_moverHaciaX   		CODE           	2186	0000	249
 		_moverHaciaY   		CODE           	208E	0000	249
-		_moverZAbajo   		CODE           	2D7C	0000	7
-		_moverZArriba  		CODE           	2D76	0000	7
-		_moverXInfinito		CODE           	2CD0	0000	23
+		_moverZAbajo   		CODE           	2D70	0000	7
+		_moverZArriba  		CODE           	2D6A	0000	7
+		_moverXInfinito		CODE           	2D1A	0000	17
 
-MotoresXYZ.c estimated size: 812
+MotoresXYZ.c estimated size: 800
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\abs.c
 		_abs           		CODE           	2A9A	0000	67

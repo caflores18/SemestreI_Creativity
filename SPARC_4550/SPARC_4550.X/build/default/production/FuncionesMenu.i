@@ -5707,9 +5707,8 @@ typedef uint32_t uint_fast32_t;
 
 
 # 1 "./Comunicacion.h" 1
-# 12 "./Comunicacion.h"
+# 11 "./Comunicacion.h"
 void printf (unsigned char *PointString);
-
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
@@ -5718,8 +5717,9 @@ uint8_t receiveNum(void);
 # 4 "FuncionesMenu.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 10 "./UART.h"
 void UARTinit(void);
+
 unsigned char receive();
 
 void send(unsigned char enviarpc);
@@ -5734,7 +5734,7 @@ void errorUART(void);
 # 5 "FuncionesMenu.c" 2
 
 # 1 "./FuncionesMenu.h" 1
-# 13 "./FuncionesMenu.h"
+# 12 "./FuncionesMenu.h"
 uint8_t coordXCentenas [10];
 uint8_t coordXDecenas [10];
 uint8_t coordXUnidades[10];
@@ -5783,14 +5783,23 @@ uint8_t llegoHomeX = 0;
 uint8_t llegoHomeY = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+
 void moverHomeX(void);
+
 void moverHomeY(void);
+
 void moverXInfinito(void);
+
 void moverYInfinito(void);
+
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+
 void moverZArriba(void);
+
 void moverZAbajo(void);
+
 void apagarZ(void);
 # 7 "FuncionesMenu.c" 2
 

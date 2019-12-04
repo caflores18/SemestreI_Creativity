@@ -761,23 +761,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _errorUART ]
 [f ]
-"43
-[; ;UART.c: 43:     unsigned char temp;
+"45
+[; ;UART.c: 45:     unsigned char temp;
 [v _temp `uc ~T0 @X0 1 a ]
-"44
-[; ;UART.c: 44:     if (OERR) {
+"46
+[; ;UART.c: 46:     if (OERR) {
 [e $ ! _OERR 377  ]
 {
-"45
-[; ;UART.c: 45:         do {
+"47
+[; ;UART.c: 47:         do {
 [e :U 380 ]
 {
-"46
-[; ;UART.c: 46:             temp = RCREG;
-[e = _temp _RCREG ]
-"47
-[; ;UART.c: 47:             temp = RCREG;
-[e = _temp _RCREG ]
 "48
 [; ;UART.c: 48:             temp = RCREG;
 [e = _temp _RCREG ]
@@ -785,38 +779,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;UART.c: 49:             temp = RCREG;
 [e = _temp _RCREG ]
 "50
-[; ;UART.c: 50:             CREN = 0;
-[e = _CREN -> -> 0 `i `b ]
+[; ;UART.c: 50:             temp = RCREG;
+[e = _temp _RCREG ]
 "51
-[; ;UART.c: 51:             CREN = 1;
-[e = _CREN -> -> 1 `i `b ]
+[; ;UART.c: 51:             temp = RCREG;
+[e = _temp _RCREG ]
+"52
+[; ;UART.c: 52:             CREN = 0;
+[e = _CREN -> -> 0 `i `b ]
 "53
-[; ;UART.c: 53:         } while (OERR);
+[; ;UART.c: 53:             CREN = 1;
+[e = _CREN -> -> 1 `i `b ]
+"55
+[; ;UART.c: 55:         } while (OERR);
 }
 [e $ _OERR 380  ]
 [e :U 379 ]
-"54
-[; ;UART.c: 54:     }
+"56
+[; ;UART.c: 56:     }
 }
 [e :U 377 ]
-"56
-[; ;UART.c: 56:     if (FERR) {
+"58
+[; ;UART.c: 58:     if (FERR) {
 [e $ ! _FERR 381  ]
 {
-"57
-[; ;UART.c: 57:         temp = RCREG;
-[e = _temp _RCREG ]
-"58
-[; ;UART.c: 58:         TXEN = 0;
-[e = _TXEN -> -> 0 `i `b ]
 "59
-[; ;UART.c: 59:         TXEN = 1;
-[e = _TXEN -> -> 1 `i `b ]
+[; ;UART.c: 59:         temp = RCREG;
+[e = _temp _RCREG ]
 "60
-[; ;UART.c: 60:     }
+[; ;UART.c: 60:         TXEN = 0;
+[e = _TXEN -> -> 0 `i `b ]
+"61
+[; ;UART.c: 61:         TXEN = 1;
+[e = _TXEN -> -> 1 `i `b ]
+"62
+[; ;UART.c: 62:     }
 }
 [e :U 381 ]
-"61
-[; ;UART.c: 61: }
+"63
+[; ;UART.c: 63: }
 [e :UE 376 ]
 }

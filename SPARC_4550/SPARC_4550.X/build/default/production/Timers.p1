@@ -670,78 +670,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _setNumPasosX ]
 [v _numPasosX `ui ~T0 @X0 1 r1 ]
 [f ]
-"32
-[; ;Timers.c: 32:     if (numPasosX > 0) {
+"34
+[; ;Timers.c: 34:     if (numPasosX > 0) {
 [e $ ! > _numPasosX -> -> 0 `i `ui 370  ]
 {
-"33
-[; ;Timers.c: 33:         unsigned int resultado = (65537 - numPasosX);
+"36
+[; ;Timers.c: 36:         unsigned int resultado = (65537 - numPasosX);
 [v _resultado `ui ~T0 @X0 1 a ]
 [e = _resultado -> - -> 65537 `l -> _numPasosX `l `ui ]
-"34
-[; ;Timers.c: 34:         TMR1H = (resultado >> 8);
+"37
+[; ;Timers.c: 37:         TMR1H = (resultado >> 8);
 [e = _TMR1H -> >> _resultado -> 8 `i `uc ]
-"35
-[; ;Timers.c: 35:         TMR1L = resultado;
+"38
+[; ;Timers.c: 38:         TMR1L = resultado;
 [e = _TMR1L -> _resultado `uc ]
-"36
-[; ;Timers.c: 36:     } else {
+"39
+[; ;Timers.c: 39:     } else {
 }
 [e $U 371  ]
 [e :U 370 ]
 {
-"37
-[; ;Timers.c: 37:         TMR1H = (65535 >> 8);
+"41
+[; ;Timers.c: 41:         TMR1H = (65535 >> 8);
 [e = _TMR1H -> >> -> 65535 `l -> 8 `i `uc ]
-"38
-[; ;Timers.c: 38:         TMR1L = 65535;
+"42
+[; ;Timers.c: 42:         TMR1L = 65535;
 [e = _TMR1L -> -> 65535 `l `uc ]
-"39
-[; ;Timers.c: 39:     }
+"43
+[; ;Timers.c: 43:     }
 }
 [e :U 371 ]
-"40
-[; ;Timers.c: 40: }
+"44
+[; ;Timers.c: 44: }
 [e :UE 369 ]
 }
-"42
-[; ;Timers.c: 42: void setNumPasosY(unsigned int numPasosY) {
+"46
+[; ;Timers.c: 46: void setNumPasosY(unsigned int numPasosY) {
 [v _setNumPasosY `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _setNumPasosY ]
 [v _numPasosY `ui ~T0 @X0 1 r1 ]
 [f ]
-"43
-[; ;Timers.c: 43:     if (numPasosY > 0) {
+"49
+[; ;Timers.c: 49:     if (numPasosY > 0) {
 [e $ ! > _numPasosY -> -> 0 `i `ui 373  ]
 {
-"44
-[; ;Timers.c: 44:         unsigned int resultado = (65536 - numPasosY);
+"51
+[; ;Timers.c: 51:         unsigned int resultado = (65536 - numPasosY);
 [v _resultado `ui ~T0 @X0 1 a ]
 [e = _resultado -> - -> 65536 `l -> _numPasosY `l `ui ]
-"45
-[; ;Timers.c: 45:         TMR0H = (resultado >> 8);
+"52
+[; ;Timers.c: 52:         TMR0H = (resultado >> 8);
 [e = _TMR0H -> >> _resultado -> 8 `i `uc ]
-"46
-[; ;Timers.c: 46:         TMR0L = resultado;
+"53
+[; ;Timers.c: 53:         TMR0L = resultado;
 [e = _TMR0L -> _resultado `uc ]
-"47
-[; ;Timers.c: 47:     } else {
+"54
+[; ;Timers.c: 54:     } else {
 }
 [e $U 374  ]
 [e :U 373 ]
 {
-"48
-[; ;Timers.c: 48:         TMR0H = (65535 >> 8);
+"56
+[; ;Timers.c: 56:         TMR0H = (65535 >> 8);
 [e = _TMR0H -> >> -> 65535 `l -> 8 `i `uc ]
-"49
-[; ;Timers.c: 49:         TMR0L = 65535;
+"57
+[; ;Timers.c: 57:         TMR0L = 65535;
 [e = _TMR0L -> -> 65535 `l `uc ]
-"50
-[; ;Timers.c: 50:     }
+"58
+[; ;Timers.c: 58:     }
 }
 [e :U 374 ]
-"51
-[; ;Timers.c: 51: }
+"59
+[; ;Timers.c: 59: }
 [e :UE 372 ]
 }

@@ -5624,6 +5624,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 1 "./PWMCCP1.h" 1
 # 11 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
+
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
 # 3 "PWMCCP1.c" 2
 

@@ -2,13 +2,14 @@
 #include <pic18f4550.h>
 #include "Gpio.h"
 #pragma config FOSC = INTOSC_EC       //CONFIG1H (0-3) = 0010: INTIO2 oscillator, Internal oscillator block, port function on RA6 and RA7.
-#pragma config MCLRE    = ON        //Master Clear Reset activado
-#pragma config WDT = OFF            //Se apaga el WatchDogTimer
+#pragma config MCLRE    = ON          //Master Clear Reset activado
+#pragma config WDT = OFF              //Se apaga el WatchDogTimer
 //#pragma config PBADEN   = OFF       //Hace que los puertos A y B sean digitales
-#pragma config LVP      = OFF       //Low-voltage Programming desactivado */
+#pragma config LVP      = OFF         //Low-voltage Programming desactivado */
 //Seccion de directivos y defines
-#define _XTAL_FREQ 8000000
-void portInit ( void ) { //Se desarolla el contenido de la funcion portInit
+#define _XTAL_FREQ 8000000           //Se declara la frecuencia a usar del micro (8 Mhz)
+void portInit ( void ) { 
+    //Se desarolla el contenido de la funcion portInit
     ADCON1bits.PCFG = 0xFF; //Se declaran todos los pines como digitales
     OSCCON = 0x70;          //Parte de declarar el clk 8Mhz
     UCONbits.USBEN = 0; //USB modes disabled 
@@ -26,11 +27,6 @@ void motorXinit( void ) {
 
 }
 void motorYinit( void ) {
-    //Para practicar
-    //TRISAbits.RA2 = 0; //RA2 se declara como output (LED motor Y)
-    //TRISAbits.RA3 = 0; //RA3 se declara como output (LED motor X)
-    //LATAbits.LATA2 = 0; //LED motor Y inicia apagado
-    //LATAbits.LATA3 = 0; //LED motor X inicia apagado
     //Motor Y
     TRISDbits.RD0 = 0; //RD0 es el Enable del motor Y  Output los 3
     TRISDbits.RD1 = 0; //RD1 es la DIR del motor Y
@@ -40,6 +36,7 @@ void motorYinit( void ) {
     LATCbits.LC1 = 0; //Step en Y inicia en 0
 }
 void motoresZinit( void ){
+    //MotoresZ
     TRISDbits.RD5 = 0; //Se declara RD5 como output (senal motores DC)
     TRISDbits.RD6 = 0; //Se declara RD6 como output (senal motores DC)
     TRISAbits.RA5 = 1; //RA5 es input (boton OK)
@@ -48,6 +45,7 @@ void motoresZinit( void ){
     LATDbits.LATD5 = 0; //Se deja la salida RD6 apagada en un inicio
 }
 void pistonInit(void){
+    //Piston usado para presionar la pantalla
     TRISEbits.RE0 = 0; //Se declara el Pin E0 (piston) como output
    // piston = 0;        //Se deja el piston desactivado (funciona logica negativa)
 }

@@ -4,34 +4,38 @@
 #include "UART.h"
 
 void printf(unsigned char *PointString) {
-    errorUART();
+    errorUART(); //Se checa que no haya habido un error en la comunicacion, si lo hubo se reinicia UART
     for (unsigned char i = 0; i < 255; i++) {
+        //Ciclo encargada de imprmir caracteres hasta que se encuentra uno nulo o se llega a los 255
         if (PointString[i] == NULL) {
             break;
         } else
-            send(PointString[i]);
+            send(PointString[i]); //Se envia el caracter i de la cadena de caracteres PointString
     }
 }
 
 void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
-    errorUART();
+    errorUART(); //Se checa que no haya habido un error en la comunicacion, si lo hubo se reinicia UART
     for (unsigned char i = 0; i < numcaracteres; i++) {
+        //Ciclo encargado de recibir cierto numero de caracteteres, los cuales van a ser guardados en el arreglo de guardarscan
         guardarscan[i] = receive();
     }
 }
 
 uint8_t receiveNum(void) {
-    errorUART();
+    errorUART(); //Se checa que no haya habido un error en la comunicacion, si lo hubo se reinicia UART
     unsigned char recibido = 0;
     while (recibido > 57 || recibido < 48) {
+        //Ciclo que checa que los caracteres introducidos sean valor del 0 al 9 en ASCII, se rompe cuando un caracter valido es introducido
         while (PIR1bits.RCIF == 0) {
             // Mientras RCRGEG1 este vacio no se hace nada hasta
         } //Cuando se lleno
         recibido = RCREG1; // se guarda lo que llego de RCREG1 en viene
         RCREG1 = 0; //Se resetea el registro recibidor
         if (recibido > 57 || recibido < 48) {
+            //Si el caracter recibido no es valido se imprime un error y se regresa a escanear un valor valido
             printf("Solo puedes introducir numeros, prueba de nuevo");
         }
     }
-    return recibido;
+    return recibido; //Cuando el caracter leido es valido, se hace un regreso del valor 
 }

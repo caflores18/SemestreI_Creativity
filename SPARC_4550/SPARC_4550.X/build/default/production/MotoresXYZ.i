@@ -114,7 +114,14 @@ typedef uint32_t uint_fast32_t;
 # 1 "MotoresXYZ.c" 2
 
 # 1 "./Comunicacion.h" 1
-# 10 "./Comunicacion.h"
+
+
+
+
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5712,11 +5719,10 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 10 "./Comunicacion.h" 2
+# 9 "./Comunicacion.h" 2
 
 
 void printf (unsigned char *PointString);
-
 
 
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
@@ -5725,7 +5731,7 @@ uint8_t receiveNum(void);
 # 2 "MotoresXYZ.c" 2
 
 # 1 "./Gpio.h" 1
-# 24 "./Gpio.h"
+# 23 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
@@ -5736,12 +5742,14 @@ void motoresZinit(void);
 # 1 "./PWMCCP1.h" 1
 # 11 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
+
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
 # 4 "MotoresXYZ.c" 2
 
 # 1 "./PWMCCP2.h" 1
 # 11 "./PWMCCP2.h"
 void PWM_CCP2_init(void);
+
 void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
 # 5 "MotoresXYZ.c" 2
 
@@ -5754,8 +5762,9 @@ void setNumPasosY(unsigned int numPasosY);
 # 6 "MotoresXYZ.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 10 "./UART.h"
 void UARTinit(void);
+
 unsigned char receive();
 
 void send(unsigned char enviarpc);
@@ -5792,14 +5801,23 @@ uint8_t llegoHomeX = 0;
 uint8_t llegoHomeY = 0;
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+
 void moverHomeX(void);
+
 void moverHomeY(void);
+
 void moverXInfinito(void);
+
 void moverYInfinito(void);
+
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+
 void moverZArriba(void);
+
 void moverZAbajo(void);
+
 void apagarZ(void);
 # 8 "MotoresXYZ.c" 2
 
@@ -5824,9 +5842,14 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
     }
     if (coordinates.yWanted != CurrentPosY) {
         sparcEnMovimiento = 1;
+
         setNumPasosY(yToAdvance);
+
+
         PWM_DutyCycleCCP1(0);
+
         PWM_DutyCycleCCP2(50);
+
     }
 }
 
@@ -5847,15 +5870,22 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
     }
     if (coordinates.xWanted != CurrentPosX) {
         sparcEnMovimiento = 1;
+
         setNumPasosX(xToAdvance);
+
+
         PWM_DutyCycleCCP2(0);
+
         PWM_DutyCycleCCP1(50);
+
     }
 }
 
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
     coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
+
     if (coordinates.timesToPress != 0) {
+
         for (uint8_t toques = 0; toques <coordinates.timesToPress; toques++) {
             LATEbits.LATE0 = 1;
             _delay((unsigned long)((100)*(8000000/4000.0)));
@@ -5867,31 +5897,43 @@ void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, ui
 
 void moverHomeX(void) {
     destinoHomeX = 1;
+
     LATDbits.LATD3 = 0;
     sparcEnMovimiento = 1;
 
+
     PWM_DutyCycleCCP1(50);
+
 }
 
 void moverHomeY(void) {
-    destinoHomeX = 1;
+    destinoHomeY = 1;
+
     LATDbits.LATD1 = 0;
     sparcEnMovimiento = 1;
 
+
     PWM_DutyCycleCCP2(50);
+
 }
 
 void moverXInfinito() {
+
     LATDbits.LATD3 = 1;
+
     sparcEnMovimiento = 1;
-    PWM_DutyCycleCCP2(0);
+
+
     PWM_DutyCycleCCP1(50);
 }
 
 void moverYInfinito() {
+
     LATDbits.LATD1 = 1;
+
     sparcEnMovimiento = 1;
-    PWM_DutyCycleCCP1(0);
+
+
     PWM_DutyCycleCCP2(50);
 }
 void moverZArriba(void){

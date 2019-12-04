@@ -31,13 +31,23 @@ uint8_t llegoHomeX = 0;   //Variable que indica que el destino de coord sera Hom
 uint8_t llegoHomeY = 0;   //Variable que indica que el destino de coord sera HomeY
 //----------------------------  ESTAS VARIABLES SE COMPARTEN TANTO PARA X como para Y  ------------------------------
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
-void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
-void moverHomeX(void);
-void moverHomeY(void);
-void moverXInfinito(void);
-void moverYInfinito(void);
-void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+//Mueve los motores en direccion de Y cierta distancia
+void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades); 
+//Mueve los motores en direccion de X cierta distancia
+void moverHomeX(void);  
+//Se mueven los motores de X al origen
+void moverHomeY(void); 
+//Se mueven los motores de Y al origen
+void moverXInfinito(void); 
+//Se mueven los motores X indefinidamente (para probar funcionamiento limit switches)
+void moverYInfinito(void); 
+//Se mueven los motores Y indefinidamente (para probar funcionamiento limit switches)
+void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades); 
+//Se activa el piston cierto numero de veces
 void moverZArriba(void);
+//Se mueven los motores de la base hacia arriba
 void moverZAbajo(void);
+//Se mueven los motores de la base hacia abajo
 void apagarZ(void);
+//Se apagan los motores de la base
 #endif	/* MOTORESXY_H */
