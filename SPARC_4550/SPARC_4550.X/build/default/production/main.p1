@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 13: struct SystemaSPARC {
-[s S367 `ui 1 `ui 1 `ul 1 ]
+"12 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 12: struct SystemaSPARC {
+[s S367 `us 1 `us 1 `us 1 ]
 [n S367 SystemaSPARC xWanted yWanted timesToPress ]
 [t ~ __interrupt . k ]
 [t T36 __interrupt high_priority ]
@@ -24,11 +24,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8614
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8614: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
-"13 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 13: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
+"14 ./PWMCCP2.h
+[; ;./PWMCCP2.h: 14: void PWM_DutyCycleCCP2(uint8_t WantedDutyCycle);
 [v _PWM_DutyCycleCCP2 `(v ~T0 @X0 0 ef1`uc ]
-"16 ./UART.h
-[; ;./UART.h: 16: void printf (unsigned char *PointString);
+"17 ./UART.h
+[; ;./UART.h: 17: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
 "4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {
@@ -45,8 +45,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4492
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4492: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS177 ~T0 @X0 0 e@3998 ]
-"13 ./PWMCCP1.h
-[; ;./PWMCCP1.h: 13: void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+"14 ./PWMCCP1.h
+[; ;./PWMCCP1.h: 14: void PWM_DutyCycleCCP1(uint8_t WantedDutyCycle);
 [v _PWM_DutyCycleCCP1 `(v ~T0 @X0 0 ef1`uc ]
 [v F3152 `(v ~T0 @X0 1 tf1`ul ]
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
@@ -100,14 +100,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./Gpio.h
 [; ;./Gpio.h: 23: void portInit(void);
 [v _portInit `(v ~T0 @X0 0 ef ]
-"10 ./UART.h
-[; ;./UART.h: 10: void UARTinit(void);
+"11 ./UART.h
+[; ;./UART.h: 11: void UARTinit(void);
 [v _UARTinit `(v ~T0 @X0 0 ef ]
-"11 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 11: void PWM_CCP2_init(void);
+"12 ./PWMCCP2.h
+[; ;./PWMCCP2.h: 12: void PWM_CCP2_init(void);
 [v _PWM_CCP2_init `(v ~T0 @X0 0 ef ]
-"11 ./PWMCCP1.h
-[; ;./PWMCCP1.h: 11: void PWM_CCP1_init(void);
+"12 ./PWMCCP1.h
+[; ;./PWMCCP1.h: 12: void PWM_CCP1_init(void);
 [v _PWM_CCP1_init `(v ~T0 @X0 0 ef ]
 "24 ./Gpio.h
 [; ;./Gpio.h: 24: void motorXinit(void);
@@ -115,11 +115,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25
 [; ;./Gpio.h: 25: void motorYinit(void);
 [v _motorYinit `(v ~T0 @X0 0 ef ]
-"11 ./Timers.h
-[; ;./Timers.h: 11: void tmr0Init(void);
+"12 ./Timers.h
+[; ;./Timers.h: 12: void tmr0Init(void);
 [v _tmr0Init `(v ~T0 @X0 0 ef ]
-"12
-[; ;./Timers.h: 12: void tmr1Init(void);
+"13
+[; ;./Timers.h: 13: void tmr1Init(void);
 [v _tmr1Init `(v ~T0 @X0 0 ef ]
 "16 ./Interrupciones.h
 [; ;./Interrupciones.h: 16: void interruptsEnable(void);
@@ -136,14 +136,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;./Gpio.h: 26: void pistonInit(void);
 [v _pistonInit `(v ~T0 @X0 0 ef ]
-"12 ./UART.h
-[; ;./UART.h: 12: unsigned char receive();
+"13 ./UART.h
+[; ;./UART.h: 13: uint8_t receive();
 [v _receive `(uc ~T0 @X0 0 e? ]
 "35 ./MotoresXYZ.h
 [; ;./MotoresXYZ.h: 35: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
 [v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"20 ./UART.h
-[; ;./UART.h: 20: void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+"21 ./UART.h
+[; ;./UART.h: 21: void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 [v _scanf `(v ~T0 @X0 0 ef2`*uc`uc ]
 "27 ./FuncionesMenu.h
 [; ;./FuncionesMenu.h: 27: void introducirCoordNueva(void);
@@ -727,29 +727,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _habilitarModCoord
 -> -> 0 `i `uc
 ]
-"17 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 17: } coordinates;
+"16 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 16: } coordinates;
 [v _coordinates `S367 ~T0 @X0 1 e ]
+"18
+[; ;./MotoresXYZ.h: 18: uint16_t xToAdvance;
+[v _xToAdvance `us ~T0 @X0 1 e ]
 "19
-[; ;./MotoresXYZ.h: 19: unsigned int xToAdvance;
-[v _xToAdvance `ui ~T0 @X0 1 e ]
-"20
-[; ;./MotoresXYZ.h: 20: unsigned int CurrentPosX = 0;
-[v _CurrentPosX `ui ~T0 @X0 1 e ]
+[; ;./MotoresXYZ.h: 19: uint16_t CurrentPosX = 0;
+[v _CurrentPosX `us ~T0 @X0 1 e ]
 [i _CurrentPosX
--> -> 0 `i `ui
+-> -> 0 `i `us
 ]
+"22
+[; ;./MotoresXYZ.h: 22: uint16_t yToAdvance;
+[v _yToAdvance `us ~T0 @X0 1 e ]
 "23
-[; ;./MotoresXYZ.h: 23: unsigned int yToAdvance;
-[v _yToAdvance `ui ~T0 @X0 1 e ]
-"24
-[; ;./MotoresXYZ.h: 24: unsigned int CurrentPosY = 0;
-[v _CurrentPosY `ui ~T0 @X0 1 e ]
+[; ;./MotoresXYZ.h: 23: uint16_t CurrentPosY = 0;
+[v _CurrentPosY `us ~T0 @X0 1 e ]
 [i _CurrentPosY
--> -> 0 `i `ui
+-> -> 0 `i `us
 ]
-"27
-[; ;./MotoresXYZ.h: 27: unsigned char sparcEnMovimiento = 0;
+"26
+[; ;./MotoresXYZ.h: 26: uint8_t sparcEnMovimiento = 0;
 [v _sparcEnMovimiento `uc ~T0 @X0 1 e ]
 [i _sparcEnMovimiento
 -> -> 0 `i `uc
@@ -901,7 +901,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
 "52
 [; ;main.c: 52:         CurrentPosX = 0;
-[e = _CurrentPosX -> -> 0 `i `ui ]
+[e = _CurrentPosX -> -> 0 `i `us ]
 "53
 [; ;main.c: 53:         destinoHomeX = 0;
 [e = _destinoHomeX -> -> 0 `i `uc ]
@@ -938,7 +938,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
 "64
 [; ;main.c: 64:         CurrentPosY = 0;
-[e = _CurrentPosY -> -> 0 `i `ui ]
+[e = _CurrentPosY -> -> 0 `i `us ]
 "65
 [; ;main.c: 65:         destinoHomeY = 0;
 [e = _destinoHomeY -> -> 0 `i `uc ]

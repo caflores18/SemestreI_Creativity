@@ -602,24 +602,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 367 ]
 }
 "16
-[; ;PWMCCP2.c: 16: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle) {
+[; ;PWMCCP2.c: 16: void PWM_DutyCycleCCP2(uint8_t WantedDutyCycle) {
 [v _PWM_DutyCycleCCP2 `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _PWM_DutyCycleCCP2 ]
 [v _WantedDutyCycle `uc ~T0 @X0 1 r1 ]
 [f ]
 "18
-[; ;PWMCCP2.c: 18:     unsigned int PWMDutyValue;
-[v _PWMDutyValue `ui ~T0 @X0 1 a ]
+[; ;PWMCCP2.c: 18:     uint16_t PWMDutyValue;
+[v _PWMDutyValue `us ~T0 @X0 1 a ]
 "19
 [; ;PWMCCP2.c: 19:     PWMDutyValue = (WantedDutyCycle * 0.01)*1000;
-[e = _PWMDutyValue -> * * -> -> _WantedDutyCycle `i `d .0.01 -> -> 1000 `i `d `ui ]
+[e = _PWMDutyValue -> * * -> -> _WantedDutyCycle `i `d .0.01 -> -> 1000 `i `d `us ]
 "21
 [; ;PWMCCP2.c: 21:     CCP2CONbits.DC2B = (PWMDutyValue & 0x03);
-[e = . . _CCP2CONbits 0 1 -> & _PWMDutyValue -> -> 3 `i `ui `uc ]
+[e = . . _CCP2CONbits 0 1 -> & -> _PWMDutyValue `ui -> -> 3 `i `ui `uc ]
 "22
 [; ;PWMCCP2.c: 22:     CCPR2L = ((PWMDutyValue >> 2)&0xFF);
-[e = _CCPR2L -> & >> _PWMDutyValue -> 2 `i -> -> 255 `i `ui `uc ]
+[e = _CCPR2L -> & >> -> _PWMDutyValue `ui -> 2 `i -> -> 255 `i `ui `uc ]
 "24
 [; ;PWMCCP2.c: 24: }
 [e :UE 368 ]

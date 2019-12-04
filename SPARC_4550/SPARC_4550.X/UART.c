@@ -19,9 +19,9 @@ void UARTinit(void) {
     RCSTA1bits.CREN = 1; //Habilita recibir
 }
 
-unsigned char receive() {
-    errorUART();
-    unsigned char recibido;
+uint8_t receive() {
+    errorUART(); //Comprueba si no hubo errores en la comunicacion
+    uint8_t recibido;
     while (PIR1bits.RCIF == 0) {
         // Mientras RCRGEG1 este vacio nada hasta
     } //Cuando se lleno
@@ -31,8 +31,8 @@ unsigned char receive() {
     return recibido;
 }
 
-void send(unsigned char enviarpc) {
-    errorUART();
+void send(uint8_t enviarpc) {
+    errorUART(); //Comprueba si no hubo errores en la comunicacion
     while (TXSTA1bits.TRMT == 0) {
         //Mientres TSR este lleno no hace nada 
     } // Cuando se vacio 
@@ -42,7 +42,7 @@ void send(unsigned char enviarpc) {
 void errorUART(void) {
     //Esta funcion no es de mi autoria, ha sido obtenida de:
     //https://investigatronica.wordpress.com/2016/03/10/uso-de-la-uart-en-microcontroladores-se-cuelga-el-micro-o-deja-de-recibir/
-    unsigned char temp;
+    uint8_t temp;
     if (OERR) {//¿hubo desborde?
         do {
             temp = RCREG; //limpia pila

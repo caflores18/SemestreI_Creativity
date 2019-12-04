@@ -8,9 +8,10 @@
 #ifndef PWMCCP1_H
 #define	PWMCCP1_H
 #include <xc.h>
+#include <stdint.h>
 void PWM_CCP1_init(void); 
 //Inicializa los registros y valores necesarios para encender el CCP1
-void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+void PWM_DutyCycleCCP1(uint8_t WantedDutyCycle);
 //Se obtiene el valor de porcentaje a poner el dutycycle del CCP1
 // y con base un calculo matematico se modifica el dutycycle
 #endif	/* PWMCCP1_H */

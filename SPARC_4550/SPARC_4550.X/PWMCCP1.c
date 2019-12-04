@@ -14,9 +14,9 @@ void PWM_CCP1_init(void) {
     TMR2 = 0; //Resetea el valor del TMR2 para asegurar que va de 0
     T2CONbits.TMR2ON = 1; //Enciende TMR2   
 }
-void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle) {
+void PWM_DutyCycleCCP1(uint8_t WantedDutyCycle) {
     //unsigned char loco = WantedDutyCycle;
-    unsigned int PWMDutyValue;
+    uint16_t PWMDutyValue;
     PWMDutyValue = (WantedDutyCycle * 0.01)*1000; /*Se calcula el valor a poner en
          los registros CCPXL y CCPXCON para obtener el dutycycle querido*/
     CCP1CONbits.DC1B = (PWMDutyValue & 0x03); //Se asigna valor a los 2 LSB del duty cycle

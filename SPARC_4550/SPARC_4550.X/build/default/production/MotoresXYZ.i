@@ -5722,10 +5722,10 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 9 "./Comunicacion.h" 2
 
 
-void printf (unsigned char *PointString);
+void printf (uint8_t *PointString);
 
 
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 
 uint8_t receiveNum(void);
 # 2 "MotoresXYZ.c" 2
@@ -5740,61 +5740,62 @@ void motoresZinit(void);
 # 3 "MotoresXYZ.c" 2
 
 # 1 "./PWMCCP1.h" 1
-# 11 "./PWMCCP1.h"
+# 12 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
 
-void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+void PWM_DutyCycleCCP1(uint8_t WantedDutyCycle);
 # 4 "MotoresXYZ.c" 2
 
 # 1 "./PWMCCP2.h" 1
-# 11 "./PWMCCP2.h"
+# 12 "./PWMCCP2.h"
 void PWM_CCP2_init(void);
 
-void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
+void PWM_DutyCycleCCP2(uint8_t WantedDutyCycle);
 # 5 "MotoresXYZ.c" 2
 
 # 1 "./Timers.h" 1
-# 11 "./Timers.h"
+# 12 "./Timers.h"
 void tmr0Init(void);
 void tmr1Init(void);
-void setNumPasosX(unsigned int numPasosX);
-void setNumPasosY(unsigned int numPasosY);
+void setNumPasosX(uint16_t numPasosX);
+void setNumPasosY(uint16_t numPasosY);
 # 6 "MotoresXYZ.c" 2
 
 # 1 "./UART.h" 1
-# 10 "./UART.h"
+# 11 "./UART.h"
 void UARTinit(void);
 
-unsigned char receive();
+uint8_t receive();
 
-void send(unsigned char enviarpc);
+void send(uint8_t enviarpc);
 
-void printf (unsigned char *PointString);
+void printf (uint8_t *PointString);
 
 
 
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 
 void errorUART(void);
 # 7 "MotoresXYZ.c" 2
 
 # 1 "./MotoresXYZ.h" 1
-# 13 "./MotoresXYZ.h"
+# 12 "./MotoresXYZ.h"
 struct SystemaSPARC {
-    unsigned int xWanted;
-    unsigned int yWanted;
-    unsigned long timesToPress;
+    uint16_t xWanted;
+    uint16_t yWanted;
+    uint16_t timesToPress;
 } coordinates;
 
-unsigned int xToAdvance;
-unsigned int CurrentPosX = 0;
+uint16_t xToAdvance;
+uint16_t CurrentPosX = 0;
 
 
-unsigned int yToAdvance;
-unsigned int CurrentPosY = 0;
+uint16_t yToAdvance;
+uint16_t CurrentPosY = 0;
 
 
-unsigned char sparcEnMovimiento = 0;
+uint8_t sparcEnMovimiento = 0;
+
 uint8_t destinoHomeX = 0;
 uint8_t destinoHomeY = 0;
 uint8_t llegoHomeX = 0;

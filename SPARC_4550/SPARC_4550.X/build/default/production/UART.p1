@@ -94,8 +94,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5076
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 5076: extern volatile RCSTA1bits_t RCSTA1bits __attribute__((address(0xFAB)));
 [v _RCSTA1bits `VS202 ~T0 @X0 0 e@4011 ]
-"22 ./UART.h
-[; ;./UART.h: 22: void errorUART(void);
+"23 ./UART.h
+[; ;./UART.h: 23: void errorUART(void);
 [v _errorUART `(v ~T0 @X0 0 ef ]
 "4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {
@@ -687,7 +687,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 367 ]
 }
 "22
-[; ;UART.c: 22: unsigned char receive() {
+[; ;UART.c: 22: uint8_t receive() {
 [v _receive `(uc ~T0 @X0 1 ef ]
 {
 [e :U _receive ]
@@ -696,7 +696,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;UART.c: 23:     errorUART();
 [e ( _errorUART ..  ]
 "24
-[; ;UART.c: 24:     unsigned char recibido;
+[; ;UART.c: 24:     uint8_t recibido;
 [v _recibido `uc ~T0 @X0 1 a ]
 "25
 [; ;UART.c: 25:     while (PIR1bits.RCIF == 0) {
@@ -726,7 +726,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 368 ]
 }
 "34
-[; ;UART.c: 34: void send(unsigned char enviarpc) {
+[; ;UART.c: 34: void send(uint8_t enviarpc) {
 [v _send `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _send ]
@@ -762,7 +762,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _errorUART ]
 [f ]
 "45
-[; ;UART.c: 45:     unsigned char temp;
+[; ;UART.c: 45:     uint8_t temp;
 [v _temp `uc ~T0 @X0 1 a ]
 "46
 [; ;UART.c: 46:     if (OERR) {

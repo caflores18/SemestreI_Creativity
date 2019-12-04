@@ -28,12 +28,12 @@ void tmr0Init(void) {
     T0CONbits.TMR0ON = 1; //Se enciende el TMR0 despues de haberlo configurado
 }
 
-void setNumPasosX(unsigned int numPasosX) {
+void setNumPasosX(uint16_t numPasosX) {
     //Funcion encargada de poner el timer a contar los pulsos necesarios para avanzar
     //la distancia requerida 
     if (numPasosX > 0) {
           //Si es mayor a 0 la distancia a recorrer se hace un calculo
-        unsigned int resultado = (65537 - numPasosX);
+        uint16_t resultado = (65537 - numPasosX);
         TMR1H = (resultado >> 8);
         TMR1L = resultado;
     } else {
@@ -43,12 +43,12 @@ void setNumPasosX(unsigned int numPasosX) {
     }
 }
 
-void setNumPasosY(unsigned int numPasosY) {
+void setNumPasosY(uint16_t numPasosY) {
     //Funcion encargada de poner el timer a contar los pulsos necesarios para avanzar
     //la distancia requerida 
     if (numPasosY > 0) {
         //Si es mayor a 0 la distancia a recorrer se hace un calculo
-        unsigned int resultado = (65536 - numPasosY);
+        uint16_t resultado = (65536 - numPasosY);
         TMR0H = (resultado >> 8);
         TMR0L = resultado;
     } else {

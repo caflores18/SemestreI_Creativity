@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 13: struct SystemaSPARC {
-[s S367 `ui 1 `ui 1 `ul 1 ]
+"12 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 12: struct SystemaSPARC {
+[s S367 `us 1 `us 1 `us 1 ]
 [n S367 SystemaSPARC xWanted yWanted timesToPress ]
 "51 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h: 51: int abs (int);
 [v _abs `(i ~T0 @X0 0 ef1`i ]
-"16 ./UART.h
-[; ;./UART.h: 16: void printf (unsigned char *PointString);
+"17 ./UART.h
+[; ;./UART.h: 17: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
-"14
-[; ;./UART.h: 14: void send(unsigned char enviarpc);
+"15
+[; ;./UART.h: 15: void send(uint8_t enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
 "3269 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
@@ -27,18 +27,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3290
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
-"14 ./Timers.h
-[; ;./Timers.h: 14: void setNumPasosY(unsigned int numPasosY);
-[v _setNumPasosY `(v ~T0 @X0 0 ef1`ui ]
-"13 ./PWMCCP1.h
-[; ;./PWMCCP1.h: 13: void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
+"15 ./Timers.h
+[; ;./Timers.h: 15: void setNumPasosY(uint16_t numPasosY);
+[v _setNumPasosY `(v ~T0 @X0 0 ef1`us ]
+"14 ./PWMCCP1.h
+[; ;./PWMCCP1.h: 14: void PWM_DutyCycleCCP1(uint8_t WantedDutyCycle);
 [v _PWM_DutyCycleCCP1 `(v ~T0 @X0 0 ef1`uc ]
-"13 ./PWMCCP2.h
-[; ;./PWMCCP2.h: 13: void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
+"14 ./PWMCCP2.h
+[; ;./PWMCCP2.h: 14: void PWM_DutyCycleCCP2(uint8_t WantedDutyCycle);
 [v _PWM_DutyCycleCCP2 `(v ~T0 @X0 0 ef1`uc ]
-"13 ./Timers.h
-[; ;./Timers.h: 13: void setNumPasosX(unsigned int numPasosX);
-[v _setNumPasosX `(v ~T0 @X0 0 ef1`ui ]
+"14 ./Timers.h
+[; ;./Timers.h: 14: void setNumPasosX(uint16_t numPasosX);
+[v _setNumPasosX `(v ~T0 @X0 0 ef1`us ]
 "3381 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3381:     struct {
 [s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -568,29 +568,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"17 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 17: } coordinates;
+"16 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 16: } coordinates;
 [v _coordinates `S367 ~T0 @X0 1 e ]
+"18
+[; ;./MotoresXYZ.h: 18: uint16_t xToAdvance;
+[v _xToAdvance `us ~T0 @X0 1 e ]
 "19
-[; ;./MotoresXYZ.h: 19: unsigned int xToAdvance;
-[v _xToAdvance `ui ~T0 @X0 1 e ]
-"20
-[; ;./MotoresXYZ.h: 20: unsigned int CurrentPosX = 0;
-[v _CurrentPosX `ui ~T0 @X0 1 e ]
+[; ;./MotoresXYZ.h: 19: uint16_t CurrentPosX = 0;
+[v _CurrentPosX `us ~T0 @X0 1 e ]
 [i _CurrentPosX
--> -> 0 `i `ui
+-> -> 0 `i `us
 ]
+"22
+[; ;./MotoresXYZ.h: 22: uint16_t yToAdvance;
+[v _yToAdvance `us ~T0 @X0 1 e ]
 "23
-[; ;./MotoresXYZ.h: 23: unsigned int yToAdvance;
-[v _yToAdvance `ui ~T0 @X0 1 e ]
-"24
-[; ;./MotoresXYZ.h: 24: unsigned int CurrentPosY = 0;
-[v _CurrentPosY `ui ~T0 @X0 1 e ]
+[; ;./MotoresXYZ.h: 23: uint16_t CurrentPosY = 0;
+[v _CurrentPosY `us ~T0 @X0 1 e ]
 [i _CurrentPosY
--> -> 0 `i `ui
+-> -> 0 `i `us
 ]
-"27
-[; ;./MotoresXYZ.h: 27: unsigned char sparcEnMovimiento = 0;
+"26
+[; ;./MotoresXYZ.h: 26: uint8_t sparcEnMovimiento = 0;
 [v _sparcEnMovimiento `uc ~T0 @X0 1 e ]
 [i _sparcEnMovimiento
 -> -> 0 `i `uc
@@ -643,10 +643,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 371 ]
 "18
 [; ;MotoresXYZ.c: 18:     coordinates.yWanted = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
-[e = . _coordinates 1 -> + + * - -> _coordYCentenas `i -> 48 `i -> 100 `i * - -> _coordYDecenas `i -> 48 `i -> 10 `i - -> _coordYUnidades `i -> 48 `i `ui ]
+[e = . _coordinates 1 -> + + * - -> _coordYCentenas `i -> 48 `i -> 100 `i * - -> _coordYDecenas `i -> 48 `i -> 10 `i - -> _coordYUnidades `i -> 48 `i `us ]
 "19
 [; ;MotoresXYZ.c: 19:     yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5;
-[e = _yToAdvance -> * ( _abs (1 -> - . _coordinates 1 _CurrentPosY `i -> 5 `i `ui ]
+[e = _yToAdvance -> * ( _abs (1 -> - -> . _coordinates 1 `ui -> _CurrentPosY `ui `i -> 5 `i `us ]
 "20
 [; ;MotoresXYZ.c: 20:     printf("yToAdvance is:");
 [e ( _printf (1 :s 1C ]
@@ -658,7 +658,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _send (1 -> -> 10 `ui `uc ]
 "23
 [; ;MotoresXYZ.c: 23:     if (coordinates.yWanted > CurrentPosY) {
-[e $ ! > . _coordinates 1 _CurrentPosY 372  ]
+[e $ ! > -> . _coordinates 1 `ui -> _CurrentPosY `ui 372  ]
 {
 "24
 [; ;MotoresXYZ.c: 24:         LATDbits.LATD1 = 0;
@@ -668,7 +668,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 373  ]
 [e :U 372 ]
-[e $ ! < . _coordinates 1 _CurrentPosY 374  ]
+[e $ ! < -> . _coordinates 1 `ui -> _CurrentPosY `ui 374  ]
 {
 "26
 [; ;MotoresXYZ.c: 26:         LATDbits.LATD1 = 1;
@@ -680,7 +680,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 373 ]
 "28
 [; ;MotoresXYZ.c: 28:     if (coordinates.yWanted != CurrentPosY) {
-[e $ ! != . _coordinates 1 _CurrentPosY 375  ]
+[e $ ! != -> . _coordinates 1 `ui -> _CurrentPosY `ui 375  ]
 {
 "29
 [; ;MotoresXYZ.c: 29:         sparcEnMovimiento = 1;
@@ -726,10 +726,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 379 ]
 "46
 [; ;MotoresXYZ.c: 46:     coordinates.xWanted = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
-[e = . _coordinates 0 -> + + * - -> _coordXCentenas `i -> 48 `i -> 100 `i * - -> _coordXDecenas `i -> 48 `i -> 10 `i - -> _coordXUnidades `i -> 48 `i `ui ]
+[e = . _coordinates 0 -> + + * - -> _coordXCentenas `i -> 48 `i -> 100 `i * - -> _coordXDecenas `i -> 48 `i -> 10 `i - -> _coordXUnidades `i -> 48 `i `us ]
 "47
 [; ;MotoresXYZ.c: 47:     xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5;
-[e = _xToAdvance -> * ( _abs (1 -> - . _coordinates 0 _CurrentPosX `i -> 5 `i `ui ]
+[e = _xToAdvance -> * ( _abs (1 -> - -> . _coordinates 0 `ui -> _CurrentPosX `ui `i -> 5 `i `us ]
 "48
 [; ;MotoresXYZ.c: 48:     printf("xToAdvance is:");
 [e ( _printf (1 :s 2C ]
@@ -741,7 +741,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _send (1 -> -> 10 `ui `uc ]
 "51
 [; ;MotoresXYZ.c: 51:     if (coordinates.xWanted > CurrentPosX) {
-[e $ ! > . _coordinates 0 _CurrentPosX 380  ]
+[e $ ! > -> . _coordinates 0 `ui -> _CurrentPosX `ui 380  ]
 {
 "52
 [; ;MotoresXYZ.c: 52:         LATDbits.LATD3 = 0;
@@ -751,7 +751,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 381  ]
 [e :U 380 ]
-[e $ ! < . _coordinates 0 _CurrentPosX 382  ]
+[e $ ! < -> . _coordinates 0 `ui -> _CurrentPosX `ui 382  ]
 {
 "54
 [; ;MotoresXYZ.c: 54:         LATDbits.LATD3 = 1;
@@ -763,7 +763,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 381 ]
 "56
 [; ;MotoresXYZ.c: 56:     if (coordinates.xWanted != CurrentPosX) {
-[e $ ! != . _coordinates 0 _CurrentPosX 383  ]
+[e $ ! != -> . _coordinates 0 `ui -> _CurrentPosX `ui 383  ]
 {
 "57
 [; ;MotoresXYZ.c: 57:         sparcEnMovimiento = 1;
@@ -796,10 +796,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "70
 [; ;MotoresXYZ.c: 70:     coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
-[e = . _coordinates 2 -> -> + + * - -> _presionarZCentenas `i -> 48 `i -> 100 `i * - -> _presionarZDecenas `i -> 48 `i -> 10 `i - -> _presionarZUnidades `i -> 48 `i `l `ul ]
+[e = . _coordinates 2 -> + + * - -> _presionarZCentenas `i -> 48 `i -> 100 `i * - -> _presionarZDecenas `i -> 48 `i -> 10 `i - -> _presionarZUnidades `i -> 48 `i `us ]
 "72
 [; ;MotoresXYZ.c: 72:     if (coordinates.timesToPress != 0) {
-[e $ ! != . _coordinates 2 -> -> -> 0 `i `l `ul 385  ]
+[e $ ! != -> . _coordinates 2 `ui -> -> 0 `i `ui 385  ]
 {
 "74
 [; ;MotoresXYZ.c: 74:         for (uint8_t toques = 0; toques <coordinates.timesToPress; toques++) {
@@ -826,7 +826,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e ++ _toques -> -> 1 `i `uc ]
 [e :U 389 ]
-[e $ < -> _toques `ul . _coordinates 2 386  ]
+[e $ < -> _toques `ui -> . _coordinates 2 `ui 386  ]
 [e :U 387 ]
 }
 "80

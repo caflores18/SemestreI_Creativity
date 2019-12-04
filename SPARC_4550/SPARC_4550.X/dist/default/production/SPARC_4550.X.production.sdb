@@ -157,18 +157,18 @@
 [v _coordenadaNueva coordenadaNueva `uc  1 e 1 0 ]
 "25
 [v _habilitarModCoord habilitarModCoord `uc  1 e 1 0 ]
-[s S1502 SystemaSPARC 8 `ui 1 xWanted 2 0 `ui 1 yWanted 2 2 `ul 1 timesToPress 4 4 ]
-"17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X/MotoresXYZ.h
-[v _coordinates coordinates `S1502  1 e 8 0 ]
+[s S1502 SystemaSPARC 6 `us 1 xWanted 2 0 `us 1 yWanted 2 2 `us 1 timesToPress 2 4 ]
+"16 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X/MotoresXYZ.h
+[v _coordinates coordinates `S1502  1 e 6 0 ]
+"18
+[v _xToAdvance xToAdvance `us  1 e 2 0 ]
 "19
-[v _xToAdvance xToAdvance `ui  1 e 2 0 ]
-"20
-[v _CurrentPosX CurrentPosX `ui  1 e 2 0 ]
+[v _CurrentPosX CurrentPosX `us  1 e 2 0 ]
+"22
+[v _yToAdvance yToAdvance `us  1 e 2 0 ]
 "23
-[v _yToAdvance yToAdvance `ui  1 e 2 0 ]
-"24
-[v _CurrentPosY CurrentPosY `ui  1 e 2 0 ]
-"27
+[v _CurrentPosY CurrentPosY `us  1 e 2 0 ]
+"26
 [v _sparcEnMovimiento sparcEnMovimiento `uc  1 e 1 0 ]
 "28
 [v _destinoHomeX destinoHomeX `uc  1 e 1 0 ]
@@ -1020,12 +1020,12 @@
 {
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 wreg ]
 "74
-[v presionarPantalla@toques toques `uc  1 a 1 8 ]
+[v presionarPantalla@toques toques `uc  1 a 1 6 ]
 "69
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 wreg ]
 [v presionarPantalla@presionarZDecenas presionarZDecenas `uc  1 p 1 1 ]
 [v presionarPantalla@presionarZUnidades presionarZUnidades `uc  1 p 1 2 ]
-[v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 7 ]
+[v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 5 ]
 "81
 } 0
 "13
@@ -1042,9 +1042,9 @@
 [v _setNumPasosY setNumPasosY `(v  1 e 1 0 ]
 {
 "51
-[v setNumPasosY@resultado resultado `ui  1 a 2 3 ]
+[v setNumPasosY@resultado resultado `us  1 a 2 3 ]
 "46
-[v setNumPasosY@numPasosY numPasosY `ui  1 p 2 1 ]
+[v setNumPasosY@numPasosY numPasosY `us  1 p 2 1 ]
 "59
 } 0
 "41 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_4550.X\MotoresXYZ.c
@@ -1061,9 +1061,9 @@
 [v _setNumPasosX setNumPasosX `(v  1 e 1 0 ]
 {
 "36
-[v setNumPasosX@resultado resultado `ui  1 a 2 3 ]
+[v setNumPasosX@resultado resultado `us  1 a 2 3 ]
 "31
-[v setNumPasosX@numPasosX numPasosX `ui  1 p 2 1 ]
+[v setNumPasosX@numPasosX numPasosX `us  1 p 2 1 ]
 "44
 } 0
 "1 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\abs.c
@@ -1087,7 +1087,7 @@
 {
 [v PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
 "18
-[v PWM_DutyCycleCCP2@PWMDutyValue PWMDutyValue `ui  1 a 2 78 ]
+[v PWM_DutyCycleCCP2@PWMDutyValue PWMDutyValue `us  1 a 2 78 ]
 "16
 [v PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
 "19
@@ -1099,7 +1099,7 @@
 {
 [v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
 "19
-[v PWM_DutyCycleCCP1@PWMDutyValue PWMDutyValue `ui  1 a 2 78 ]
+[v PWM_DutyCycleCCP1@PWMDutyValue PWMDutyValue `us  1 a 2 78 ]
 "17
 [v PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
 "20
@@ -1283,7 +1283,7 @@
 [v i2_PWM_DutyCycleCCP2 PWM_DutyCycleCCP2 `(v  1 e 1 0 ]
 {
 [v i2PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
-[v i2PWM_DutyCycleCCP2@PWMDutyValue PWM_DutyCycleCCP2 `ui  1 a 2 56 ]
+[v i2PWM_DutyCycleCCP2@PWMDutyValue PWM_DutyCycleCCP2 `us  1 a 2 56 ]
 [v i2PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
 "19
 [v i2PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 55 ]
@@ -1298,7 +1298,7 @@
 [v i2_PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]
 {
 [v i2PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
-[v i2PWM_DutyCycleCCP1@PWMDutyValue PWM_DutyCycleCCP1 `ui  1 a 2 56 ]
+[v i2PWM_DutyCycleCCP1@PWMDutyValue PWM_DutyCycleCCP1 `us  1 a 2 56 ]
 [v i2PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 wreg ]
 "20
 [v i2PWM_DutyCycleCCP1@WantedDutyCycle WantedDutyCycle `uc  1 a 1 55 ]

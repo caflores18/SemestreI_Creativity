@@ -664,23 +664,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 368 ]
 }
 "31
-[; ;Timers.c: 31: void setNumPasosX(unsigned int numPasosX) {
-[v _setNumPasosX `(v ~T0 @X0 1 ef1`ui ]
+[; ;Timers.c: 31: void setNumPasosX(uint16_t numPasosX) {
+[v _setNumPasosX `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _setNumPasosX ]
-[v _numPasosX `ui ~T0 @X0 1 r1 ]
+[v _numPasosX `us ~T0 @X0 1 r1 ]
 [f ]
 "34
 [; ;Timers.c: 34:     if (numPasosX > 0) {
-[e $ ! > _numPasosX -> -> 0 `i `ui 370  ]
+[e $ ! > -> _numPasosX `ui -> -> 0 `i `ui 370  ]
 {
 "36
-[; ;Timers.c: 36:         unsigned int resultado = (65537 - numPasosX);
-[v _resultado `ui ~T0 @X0 1 a ]
-[e = _resultado -> - -> 65537 `l -> _numPasosX `l `ui ]
+[; ;Timers.c: 36:         uint16_t resultado = (65537 - numPasosX);
+[v _resultado `us ~T0 @X0 1 a ]
+[e = _resultado -> - -> 65537 `l -> _numPasosX `l `us ]
 "37
 [; ;Timers.c: 37:         TMR1H = (resultado >> 8);
-[e = _TMR1H -> >> _resultado -> 8 `i `uc ]
+[e = _TMR1H -> >> -> _resultado `ui -> 8 `i `uc ]
 "38
 [; ;Timers.c: 38:         TMR1L = resultado;
 [e = _TMR1L -> _resultado `uc ]
@@ -705,23 +705,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 369 ]
 }
 "46
-[; ;Timers.c: 46: void setNumPasosY(unsigned int numPasosY) {
-[v _setNumPasosY `(v ~T0 @X0 1 ef1`ui ]
+[; ;Timers.c: 46: void setNumPasosY(uint16_t numPasosY) {
+[v _setNumPasosY `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _setNumPasosY ]
-[v _numPasosY `ui ~T0 @X0 1 r1 ]
+[v _numPasosY `us ~T0 @X0 1 r1 ]
 [f ]
 "49
 [; ;Timers.c: 49:     if (numPasosY > 0) {
-[e $ ! > _numPasosY -> -> 0 `i `ui 373  ]
+[e $ ! > -> _numPasosY `ui -> -> 0 `i `ui 373  ]
 {
 "51
-[; ;Timers.c: 51:         unsigned int resultado = (65536 - numPasosY);
-[v _resultado `ui ~T0 @X0 1 a ]
-[e = _resultado -> - -> 65536 `l -> _numPasosY `l `ui ]
+[; ;Timers.c: 51:         uint16_t resultado = (65536 - numPasosY);
+[v _resultado `us ~T0 @X0 1 a ]
+[e = _resultado -> - -> 65536 `l -> _numPasosY `l `us ]
 "52
 [; ;Timers.c: 52:         TMR0H = (resultado >> 8);
-[e = _TMR0H -> >> _resultado -> 8 `i `uc ]
+[e = _TMR0H -> >> -> _resultado `ui -> 8 `i `uc ]
 "53
 [; ;Timers.c: 53:         TMR0L = resultado;
 [e = _TMR0L -> _resultado `uc ]

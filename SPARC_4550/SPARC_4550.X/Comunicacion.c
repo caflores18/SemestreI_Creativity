@@ -3,8 +3,8 @@
 #include "Comunicacion.h"
 #include "UART.h"
 
-void printf(unsigned char *PointString) {
-    errorUART(); //Se checa que no haya habido un error en la comunicacion, si lo hubo se reinicia UART
+void printf(uint8_t *PointString) {
+    errorUART(); //Comprueba si no hubo errores en la comunicacion
     for (unsigned char i = 0; i < 255; i++) {
         //Ciclo encargada de imprmir caracteres hasta que se encuentra uno nulo o se llega a los 255
         if (PointString[i] == NULL) {
@@ -14,17 +14,17 @@ void printf(unsigned char *PointString) {
     }
 }
 
-void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
-    errorUART(); //Se checa que no haya habido un error en la comunicacion, si lo hubo se reinicia UART
-    for (unsigned char i = 0; i < numcaracteres; i++) {
+void scanf(uint8_t *guardarscan, uint8_t numcaracteres) {
+    errorUART(); //Comprueba si no hubo errores en la comunicacion
+    for (uint8_t i = 0; i < numcaracteres; i++) {
         //Ciclo encargado de recibir cierto numero de caracteteres, los cuales van a ser guardados en el arreglo de guardarscan
         guardarscan[i] = receive();
     }
 }
 
 uint8_t receiveNum(void) {
-    errorUART(); //Se checa que no haya habido un error en la comunicacion, si lo hubo se reinicia UART
-    unsigned char recibido = 0;
+    errorUART(); //Comprueba si no hubo errores en la comunicacion
+    uint8_t recibido = 0;
     while (recibido > 57 || recibido < 48) {
         //Ciclo que checa que los caracteres introducidos sean valor del 0 al 9 en ASCII, se rompe cuando un caracter valido es introducido
         while (PIR1bits.RCIF == 0) {

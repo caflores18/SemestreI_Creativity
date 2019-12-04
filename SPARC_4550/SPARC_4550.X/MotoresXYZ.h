@@ -9,22 +9,22 @@
 #define	MOTORESXY_H
 #include <xc.h>
 #include <stdint.h>
-
 struct SystemaSPARC {
-    unsigned int xWanted; //coordenada X objetivo
-    unsigned int yWanted; //coordenada Y objetivo
-    unsigned long timesToPress; //Numero de veces a presionar la pantalla
+    uint16_t xWanted; //coordenada X objetivo
+    uint16_t yWanted; //coordenada Y objetivo
+    uint16_t timesToPress; //Numero de veces a presionar la pantalla
 } coordinates;
 //Procedimiento Motor X
-unsigned int xToAdvance; // X por avanzar en pasos (Xa)
-unsigned int CurrentPosX = 0; // X current posicion actual X (Xc)
+uint16_t xToAdvance; // X por avanzar en pasos (Xa)
+uint16_t CurrentPosX = 0; // X current posicion actual X (Xc)
 //unsigned char leercoordx[3]; //Guarda el valor coord X
 //Procedimiennto Motor Y
-unsigned int yToAdvance; // Y por avanzar en pasos (Ya)
-unsigned int CurrentPosY = 0; // Y current posicion actual (Yc)
+uint16_t yToAdvance; // Y por avanzar en pasos (Ya)
+uint16_t CurrentPosY = 0; // Y current posicion actual (Yc)
 //unsigned char leerCoordy[3]; //Guarda el valor coord Y
 //Procedimiento compartido (X) y (Y)
-unsigned char sparcEnMovimiento = 0; //Esta variable se prende cuando alguno de los motores se va a mover
+uint8_t sparcEnMovimiento = 0; //Esta variable se prende cuando alguno de los motores se va a mover
+//extraaa sparcMovY
 uint8_t destinoHomeX = 0;   //Variable que indica que el destino de coord sera HomeX 
 uint8_t destinoHomeY = 0;   //Variable que indica que el destino de coord sera HomeY
 uint8_t llegoHomeX = 0;   //Variable que indica que el destino de coord sera HomeX 

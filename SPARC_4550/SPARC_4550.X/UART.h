@@ -7,17 +7,18 @@
 #ifndef UART_H
 #define	UART_H
 #include <xc.h>
+#include <stdint.h>
 void UARTinit(void);
 //Funcion encargada de inicializar registros y pines encargados de la comunicacion UART
-unsigned char receive(); 
+uint8_t receive(); 
     //Se declara la funcion para enviar un caracter
-void send(unsigned char enviarpc); 
+void send(uint8_t enviarpc); 
     //Se declara la funcion para recibir un caracter
-void printf (unsigned char *PointString);
+void printf (uint8_t *PointString);
     /*Se declara la funcion para imprimir una string, toma el dato del apuntador
     Imprime todo hasta un maximo de 255 caracteres o hasta que encuentra un 
     Caracter nulo */
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
     //Se escanea un numcaracteres y se guarda en el arreglo guardarscan
 void errorUART(void);
 //Funcion que verifica si ha habido problemas de comunicacion UART y en caso

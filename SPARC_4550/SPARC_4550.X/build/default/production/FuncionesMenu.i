@@ -5708,27 +5708,27 @@ typedef uint32_t uint_fast32_t;
 
 # 1 "./Comunicacion.h" 1
 # 11 "./Comunicacion.h"
-void printf (unsigned char *PointString);
+void printf (uint8_t *PointString);
 
 
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 
 uint8_t receiveNum(void);
 # 4 "FuncionesMenu.c" 2
 
 # 1 "./UART.h" 1
-# 10 "./UART.h"
+# 11 "./UART.h"
 void UARTinit(void);
 
-unsigned char receive();
+uint8_t receive();
 
-void send(unsigned char enviarpc);
+void send(uint8_t enviarpc);
 
-void printf (unsigned char *PointString);
+void printf (uint8_t *PointString);
 
 
 
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 
 void errorUART(void);
 # 5 "FuncionesMenu.c" 2
@@ -5761,22 +5761,23 @@ void modificarZ(void);
 # 6 "FuncionesMenu.c" 2
 
 # 1 "./MotoresXYZ.h" 1
-# 13 "./MotoresXYZ.h"
+# 12 "./MotoresXYZ.h"
 struct SystemaSPARC {
-    unsigned int xWanted;
-    unsigned int yWanted;
-    unsigned long timesToPress;
+    uint16_t xWanted;
+    uint16_t yWanted;
+    uint16_t timesToPress;
 } coordinates;
 
-unsigned int xToAdvance;
-unsigned int CurrentPosX = 0;
+uint16_t xToAdvance;
+uint16_t CurrentPosX = 0;
 
 
-unsigned int yToAdvance;
-unsigned int CurrentPosY = 0;
+uint16_t yToAdvance;
+uint16_t CurrentPosY = 0;
 
 
-unsigned char sparcEnMovimiento = 0;
+uint8_t sparcEnMovimiento = 0;
+
 uint8_t destinoHomeX = 0;
 uint8_t destinoHomeY = 0;
 uint8_t llegoHomeX = 0;

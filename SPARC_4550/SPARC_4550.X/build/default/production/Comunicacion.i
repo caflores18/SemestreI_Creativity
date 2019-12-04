@@ -5708,33 +5708,33 @@ typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
 # 10 "./Comunicacion.h" 2
 
-void printf (unsigned char *PointString);
+void printf (uint8_t *PointString);
 
 
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 
 uint8_t receiveNum(void);
 # 3 "Comunicacion.c" 2
 
 # 1 "./UART.h" 1
-# 10 "./UART.h"
+# 11 "./UART.h"
 void UARTinit(void);
 
-unsigned char receive();
+uint8_t receive();
 
-void send(unsigned char enviarpc);
+void send(uint8_t enviarpc);
 
-void printf (unsigned char *PointString);
+void printf (uint8_t *PointString);
 
 
 
-void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
+void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 
 void errorUART(void);
 # 4 "Comunicacion.c" 2
 
 
-void printf(unsigned char *PointString) {
+void printf(uint8_t *PointString) {
     errorUART();
     for (unsigned char i = 0; i < 255; i++) {
 
@@ -5745,9 +5745,9 @@ void printf(unsigned char *PointString) {
     }
 }
 
-void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
+void scanf(uint8_t *guardarscan, uint8_t numcaracteres) {
     errorUART();
-    for (unsigned char i = 0; i < numcaracteres; i++) {
+    for (uint8_t i = 0; i < numcaracteres; i++) {
 
         guardarscan[i] = receive();
     }
@@ -5755,7 +5755,7 @@ void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
 
 uint8_t receiveNum(void) {
     errorUART();
-    unsigned char recibido = 0;
+    uint8_t recibido = 0;
     while (recibido > 57 || recibido < 48) {
 
         while (PIR1bits.RCIF == 0) {

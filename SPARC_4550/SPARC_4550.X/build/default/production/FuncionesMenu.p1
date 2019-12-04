@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 13: struct SystemaSPARC {
-[s S367 `ui 1 `ui 1 `ul 1 ]
+"12 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 12: struct SystemaSPARC {
+[s S367 `us 1 `us 1 `us 1 ]
 [n S367 SystemaSPARC xWanted yWanted timesToPress ]
-"16 ./UART.h
-[; ;./UART.h: 16: void printf (unsigned char *PointString);
+"17 ./UART.h
+[; ;./UART.h: 17: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
 "16 ./Comunicacion.h
 [; ;./Comunicacion.h: 16: uint8_t receiveNum(void);
 [v _receiveNum `(uc ~T0 @X0 0 ef ]
-"14 ./UART.h
-[; ;./UART.h: 14: void send(unsigned char enviarpc);
+"15 ./UART.h
+[; ;./UART.h: 15: void send(uint8_t enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
 "35 ./MotoresXYZ.h
 [; ;./MotoresXYZ.h: 35: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
@@ -637,29 +637,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _habilitarModCoord
 -> -> 0 `i `uc
 ]
-"17 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 17: } coordinates;
+"16 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 16: } coordinates;
 [v _coordinates `S367 ~T0 @X0 1 e ]
+"18
+[; ;./MotoresXYZ.h: 18: uint16_t xToAdvance;
+[v _xToAdvance `us ~T0 @X0 1 e ]
 "19
-[; ;./MotoresXYZ.h: 19: unsigned int xToAdvance;
-[v _xToAdvance `ui ~T0 @X0 1 e ]
-"20
-[; ;./MotoresXYZ.h: 20: unsigned int CurrentPosX = 0;
-[v _CurrentPosX `ui ~T0 @X0 1 e ]
+[; ;./MotoresXYZ.h: 19: uint16_t CurrentPosX = 0;
+[v _CurrentPosX `us ~T0 @X0 1 e ]
 [i _CurrentPosX
--> -> 0 `i `ui
+-> -> 0 `i `us
 ]
+"22
+[; ;./MotoresXYZ.h: 22: uint16_t yToAdvance;
+[v _yToAdvance `us ~T0 @X0 1 e ]
 "23
-[; ;./MotoresXYZ.h: 23: unsigned int yToAdvance;
-[v _yToAdvance `ui ~T0 @X0 1 e ]
-"24
-[; ;./MotoresXYZ.h: 24: unsigned int CurrentPosY = 0;
-[v _CurrentPosY `ui ~T0 @X0 1 e ]
+[; ;./MotoresXYZ.h: 23: uint16_t CurrentPosY = 0;
+[v _CurrentPosY `us ~T0 @X0 1 e ]
 [i _CurrentPosY
--> -> 0 `i `ui
+-> -> 0 `i `us
 ]
-"27
-[; ;./MotoresXYZ.h: 27: unsigned char sparcEnMovimiento = 0;
+"26
+[; ;./MotoresXYZ.h: 26: uint8_t sparcEnMovimiento = 0;
 [v _sparcEnMovimiento `uc ~T0 @X0 1 e ]
 [i _sparcEnMovimiento
 -> -> 0 `i `uc
@@ -1208,25 +1208,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _printf (1 :s 24C ]
 "157
 [; ;FuncionesMenu.c: 157:     send((CurrentPosX * 0.01) + 48);
-[e ( _send (1 -> + * -> _CurrentPosX `d .0.01 -> -> 48 `i `d `uc ]
+[e ( _send (1 -> + * -> -> _CurrentPosX `ui `d .0.01 -> -> 48 `i `d `uc ]
 "158
 [; ;FuncionesMenu.c: 158:     send(((CurrentPosX % 100)*0.1) + 48);
-[e ( _send (1 -> + * -> % _CurrentPosX -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
+[e ( _send (1 -> + * -> % -> _CurrentPosX `ui -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
 "159
 [; ;FuncionesMenu.c: 159:     send(((CurrentPosX % 100) % 10) + 48);
-[e ( _send (1 -> + % % _CurrentPosX -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[e ( _send (1 -> + % % -> _CurrentPosX `ui -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
 "160
 [; ;FuncionesMenu.c: 160:     send(',');
 [e ( _send (1 -> -> 44 `ui `uc ]
 "161
 [; ;FuncionesMenu.c: 161:     send((CurrentPosY * 0.01) + 48);
-[e ( _send (1 -> + * -> _CurrentPosY `d .0.01 -> -> 48 `i `d `uc ]
+[e ( _send (1 -> + * -> -> _CurrentPosY `ui `d .0.01 -> -> 48 `i `d `uc ]
 "162
 [; ;FuncionesMenu.c: 162:     send(((CurrentPosY % 100)*0.1) + 48);
-[e ( _send (1 -> + * -> % _CurrentPosY -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
+[e ( _send (1 -> + * -> % -> _CurrentPosY `ui -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
 "163
 [; ;FuncionesMenu.c: 163:     send(((CurrentPosY % 100) % 10) + 48);
-[e ( _send (1 -> + % % _CurrentPosY -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
+[e ( _send (1 -> + % % -> _CurrentPosY `ui -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
 "164
 [; ;FuncionesMenu.c: 164:     send('.');
 [e ( _send (1 -> -> 46 `ui `uc ]
