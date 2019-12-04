@@ -5757,10 +5757,11 @@ void borrarTodasCoordenadas(void);
 void iniciarPrograma(void);
 void movimientoLibre(void);
 void impCoordActual(void);
+void modificarZ(void);
 # 6 "FuncionesMenu.c" 2
 
-# 1 "./MotoresXY.h" 1
-# 13 "./MotoresXY.h"
+# 1 "./MotoresXYZ.h" 1
+# 13 "./MotoresXYZ.h"
 struct SystemaSPARC {
     unsigned int xWanted;
     unsigned int yWanted;
@@ -5788,7 +5789,11 @@ void moverHomeY(void);
 void moverXInfinito(void);
 void moverYInfinito(void);
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+void moverZArriba(void);
+void moverZAbajo(void);
+void apagarZ(void);
 # 7 "FuncionesMenu.c" 2
+
 
 
 void introducirCoordNueva() {
@@ -5946,4 +5951,36 @@ void impCoordActual(void) {
     send(((CurrentPosY % 100)*0.1) + 48);
     send(((CurrentPosY % 100) % 10) + 48);
     send('.');
+}
+
+void modificarZ(void) {
+    uint8_t OkEncendido = 0;
+    while (OkEncendido == 0) {
+        if (PORTAbits.RA5 == 1) {
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+            if (PORTAbits.RA5 == 1) {
+                printf("\nSaliendo\n");
+                apagarZ();
+                OkEncendido = 1;
+            }
+        }
+        if (PORTCbits.RC4 == 1) {
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+            if (PORTCbits.RC4 == 1) {
+                printf("MovArriba\n");
+                do {
+                    moverZArriba();
+                } while (PORTCbits.RC4 == 1);
+            }
+        }
+        if (PORTCbits.RC5 == 1) {
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+            if (PORTCbits.RC5 == 1) {
+                printf("MovABajo\n");
+                do {
+                    moverZAbajo();
+                } while (PORTCbits.RC5 == 1);
+            }
+        }
+    }
 }

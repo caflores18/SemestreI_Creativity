@@ -5,7 +5,7 @@
 #include "PWMCCP2.h"
 #include "Timers.h"
 #include "UART.h"
-#include "MotoresXY.h"
+#include "MotoresXYZ.h"
 #define _XTAL_FREQ 8000000
 
 // -------------------Declaracion de variables globales------------------------
@@ -96,4 +96,16 @@ void moverYInfinito() {
     sparcEnMovimiento = 1;
     PWM_DutyCycleCCP1(0);
     PWM_DutyCycleCCP2(50);
+}
+void moverZArriba(void){
+    LATDbits.LATD5 = 1; //Se enciende la salida RD5
+    LATDbits.LATD6 = 0; //Se enciende la salida RD6
+}
+void moverZAbajo(void){
+    LATDbits.LATD5 = 0; //Se apaga la salida RD5
+    LATDbits.LATD6 = 1; //Se apaga la salida RD6
+}
+void apagarZ(void){
+    LATDbits.LATD5 = 0; //Se apaga la salida RD5
+    LATDbits.LATD6 = 0; //Se apaga la salida RD6
 }

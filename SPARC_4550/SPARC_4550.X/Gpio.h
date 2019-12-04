@@ -24,6 +24,7 @@
 void portInit(void); // Se declara la funcion para inicializar los puertos
 void motorXinit(void);
 void motorYinit(void);
-void pistonInit(void); 
+void pistonInit(void);
+void motoresZinit(void);
 #endif	/* GPIO_H */
 

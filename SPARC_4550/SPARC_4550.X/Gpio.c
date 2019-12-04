@@ -11,6 +11,8 @@
 void portInit ( void ) { //Se desarolla el contenido de la funcion portInit
     ADCON1bits.PCFG = 0xFF; //Se declaran todos los pines como digitales
     OSCCON = 0x70;          //Parte de declarar el clk 8Mhz
+    UCONbits.USBEN = 0; //USB modes disabled 
+    UCFGbits.UTRDIS = 1; //On chip  transceiver disbled 
     //TRISBbits.TRISB0= 0; // Se declara el puerto B0 como salida
 }
 void motorXinit( void ) {
@@ -36,6 +38,14 @@ void motorYinit( void ) {
     LATDbits.LATD0 = 0; //Enciende enable del motor Y Negado
     LATDbits.LATD1 = 0; //DIR Y empieza en sentido horario
     LATCbits.LC1 = 0; //Step en Y inicia en 0
+}
+void motoresZinit( void ){
+    TRISDbits.RD5 = 0; //Se declara RD5 como output (senal motores DC)
+    TRISDbits.RD6 = 0; //Se declara RD6 como output (senal motores DC)
+    TRISAbits.RA5 = 1; //RA5 es input (boton OK)
+    LATDbits.LATD5 = 0; //Se inicializa en 0 el boton
+    LATDbits.LATD5 = 0; //Se deja la salida RD5 apagada en un inicio
+    LATDbits.LATD5 = 0; //Se deja la salida RD6 apagada en un inicio
 }
 void pistonInit(void){
     TRISEbits.RE0 = 0; //Se declara el Pin E0 (piston) como output

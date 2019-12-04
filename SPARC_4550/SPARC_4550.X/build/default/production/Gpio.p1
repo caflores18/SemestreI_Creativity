@@ -21,6 +21,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7986
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7986: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"654
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 654:     struct {
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
+"653
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 653: typedef union {
+[u S35 `S36 1 ]
+[n S35 . . ]
+"664
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 664: extern volatile UCONbits_t UCONbits __attribute__((address(0xF6D)));
+[v _UCONbits `VS35 ~T0 @X0 0 e@3949 ]
+"769
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 769:     struct {
+[s S41 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . PPB FSEN UTRDIS UPUEN . UOEMON UTEYE ]
+"778
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 778:     struct {
+[s S42 :1 `uc 1 :1 `uc 1 ]
+[n S42 . PPB0 PPB1 ]
+"782
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 782:     struct {
+[s S43 :1 `uc 1 :1 `uc 1 ]
+[n S43 . UPP0 UPP1 ]
+"768
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 768: typedef union {
+[u S40 `S41 1 `S42 1 `S43 1 ]
+[n S40 . . . . ]
+"787
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 787: extern volatile UCFGbits_t UCFGbits __attribute__((address(0xF6F)));
+[v _UCFGbits `VS40 ~T0 @X0 0 e@3951 ]
 "4012
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4012:     struct {
 [s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -81,6 +111,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3208
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3208: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
 [v _LATCbits `VS132 ~T0 @X0 0 e@3979 ]
+"3438
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3438:     struct {
+[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S142 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 ]
+"3447
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3447:     struct {
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S143 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
+"3437
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3437: typedef union {
+[u S141 `S142 1 `S143 1 ]
+[n S141 . . . ]
+"3457
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3457: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
+[v _TRISAbits `VS141 ~T0 @X0 0 e@3986 ]
 "4234
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4234:     struct {
 [s S166 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -607,90 +652,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "4 Gpio.c
-[; ;Gpio.c: 4: 
+[; ;Gpio.c: 4:     UCONbits.USBEN = 0;
 [p x FOSC = INTOSC_EC ]
 "5
-[; ;Gpio.c: 5: }
+[; ;Gpio.c: 5:     UCFGbits.UTRDIS = 1;
 [p x MCLRE    = ON ]
 "6
-[; ;Gpio.c: 6: void motorXinit( void ) {
+[; ;Gpio.c: 6: 
 [p x WDT = OFF ]
 "8
-[; ;Gpio.c: 8:     TRISDbits.RD2 = 0;
+[; ;Gpio.c: 8: void motorXinit( void ) {
 [p x LVP      = OFF ]
 "11
-[; ;Gpio.c: 11:     LATDbits.LATD2 = 0;
+[; ;Gpio.c: 11:     TRISDbits.RD3 = 0;
 [v _portInit `(v ~T0 @X0 1 ef ]
 {
 [e :U _portInit ]
 [f ]
 "12
-[; ;Gpio.c: 12:     LATDbits.LATD3 = 0;
+[; ;Gpio.c: 12:     TRISCbits.RC2 = 0;
 [e = . . _ADCON1bits 0 0 -> -> 255 `i `uc ]
 "13
-[; ;Gpio.c: 13:     LATCbits.LATC2 = 0;
+[; ;Gpio.c: 13:     LATDbits.LATD2 = 0;
 [e = _OSCCON -> -> 112 `i `uc ]
+"14
+[; ;Gpio.c: 14:     LATDbits.LATD3 = 0;
+[e = . . _UCONbits 0 3 -> -> 0 `i `uc ]
 "15
-[; ;Gpio.c: 15: }
+[; ;Gpio.c: 15:     LATCbits.LATC2 = 0;
+[e = . . _UCFGbits 0 2 -> -> 1 `i `uc ]
+"17
+[; ;Gpio.c: 17: }
 [e :UE 367 ]
 }
-"16
-[; ;Gpio.c: 16: void motorYinit( void ) {
+"18
+[; ;Gpio.c: 18: void motorYinit( void ) {
 [v _motorXinit `(v ~T0 @X0 1 ef ]
 {
 [e :U _motorXinit ]
 [f ]
-"18
-[; ;Gpio.c: 18: 
-[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-"19
-[; ;Gpio.c: 19: 
-[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
 "20
 [; ;Gpio.c: 20: 
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
 "21
 [; ;Gpio.c: 21: 
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
 "22
 [; ;Gpio.c: 22: 
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
 "23
-[; ;Gpio.c: 23:     TRISDbits.RD0 = 0;
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;Gpio.c: 23: 
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+"24
+[; ;Gpio.c: 24: 
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "25
-[; ;Gpio.c: 25:     TRISCbits.RC1 = 0;
+[; ;Gpio.c: 25:     TRISDbits.RD0 = 0;
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+"27
+[; ;Gpio.c: 27:     TRISCbits.RC1 = 0;
 [e :UE 368 ]
 }
-"26
-[; ;Gpio.c: 26:     LATDbits.LATD0 = 0;
+"28
+[; ;Gpio.c: 28:     LATDbits.LATD0 = 0;
 [v _motorYinit `(v ~T0 @X0 1 ef ]
 {
 [e :U _motorYinit ]
 [f ]
-"33
-[; ;Gpio.c: 33: }
-[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-"34
-[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
 "35
-[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
+[; ;Gpio.c: 35:     TRISAbits.RA5 = 1;
+[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
 "36
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;Gpio.c: 36:     LATDbits.LATD5 = 0;
+[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
 "37
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+[; ;Gpio.c: 37:     LATDbits.LATD5 = 0;
+[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
 "38
-[e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
+[; ;Gpio.c: 38:     LATDbits.LATD5 = 0;
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
 "39
+[; ;Gpio.c: 39: }
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+"40
+[; ;Gpio.c: 40: void pistonInit(void){
+[e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
+"41
+[; ;Gpio.c: 41:     TRISEbits.RE0 = 0;
 [e :UE 369 ]
 }
-"40
+"42
+[; ;Gpio.c: 42: 
+[v _motoresZinit `(v ~T0 @X0 1 ef ]
+{
+[e :U _motoresZinit ]
+[f ]
+"43
+[; ;Gpio.c: 43: }
+[e = . . _TRISDbits 1 5 -> -> 0 `i `uc ]
+"44
+[e = . . _TRISDbits 1 6 -> -> 0 `i `uc ]
+"45
+[e = . . _TRISAbits 1 5 -> -> 1 `i `uc ]
+"46
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"47
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"48
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"49
+[e :UE 370 ]
+}
+"50
 [v _pistonInit `(v ~T0 @X0 1 ef ]
 {
 [e :U _pistonInit ]
 [f ]
-"41
+"51
 [e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
-"43
-[e :UE 370 ]
+"53
+[e :UE 371 ]
 }

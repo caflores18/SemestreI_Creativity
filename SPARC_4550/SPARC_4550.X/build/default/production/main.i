@@ -5747,6 +5747,7 @@ void borrarTodasCoordenadas(void);
 void iniciarPrograma(void);
 void movimientoLibre(void);
 void impCoordActual(void);
+void modificarZ(void);
 # 6 "main.c" 2
 
 # 1 "./Gpio.h" 1
@@ -5755,6 +5756,7 @@ void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
 void pistonInit(void);
+void motoresZinit(void);
 # 7 "main.c" 2
 
 # 1 "./Interrupciones.h" 1
@@ -5774,8 +5776,8 @@ void alertaVerde(void);
 void alertaAzul(void);
 # 9 "main.c" 2
 
-# 1 "./MotoresXY.h" 1
-# 13 "./MotoresXY.h"
+# 1 "./MotoresXYZ.h" 1
+# 13 "./MotoresXYZ.h"
 struct SystemaSPARC {
     unsigned int xWanted;
     unsigned int yWanted;
@@ -5803,6 +5805,9 @@ void moverHomeY(void);
 void moverXInfinito(void);
 void moverYInfinito(void);
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+void moverZArriba(void);
+void moverZAbajo(void);
+void apagarZ(void);
 # 10 "main.c" 2
 
 # 1 "./PWMCCP1.h" 1
@@ -5920,7 +5925,8 @@ void main(void) {
     interruptsEnable();
     habilitarIntTMR0();
     habilitarIntTMR1();
-    habilitarIntExternas();
+
+    motoresZinit();
     pistonInit();
 
 
@@ -5943,7 +5949,7 @@ void main(void) {
 
             printf("\n(0)Como funciona  (1)Agregar coordenada   (2)Imprimir coordenadas\n"
                     "(3)Editar coordenada   (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
-                    "(6)Coordenada actual   (7)MovimientoLibre (8)Home/Inf\n");
+                    "(6)Coordenada actual   (7)MovimientoLibre (8)Home/Inf (9)MoverBase \n");
             uint8_t opcionsel = receive();
             while (opcionsel > 57 || opcionsel < 48) {
                 printf("Eleccion no valida vuelva a intentar");
@@ -5996,7 +6002,8 @@ void main(void) {
                 }
             }
             if (opcionsel == '9') {
-                printf("Entrase al 9");
+                printf("Para mover la base presiona uno de los botones de arriba o abajo, cuando termines presiona el boton OK");
+                modificarZ();
             }
         } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
     }

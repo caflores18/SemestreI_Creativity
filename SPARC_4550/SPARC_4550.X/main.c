@@ -7,7 +7,7 @@
 #include "Gpio.h"
 #include "Interrupciones.h"
 #include "Leds.h"
-#include "MotoresXY.h"
+#include "MotoresXYZ.h"
 #include "PWMCCP1.h"
 #include "PWMCCP2.h"
 #include "Timers.h"
@@ -91,7 +91,8 @@ void main(void) {
     interruptsEnable(); //Se enciende el sistema de interrupciones
     habilitarIntTMR0(); //Habilita interrupcion TMRO
     habilitarIntTMR1(); //Habilita interrupcion TMR1
-    habilitarIntExternas();
+    //habilitarIntExternas();
+    motoresZinit();
     pistonInit(); //Habilita piston/actuador
     //ADCinit(); //Habilita el uso del ADC, se declara el RA0 como analogico
     //Apuntadores a string para poder hacer uso de la funcion scanf
@@ -114,7 +115,7 @@ void main(void) {
             //Si los 4 caracteres previamente escaneados son Menu o menu se entra al menu del SPARC
             printf("\n(0)Como funciona  (1)Agregar coordenada   (2)Imprimir coordenadas\n"
                     "(3)Editar coordenada   (4)Iniciar Programa     (5)Reiniciar todas las coordenadas\n"
-                    "(6)Coordenada actual   (7)MovimientoLibre (8)Home/Inf\n");
+                    "(6)Coordenada actual   (7)MovimientoLibre (8)Home/Inf (9)MoverBase \n");
             uint8_t opcionsel = receive();
             while (opcionsel > 57 || opcionsel < 48) {
                 printf("Eleccion no valida vuelva a intentar");
@@ -167,11 +168,14 @@ void main(void) {
                 }
             }
             if (opcionsel == '9') {
-                printf("Entrase al 9");
+                printf("Para mover la base presiona uno de los botones de arriba o abajo, cuando termines presiona el boton OK");
+                modificarZ();
             }
         } else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
     }
 }
+//Al inicio ir a home X
+//Subir y bajar base con boton OK
 //Corregir motores XY el mensaje que envia si la coordenada es la misma no deberia pasar
 //Parte de control
 //Deslizar pantalla

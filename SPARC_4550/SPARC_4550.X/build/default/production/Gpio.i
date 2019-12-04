@@ -5627,6 +5627,7 @@ void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
 void pistonInit(void);
+void motoresZinit(void);
 # 3 "Gpio.c" 2
 
 #pragma config FOSC = INTOSC_EC
@@ -5639,6 +5640,8 @@ void pistonInit(void);
 void portInit ( void ) {
     ADCON1bits.PCFG = 0xFF;
     OSCCON = 0x70;
+    UCONbits.USBEN = 0;
+    UCFGbits.UTRDIS = 1;
 
 }
 void motorXinit( void ) {
@@ -5664,6 +5667,14 @@ void motorYinit( void ) {
     LATDbits.LATD0 = 0;
     LATDbits.LATD1 = 0;
     LATCbits.LC1 = 0;
+}
+void motoresZinit( void ){
+    TRISDbits.RD5 = 0;
+    TRISDbits.RD6 = 0;
+    TRISAbits.RA5 = 1;
+    LATDbits.LATD5 = 0;
+    LATDbits.LATD5 = 0;
+    LATDbits.LATD5 = 0;
 }
 void pistonInit(void){
     TRISEbits.RE0 = 0;

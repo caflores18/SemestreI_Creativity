@@ -3,4 +3,4 @@ FuncionesMenu.c  \
 Comunicacion.h  \
 UART.h  \
 FuncionesMenu.h  \
-MotoresXY.h 
+MotoresXYZ.h 

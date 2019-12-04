@@ -4,7 +4,8 @@
 #include "Comunicacion.h" 
 #include "UART.h" 
 #include "FuncionesMenu.h" 
-#include "MotoresXY.h"
+#include "MotoresXYZ.h"
+#define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
 
 void introducirCoordNueva() {
     uint16_t validarCoordX = 0;
@@ -161,4 +162,36 @@ void impCoordActual(void) {
     send(((CurrentPosY % 100)*0.1) + 48);
     send(((CurrentPosY % 100) % 10) + 48);
     send('.');
+}
+
+void modificarZ(void) {
+    uint8_t OkEncendido = 0;
+    while (OkEncendido == 0) {
+        if (PORTAbits.RA5 == 1) {
+            __delay_ms(10);
+            if (PORTAbits.RA5 == 1) {
+                printf("\nSaliendo\n");
+                apagarZ();
+                OkEncendido = 1;
+            }
+        }
+        if (PORTCbits.RC4 == 1) {
+            __delay_ms(10);
+            if (PORTCbits.RC4 == 1) {
+                printf("MovArriba\n");
+                do {
+                    moverZArriba();
+                } while (PORTCbits.RC4 == 1);
+            }
+        }
+        if (PORTCbits.RC5 == 1) {
+            __delay_ms(10);
+            if (PORTCbits.RC5 == 1) {
+                printf("MovABajo\n");
+                do {
+                    moverZAbajo();
+                } while (PORTCbits.RC5 == 1);
+            }
+        }
+    }
 }

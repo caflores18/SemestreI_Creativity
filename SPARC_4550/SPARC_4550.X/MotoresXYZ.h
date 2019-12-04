@@ -37,4 +37,7 @@ void moverHomeY(void);
 void moverXInfinito(void);
 void moverYInfinito(void);
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
+void moverZArriba(void);
+void moverZAbajo(void);
+void apagarZ(void);
 #endif	/* MOTORESXY_H */

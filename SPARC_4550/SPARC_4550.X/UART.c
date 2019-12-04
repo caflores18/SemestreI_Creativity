@@ -40,6 +40,8 @@ void send(unsigned char enviarpc) {
 }
 
 void errorUART(void) {
+    //Esta funcion no es de mi autoria, ha sido obtenida de:
+    //https://investigatronica.wordpress.com/2016/03/10/uso-de-la-uart-en-microcontroladores-se-cuelga-el-micro-o-deja-de-recibir/
     unsigned char temp;
     if (OERR) {//¿hubo desborde?
         do {

@@ -1,4 +1,4 @@
-# 1 "MotoresXY.c"
+# 1 "MotoresXYZ.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MotoresXY.c" 2
+# 1 "MotoresXYZ.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
 
 
@@ -111,7 +111,7 @@ typedef int32_t int_fast32_t;
 typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
-# 1 "MotoresXY.c" 2
+# 1 "MotoresXYZ.c" 2
 
 # 1 "./Comunicacion.h" 1
 # 10 "./Comunicacion.h"
@@ -5722,7 +5722,7 @@ void printf (unsigned char *PointString);
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
 
 uint8_t receiveNum(void);
-# 2 "MotoresXY.c" 2
+# 2 "MotoresXYZ.c" 2
 
 # 1 "./Gpio.h" 1
 # 24 "./Gpio.h"
@@ -5730,19 +5730,20 @@ void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
 void pistonInit(void);
-# 3 "MotoresXY.c" 2
+void motoresZinit(void);
+# 3 "MotoresXYZ.c" 2
 
 # 1 "./PWMCCP1.h" 1
 # 11 "./PWMCCP1.h"
 void PWM_CCP1_init(void);
 void PWM_DutyCycleCCP1(unsigned char WantedDutyCycle);
-# 4 "MotoresXY.c" 2
+# 4 "MotoresXYZ.c" 2
 
 # 1 "./PWMCCP2.h" 1
 # 11 "./PWMCCP2.h"
 void PWM_CCP2_init(void);
 void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
-# 5 "MotoresXY.c" 2
+# 5 "MotoresXYZ.c" 2
 
 # 1 "./Timers.h" 1
 # 11 "./Timers.h"
@@ -5750,7 +5751,7 @@ void tmr0Init(void);
 void tmr1Init(void);
 void setNumPasosX(unsigned int numPasosX);
 void setNumPasosY(unsigned int numPasosY);
-# 6 "MotoresXY.c" 2
+# 6 "MotoresXYZ.c" 2
 
 # 1 "./UART.h" 1
 # 11 "./UART.h"
@@ -5766,10 +5767,10 @@ void printf (unsigned char *PointString);
 void scanf (unsigned char *guardarscan, unsigned char numcaracteres);
 
 void errorUART(void);
-# 7 "MotoresXY.c" 2
+# 7 "MotoresXYZ.c" 2
 
-# 1 "./MotoresXY.h" 1
-# 13 "./MotoresXY.h"
+# 1 "./MotoresXYZ.h" 1
+# 13 "./MotoresXYZ.h"
 struct SystemaSPARC {
     unsigned int xWanted;
     unsigned int yWanted;
@@ -5797,7 +5798,10 @@ void moverHomeY(void);
 void moverXInfinito(void);
 void moverYInfinito(void);
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
-# 8 "MotoresXY.c" 2
+void moverZArriba(void);
+void moverZAbajo(void);
+void apagarZ(void);
+# 8 "MotoresXYZ.c" 2
 
 
 
@@ -5889,4 +5893,16 @@ void moverYInfinito() {
     sparcEnMovimiento = 1;
     PWM_DutyCycleCCP1(0);
     PWM_DutyCycleCCP2(50);
+}
+void moverZArriba(void){
+    LATDbits.LATD5 = 1;
+    LATDbits.LATD6 = 0;
+}
+void moverZAbajo(void){
+    LATDbits.LATD5 = 0;
+    LATDbits.LATD6 = 1;
+}
+void apagarZ(void){
+    LATDbits.LATD5 = 0;
+    LATDbits.LATD6 = 0;
 }

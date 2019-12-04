@@ -32,5 +32,6 @@ void borrarTodasCoordenadas(void);
 void iniciarPrograma(void);
 void movimientoLibre(void);
 void impCoordActual(void);
+void modificarZ(void);
 #endif	/* FUNCIONESMENU_H */
 

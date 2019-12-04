@@ -6,7 +6,7 @@ FuncionesMenu.h  \
 Gpio.h  \
 Interrupciones.h  \
 Leds.h  \
-MotoresXY.h  \
+MotoresXYZ.h  \
 PWMCCP1.h  \
 PWMCCP2.h  \
 Timers.h  \
