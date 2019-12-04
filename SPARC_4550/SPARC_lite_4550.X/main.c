@@ -22,7 +22,7 @@ __interrupt(high_priority) void high_isr(void) {
         }
         CurrentPosY = coordinates.yWanted; //Se actualiza el valor actual de la Y*/
         printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
-        sparcEnMovimiento = 0;
+        sparcEnMovimientoY = 0;
         overFlowTMR0 = 0;
     }
     if (overFlowTMR1 == 1) { //Si el TMR1 registro OverFlow 
@@ -31,7 +31,7 @@ __interrupt(high_priority) void high_isr(void) {
         }
         CurrentPosX = coordinates.xWanted; //Se actualiza el valor actual de la Y
         printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
-        sparcEnMovimiento = 0;
+        sparcEnMovimientoX = 0;
         overFlowTMR1 = 0; //Se apaga la interrupcion del TMR1
     }
     if (intLimitSwitch3Esquinas) {
@@ -51,8 +51,8 @@ __interrupt(high_priority) void high_isr(void) {
         PWM_DutyCycleCCP1(0);
         CurrentPosX = 0;
         destinoHomeX = 0;
-        //llegoHomeX = 1;
-        sparcEnMovimiento = 0;
+        llegoHomeX = 1;
+        sparcEnMovimientoX = 0;
         intLimitSwitchHomeX = 0; //Se apaga la bandera INT1 de interrupcion
     }
     if (intLimitSwitchHomeY == 1) {
@@ -63,8 +63,8 @@ __interrupt(high_priority) void high_isr(void) {
         PWM_DutyCycleCCP2(0);
         CurrentPosY = 0;
         destinoHomeY = 0;
-        //llegoHomeY = 1;
-        sparcEnMovimiento = 0;
+        llegoHomeY = 1;
+        sparcEnMovimientoY = 0;
         intLimitSwitchHomeY = 0; //Se apaga la bandera INT2 de interrupcion
     }
 }
@@ -114,33 +114,77 @@ void main(void) {
     }
     //Inicio del ciclo infinito 
     while (1) {
-        if(calibrarSparc == 1){
-            moverHomeX();
+        /*if (calibrarSparc == 1) {
+            moverHaciaX(0, 0, 5); //Se mueve 5mm X para asegurar que no se esta tocando el limSwitch
+            moverHaciaY(0, 0, 5); //Se mueve 5mm X para asegurar que no se esta tocando el limSwitch
+            __delay_ms(100); //Se da un delay para esperar a que se mueva 
+            moverHomeX(); //Se dirige X y Y a home
             moverHomeY();
-            calibrarSparc = 0;
-        }
+            while (!(llegoHomeX && llegoHomeY)) {
+                //Se espera a que llegue al origen X y Y
+            }
+            //Despues de que se ha llegado al origen
+            moverHaciaX(0, 0, 5); //Se mueve 5mm X para no estar tocando el limSwitch
+            moverHaciaY(0, 0, 5); //Se mueve 5mm Y para no estar tocando el limSwitch
+            llegoHomeX = 0;     //Se apagan las banderas de que se llego a home en X y Y
+            llegoHomeY = 0;
+            CurrentPosX = 0;    //Se actualiza la posicion actual de X y Y a 0
+            CurrentPosY = 0;
+            calibrarSparc = 0;  //Se apaga la bandera de inicializacion del SPARC
+            printf("Ya esta calibadro el sparc");
+        }*/
+        printf("Ok,comN\n");
         uint8_t opcionsel = receive();
         if (opcionsel == 'm' || opcionsel == 'M') {
             printf("Vas a mover el Sparc en X y Y\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            moverHaciaXY();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'p' || opcionsel == 'P') {
             printf("Presionar Z cierto numero de veces recibidas\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            funcionToques();
+            printf("Ok,comF\n");
         } else if (opcionsel == 's' || opcionsel == 'S') {
             printf("Piston para deslizar o dejar retraido?\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            slidePiston();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'h' || opcionsel == 'H') {
             printf("Vas a ir a homeX y home Y\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            moverHomeX(); //Se dirige X y Y a home
+            moverHomeY();
+            while (!(llegoHomeX && llegoHomeY)) {
+                //Se espera a que llegue al origen X y Y
+            }
+            //Despues de que se ha llegado al origen
+            moverHaciaX(0, 0, 5); //Se mueve 5mm X para no estar tocando el limSwitch
+            moverHaciaY(0, 0, 5); //Se mueve 5mm Y para no estar tocando el limSwitch
+            //Talvez se viene para arriba estas dos lineas
+            llegoHomeX = 0; //Se apagan las banderas de que se llego a home en X y Y
+            llegoHomeY = 0;
+            CurrentPosX = 0; //Se actualiza la posicion actual de X y Y a 0
+            CurrentPosY = 0;
+            printf("Ok,comF\n");
         } else if (opcionsel == 'i' || opcionsel == 'I') {
             printf("Vas a ir infinito X e infinito Y\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            moverXInfinito();
+            moverYInfinito();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'c' || opcionsel == 'C') {
             printf("Imprmir coordenada actual \n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            impCoordActual();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'b' || opcionsel == 'B') {
             printf("Entraste a mover la base\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            modificarZ();
+            printf("Ok,comF\n");
+        } else {
+            printf("E,com\n");
         }
     } //else printf("Tuviste un error, escribe la palabra 'Menu' o 'menu' para acceder al menu\n");
 }
@@ -154,7 +198,8 @@ void main(void) {
 
 //SPARC_Lite
 //Home X y Y avanza 5mm y es nuevo origen
-
+//Checar si ponog dentro lo de las interrupciones de arriba
+//Checar giro de los motores
 /*    if (llegoHomeX == 1) {
             printf("Si  llegue a home X");
             moverHaciaX(0, 0, 5);

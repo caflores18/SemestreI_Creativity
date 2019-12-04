@@ -47,5 +47,5 @@ void motoresZinit( void ){
 void pistonInit(void){
     //Piston usado para presionar la pantalla
     TRISEbits.RE0 = 0; //Se declara el Pin E0 (piston) como output
-   // piston = 0;        //Se deja el piston desactivado (funciona logica negativa)
+    //piston = 0;        //Se deja el piston desactivado (funciona logica negativa)
 }

@@ -23,7 +23,8 @@ uint16_t yToAdvance; // Y por avanzar en pasos (Ya)
 uint16_t CurrentPosY = 0; // Y current posicion actual (Yc)
 //unsigned char leerCoordy[3]; //Guarda el valor coord Y
 //Procedimiento compartido (X) y (Y)
-uint8_t sparcEnMovimiento = 0; //Esta variable se prende cuando alguno de los motores se va a mover
+uint8_t sparcEnMovimientoX = 0; //Esta variable se prende cuando los motores X estan en movimiento
+uint8_t sparcEnMovimientoY = 0; //Esta variable se prende cuando los motores Y estan en movimiento
 //extraaa sparcMovY
 uint8_t destinoHomeX = 0;   //Variable que indica que el destino de coord sera HomeX 
 uint8_t destinoHomeY = 0;   //Variable que indica que el destino de coord sera HomeY

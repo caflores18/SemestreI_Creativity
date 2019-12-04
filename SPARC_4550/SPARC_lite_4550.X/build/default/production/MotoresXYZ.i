@@ -5794,7 +5794,8 @@ uint16_t yToAdvance;
 uint16_t CurrentPosY = 0;
 
 
-uint8_t sparcEnMovimiento = 0;
+uint8_t sparcEnMovimientoX = 0;
+uint8_t sparcEnMovimientoY = 0;
 
 uint8_t destinoHomeX = 0;
 uint8_t destinoHomeY = 0;
@@ -5827,7 +5828,7 @@ void apagarZ(void);
 
 
 void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades) {
-    while (sparcEnMovimiento == 1) {
+    while (sparcEnMovimientoY == 1) {
 
     }
 
@@ -5842,20 +5843,20 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
         LATDbits.LATD1 = 1;
     }
     if (coordinates.yWanted != CurrentPosY) {
-        sparcEnMovimiento = 1;
+        sparcEnMovimientoY = 1;
 
         setNumPasosY(yToAdvance);
 
 
-        PWM_DutyCycleCCP1(0);
+
 
         PWM_DutyCycleCCP2(50);
 
-    }
+    }else printf("E,coorAcY\n");
 }
 
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades) {
-    while (sparcEnMovimiento == 1) {
+    while (sparcEnMovimientoX == 1) {
 
     }
 
@@ -5870,16 +5871,16 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
         LATDbits.LATD3 = 1;
     }
     if (coordinates.xWanted != CurrentPosX) {
-        sparcEnMovimiento = 1;
+        sparcEnMovimientoX = 1;
 
         setNumPasosX(xToAdvance);
 
 
-        PWM_DutyCycleCCP2(0);
+
+
 
         PWM_DutyCycleCCP1(50);
-
-    }
+    }else printf("E,coorAcX\n");
 }
 
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
@@ -5887,7 +5888,7 @@ void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, ui
 
     if (coordinates.timesToPress != 0) {
 
-        for (uint8_t toques = 0; toques <coordinates.timesToPress; toques++) {
+        for (uint8_t toques = 0; toques < coordinates.timesToPress; toques++) {
             LATEbits.LATE0 = 1;
             _delay((unsigned long)((100)*(8000000/4000.0)));
             LATEbits.LATE0 = 0;
@@ -5900,8 +5901,7 @@ void moverHomeX(void) {
     destinoHomeX = 1;
 
     LATDbits.LATD3 = 0;
-    sparcEnMovimiento = 1;
-
+    sparcEnMovimientoX = 1;
 
     PWM_DutyCycleCCP1(50);
 
@@ -5911,7 +5911,7 @@ void moverHomeY(void) {
     destinoHomeY = 1;
 
     LATDbits.LATD1 = 0;
-    sparcEnMovimiento = 1;
+    sparcEnMovimientoY = 1;
 
 
     PWM_DutyCycleCCP2(50);
@@ -5922,7 +5922,7 @@ void moverXInfinito() {
 
     LATDbits.LATD3 = 1;
 
-    sparcEnMovimiento = 1;
+    sparcEnMovimientoX = 1;
 
 
     PWM_DutyCycleCCP1(50);
@@ -5932,20 +5932,23 @@ void moverYInfinito() {
 
     LATDbits.LATD1 = 1;
 
-    sparcEnMovimiento = 1;
+    sparcEnMovimientoY = 1;
 
 
     PWM_DutyCycleCCP2(50);
 }
-void moverZArriba(void){
+
+void moverZArriba(void) {
     LATDbits.LATD5 = 1;
     LATDbits.LATD6 = 0;
 }
-void moverZAbajo(void){
+
+void moverZAbajo(void) {
     LATDbits.LATD5 = 0;
     LATDbits.LATD6 = 1;
 }
-void apagarZ(void){
+
+void apagarZ(void) {
     LATDbits.LATD5 = 0;
     LATDbits.LATD6 = 0;
 }

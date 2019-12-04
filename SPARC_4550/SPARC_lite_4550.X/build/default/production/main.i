@@ -5724,27 +5724,24 @@ uint8_t receiveNum(void);
 
 # 1 "./FuncionesMenu.h" 1
 # 12 "./FuncionesMenu.h"
-uint8_t coordXCentenas [10];
-uint8_t coordXDecenas [10];
-uint8_t coordXUnidades[10];
+uint8_t coordXCentenas ;
+uint8_t coordXDecenas ;
+uint8_t coordXUnidades;
 
-uint8_t coordYCentenas [10];
-uint8_t coordYDecenas [10];
-uint8_t coordYUnidades[10];
+uint8_t coordYCentenas;
+uint8_t coordYDecenas;
+uint8_t coordYUnidades;
 
-uint8_t presionarZCentenas [10];
-uint8_t presionarZDecenas [10];
-uint8_t presionarZUnidades[10];
+uint8_t presionarZCentenas;
+uint8_t presionarZDecenas;
+uint8_t presionarZUnidades;
 
 uint8_t coordenadaNueva = 0;
 uint8_t habilitarModCoord = 0;
 
-void introducirCoordNueva(void);
-void imprimirCoordenadas(void);
-void modificarCoordenada(void);
-void borrarTodasCoordenadas(void);
-void iniciarPrograma(void);
-void movimientoLibre(void);
+void moverHaciaXY(void);
+void funcionToques(void);
+void slidePiston(void);
 void impCoordActual(void);
 void modificarZ(void);
 # 6 "main.c" 2
@@ -5791,7 +5788,8 @@ uint16_t yToAdvance;
 uint16_t CurrentPosY = 0;
 
 
-uint8_t sparcEnMovimiento = 0;
+uint8_t sparcEnMovimientoX = 0;
+uint8_t sparcEnMovimientoY = 0;
 
 uint8_t destinoHomeX = 0;
 uint8_t destinoHomeY = 0;
@@ -5868,7 +5866,7 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         }
         CurrentPosY = coordinates.yWanted;
         printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
-        sparcEnMovimiento = 0;
+        sparcEnMovimientoY = 0;
         INTCONbits.TMR0IF = 0;
     }
     if (PIR1bits.TMR1IF == 1) {
@@ -5877,7 +5875,7 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         }
         CurrentPosX = coordinates.xWanted;
         printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
-        sparcEnMovimiento = 0;
+        sparcEnMovimientoX = 0;
         PIR1bits.TMR1IF = 0;
     }
     if (INTCONbits.INT0IF) {
@@ -5897,8 +5895,8 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         PWM_DutyCycleCCP1(0);
         CurrentPosX = 0;
         destinoHomeX = 0;
-
-        sparcEnMovimiento = 0;
+        llegoHomeX = 1;
+        sparcEnMovimientoX = 0;
         INTCON3bits.INT1IF = 0;
     }
     if (INTCON3bits.INT2IF == 1) {
@@ -5909,8 +5907,8 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         PWM_DutyCycleCCP2(0);
         CurrentPosY = 0;
         destinoHomeY = 0;
-
-        sparcEnMovimiento = 0;
+        llegoHomeY = 1;
+        sparcEnMovimientoY = 0;
         INTCON3bits.INT2IF = 0;
     }
 }
@@ -5960,33 +5958,42 @@ void main(void) {
     }
 
     while (1) {
-        if(calibrarSparc == 1){
-            moverHomeX();
-            moverHomeY();
-            calibrarSparc = 0;
-        }
+# 136 "main.c"
+        printf("Ok,comN\n");
         uint8_t opcionsel = receive();
         if (opcionsel == 'm' || opcionsel == 'M') {
             printf("Vas a mover el Sparc en X y Y\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            moverHaciaXY();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'p' || opcionsel == 'P') {
             printf("Presionar Z cierto numero de veces recibidas\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            funcionToques();
+            printf("Ok,comF\n");
         } else if (opcionsel == 's' || opcionsel == 'S') {
             printf("Piston para deslizar o dejar retraido?\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            slidePiston();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'h' || opcionsel == 'H') {
             printf("Vas a ir a homeX y home Y\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
         } else if (opcionsel == 'i' || opcionsel == 'I') {
             printf("Vas a ir infinito X e infinito Y\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
         } else if (opcionsel == 'c' || opcionsel == 'C') {
             printf("Imprmir coordenada actual \n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            impCoordActual();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'b' || opcionsel == 'B') {
             printf("Entraste a mover la base\n");
-            printf("Ok,comV \n");
+            printf("Ok,comV\n");
+            modificarZ();
+            printf("Ok,comF\n");
+        }else{
+            printf("E,com\n");
         }
     }
 }
