@@ -94,8 +94,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5076
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 5076: extern volatile RCSTA1bits_t RCSTA1bits __attribute__((address(0xFAB)));
 [v _RCSTA1bits `VS202 ~T0 @X0 0 e@4011 ]
-"23 ./UART.h
-[; ;./UART.h: 23: void errorUART(void);
+"24 ./UART.h
+[; ;./UART.h: 24: void errorUART(void);
 [v _errorUART `(v ~T0 @X0 0 ef ]
 "4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {

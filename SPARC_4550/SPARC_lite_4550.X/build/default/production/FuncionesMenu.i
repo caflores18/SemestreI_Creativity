@@ -5726,7 +5726,7 @@ uint8_t receiveNum(void);
 # 5 "FuncionesMenu.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 12 "./UART.h"
 void UARTinit(void);
 
 uint8_t receive();
@@ -5840,7 +5840,7 @@ void moverHaciaXY(void) {
         send(coordYCentenas);
         send(coordYDecenas);
         send(coordYUnidades);
-        send('.');
+        send('\n');
 
         moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
         moverHaciaX(coordXCentenas, coordXDecenas, coordXUnidades);

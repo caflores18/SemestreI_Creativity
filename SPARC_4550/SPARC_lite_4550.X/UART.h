@@ -8,6 +8,7 @@
 #define	UART_H
 #include <xc.h>
 #include <stdint.h>
+#define recibirUART     RCSTA1bits.CREN 
 void UARTinit(void);
 //Funcion encargada de inicializar registros y pines encargados de la comunicacion UART
 uint8_t receive(); 

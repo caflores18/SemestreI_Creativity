@@ -5762,7 +5762,7 @@ void setNumPasosY(uint16_t numPasosY);
 # 6 "MotoresXYZ.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 12 "./UART.h"
 void UARTinit(void);
 
 uint8_t receive();
@@ -5834,15 +5834,15 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
 
     coordinates.yWanted = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
     yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5;
-    printf("yToAdvance is:");
-    send(yToAdvance);
-    send('\n');
     if (coordinates.yWanted > CurrentPosY) {
         LATDbits.LATD1 = 0;
     } else if (coordinates.yWanted < CurrentPosY) {
         LATDbits.LATD1 = 1;
     }
     if (coordinates.yWanted != CurrentPosY) {
+        printf("yToAdvance is: ");
+        send(yToAdvance);
+        send('\n');
         sparcEnMovimientoY = 1;
 
         setNumPasosY(yToAdvance);
@@ -5852,7 +5852,7 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
 
         PWM_DutyCycleCCP2(50);
 
-    }else printf("E,coorAcY\n");
+    } else printf("E,coorAcY\n");
 }
 
 void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades) {
@@ -5862,15 +5862,16 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
 
     coordinates.xWanted = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
     xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5;
-    printf("xToAdvance is:");
-    send(xToAdvance);
-    send('\n');
+
     if (coordinates.xWanted > CurrentPosX) {
         LATDbits.LATD3 = 0;
     } else if (coordinates.xWanted < CurrentPosX) {
         LATDbits.LATD3 = 1;
     }
     if (coordinates.xWanted != CurrentPosX) {
+        printf("xToAdvance is: ");
+        send(xToAdvance);
+        send('\n');
         sparcEnMovimientoX = 1;
 
         setNumPasosX(xToAdvance);
@@ -5878,9 +5879,9 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
 
 
 
-
         PWM_DutyCycleCCP1(50);
-    }else printf("E,coorAcX\n");
+
+    } else printf("E,coorAcX\n");
 }
 
 void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {

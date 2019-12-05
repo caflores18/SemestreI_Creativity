@@ -5840,7 +5840,7 @@ void setNumPasosY(uint16_t numPasosY);
 # 13 "main.c" 2
 
 # 1 "./UART.h" 1
-# 11 "./UART.h"
+# 12 "./UART.h"
 void UARTinit(void);
 
 uint8_t receive();
@@ -5979,9 +5979,26 @@ void main(void) {
         } else if (opcionsel == 'h' || opcionsel == 'H') {
             printf("Vas a ir a homeX y home Y\n");
             printf("Ok,comV\n");
+            moverHomeX();
+            moverHomeY();
+            while (!(llegoHomeX && llegoHomeY)) {
+
+            }
+
+            moverHaciaX(0, 0, 5);
+            moverHaciaY(0, 0, 5);
+
+            llegoHomeX = 0;
+            llegoHomeY = 0;
+            CurrentPosX = 0;
+            CurrentPosY = 0;
+            printf("Ok,comF\n");
         } else if (opcionsel == 'i' || opcionsel == 'I') {
             printf("Vas a ir infinito X e infinito Y\n");
             printf("Ok,comV\n");
+            moverXInfinito();
+            moverYInfinito();
+            printf("Ok,comF\n");
         } else if (opcionsel == 'c' || opcionsel == 'C') {
             printf("Imprmir coordenada actual \n");
             printf("Ok,comV\n");
@@ -5992,7 +6009,7 @@ void main(void) {
             printf("Ok,comV\n");
             modificarZ();
             printf("Ok,comF\n");
-        }else{
+        } else {
             printf("E,com\n");
         }
     }

@@ -3,14 +3,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./MotoresXYZ.h: 12: struct SystemaSPARC {
 [s S367 `us 1 `us 1 `us 1 ]
 [n S367 SystemaSPARC xWanted yWanted timesToPress ]
-"17 ./UART.h
-[; ;./UART.h: 17: void printf (uint8_t *PointString);
+"18 ./UART.h
+[; ;./UART.h: 18: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
 "16 ./Comunicacion.h
 [; ;./Comunicacion.h: 16: uint8_t receiveNum(void);
 [v _receiveNum `(uc ~T0 @X0 0 ef ]
-"15 ./UART.h
-[; ;./UART.h: 15: void send(uint8_t enviarpc);
+"16 ./UART.h
+[; ;./UART.h: 16: void send(uint8_t enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
 "34 ./MotoresXYZ.h
 [; ;./MotoresXYZ.h: 34: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
@@ -794,8 +794,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FuncionesMenu.c: 37:         send(coordYUnidades);
 [e ( _send (1 _coordYUnidades ]
 "38
-[; ;FuncionesMenu.c: 38:         send('.');
-[e ( _send (1 -> -> 46 `ui `uc ]
+[; ;FuncionesMenu.c: 38:         send('\n');
+[e ( _send (1 -> -> 10 `ui `uc ]
 "40
 [; ;FuncionesMenu.c: 40:         moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
 [e ( _moverHaciaY (3 , , _coordYCentenas _coordYDecenas _coordYUnidades ]

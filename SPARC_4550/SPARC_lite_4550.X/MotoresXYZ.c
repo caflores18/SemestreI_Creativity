@@ -23,7 +23,7 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
         dirMotorY = 1; //El motor se mueve al otro lado
     }
     if (coordinates.yWanted != CurrentPosY) {
-        printf("yToAdvance is:");
+        printf("yToAdvance is: ");
         send(yToAdvance);
         send('\n');
         sparcEnMovimientoY = 1;
@@ -52,7 +52,7 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
         dirMotorX = 1; //El motor se mueve al otro lado
     }
     if (coordinates.xWanted != CurrentPosX) {
-        printf("xToAdvance is:");
+        printf("xToAdvance is: ");
         send(xToAdvance);
         send('\n');
         sparcEnMovimientoX = 1;

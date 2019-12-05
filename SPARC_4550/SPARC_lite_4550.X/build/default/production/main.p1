@@ -27,8 +27,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./PWMCCP2.h
 [; ;./PWMCCP2.h: 14: void PWM_DutyCycleCCP2(uint8_t WantedDutyCycle);
 [v _PWM_DutyCycleCCP2 `(v ~T0 @X0 0 ef1`uc ]
-"17 ./UART.h
-[; ;./UART.h: 17: void printf (uint8_t *PointString);
+"18 ./UART.h
+[; ;./UART.h: 18: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
 "4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {
@@ -100,8 +100,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./Gpio.h
 [; ;./Gpio.h: 23: void portInit(void);
 [v _portInit `(v ~T0 @X0 0 ef ]
-"11 ./UART.h
-[; ;./UART.h: 11: void UARTinit(void);
+"12 ./UART.h
+[; ;./UART.h: 12: void UARTinit(void);
 [v _UARTinit `(v ~T0 @X0 0 ef ]
 "12 ./PWMCCP2.h
 [; ;./PWMCCP2.h: 12: void PWM_CCP2_init(void);
@@ -136,11 +136,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;./Gpio.h: 26: void pistonInit(void);
 [v _pistonInit `(v ~T0 @X0 0 ef ]
-"13 ./UART.h
-[; ;./UART.h: 13: uint8_t receive();
+"14 ./UART.h
+[; ;./UART.h: 14: uint8_t receive();
 [v _receive `(uc ~T0 @X0 0 e? ]
-"21
-[; ;./UART.h: 21: void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
+"22
+[; ;./UART.h: 22: void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 [v _scanf `(v ~T0 @X0 0 ef2`*uc`uc ]
 "27 ./FuncionesMenu.h
 [; ;./FuncionesMenu.h: 27: void moverHaciaXY(void);
@@ -151,7 +151,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;./FuncionesMenu.h: 29: void slidePiston(void);
 [v _slidePiston `(v ~T0 @X0 0 ef ]
-"30
+"36 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 36: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+[v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"34
+[; ;./MotoresXYZ.h: 34: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+[v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"42
+[; ;./MotoresXYZ.h: 42: void moverXInfinito(void);
+[v _moverXInfinito `(v ~T0 @X0 0 ef ]
+"44
+[; ;./MotoresXYZ.h: 44: void moverYInfinito(void);
+[v _moverYInfinito `(v ~T0 @X0 0 ef ]
+"30 ./FuncionesMenu.h
 [; ;./FuncionesMenu.h: 30: void impCoordActual(void);
 [v _impCoordActual `(v ~T0 @X0 0 ef ]
 "31
@@ -1146,94 +1158,143 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 155:             printf("Ok,comV\n");
 [e ( _printf (1 :s 19C ]
 "156
-[; ;main.c: 156:         } else if (opcionsel == 'i' || opcionsel == 'I') {
-}
-[e $U 395  ]
-[e :U 394 ]
-[e $ ! || == -> _opcionsel `ui -> 105 `ui == -> _opcionsel `ui -> 73 `ui 396  ]
-{
+[; ;main.c: 156:             moverHomeX();
+[e ( _moverHomeX ..  ]
 "157
-[; ;main.c: 157:             printf("Vas a ir infinito X e infinito Y\n");
-[e ( _printf (1 :s 20C ]
+[; ;main.c: 157:             moverHomeY();
+[e ( _moverHomeY ..  ]
 "158
-[; ;main.c: 158:             printf("Ok,comV\n");
-[e ( _printf (1 :s 21C ]
-"159
-[; ;main.c: 159:         } else if (opcionsel == 'c' || opcionsel == 'C') {
-}
-[e $U 397  ]
+[; ;main.c: 158:             while (!(llegoHomeX && llegoHomeY)) {
+[e $U 395  ]
 [e :U 396 ]
-[e $ ! || == -> _opcionsel `ui -> 99 `ui == -> _opcionsel `ui -> 67 `ui 398  ]
 {
 "160
-[; ;main.c: 160:             printf("Imprmir coordenada actual \n");
-[e ( _printf (1 :s 22C ]
-"161
-[; ;main.c: 161:             printf("Ok,comV\n");
-[e ( _printf (1 :s 23C ]
-"162
-[; ;main.c: 162:             impCoordActual();
-[e ( _impCoordActual ..  ]
-"163
-[; ;main.c: 163:             printf("Ok,comF\n");
-[e ( _printf (1 :s 24C ]
-"164
-[; ;main.c: 164:         } else if (opcionsel == 'b' || opcionsel == 'B') {
+[; ;main.c: 160:             }
 }
-[e $U 399  ]
-[e :U 398 ]
-[e $ ! || == -> _opcionsel `ui -> 98 `ui == -> _opcionsel `ui -> 66 `ui 400  ]
-{
-"165
-[; ;main.c: 165:             printf("Entraste a mover la base\n");
-[e ( _printf (1 :s 25C ]
-"166
-[; ;main.c: 166:             printf("Ok,comV\n");
-[e ( _printf (1 :s 26C ]
-"167
-[; ;main.c: 167:             modificarZ();
-[e ( _modificarZ ..  ]
-"168
-[; ;main.c: 168:             printf("Ok,comF\n");
-[e ( _printf (1 :s 27C ]
-"169
-[; ;main.c: 169:         }else{
-}
-[e $U 401  ]
-[e :U 400 ]
-{
-"170
-[; ;main.c: 170:             printf("E,com\n");
-[e ( _printf (1 :s 28C ]
-"171
-[; ;main.c: 171:         }
-}
-[e :U 401 ]
-[e :U 399 ]
-[e :U 397 ]
 [e :U 395 ]
+"158
+[; ;main.c: 158:             while (!(llegoHomeX && llegoHomeY)) {
+[e $ ! && != -> _llegoHomeX `i -> 0 `i != -> _llegoHomeY `i -> 0 `i 396  ]
+[e :U 397 ]
+"162
+[; ;main.c: 162:             moverHaciaX(0, 0, 5);
+[e ( _moverHaciaX (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 5 `i `uc ]
+"163
+[; ;main.c: 163:             moverHaciaY(0, 0, 5);
+[e ( _moverHaciaY (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 5 `i `uc ]
+"165
+[; ;main.c: 165:             llegoHomeX = 0;
+[e = _llegoHomeX -> -> 0 `i `uc ]
+"166
+[; ;main.c: 166:             llegoHomeY = 0;
+[e = _llegoHomeY -> -> 0 `i `uc ]
+"167
+[; ;main.c: 167:             CurrentPosX = 0;
+[e = _CurrentPosX -> -> 0 `i `us ]
+"168
+[; ;main.c: 168:             CurrentPosY = 0;
+[e = _CurrentPosY -> -> 0 `i `us ]
+"169
+[; ;main.c: 169:             printf("Ok,comF\n");
+[e ( _printf (1 :s 20C ]
+"170
+[; ;main.c: 170:         } else if (opcionsel == 'i' || opcionsel == 'I') {
+}
+[e $U 398  ]
+[e :U 394 ]
+[e $ ! || == -> _opcionsel `ui -> 105 `ui == -> _opcionsel `ui -> 73 `ui 399  ]
+{
+"171
+[; ;main.c: 171:             printf("Vas a ir infinito X e infinito Y\n");
+[e ( _printf (1 :s 21C ]
+"172
+[; ;main.c: 172:             printf("Ok,comV\n");
+[e ( _printf (1 :s 22C ]
+"173
+[; ;main.c: 173:             moverXInfinito();
+[e ( _moverXInfinito ..  ]
+"174
+[; ;main.c: 174:             moverYInfinito();
+[e ( _moverYInfinito ..  ]
+"175
+[; ;main.c: 175:             printf("Ok,comF\n");
+[e ( _printf (1 :s 23C ]
+"176
+[; ;main.c: 176:         } else if (opcionsel == 'c' || opcionsel == 'C') {
+}
+[e $U 400  ]
+[e :U 399 ]
+[e $ ! || == -> _opcionsel `ui -> 99 `ui == -> _opcionsel `ui -> 67 `ui 401  ]
+{
+"177
+[; ;main.c: 177:             printf("Imprmir coordenada actual \n");
+[e ( _printf (1 :s 24C ]
+"178
+[; ;main.c: 178:             printf("Ok,comV\n");
+[e ( _printf (1 :s 25C ]
+"179
+[; ;main.c: 179:             impCoordActual();
+[e ( _impCoordActual ..  ]
+"180
+[; ;main.c: 180:             printf("Ok,comF\n");
+[e ( _printf (1 :s 26C ]
+"181
+[; ;main.c: 181:         } else if (opcionsel == 'b' || opcionsel == 'B') {
+}
+[e $U 402  ]
+[e :U 401 ]
+[e $ ! || == -> _opcionsel `ui -> 98 `ui == -> _opcionsel `ui -> 66 `ui 403  ]
+{
+"182
+[; ;main.c: 182:             printf("Entraste a mover la base\n");
+[e ( _printf (1 :s 27C ]
+"183
+[; ;main.c: 183:             printf("Ok,comV\n");
+[e ( _printf (1 :s 28C ]
+"184
+[; ;main.c: 184:             modificarZ();
+[e ( _modificarZ ..  ]
+"185
+[; ;main.c: 185:             printf("Ok,comF\n");
+[e ( _printf (1 :s 29C ]
+"186
+[; ;main.c: 186:         } else {
+}
+[e $U 404  ]
+[e :U 403 ]
+{
+"187
+[; ;main.c: 187:             printf("E,com\n");
+[e ( _printf (1 :s 30C ]
+"188
+[; ;main.c: 188:         }
+}
+[e :U 404 ]
+[e :U 402 ]
+[e :U 400 ]
+[e :U 398 ]
 [e :U 393 ]
 [e :U 391 ]
 [e :U 389 ]
-"172
-[; ;main.c: 172:     }
+"189
+[; ;main.c: 189:     }
 }
 [e :U 385 ]
 [e $U 386  ]
 [e :U 387 ]
-"173
-[; ;main.c: 173: }
+"190
+[; ;main.c: 190: }
 [e :UE 380 ]
 }
 [a 3C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 51 69 115 113 117 105 110 97 115 10 0 ]
 [a 12C 80 114 101 115 105 111 110 97 114 32 90 32 99 105 101 114 116 111 32 110 117 109 101 114 111 32 100 101 32 118 101 99 101 115 32 114 101 99 105 98 105 100 97 115 10 0 ]
-[a 28C 69 44 99 111 109 10 0 ]
+[a 30C 69 44 99 111 109 10 0 ]
 [a 7C 73 110 105 116 105 97 108 105 122 105 110 103 10 0 ]
-[a 25C 69 110 116 114 97 115 116 101 32 97 32 109 111 118 101 114 32 108 97 32 98 97 115 101 10 0 ]
+[a 27C 69 110 116 114 97 115 116 101 32 97 32 109 111 118 101 114 32 108 97 32 98 97 115 101 10 0 ]
 [a 6C 69 115 99 114 105 98 101 32 105 110 105 116 32 112 97 114 97 32 99 97 108 105 98 97 114 32 101 108 32 83 80 65 82 67 32 121 32 112 111 100 101 114 32 101 109 112 101 122 97 114 32 101 108 32 112 114 111 103 114 97 109 97 10 0 ]
 [a 5C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 72 111 109 101 89 10 0 ]
 [a 9C 86 97 115 32 97 32 109 111 118 101 114 32 101 108 32 83 112 97 114 99 32 101 110 32 88 32 121 32 89 10 0 ]
-[a 20C 86 97 115 32 97 32 105 114 32 105 110 102 105 110 105 116 111 32 88 32 101 32 105 110 102 105 110 105 116 111 32 89 10 0 ]
+[a 21C 86 97 115 32 97 32 105 114 32 105 110 102 105 110 105 116 111 32 88 32 101 32 105 110 102 105 110 105 116 111 32 89 10 0 ]
 [a 18C 86 97 115 32 97 32 105 114 32 97 32 104 111 109 101 88 32 121 32 104 111 109 101 32 89 10 0 ]
 [a 1C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 48 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 32 89 10 0 ]
 [a 4C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 72 111 109 101 88 10 0 ]
@@ -1242,14 +1303,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 13C 79 107 44 99 111 109 86 10 0 ]
 [a 16C 79 107 44 99 111 109 86 10 0 ]
 [a 19C 79 107 44 99 111 109 86 10 0 ]
-[a 21C 79 107 44 99 111 109 86 10 0 ]
-[a 23C 79 107 44 99 111 109 86 10 0 ]
-[a 26C 79 107 44 99 111 109 86 10 0 ]
+[a 22C 79 107 44 99 111 109 86 10 0 ]
+[a 25C 79 107 44 99 111 109 86 10 0 ]
+[a 28C 79 107 44 99 111 109 86 10 0 ]
 [a 8C 79 107 44 99 111 109 78 10 0 ]
 [a 11C 79 107 44 99 111 109 70 10 0 ]
 [a 14C 79 107 44 99 111 109 70 10 0 ]
 [a 17C 79 107 44 99 111 109 70 10 0 ]
-[a 24C 79 107 44 99 111 109 70 10 0 ]
-[a 27C 79 107 44 99 111 109 70 10 0 ]
+[a 20C 79 107 44 99 111 109 70 10 0 ]
+[a 23C 79 107 44 99 111 109 70 10 0 ]
+[a 26C 79 107 44 99 111 109 70 10 0 ]
+[a 29C 79 107 44 99 111 109 70 10 0 ]
 [a 15C 80 105 115 116 111 110 32 112 97 114 97 32 100 101 115 108 105 122 97 114 32 111 32 100 101 106 97 114 32 114 101 116 114 97 105 100 111 63 10 0 ]
-[a 22C 73 109 112 114 109 105 114 32 99 111 111 114 100 101 110 97 100 97 32 97 99 116 117 97 108 32 10 0 ]
+[a 24C 73 109 112 114 109 105 114 32 99 111 111 114 100 101 110 97 100 97 32 97 99 116 117 97 108 32 10 0 ]

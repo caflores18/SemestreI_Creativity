@@ -35,7 +35,7 @@ void moverHaciaXY(void) {
         send(coordYCentenas);
         send(coordYDecenas);
         send(coordYUnidades);
-        send('.');
+        send('\n');
         //Parte de arriba se puede borrar
         moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
         moverHaciaX(coordXCentenas, coordXDecenas, coordXUnidades);

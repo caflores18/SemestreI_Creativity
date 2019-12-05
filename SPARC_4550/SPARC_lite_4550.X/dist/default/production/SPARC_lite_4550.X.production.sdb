@@ -83,17 +83,23 @@
 [v _moverHaciaY moverHaciaY `(v  1 e 1 0 ]
 "41
 [v _moverHaciaX moverHaciaX `(v  1 e 1 0 ]
-"69
+"70
 [v _presionarPantalla presionarPantalla `(v  1 e 1 0 ]
-"83
+"84
 [v _moverHomeX moverHomeX `(v  1 e 1 0 ]
-"93
+[v i2_moverHomeX moverHomeX `(v  1 e 1 0 ]
+"94
 [v _moverHomeY moverHomeY `(v  1 e 1 0 ]
-"124
+[v i2_moverHomeY moverHomeY `(v  1 e 1 0 ]
+"105
+[v _moverXInfinito moverXInfinito `(v  1 e 1 0 ]
+"115
+[v _moverYInfinito moverYInfinito `(v  1 e 1 0 ]
+"125
 [v _moverZArriba moverZArriba `(v  1 e 1 0 ]
-"129
+"130
 [v _moverZAbajo moverZAbajo `(v  1 e 1 0 ]
-"134
+"135
 [v _apagarZ apagarZ `(v  1 e 1 0 ]
 "5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\PWMCCP1.c
 [v _PWM_CCP1_init PWM_CCP1_init `(v  1 e 1 0 ]
@@ -843,7 +849,7 @@
 [v main@calibrarSparc calibrarSparc `uc  1 a 1 100 ]
 "103
 [v main@tamanoarray tamanoarray `uc  1 a 1 91 ]
-"173
+"190
 } 0
 "7 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\Timers.c
 [v _tmr1Init tmr1Init `(v  1 e 1 0 ]
@@ -888,6 +894,26 @@
 [v _pistonInit pistonInit `(v  1 e 1 0 ]
 {
 "51
+} 0
+"115 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
+[v _moverYInfinito moverYInfinito `(v  1 e 1 0 ]
+{
+"123
+} 0
+"105
+[v _moverXInfinito moverXInfinito `(v  1 e 1 0 ]
+{
+"113
+} 0
+"94
+[v _moverHomeY moverHomeY `(v  1 e 1 0 ]
+{
+"103
+} 0
+"84
+[v _moverHomeX moverHomeX `(v  1 e 1 0 ]
+{
+"92
 } 0
 "11 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\FuncionesMenu.c
 [v _moverHaciaXY moverHaciaXY `(v  1 e 1 0 ]
@@ -937,7 +963,7 @@
 [v moverHaciaX@coordXDecenas coordXDecenas `uc  1 p 1 80 ]
 [v moverHaciaX@coordXUnidades coordXUnidades `uc  1 p 1 81 ]
 [v moverHaciaX@coordXCentenas coordXCentenas `uc  1 a 1 84 ]
-"67
+"68
 } 0
 "31 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\Timers.c
 [v _setNumPasosX setNumPasosX `(v  1 e 1 0 ]
@@ -998,20 +1024,20 @@
 [v modificarZ@OkEncendido OkEncendido `uc  1 a 1 9 ]
 "106
 } 0
-"124 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
+"125 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
 [v _moverZArriba moverZArriba `(v  1 e 1 0 ]
 {
-"127
+"128
 } 0
-"129
+"130
 [v _moverZAbajo moverZAbajo `(v  1 e 1 0 ]
 {
-"132
+"133
 } 0
-"134
+"135
 [v _apagarZ apagarZ `(v  1 e 1 0 ]
 {
-"137
+"138
 } 0
 "5 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\Interrupciones.c
 [v _interruptsEnable interruptsEnable `(v  1 e 1 0 ]
@@ -1061,17 +1087,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2476 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2484 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2481 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2484 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2476 1 fAsBytes 4 0 `S2481 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2484  1 a 4 39 ]
+[s S2489 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2492 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2484 1 fAsBytes 4 0 `S2489 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2492  1 a 4 39 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 33 ]
-[s S2552 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2560 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2555 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2552 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2555  1 a 2 43 ]
+[u S2563 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2560 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2563  1 a 2 43 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 38 ]
 "11
@@ -1145,18 +1171,18 @@
 [v errorUART@temp temp `uc  1 a 1 1 ]
 "63
 } 0
-"69 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
+"70 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
 [v _presionarPantalla presionarPantalla `(v  1 e 1 0 ]
 {
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 wreg ]
-"74
+"75
 [v presionarPantalla@toques toques `uc  1 a 1 6 ]
-"69
+"70
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 wreg ]
 [v presionarPantalla@presionarZDecenas presionarZDecenas `uc  1 p 1 1 ]
 [v presionarPantalla@presionarZUnidades presionarZUnidades `uc  1 p 1 2 ]
 [v presionarPantalla@presionarZCentenas presionarZCentenas `uc  1 a 1 5 ]
-"81
+"82
 } 0
 "6 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\UART.c
 [v _UARTinit UARTinit `(v  1 e 1 0 ]
@@ -1204,10 +1230,10 @@
 [v i2errorUART@temp errorUART `uc  1 a 1 0 ]
 "63
 } 0
-"93 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
-[v _moverHomeY moverHomeY `(v  1 e 1 0 ]
+"94 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
+[v i2_moverHomeY moverHomeY `(v  1 e 1 0 ]
 {
-"102
+"103
 } 0
 "16 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\PWMCCP2.c
 [v i2_PWM_DutyCycleCCP2 PWM_DutyCycleCCP2 `(v  1 e 1 0 ]
@@ -1219,10 +1245,10 @@
 [v i2PWM_DutyCycleCCP2@WantedDutyCycle WantedDutyCycle `uc  1 a 1 55 ]
 "24
 } 0
-"83 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
-[v _moverHomeX moverHomeX `(v  1 e 1 0 ]
+"84 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
+[v i2_moverHomeX moverHomeX `(v  1 e 1 0 ]
 {
-"91
+"92
 } 0
 "17 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\PWMCCP1.c
 [v i2_PWM_DutyCycleCCP1 PWM_DutyCycleCCP1 `(v  1 e 1 0 ]
@@ -1257,14 +1283,14 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v i2___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2476 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-[s S2481 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2484 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2476 1 fAsBytes 4 0 `S2481 1 fAsWords 4 0 ]
-[v i2___flmul@prod __flmul `S2484  1 a 4 33 ]
+[s S2484 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2489 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2492 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2484 1 fAsBytes 4 0 `S2489 1 fAsWords 4 0 ]
+[v i2___flmul@prod __flmul `S2492  1 a 4 33 ]
 [v i2___flmul@grs __flmul `ul  1 a 4 27 ]
-[s S2552 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-[u S2555 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2552 1 nAsBytes 2 0 ]
-[v i2___flmul@temp __flmul `S2555  1 a 2 37 ]
+[s S2560 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[u S2563 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2560 1 nAsBytes 2 0 ]
+[v i2___flmul@temp __flmul `S2563  1 a 2 37 ]
 [v i2___flmul@bexp __flmul `uc  1 a 1 32 ]
 [v i2___flmul@aexp __flmul `uc  1 a 1 31 ]
 [v i2___flmul@sign __flmul `uc  1 a 1 26 ]

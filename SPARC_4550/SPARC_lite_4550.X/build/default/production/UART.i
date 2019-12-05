@@ -5708,6 +5708,7 @@ typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
 # 10 "./UART.h" 2
 
+
 void UARTinit(void);
 
 uint8_t receive();
