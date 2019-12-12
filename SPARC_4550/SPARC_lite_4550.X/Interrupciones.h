@@ -8,6 +8,7 @@
 #ifndef INTERRUPCIONES_H
 #define	INTERRUPCIONES_H
 #include <xc.h>
+#define sistemaInt                         INTCONbits.GIE          //Se define al bit que enciende las interrupcioens
 #define intLimitSwitch3Esquinas            INTCONbits.INT0IF       //Se define al bit de la int externa INT0
 #define intLimitSwitchHomeX                INTCON3bits.INT2IF      //Se define al bit de la int externa INT1
 #define intLimitSwitchHomeY                INTCON3bits.INT1IF      //Se define al bit de la int externa INT2
@@ -19,5 +20,6 @@ void interruptsDisable(void);   //Deshabilita interrupciones
 void habilitarIntExternas(void); //Habilita Interripciones Extermas
 void habilitarIntTMR0(void);  //Habilita Timer 0
 void habilitarIntTMR1(void);  //Habilita Timer 1
+void limpiarIntExtF(void);
 #endif	/* INTERRUPCIONES_H */
 

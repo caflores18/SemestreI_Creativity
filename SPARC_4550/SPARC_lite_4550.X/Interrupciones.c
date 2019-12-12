@@ -42,3 +42,9 @@ void habilitarIntTMR0(void) {
 void habilitarIntTMR1(void) {
     PIE1bits.TMR1IE = 1; //Enciende interrupcion del TMR1
 }
+
+void limpiarIntExtF(void) {
+    INTCONbits.INT0IF = 0;  //Se limpia bit de la bandera de int externa INT0
+    INTCON3bits.INT2IF = 0; //Se limpia bit de la bandera de int externa INT2
+    INTCON3bits.INT1IF = 0; //Se limpia bit de la bandera de int externa INT1
+}

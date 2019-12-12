@@ -85,7 +85,6 @@ void main(void) {
     // -------------------Inicializacion de funciones --------------------------
     portInit(); //Inicializa todos los pines como digitales hasta que entra el ADC
     UARTinit(); //Inicializa lo necesario para poder comunicarce por UART  
-    //    ledsInit(); //Inicializa los LEDS para que se puedan encender
     PWM_CCP2_init(); //Se va a usar CCP2 para mover el motor X
     PWM_CCP1_init(); //Se va a usar CCP1 para mover el motor Y
     PWM_DutyCycleCCP2(0); //Se inicia el PWM del motor X en 0
@@ -151,11 +150,6 @@ void main(void) {
             CurrentPosX = 0; //Se actualiza la posicion actual de X y Y a 0
             CurrentPosY = 0;
             OcurrioIntEsq = 0;
-            //limitSEnable = 0;
-            //INTCONbits.INT0IE = 0;
-            //INTCONbits.GIE = 0;
-            //INTCONbits.INT0IF = 0; 
-
         }
         printf("Ok,comN\n");
         uint8_t opcionsel = receive();
@@ -166,23 +160,19 @@ void main(void) {
         } else if (opcionsel == 'p' || opcionsel == 'P') {
             printf("Presionar Z cierto numero de veces recibidas\n");
             printf("Ok,comV\n");
-            INTCONbits.GIE = 0;
+            sistemaInt = 0;
             funcionToques();
             __delay_ms(250); //Delay de 100ms para volver a activar INT0
-            INTCONbits.INT0IF = 0; //Se define al bit de la int externa INT0
-            INTCON3bits.INT2IF = 0; //Se define al bit de la int externa INT1
-            INTCON3bits.INT1IF = 0;
-            INTCONbits.GIE = 1;
+            limpiarIntExtF();
+            sistemaInt = 1;
         } else if (opcionsel == 's' || opcionsel == 'S') {
             printf("Piston para deslizar o dejar retraido?\n");
             printf("Ok,comV\n");
-            INTCONbits.GIE = 0;
+            sistemaInt = 0;
             slidePiston();
             __delay_ms(250); //Delay de 100ms para volver a activar INT0
-            INTCONbits.INT0IF = 0; //Se define al bit de la int externa INT0
-            INTCON3bits.INT2IF = 0; //Se define al bit de la int externa INT1
-            INTCON3bits.INT1IF = 0;
-            INTCONbits.GIE = 1;
+            limpiarIntExtF();
+            sistemaInt = 1;
 
         } else if (opcionsel == 'h' || opcionsel == 'H') {
             printf("Vas a ir a homeX y home Y\n");
@@ -223,9 +213,4 @@ void main(void) {
         }
     }
 }
-//Corregir motores XY el mensaje que envia si la coordenada es la misma no deberia pasar
 //SPARC_Lite
-//Arael subir eje z mientras se presiona o no
-//Delay para esperar comando ya valio queso 
-//Checar si ponog dentro lo de las interrupciones de arriba
-//Checar giro de los motores

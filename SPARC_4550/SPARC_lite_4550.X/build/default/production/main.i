@@ -5754,12 +5754,13 @@ void motoresZinit(void);
 # 7 "main.c" 2
 
 # 1 "./Interrupciones.h" 1
-# 17 "./Interrupciones.h"
+# 18 "./Interrupciones.h"
 void interruptsEnable(void);
 void interruptsDisable(void);
 void habilitarIntExternas(void);
 void habilitarIntTMR0(void);
 void habilitarIntTMR1(void);
+void limpiarIntExtF(void);
 # 8 "main.c" 2
 
 # 1 "./Leds.h" 1
@@ -5927,7 +5928,6 @@ void main(void) {
 
     portInit();
     UARTinit();
-
     PWM_CCP2_init();
     PWM_CCP1_init();
     PWM_DutyCycleCCP2(0);
@@ -5993,11 +5993,6 @@ void main(void) {
             CurrentPosX = 0;
             CurrentPosY = 0;
             OcurrioIntEsq = 0;
-
-
-
-
-
         }
         printf("Ok,comN\n");
         uint8_t opcionsel = receive();
@@ -6011,9 +6006,7 @@ void main(void) {
             INTCONbits.GIE = 0;
             funcionToques();
             _delay((unsigned long)((250)*(8000000/4000.0)));
-            INTCONbits.INT0IF = 0;
-            INTCON3bits.INT2IF = 0;
-            INTCON3bits.INT1IF = 0;
+            limpiarIntExtF();
             INTCONbits.GIE = 1;
         } else if (opcionsel == 's' || opcionsel == 'S') {
             printf("Piston para deslizar o dejar retraido?\n");
@@ -6021,9 +6014,7 @@ void main(void) {
             INTCONbits.GIE = 0;
             slidePiston();
             _delay((unsigned long)((250)*(8000000/4000.0)));
-            INTCONbits.INT0IF = 0;
-            INTCON3bits.INT2IF = 0;
-            INTCON3bits.INT1IF = 0;
+            limpiarIntExtF();
             INTCONbits.GIE = 1;
 
         } else if (opcionsel == 'h' || opcionsel == 'H') {
