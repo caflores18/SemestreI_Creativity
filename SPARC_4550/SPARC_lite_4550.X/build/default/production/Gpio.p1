@@ -141,6 +141,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4245
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4245: extern volatile TRISEbits_t TRISEbits __attribute__((address(0xF96)));
 [v _TRISEbits `VS165 ~T0 @X0 0 e@3990 ]
+"3381
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3381:     struct {
+[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S139 . LATE0 LATE1 LATE2 ]
+"3386
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3386:     struct {
+[s S140 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S140 . LE0 LE1 LE2 ]
+"3380
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3380: typedef union {
+[u S138 `S139 1 `S140 1 ]
+[n S138 . . . ]
+"3392
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3392: extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
+[v _LATEbits `VS138 ~T0 @X0 0 e@3981 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -673,7 +688,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Gpio.c: 13:     TRISCbits.RC2 = 0;
 [e = . . _ADCON1bits 0 0 -> -> 255 `i `uc ]
 "14
-[; ;Gpio.c: 14:     LATDbits.LATD2 = 0;
+[; ;Gpio.c: 14:     LATDbits.LATD2 = 1;
 [e = _OSCCON -> -> 112 `i `uc ]
 "15
 [; ;Gpio.c: 15:     LATDbits.LATD3 = 0;
@@ -701,8 +716,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Gpio.c: 23:     TRISCbits.RC1 = 0;
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
 "24
-[; ;Gpio.c: 24:     LATDbits.LATD0 = 0;
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+[; ;Gpio.c: 24:     LATDbits.LATD0 = 1;
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
 "25
 [; ;Gpio.c: 25:     LATDbits.LATD1 = 0;
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
@@ -723,54 +738,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Gpio.c: 31:     TRISDbits.RD6 = 0;
 [e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
 "32
-[; ;Gpio.c: 32:     TRISAbits.RA5 = 1;
+[; ;Gpio.c: 32:     TRISDbits.RD4 = 0;
 [e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
 "33
-[; ;Gpio.c: 33:     LATDbits.LATD5 = 0;
+[; ;Gpio.c: 33:     TRISAbits.RA5 = 1;
 [e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
 "34
-[; ;Gpio.c: 34:     LATDbits.LATD5 = 0;
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;Gpio.c: 34:     LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 "35
 [; ;Gpio.c: 35:     LATDbits.LATD5 = 0;
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
 "36
-[; ;Gpio.c: 36: }
+[; ;Gpio.c: 36:     LATDbits.LATD6 = 0;
 [e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
 "37
-[; ;Gpio.c: 37: void pistonInit(void){
+[; ;Gpio.c: 37: }
 [e :UE 369 ]
 }
 "38
-[; ;Gpio.c: 38: 
+[; ;Gpio.c: 38: void pistonInit(void){
 [v _motoresZinit `(v ~T0 @X0 1 ef ]
 {
 [e :U _motoresZinit ]
 [f ]
 "40
-[; ;Gpio.c: 40: 
+[; ;Gpio.c: 40:     TRISEbits.RE0 = 0;
 [e = . . _TRISDbits 1 5 -> -> 0 `i `uc ]
 "41
-[; ;Gpio.c: 41: }
+[; ;Gpio.c: 41:     LATEbits.LATE0 = 0;
 [e = . . _TRISDbits 1 6 -> -> 0 `i `uc ]
 "42
-[e = . . _TRISAbits 1 5 -> -> 1 `i `uc ]
+[; ;Gpio.c: 42: }
+[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
 "43
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[e = . . _TRISAbits 1 5 -> -> 1 `i `uc ]
 "44
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 "45
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 "46
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+"47
 [e :UE 370 ]
 }
-"47
+"48
 [v _pistonInit `(v ~T0 @X0 1 ef ]
 {
 [e :U _pistonInit ]
 [f ]
-"49
+"50
 [e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
 "51
+[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
+"52
 [e :UE 371 ]
 }

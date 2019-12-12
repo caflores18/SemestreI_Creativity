@@ -5712,8 +5712,6 @@ void printf (uint8_t *PointString);
 
 
 void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
-
-uint8_t receiveNum(void);
 # 3 "Comunicacion.c" 2
 
 # 1 "./UART.h" 1
@@ -5751,22 +5749,4 @@ void scanf(uint8_t *guardarscan, uint8_t numcaracteres) {
 
         guardarscan[i] = receive();
     }
-}
-
-uint8_t receiveNum(void) {
-    errorUART();
-    uint8_t recibido = 0;
-    while (recibido > 57 || recibido < 48) {
-
-        while (PIR1bits.RCIF == 0) {
-
-        }
-        recibido = RCREG1;
-        RCREG1 = 0;
-        if (recibido > 57 || recibido < 48) {
-
-            printf("Solo puedes introducir numeros, prueba de nuevo");
-        }
-    }
-    return recibido;
 }

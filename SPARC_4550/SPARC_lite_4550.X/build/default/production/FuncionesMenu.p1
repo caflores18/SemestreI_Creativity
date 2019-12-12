@@ -6,18 +6,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18 ./UART.h
 [; ;./UART.h: 18: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
-"16 ./Comunicacion.h
-[; ;./Comunicacion.h: 16: uint8_t receiveNum(void);
-[v _receiveNum `(uc ~T0 @X0 0 ef ]
-"16 ./UART.h
+"14
+[; ;./UART.h: 14: uint8_t receive();
+[v _receive `(uc ~T0 @X0 0 e? ]
+"16
 [; ;./UART.h: 16: void send(uint8_t enviarpc);
 [v _send `(v ~T0 @X0 0 ef1`uc ]
-"34 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 34: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
-[v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"36
+"36 ./MotoresXYZ.h
 [; ;./MotoresXYZ.h: 36: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
 [v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"34
+[; ;./MotoresXYZ.h: 34: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+[v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "46
 [; ;./MotoresXYZ.h: 46: void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades);
 [v _presionarPantalla `(v ~T0 @X0 0 ef3`uc`uc`uc ]
@@ -36,6 +36,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3392
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3392: extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
 [v _LATEbits `VS138 ~T0 @X0 0 e@3981 ]
+"3269
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
+[s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S136 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"3279
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3279:     struct {
+[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S137 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"3268
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3268: typedef union {
+[u S135 `S136 1 `S137 1 ]
+[n S135 . . . ]
+"3290
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
+[v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
 "2320
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2320:     struct {
 [s S101 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -716,37 +731,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _moverHaciaXY ]
 [f ]
 "12
-[; ;FuncionesMenu.c: 12:     uint16_t validarCoordX = 0;
+[; ;FuncionesMenu.c: 12:     uint8_t charNoNumerico = 0;
+[v _charNoNumerico `uc ~T0 @X0 1 a ]
+[e = _charNoNumerico -> -> 0 `i `uc ]
+"13
+[; ;FuncionesMenu.c: 13:     uint16_t validarCoordX = 0;
 [v _validarCoordX `us ~T0 @X0 1 a ]
 [e = _validarCoordX -> -> 0 `i `us ]
-"13
-[; ;FuncionesMenu.c: 13:     uint16_t validarCoordY = 0;
+"14
+[; ;FuncionesMenu.c: 14:     uint16_t validarCoordY = 0;
 [v _validarCoordY `us ~T0 @X0 1 a ]
 [e = _validarCoordY -> -> 0 `i `us ]
 "15
 [; ;FuncionesMenu.c: 15:     printf("X:\n");
 [e ( _printf (1 :s 1C ]
 "16
-[; ;FuncionesMenu.c: 16:     coordXCentenas = receiveNum();
-[e = _coordXCentenas ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 16:     coordXCentenas = receive();
+[e = _coordXCentenas ( _receive ..  ]
 "17
-[; ;FuncionesMenu.c: 17:     coordXDecenas = receiveNum();
-[e = _coordXDecenas ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 17:     coordXDecenas = receive();
+[e = _coordXDecenas ( _receive ..  ]
 "18
-[; ;FuncionesMenu.c: 18:     coordXUnidades = receiveNum();
-[e = _coordXUnidades ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 18:     coordXUnidades = receive();
+[e = _coordXUnidades ( _receive ..  ]
 "19
 [; ;FuncionesMenu.c: 19:     printf("Y:\n");
 [e ( _printf (1 :s 2C ]
 "20
-[; ;FuncionesMenu.c: 20:     coordYCentenas = receiveNum();
-[e = _coordYCentenas ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 20:     coordYCentenas = receive();
+[e = _coordYCentenas ( _receive ..  ]
 "21
-[; ;FuncionesMenu.c: 21:     coordYDecenas = receiveNum();
-[e = _coordYDecenas ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 21:     coordYDecenas = receive();
+[e = _coordYDecenas ( _receive ..  ]
 "22
-[; ;FuncionesMenu.c: 22:     coordYUnidades = receiveNum();
-[e = _coordYUnidades ( _receiveNum ..  ]
+[; ;FuncionesMenu.c: 22:     coordYUnidades = receive();
+[e = _coordYUnidades ( _receive ..  ]
 "23
 [; ;FuncionesMenu.c: 23:     validarCoordX = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
 [e = _validarCoordX -> + + * - -> _coordXCentenas `i -> 48 `i -> 100 `i * - -> _coordXDecenas `i -> 48 `i -> 10 `i - -> _coordXUnidades `i -> 48 `i `us ]
@@ -754,302 +773,455 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FuncionesMenu.c: 24:     validarCoordY = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
 [e = _validarCoordY -> + + * - -> _coordYCentenas `i -> 48 `i -> 100 `i * - -> _coordYDecenas `i -> 48 `i -> 10 `i - -> _coordYUnidades `i -> 48 `i `us ]
 "25
-[; ;FuncionesMenu.c: 25:     if ((validarCoordX > 300) || (validarCoordY > 300)) {
-[e $ ! || > -> _validarCoordX `ui -> -> 300 `i `ui > -> _validarCoordY `ui -> -> 300 `i `ui 369  ]
+[; ;FuncionesMenu.c: 25:     if (coordXCentenas > 57 || coordXCentenas < 48) {
+[e $ ! || > -> _coordXCentenas `i -> 57 `i < -> _coordXCentenas `i -> 48 `i 369  ]
 {
-"26
-[; ;FuncionesMenu.c: 26:         printf("Metiste una coordenada invalida, vuelve a intentar\n");
-[e ( _printf (1 :s 3C ]
 "27
-[; ;FuncionesMenu.c: 27:         printf("E,cNoV\n");
-[e ( _printf (1 :s 4C ]
-"29
-[; ;FuncionesMenu.c: 29:     } else {
+[; ;FuncionesMenu.c: 27:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"28
+[; ;FuncionesMenu.c: 28:     }
 }
-[e $U 370  ]
 [e :U 369 ]
+"29
+[; ;FuncionesMenu.c: 29:     if (coordXDecenas > 57 || coordXDecenas < 48) {
+[e $ ! || > -> _coordXDecenas `i -> 57 `i < -> _coordXDecenas `i -> 48 `i 370  ]
 {
-"30
-[; ;FuncionesMenu.c: 30:         printf("Coordenada recibida, lo que recibimos fue:");
-[e ( _printf (1 :s 5C ]
 "31
-[; ;FuncionesMenu.c: 31:         send(coordXCentenas);
-[e ( _send (1 _coordXCentenas ]
+[; ;FuncionesMenu.c: 31:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
 "32
-[; ;FuncionesMenu.c: 32:         send(coordXDecenas);
-[e ( _send (1 _coordXDecenas ]
-"33
-[; ;FuncionesMenu.c: 33:         send(coordXUnidades);
-[e ( _send (1 _coordXUnidades ]
-"34
-[; ;FuncionesMenu.c: 34:         send(',');
-[e ( _send (1 -> -> 44 `ui `uc ]
-"35
-[; ;FuncionesMenu.c: 35:         send(coordYCentenas);
-[e ( _send (1 _coordYCentenas ]
-"36
-[; ;FuncionesMenu.c: 36:         send(coordYDecenas);
-[e ( _send (1 _coordYDecenas ]
-"37
-[; ;FuncionesMenu.c: 37:         send(coordYUnidades);
-[e ( _send (1 _coordYUnidades ]
-"38
-[; ;FuncionesMenu.c: 38:         send('\n');
-[e ( _send (1 -> -> 10 `ui `uc ]
-"40
-[; ;FuncionesMenu.c: 40:         moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
-[e ( _moverHaciaY (3 , , _coordYCentenas _coordYDecenas _coordYUnidades ]
-"41
-[; ;FuncionesMenu.c: 41:         moverHaciaX(coordXCentenas, coordXDecenas, coordXUnidades);
-[e ( _moverHaciaX (3 , , _coordXCentenas _coordXDecenas _coordXUnidades ]
-"42
-[; ;FuncionesMenu.c: 42:     }
+[; ;FuncionesMenu.c: 32:     }
 }
 [e :U 370 ]
+"33
+[; ;FuncionesMenu.c: 33:     if (coordXUnidades > 57 || coordXUnidades < 48) {
+[e $ ! || > -> _coordXUnidades `i -> 57 `i < -> _coordXUnidades `i -> 48 `i 371  ]
+{
+"35
+[; ;FuncionesMenu.c: 35:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"36
+[; ;FuncionesMenu.c: 36:     }
+}
+[e :U 371 ]
+"37
+[; ;FuncionesMenu.c: 37:     if (coordYCentenas > 57 || coordYCentenas < 48) {
+[e $ ! || > -> _coordYCentenas `i -> 57 `i < -> _coordYCentenas `i -> 48 `i 372  ]
+{
+"39
+[; ;FuncionesMenu.c: 39:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"40
+[; ;FuncionesMenu.c: 40:     }
+}
+[e :U 372 ]
+"41
+[; ;FuncionesMenu.c: 41:     if (coordYDecenas > 57 || coordYDecenas < 48) {
+[e $ ! || > -> _coordYDecenas `i -> 57 `i < -> _coordYDecenas `i -> 48 `i 373  ]
+{
 "43
-[; ;FuncionesMenu.c: 43: }
-[e :UE 368 ]
+[; ;FuncionesMenu.c: 43:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"44
+[; ;FuncionesMenu.c: 44:     }
 }
-"45
-[; ;FuncionesMenu.c: 45: void funcionToques(void) {
-[v _funcionToques `(v ~T0 @X0 1 ef ]
-{
-[e :U _funcionToques ]
-[f ]
-"46
-[; ;FuncionesMenu.c: 46:     printf("TocarPantalla:\n");
-[e ( _printf (1 :s 6C ]
-"47
-[; ;FuncionesMenu.c: 47:     presionarZCentenas = receiveNum();
-[e = _presionarZCentenas ( _receiveNum ..  ]
-"48
-[; ;FuncionesMenu.c: 48:     presionarZDecenas = receiveNum();
-[e = _presionarZDecenas ( _receiveNum ..  ]
-"49
-[; ;FuncionesMenu.c: 49:     presionarZUnidades = receiveNum();
-[e = _presionarZUnidades ( _receiveNum ..  ]
-"50
-[; ;FuncionesMenu.c: 50:     presionarPantalla(presionarZCentenas, presionarZDecenas, presionarZUnidades);
-[e ( _presionarPantalla (3 , , _presionarZCentenas _presionarZDecenas _presionarZUnidades ]
-"51
-[; ;FuncionesMenu.c: 51: }
-[e :UE 371 ]
-}
-"52
-[; ;FuncionesMenu.c: 52: void slidePiston(void){
-[v _slidePiston `(v ~T0 @X0 1 ef ]
-{
-[e :U _slidePiston ]
-[f ]
-"53
-[; ;FuncionesMenu.c: 53:     uint8_t selection;
-[v _selection `uc ~T0 @X0 1 a ]
-"54
-[; ;FuncionesMenu.c: 54:     selection = receiveNum();
-[e = _selection ( _receiveNum ..  ]
-"55
-[; ;FuncionesMenu.c: 55:     if(selection == '1'){
-[e $ ! == -> _selection `ui -> 49 `ui 373  ]
-{
-"56
-[; ;FuncionesMenu.c: 56:         LATEbits.LATE0 = 1;
-[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
-"57
-[; ;FuncionesMenu.c: 57:     }else if (selection == '0'){
-}
-[e $U 374  ]
 [e :U 373 ]
-[e $ ! == -> _selection `ui -> 48 `ui 375  ]
+"45
+[; ;FuncionesMenu.c: 45:     if (coordYUnidades > 57 || coordYUnidades < 48) {
+[e $ ! || > -> _coordYUnidades `i -> 57 `i < -> _coordYUnidades `i -> 48 `i 374  ]
 {
-"58
-[; ;FuncionesMenu.c: 58:         LATEbits.LATE0 = 0;
-[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
-"59
-[; ;FuncionesMenu.c: 59:     }else{
+"47
+[; ;FuncionesMenu.c: 47:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"48
+[; ;FuncionesMenu.c: 48:     }
+}
+[e :U 374 ]
+"49
+[; ;FuncionesMenu.c: 49:     if (((validarCoordX > 300) || (validarCoordY > 300)) || (charNoNumerico == 1)) {
+[e $ ! || || > -> _validarCoordX `ui -> -> 300 `i `ui > -> _validarCoordY `ui -> -> 300 `i `ui == -> _charNoNumerico `i -> 1 `i 375  ]
+{
+"50
+[; ;FuncionesMenu.c: 50:         printf("Metiste una coordenada invalida, vuelve a intentar\n");
+[e ( _printf (1 :s 3C ]
+"51
+[; ;FuncionesMenu.c: 51:         printf("E,cNoV\n");
+[e ( _printf (1 :s 4C ]
+"53
+[; ;FuncionesMenu.c: 53:     } else {
 }
 [e $U 376  ]
 [e :U 375 ]
 {
+"54
+[; ;FuncionesMenu.c: 54:         printf("Coordenada recibida, lo que recibimos fue:");
+[e ( _printf (1 :s 5C ]
+"55
+[; ;FuncionesMenu.c: 55:         send(coordXCentenas);
+[e ( _send (1 _coordXCentenas ]
+"56
+[; ;FuncionesMenu.c: 56:         send(coordXDecenas);
+[e ( _send (1 _coordXDecenas ]
+"57
+[; ;FuncionesMenu.c: 57:         send(coordXUnidades);
+[e ( _send (1 _coordXUnidades ]
+"58
+[; ;FuncionesMenu.c: 58:         send(',');
+[e ( _send (1 -> -> 44 `ui `uc ]
+"59
+[; ;FuncionesMenu.c: 59:         send(coordYCentenas);
+[e ( _send (1 _coordYCentenas ]
+"60
+[; ;FuncionesMenu.c: 60:         send(coordYDecenas);
+[e ( _send (1 _coordYDecenas ]
 "61
-[; ;FuncionesMenu.c: 61:         LATEbits.LATE0 = 0;
-[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
+[; ;FuncionesMenu.c: 61:         send(coordYUnidades);
+[e ( _send (1 _coordYUnidades ]
 "62
-[; ;FuncionesMenu.c: 62:     }
+[; ;FuncionesMenu.c: 62:         send('\n');
+[e ( _send (1 -> -> 10 `ui `uc ]
+"64
+[; ;FuncionesMenu.c: 64:         moverHaciaX(coordXCentenas, coordXDecenas, coordXUnidades);
+[e ( _moverHaciaX (3 , , _coordXCentenas _coordXDecenas _coordXUnidades ]
+"65
+[; ;FuncionesMenu.c: 65:         moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
+[e ( _moverHaciaY (3 , , _coordYCentenas _coordYDecenas _coordYUnidades ]
+"66
+[; ;FuncionesMenu.c: 66:         printf("Ok,comF\n");
+[e ( _printf (1 :s 6C ]
+"67
+[; ;FuncionesMenu.c: 67:     }
 }
 [e :U 376 ]
-[e :U 374 ]
-"63
-[; ;FuncionesMenu.c: 63: }
-[e :UE 372 ]
+"68
+[; ;FuncionesMenu.c: 68: }
+[e :UE 368 ]
 }
-"64
-[; ;FuncionesMenu.c: 64: void impCoordActual(void) {
+"70
+[; ;FuncionesMenu.c: 70: void funcionToques(void) {
+[v _funcionToques `(v ~T0 @X0 1 ef ]
+{
+[e :U _funcionToques ]
+[f ]
+"71
+[; ;FuncionesMenu.c: 71:     uint8_t charNoNumerico = 0;
+[v _charNoNumerico `uc ~T0 @X0 1 a ]
+[e = _charNoNumerico -> -> 0 `i `uc ]
+"72
+[; ;FuncionesMenu.c: 72:     printf("TocarPantalla:\n");
+[e ( _printf (1 :s 7C ]
+"73
+[; ;FuncionesMenu.c: 73:     presionarZCentenas = receive();
+[e = _presionarZCentenas ( _receive ..  ]
+"74
+[; ;FuncionesMenu.c: 74:     presionarZDecenas = receive();
+[e = _presionarZDecenas ( _receive ..  ]
+"75
+[; ;FuncionesMenu.c: 75:     presionarZUnidades = receive();
+[e = _presionarZUnidades ( _receive ..  ]
+"76
+[; ;FuncionesMenu.c: 76:     if (presionarZCentenas > 57 || presionarZCentenas < 48) {
+[e $ ! || > -> _presionarZCentenas `i -> 57 `i < -> _presionarZCentenas `i -> 48 `i 378  ]
+{
+"78
+[; ;FuncionesMenu.c: 78:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"79
+[; ;FuncionesMenu.c: 79:     }
+}
+[e :U 378 ]
+"80
+[; ;FuncionesMenu.c: 80:     if (presionarZDecenas > 57 || presionarZDecenas < 48) {
+[e $ ! || > -> _presionarZDecenas `i -> 57 `i < -> _presionarZDecenas `i -> 48 `i 379  ]
+{
+"82
+[; ;FuncionesMenu.c: 82:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"83
+[; ;FuncionesMenu.c: 83:     }
+}
+[e :U 379 ]
+"84
+[; ;FuncionesMenu.c: 84:     if (presionarZUnidades > 57 || presionarZUnidades < 48) {
+[e $ ! || > -> _presionarZUnidades `i -> 57 `i < -> _presionarZUnidades `i -> 48 `i 380  ]
+{
+"86
+[; ;FuncionesMenu.c: 86:         charNoNumerico = 1;
+[e = _charNoNumerico -> -> 1 `i `uc ]
+"87
+[; ;FuncionesMenu.c: 87:     }
+}
+[e :U 380 ]
+"88
+[; ;FuncionesMenu.c: 88:     if (charNoNumerico == 1) {
+[e $ ! == -> _charNoNumerico `i -> 1 `i 381  ]
+{
+"89
+[; ;FuncionesMenu.c: 89:         printf("E,cNoV\n");
+[e ( _printf (1 :s 8C ]
+"90
+[; ;FuncionesMenu.c: 90:     } else {
+}
+[e $U 382  ]
+[e :U 381 ]
+{
+"91
+[; ;FuncionesMenu.c: 91:         presionarPantalla(presionarZCentenas, presionarZDecenas, presionarZUnidades);
+[e ( _presionarPantalla (3 , , _presionarZCentenas _presionarZDecenas _presionarZUnidades ]
+"92
+[; ;FuncionesMenu.c: 92:         printf("Ok,comF\n");
+[e ( _printf (1 :s 9C ]
+"93
+[; ;FuncionesMenu.c: 93:     }
+}
+[e :U 382 ]
+"94
+[; ;FuncionesMenu.c: 94: }
+[e :UE 377 ]
+}
+"96
+[; ;FuncionesMenu.c: 96: void slidePiston(void) {
+[v _slidePiston `(v ~T0 @X0 1 ef ]
+{
+[e :U _slidePiston ]
+[f ]
+"97
+[; ;FuncionesMenu.c: 97:     uint8_t selection;
+[v _selection `uc ~T0 @X0 1 a ]
+"98
+[; ;FuncionesMenu.c: 98:     selection = receive();
+[e = _selection ( _receive ..  ]
+"99
+[; ;FuncionesMenu.c: 99:     if (selection == '1') {
+[e $ ! == -> _selection `ui -> 49 `ui 384  ]
+{
+"100
+[; ;FuncionesMenu.c: 100:         LATEbits.LATE0 = 1;
+[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
+"101
+[; ;FuncionesMenu.c: 101:         printf("Ok,comF\n");
+[e ( _printf (1 :s 10C ]
+"102
+[; ;FuncionesMenu.c: 102:     } else if (selection == '0') {
+}
+[e $U 385  ]
+[e :U 384 ]
+[e $ ! == -> _selection `ui -> 48 `ui 386  ]
+{
+"103
+[; ;FuncionesMenu.c: 103:         LATEbits.LATE0 = 0;
+[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
+"104
+[; ;FuncionesMenu.c: 104:         printf("Ok,comF\n");
+[e ( _printf (1 :s 11C ]
+"105
+[; ;FuncionesMenu.c: 105:     } else {
+}
+[e $U 387  ]
+[e :U 386 ]
+{
+"106
+[; ;FuncionesMenu.c: 106:         printf("E,cNoV\n");
+[e ( _printf (1 :s 12C ]
+"108
+[; ;FuncionesMenu.c: 108:         LATEbits.LATE0 = 1;
+[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
+"109
+[; ;FuncionesMenu.c: 109:     }
+}
+[e :U 387 ]
+[e :U 385 ]
+"110
+[; ;FuncionesMenu.c: 110: }
+[e :UE 383 ]
+}
+"112
+[; ;FuncionesMenu.c: 112: void impCoordActual(void) {
 [v _impCoordActual `(v ~T0 @X0 1 ef ]
 {
 [e :U _impCoordActual ]
 [f ]
-"65
-[; ;FuncionesMenu.c: 65:     printf("X: ");
-[e ( _printf (1 :s 7C ]
-"66
-[; ;FuncionesMenu.c: 66:     send((CurrentPosX * 0.01) + 48);
+"113
+[; ;FuncionesMenu.c: 113:     printf("X: ");
+[e ( _printf (1 :s 13C ]
+"114
+[; ;FuncionesMenu.c: 114:     send((CurrentPosX * 0.01) + 48);
 [e ( _send (1 -> + * -> -> _CurrentPosX `ui `d .0.01 -> -> 48 `i `d `uc ]
-"67
-[; ;FuncionesMenu.c: 67:     send(((CurrentPosX % 100)*0.1) + 48);
+"115
+[; ;FuncionesMenu.c: 115:     send(((CurrentPosX % 100)*0.1) + 48);
 [e ( _send (1 -> + * -> % -> _CurrentPosX `ui -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
-"68
-[; ;FuncionesMenu.c: 68:     send(((CurrentPosX % 100) % 10) + 48);
+"116
+[; ;FuncionesMenu.c: 116:     send(((CurrentPosX % 100) % 10) + 48);
 [e ( _send (1 -> + % % -> _CurrentPosX `ui -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-"69
-[; ;FuncionesMenu.c: 69:       printf(" ,Y: ");
-[e ( _printf (1 :s 8C ]
-"70
-[; ;FuncionesMenu.c: 70:     send((CurrentPosY * 0.01) + 48);
+"117
+[; ;FuncionesMenu.c: 117:     printf(" ,Y: ");
+[e ( _printf (1 :s 14C ]
+"118
+[; ;FuncionesMenu.c: 118:     send((CurrentPosY * 0.01) + 48);
 [e ( _send (1 -> + * -> -> _CurrentPosY `ui `d .0.01 -> -> 48 `i `d `uc ]
-"71
-[; ;FuncionesMenu.c: 71:     send(((CurrentPosY % 100)*0.1) + 48);
+"119
+[; ;FuncionesMenu.c: 119:     send(((CurrentPosY % 100)*0.1) + 48);
 [e ( _send (1 -> + * -> % -> _CurrentPosY `ui -> -> 100 `i `ui `d .0.1 -> -> 48 `i `d `uc ]
-"72
-[; ;FuncionesMenu.c: 72:     send(((CurrentPosY % 100) % 10) + 48);
+"120
+[; ;FuncionesMenu.c: 120:     send(((CurrentPosY % 100) % 10) + 48);
 [e ( _send (1 -> + % % -> _CurrentPosY `ui -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-"73
-[; ;FuncionesMenu.c: 73:     send('\n');
+"121
+[; ;FuncionesMenu.c: 121:     send('\n');
 [e ( _send (1 -> -> 10 `ui `uc ]
-"74
-[; ;FuncionesMenu.c: 74: }
-[e :UE 377 ]
+"122
+[; ;FuncionesMenu.c: 122: }
+[e :UE 388 ]
 }
-"76
-[; ;FuncionesMenu.c: 76: void modificarZ(void) {
+"124
+[; ;FuncionesMenu.c: 124: void modificarZ(void) {
 [v _modificarZ `(v ~T0 @X0 1 ef ]
 {
 [e :U _modificarZ ]
 [f ]
-"77
-[; ;FuncionesMenu.c: 77:     uint8_t OkEncendido = 0;
+"125
+[; ;FuncionesMenu.c: 125:     uint8_t OkEncendido = 0;
 [v _OkEncendido `uc ~T0 @X0 1 a ]
 [e = _OkEncendido -> -> 0 `i `uc ]
-"78
-[; ;FuncionesMenu.c: 78:     while (OkEncendido == 0) {
-[e $U 379  ]
-[e :U 380 ]
+"126
+[; ;FuncionesMenu.c: 126:     LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"127
+[; ;FuncionesMenu.c: 127:     while (OkEncendido == 0) {
+[e $U 390  ]
+[e :U 391 ]
 {
-"79
-[; ;FuncionesMenu.c: 79:         if (PORTAbits.RA5 == 1) {
-[e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 382  ]
+"128
+[; ;FuncionesMenu.c: 128:         if (PORTAbits.RA5 == 1) {
+[e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 393  ]
 {
-"80
-[; ;FuncionesMenu.c: 80:             _delay((unsigned long)((10)*(8000000/4000.0)));
+"129
+[; ;FuncionesMenu.c: 129:             _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"81
-[; ;FuncionesMenu.c: 81:             if (PORTAbits.RA5 == 1) {
-[e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 383  ]
+"130
+[; ;FuncionesMenu.c: 130:             if (PORTAbits.RA5 == 1) {
+[e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 394  ]
 {
-"82
-[; ;FuncionesMenu.c: 82:                 printf("\nSaliendo\n");
-[e ( _printf (1 :s 9C ]
-"83
-[; ;FuncionesMenu.c: 83:                 apagarZ();
+"131
+[; ;FuncionesMenu.c: 131:                 printf("\nSaliendo\n");
+[e ( _printf (1 :s 15C ]
+"132
+[; ;FuncionesMenu.c: 132:                 apagarZ();
 [e ( _apagarZ ..  ]
-"84
-[; ;FuncionesMenu.c: 84:                 OkEncendido = 1;
+"133
+[; ;FuncionesMenu.c: 133:                 LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+"134
+[; ;FuncionesMenu.c: 134:                 OkEncendido = 1;
 [e = _OkEncendido -> -> 1 `i `uc ]
-"85
-[; ;FuncionesMenu.c: 85:             }
+"135
+[; ;FuncionesMenu.c: 135:             }
 }
-[e :U 383 ]
-"86
-[; ;FuncionesMenu.c: 86:         }
+[e :U 394 ]
+"136
+[; ;FuncionesMenu.c: 136:         }
 }
-[e :U 382 ]
-"87
-[; ;FuncionesMenu.c: 87:         if (PORTCbits.RC4 == 1) {
-[e $ ! == -> . . _PORTCbits 0 4 `i -> 1 `i 384  ]
-{
-"88
-[; ;FuncionesMenu.c: 88:             _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"89
-[; ;FuncionesMenu.c: 89:             if (PORTCbits.RC4 == 1) {
-[e $ ! == -> . . _PORTCbits 0 4 `i -> 1 `i 385  ]
-{
-"90
-[; ;FuncionesMenu.c: 90:                 printf("MovArriba\n");
-[e ( _printf (1 :s 10C ]
-"91
-[; ;FuncionesMenu.c: 91:                 do {
-[e :U 388 ]
-{
-"92
-[; ;FuncionesMenu.c: 92:                     moverZArriba();
-[e ( _moverZArriba ..  ]
-"93
-[; ;FuncionesMenu.c: 93:                 } while (PORTCbits.RC4 == 1);
-}
-[e $ == -> . . _PORTCbits 0 4 `i -> 1 `i 388  ]
-[e :U 387 ]
-"94
-[; ;FuncionesMenu.c: 94:             }
-}
-[e :U 385 ]
-"95
-[; ;FuncionesMenu.c: 95:         }
-}
-[e :U 384 ]
-"96
-[; ;FuncionesMenu.c: 96:         if (PORTCbits.RC5 == 1) {
-[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 389  ]
-{
-"97
-[; ;FuncionesMenu.c: 97:             _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"98
-[; ;FuncionesMenu.c: 98:             if (PORTCbits.RC5 == 1) {
-[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 390  ]
-{
-"99
-[; ;FuncionesMenu.c: 99:                 printf("MovABajo\n");
-[e ( _printf (1 :s 11C ]
-"100
-[; ;FuncionesMenu.c: 100:                 do {
 [e :U 393 ]
+"137
+[; ;FuncionesMenu.c: 137:         if (PORTCbits.RC4 == 1) {
+[e $ ! == -> . . _PORTCbits 0 4 `i -> 1 `i 395  ]
 {
-"101
-[; ;FuncionesMenu.c: 101:                     moverZAbajo();
-[e ( _moverZAbajo ..  ]
-"102
-[; ;FuncionesMenu.c: 102:                 } while (PORTCbits.RC5 == 1);
+"138
+[; ;FuncionesMenu.c: 138:             _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"139
+[; ;FuncionesMenu.c: 139:             if (PORTCbits.RC4 == 1) {
+[e $ ! == -> . . _PORTCbits 0 4 `i -> 1 `i 396  ]
+{
+"140
+[; ;FuncionesMenu.c: 140:                 printf("MovArriba\n");
+[e ( _printf (1 :s 16C ]
+"141
+[; ;FuncionesMenu.c: 141:                 do {
+[e :U 399 ]
+{
+"142
+[; ;FuncionesMenu.c: 142:                     moverZArriba();
+[e ( _moverZArriba ..  ]
+"143
+[; ;FuncionesMenu.c: 143:                 } while (PORTCbits.RC4 == 1);
 }
-[e $ == -> . . _PORTCbits 0 5 `i -> 1 `i 393  ]
-[e :U 392 ]
-"103
-[; ;FuncionesMenu.c: 103:             }
+[e $ == -> . . _PORTCbits 0 4 `i -> 1 `i 399  ]
+[e :U 398 ]
+"144
+[; ;FuncionesMenu.c: 144:                 apagarZ();
+[e ( _apagarZ ..  ]
+"145
+[; ;FuncionesMenu.c: 145:             }
+}
+[e :U 396 ]
+"146
+[; ;FuncionesMenu.c: 146:         }
+}
+[e :U 395 ]
+"147
+[; ;FuncionesMenu.c: 147:         if (PORTCbits.RC5 == 1) {
+[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 400  ]
+{
+"148
+[; ;FuncionesMenu.c: 148:             _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"149
+[; ;FuncionesMenu.c: 149:             if (PORTCbits.RC5 == 1) {
+[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 401  ]
+{
+"150
+[; ;FuncionesMenu.c: 150:                 printf("MovABajo\n");
+[e ( _printf (1 :s 17C ]
+"151
+[; ;FuncionesMenu.c: 151:                 do {
+[e :U 404 ]
+{
+"152
+[; ;FuncionesMenu.c: 152:                     moverZAbajo();
+[e ( _moverZAbajo ..  ]
+"153
+[; ;FuncionesMenu.c: 153:                 } while (PORTCbits.RC5 == 1);
+}
+[e $ == -> . . _PORTCbits 0 5 `i -> 1 `i 404  ]
+[e :U 403 ]
+"154
+[; ;FuncionesMenu.c: 154:                 apagarZ();
+[e ( _apagarZ ..  ]
+"155
+[; ;FuncionesMenu.c: 155:             }
+}
+[e :U 401 ]
+"156
+[; ;FuncionesMenu.c: 156:         }
+}
+[e :U 400 ]
+"157
+[; ;FuncionesMenu.c: 157:     }
 }
 [e :U 390 ]
-"104
-[; ;FuncionesMenu.c: 104:         }
-}
-[e :U 389 ]
-"105
-[; ;FuncionesMenu.c: 105:     }
-}
-[e :U 379 ]
-"78
-[; ;FuncionesMenu.c: 78:     while (OkEncendido == 0) {
-[e $ == -> _OkEncendido `i -> 0 `i 380  ]
-[e :U 381 ]
-"106
-[; ;FuncionesMenu.c: 106: }
-[e :UE 378 ]
+"127
+[; ;FuncionesMenu.c: 127:     while (OkEncendido == 0) {
+[e $ == -> _OkEncendido `i -> 0 `i 391  ]
+[e :U 392 ]
+"158
+[; ;FuncionesMenu.c: 158: }
+[e :UE 389 ]
 }
 [a 5C 67 111 111 114 100 101 110 97 100 97 32 114 101 99 105 98 105 100 97 44 32 108 111 32 113 117 101 32 114 101 99 105 98 105 109 111 115 32 102 117 101 58 0 ]
-[a 8C 32 44 89 58 32 0 ]
-[a 7C 88 58 32 0 ]
+[a 14C 32 44 89 58 32 0 ]
+[a 13C 88 58 32 0 ]
 [a 3C 77 101 116 105 115 116 101 32 117 110 97 32 99 111 111 114 100 101 110 97 100 97 32 105 110 118 97 108 105 100 97 44 32 118 117 101 108 118 101 32 97 32 105 110 116 101 110 116 97 114 10 0 ]
-[a 11C 77 111 118 65 66 97 106 111 10 0 ]
-[a 9C 10 83 97 108 105 101 110 100 111 10 0 ]
-[a 10C 77 111 118 65 114 114 105 98 97 10 0 ]
+[a 17C 77 111 118 65 66 97 106 111 10 0 ]
+[a 15C 10 83 97 108 105 101 110 100 111 10 0 ]
+[a 16C 77 111 118 65 114 114 105 98 97 10 0 ]
 [a 4C 69 44 99 78 111 86 10 0 ]
-[a 6C 84 111 99 97 114 80 97 110 116 97 108 108 97 58 10 0 ]
+[a 8C 69 44 99 78 111 86 10 0 ]
+[a 12C 69 44 99 78 111 86 10 0 ]
+[a 6C 79 107 44 99 111 109 70 10 0 ]
+[a 9C 79 107 44 99 111 109 70 10 0 ]
+[a 10C 79 107 44 99 111 109 70 10 0 ]
+[a 11C 79 107 44 99 111 109 70 10 0 ]
+[a 7C 84 111 99 97 114 80 97 110 116 97 108 108 97 58 10 0 ]
 [a 2C 89 58 10 0 ]
 [a 1C 88 58 10 0 ]

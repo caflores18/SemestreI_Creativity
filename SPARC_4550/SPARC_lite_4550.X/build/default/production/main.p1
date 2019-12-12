@@ -30,7 +30,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18 ./UART.h
 [; ;./UART.h: 18: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
-"4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+"3269 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
+[s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S136 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"3279
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3279:     struct {
+[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S137 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"3268
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3268: typedef union {
+[u S135 `S136 1 `S137 1 ]
+[n S135 . . . ]
+"3290
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
+[v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
+"4474
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {
 [s S178 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S178 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF SPPIF ]
@@ -97,8 +112,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
 [p mainexit ]
-"23 ./Gpio.h
-[; ;./Gpio.h: 23: void portInit(void);
+"24 ./Gpio.h
+[; ;./Gpio.h: 24: void portInit(void);
 [v _portInit `(v ~T0 @X0 0 ef ]
 "12 ./UART.h
 [; ;./UART.h: 12: void UARTinit(void);
@@ -109,11 +124,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 ./PWMCCP1.h
 [; ;./PWMCCP1.h: 12: void PWM_CCP1_init(void);
 [v _PWM_CCP1_init `(v ~T0 @X0 0 ef ]
-"24 ./Gpio.h
-[; ;./Gpio.h: 24: void motorXinit(void);
+"25 ./Gpio.h
+[; ;./Gpio.h: 25: void motorXinit(void);
 [v _motorXinit `(v ~T0 @X0 0 ef ]
-"25
-[; ;./Gpio.h: 25: void motorYinit(void);
+"26
+[; ;./Gpio.h: 26: void motorYinit(void);
 [v _motorYinit `(v ~T0 @X0 0 ef ]
 "12 ./Timers.h
 [; ;./Timers.h: 12: void tmr0Init(void);
@@ -121,20 +136,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [; ;./Timers.h: 13: void tmr1Init(void);
 [v _tmr1Init `(v ~T0 @X0 0 ef ]
-"16 ./Interrupciones.h
-[; ;./Interrupciones.h: 16: void interruptsEnable(void);
+"17 ./Interrupciones.h
+[; ;./Interrupciones.h: 17: void interruptsEnable(void);
 [v _interruptsEnable `(v ~T0 @X0 0 ef ]
-"19
-[; ;./Interrupciones.h: 19: void habilitarIntTMR0(void);
-[v _habilitarIntTMR0 `(v ~T0 @X0 0 ef ]
 "20
-[; ;./Interrupciones.h: 20: void habilitarIntTMR1(void);
+[; ;./Interrupciones.h: 20: void habilitarIntTMR0(void);
+[v _habilitarIntTMR0 `(v ~T0 @X0 0 ef ]
+"21
+[; ;./Interrupciones.h: 21: void habilitarIntTMR1(void);
 [v _habilitarIntTMR1 `(v ~T0 @X0 0 ef ]
-"27 ./Gpio.h
-[; ;./Gpio.h: 27: void motoresZinit(void);
+"19
+[; ;./Interrupciones.h: 19: void habilitarIntExternas(void);
+[v _habilitarIntExternas `(v ~T0 @X0 0 ef ]
+"28 ./Gpio.h
+[; ;./Gpio.h: 28: void motoresZinit(void);
 [v _motoresZinit `(v ~T0 @X0 0 ef ]
-"26
-[; ;./Gpio.h: 26: void pistonInit(void);
+"27
+[; ;./Gpio.h: 27: void pistonInit(void);
 [v _pistonInit `(v ~T0 @X0 0 ef ]
 "14 ./UART.h
 [; ;./UART.h: 14: uint8_t receive();
@@ -142,6 +160,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22
 [; ;./UART.h: 22: void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
 [v _scanf `(v ~T0 @X0 0 ef2`*uc`uc ]
+"36 ./MotoresXYZ.h
+[; ;./MotoresXYZ.h: 36: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
+[v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"34
+[; ;./MotoresXYZ.h: 34: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
+[v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "27 ./FuncionesMenu.h
 [; ;./FuncionesMenu.h: 27: void moverHaciaXY(void);
 [v _moverHaciaXY `(v ~T0 @X0 0 ef ]
@@ -151,13 +175,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;./FuncionesMenu.h: 29: void slidePiston(void);
 [v _slidePiston `(v ~T0 @X0 0 ef ]
-"36 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 36: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades);
-[v _moverHaciaX `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"34
-[; ;./MotoresXYZ.h: 34: void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUnidades);
-[v _moverHaciaY `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"42
+"42 ./MotoresXYZ.h
 [; ;./MotoresXYZ.h: 42: void moverXInfinito(void);
 [v _moverXInfinito `(v ~T0 @X0 0 ef ]
 "44
@@ -775,544 +793,708 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _llegoHomeY
 -> -> 0 `i `uc
 ]
+"17 main.c
+[; ;main.c: 17: uint8_t OcurrioIntEsq = 0;
+[v _OcurrioIntEsq `uc ~T0 @X0 1 e ]
+[i _OcurrioIntEsq
+-> -> 0 `i `uc
+]
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-"18 main.c
-[; ;main.c: 18: __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
+"19
+[; ;main.c: 19: __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
 [v _high_isr `(v ~T36 @X0 1 ef ]
 {
 [e :U _high_isr ]
 [f ]
-"19
-[; ;main.c: 19:     if (INTCONbits.TMR0IF == 1) {
+"20
+[; ;main.c: 20:     if (INTCONbits.TMR0IF == 1) {
 [e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 369  ]
 {
-"20
-[; ;main.c: 20:         if (destinoHomeY == 0) {
+"21
+[; ;main.c: 21:         if (destinoHomeY == 0) {
 [e $ ! == -> _destinoHomeY `i -> 0 `i 370  ]
 {
-"21
-[; ;main.c: 21:             PWM_DutyCycleCCP2(0);
-[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
 "22
-[; ;main.c: 22:         }
+[; ;main.c: 22:             PWM_DutyCycleCCP2(0);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
+"23
+[; ;main.c: 23:         }
 }
 [e :U 370 ]
-"23
-[; ;main.c: 23:         CurrentPosY = coordinates.yWanted;
-[e = _CurrentPosY . _coordinates 1 ]
 "24
-[; ;main.c: 24:         printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
-[e ( _printf (1 :s 1C ]
+[; ;main.c: 24:         CurrentPosY = coordinates.yWanted;
+[e = _CurrentPosY . _coordinates 1 ]
 "25
-[; ;main.c: 25:         sparcEnMovimientoY = 0;
-[e = _sparcEnMovimientoY -> -> 0 `i `uc ]
+[; ;main.c: 25:         printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
+[e ( _printf (1 :s 1C ]
 "26
-[; ;main.c: 26:         INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 26:         printf("Ok,coorY\n");
+[e ( _printf (1 :s 2C ]
 "27
-[; ;main.c: 27:     }
+[; ;main.c: 27:         sparcEnMovimientoY = 0;
+[e = _sparcEnMovimientoY -> -> 0 `i `uc ]
+"28
+[; ;main.c: 28:         LATDbits.LATD0 = 1;
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+"29
+[; ;main.c: 29:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"30
+[; ;main.c: 30:     }
 }
 [e :U 369 ]
-"28
-[; ;main.c: 28:     if (PIR1bits.TMR1IF == 1) {
+"31
+[; ;main.c: 31:     if (PIR1bits.TMR1IF == 1) {
 [e $ ! == -> . . _PIR1bits 0 0 `i -> 1 `i 371  ]
 {
-"29
-[; ;main.c: 29:         if (destinoHomeX == 0) {
+"32
+[; ;main.c: 32:         if (destinoHomeX == 0) {
 [e $ ! == -> _destinoHomeX `i -> 0 `i 372  ]
 {
-"30
-[; ;main.c: 30:             PWM_DutyCycleCCP1(0);
+"33
+[; ;main.c: 33:             PWM_DutyCycleCCP1(0);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
-"31
-[; ;main.c: 31:         }
+"34
+[; ;main.c: 34:         }
 }
 [e :U 372 ]
-"32
-[; ;main.c: 32:         CurrentPosX = coordinates.xWanted;
-[e = _CurrentPosX . _coordinates 0 ]
-"33
-[; ;main.c: 33:         printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
-[e ( _printf (1 :s 2C ]
-"34
-[; ;main.c: 34:         sparcEnMovimientoX = 0;
-[e = _sparcEnMovimientoX -> -> 0 `i `uc ]
 "35
-[; ;main.c: 35:         PIR1bits.TMR1IF = 0;
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 35:         CurrentPosX = coordinates.xWanted;
+[e = _CurrentPosX . _coordinates 0 ]
 "36
-[; ;main.c: 36:     }
+[; ;main.c: 36:         printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
+[e ( _printf (1 :s 3C ]
+"37
+[; ;main.c: 37:         printf("Ok,coorX\n");
+[e ( _printf (1 :s 4C ]
+"38
+[; ;main.c: 38:         sparcEnMovimientoX = 0;
+[e = _sparcEnMovimientoX -> -> 0 `i `uc ]
+"39
+[; ;main.c: 39:         LATDbits.LATD2 = 1;
+[e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
+"40
+[; ;main.c: 40:         PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"41
+[; ;main.c: 41:     }
 }
 [e :U 371 ]
-"37
-[; ;main.c: 37:     if (INTCONbits.INT0IF) {
+"42
+[; ;main.c: 42:     if (INTCONbits.INT0IF) {
 [e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 373  ]
 {
-"38
-[; ;main.c: 38:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"43
+[; ;main.c: 43:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"39
-[; ;main.c: 39:         if (PORTBbits.RB0 == 1) {
+"44
+[; ;main.c: 44:         if (PORTBbits.RB0 == 1) {
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 374  ]
 {
-"40
-[; ;main.c: 40:             printf("Ocurrio la interrupcion limitSwitch3Esquinas\n");
-[e ( _printf (1 :s 3C ]
-"41
-[; ;main.c: 41:         }
+"45
+[; ;main.c: 45:             printf("Ocurrio la interrupcion limitSwitch3Esquinas\n");
+[e ( _printf (1 :s 5C ]
+"46
+[; ;main.c: 46:         }
 }
 [e :U 374 ]
-"42
-[; ;main.c: 42:         moverHomeX();
+"47
+[; ;main.c: 47:         moverHomeX();
 [e ( _moverHomeX ..  ]
-"43
-[; ;main.c: 43:         moverHomeY();
+"48
+[; ;main.c: 48:         moverHomeY();
 [e ( _moverHomeY ..  ]
-"44
-[; ;main.c: 44:         INTCONbits.INT0IF = 0;
+"49
+[; ;main.c: 49:         OcurrioIntEsq = 1;
+[e = _OcurrioIntEsq -> -> 1 `i `uc ]
+"50
+[; ;main.c: 50:         INTCONbits.INT0IF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"45
-[; ;main.c: 45:     }
+"51
+[; ;main.c: 51:     }
 }
 [e :U 373 ]
-"46
-[; ;main.c: 46:     if (INTCON3bits.INT1IF == 1) {
-[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 375  ]
+"52
+[; ;main.c: 52:     if (INTCON3bits.INT2IF == 1) {
+[e $ ! == -> . . _INTCON3bits 0 1 `i -> 1 `i 375  ]
 {
-"47
-[; ;main.c: 47:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"53
+[; ;main.c: 53:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"48
-[; ;main.c: 48:         if (PORTBbits.RB1 == 1) {
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 376  ]
+"54
+[; ;main.c: 54:         if (PORTBbits.RB2 == 1) {
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 376  ]
 {
-"49
-[; ;main.c: 49:             printf("Ocurrio la interrupcion limitSwitchHomeX\n");
-[e ( _printf (1 :s 4C ]
-"50
-[; ;main.c: 50:         }
+"55
+[; ;main.c: 55:             printf("Ocurrio la interrupcion limitSwitchHomeX\n");
+[e ( _printf (1 :s 6C ]
+"56
+[; ;main.c: 56:         }
 }
 [e :U 376 ]
-"51
-[; ;main.c: 51:         PWM_DutyCycleCCP1(0);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
-"52
-[; ;main.c: 52:         CurrentPosX = 0;
-[e = _CurrentPosX -> -> 0 `i `us ]
-"53
-[; ;main.c: 53:         destinoHomeX = 0;
-[e = _destinoHomeX -> -> 0 `i `uc ]
-"54
-[; ;main.c: 54:         llegoHomeX = 1;
-[e = _llegoHomeX -> -> 1 `i `uc ]
-"55
-[; ;main.c: 55:         sparcEnMovimientoX = 0;
-[e = _sparcEnMovimientoX -> -> 0 `i `uc ]
-"56
-[; ;main.c: 56:         INTCON3bits.INT1IF = 0;
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
 "57
-[; ;main.c: 57:     }
+[; ;main.c: 57:         PWM_DutyCycleCCP1(0);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
+"58
+[; ;main.c: 58:         CurrentPosX = 0;
+[e = _CurrentPosX -> -> 0 `i `us ]
+"59
+[; ;main.c: 59:         destinoHomeX = 0;
+[e = _destinoHomeX -> -> 0 `i `uc ]
+"60
+[; ;main.c: 60:         llegoHomeX = 1;
+[e = _llegoHomeX -> -> 1 `i `uc ]
+"61
+[; ;main.c: 61:         sparcEnMovimientoX = 0;
+[e = _sparcEnMovimientoX -> -> 0 `i `uc ]
+"62
+[; ;main.c: 62:         INTCON3bits.INT2IF = 0;
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+"63
+[; ;main.c: 63:     }
 }
 [e :U 375 ]
-"58
-[; ;main.c: 58:     if (INTCON3bits.INT2IF == 1) {
-[e $ ! == -> . . _INTCON3bits 0 1 `i -> 1 `i 377  ]
+"64
+[; ;main.c: 64:     if (INTCON3bits.INT1IF == 1) {
+[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 377  ]
 {
-"59
-[; ;main.c: 59:         _delay((unsigned long)((10)*(8000000/4000.0)));
+"65
+[; ;main.c: 65:         _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"60
-[; ;main.c: 60:         if (PORTBbits.RB2 == 1) {
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 378  ]
+"66
+[; ;main.c: 66:         if (PORTBbits.RB1 == 1) {
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 378  ]
 {
-"61
-[; ;main.c: 61:             printf("Ocurrio la interrupcion limitSwitchHomeY\n");
-[e ( _printf (1 :s 5C ]
-"62
-[; ;main.c: 62:         }
+"67
+[; ;main.c: 67:             printf("Ocurrio la interrupcion limitSwitchHomeY\n");
+[e ( _printf (1 :s 7C ]
+"68
+[; ;main.c: 68:         }
 }
 [e :U 378 ]
-"63
-[; ;main.c: 63:         PWM_DutyCycleCCP2(0);
-[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:         CurrentPosY = 0;
-[e = _CurrentPosY -> -> 0 `i `us ]
-"65
-[; ;main.c: 65:         destinoHomeY = 0;
-[e = _destinoHomeY -> -> 0 `i `uc ]
-"66
-[; ;main.c: 66:         llegoHomeY = 1;
-[e = _llegoHomeY -> -> 1 `i `uc ]
-"67
-[; ;main.c: 67:         sparcEnMovimientoY = 0;
-[e = _sparcEnMovimientoY -> -> 0 `i `uc ]
-"68
-[; ;main.c: 68:         INTCON3bits.INT2IF = 0;
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
 "69
-[; ;main.c: 69:     }
+[; ;main.c: 69:         PWM_DutyCycleCCP2(0);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
+"70
+[; ;main.c: 70:         CurrentPosY = 0;
+[e = _CurrentPosY -> -> 0 `i `us ]
+"71
+[; ;main.c: 71:         destinoHomeY = 0;
+[e = _destinoHomeY -> -> 0 `i `uc ]
+"72
+[; ;main.c: 72:         llegoHomeY = 1;
+[e = _llegoHomeY -> -> 1 `i `uc ]
+"73
+[; ;main.c: 73:         sparcEnMovimientoY = 0;
+[e = _sparcEnMovimientoY -> -> 0 `i `uc ]
+"74
+[; ;main.c: 74:         INTCON3bits.INT1IF = 0;
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+"75
+[; ;main.c: 75:     }
 }
 [e :U 377 ]
-"70
-[; ;main.c: 70: }
+"76
+[; ;main.c: 76: }
 [e :UE 368 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"73
-[; ;main.c: 73: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
+"79
+[; ;main.c: 79: __attribute__((picinterrupt(("low_priority")))) void low_isr(void) {
 [v _low_isr `(v ~T37 @X0 1 ef ]
 {
 [e :U _low_isr ]
 [f ]
-"74
-[; ;main.c: 74:     __nop();
+"80
+[; ;main.c: 80:     __nop();
 [e ( ___nop ..  ]
-"75
-[; ;main.c: 75: }
+"81
+[; ;main.c: 81: }
 [e :UE 379 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"78
-[; ;main.c: 78: void main(void) {
+"84
+[; ;main.c: 84: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"80
-[; ;main.c: 80:     portInit();
-[e ( _portInit ..  ]
-"81
-[; ;main.c: 81:     UARTinit();
-[e ( _UARTinit ..  ]
-"83
-[; ;main.c: 83:     PWM_CCP2_init();
-[e ( _PWM_CCP2_init ..  ]
-"84
-[; ;main.c: 84:     PWM_CCP1_init();
-[e ( _PWM_CCP1_init ..  ]
-"85
-[; ;main.c: 85:     PWM_DutyCycleCCP2(0);
-[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
 "86
-[; ;main.c: 86:     PWM_DutyCycleCCP1(0);
-[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
+[; ;main.c: 86:     portInit();
+[e ( _portInit ..  ]
 "87
-[; ;main.c: 87:     motorXinit();
-[e ( _motorXinit ..  ]
-"88
-[; ;main.c: 88:     motorYinit();
-[e ( _motorYinit ..  ]
+[; ;main.c: 87:     UARTinit();
+[e ( _UARTinit ..  ]
 "89
-[; ;main.c: 89:     tmr0Init();
-[e ( _tmr0Init ..  ]
+[; ;main.c: 89:     PWM_CCP2_init();
+[e ( _PWM_CCP2_init ..  ]
 "90
-[; ;main.c: 90:     tmr1Init();
-[e ( _tmr1Init ..  ]
+[; ;main.c: 90:     PWM_CCP1_init();
+[e ( _PWM_CCP1_init ..  ]
 "91
-[; ;main.c: 91:     interruptsEnable();
-[e ( _interruptsEnable ..  ]
+[; ;main.c: 91:     PWM_DutyCycleCCP2(0);
+[e ( _PWM_DutyCycleCCP2 (1 -> -> 0 `i `uc ]
 "92
-[; ;main.c: 92:     habilitarIntTMR0();
-[e ( _habilitarIntTMR0 ..  ]
+[; ;main.c: 92:     PWM_DutyCycleCCP1(0);
+[e ( _PWM_DutyCycleCCP1 (1 -> -> 0 `i `uc ]
 "93
-[; ;main.c: 93:     habilitarIntTMR1();
-[e ( _habilitarIntTMR1 ..  ]
+[; ;main.c: 93:     motorXinit();
+[e ( _motorXinit ..  ]
+"94
+[; ;main.c: 94:     motorYinit();
+[e ( _motorYinit ..  ]
 "95
-[; ;main.c: 95:     motoresZinit();
-[e ( _motoresZinit ..  ]
+[; ;main.c: 95:     tmr0Init();
+[e ( _tmr0Init ..  ]
 "96
-[; ;main.c: 96:     pistonInit();
-[e ( _pistonInit ..  ]
+[; ;main.c: 96:     tmr1Init();
+[e ( _tmr1Init ..  ]
+"97
+[; ;main.c: 97:     interruptsEnable();
+[e ( _interruptsEnable ..  ]
+"98
+[; ;main.c: 98:     habilitarIntTMR0();
+[e ( _habilitarIntTMR0 ..  ]
+"99
+[; ;main.c: 99:     habilitarIntTMR1();
+[e ( _habilitarIntTMR1 ..  ]
 "100
-[; ;main.c: 100:     uint8_t activarmenu[5];
-[v _activarmenu `uc ~T0 @X0 -> 5 `i a ]
+[; ;main.c: 100:     habilitarIntExternas();
+[e ( _habilitarIntExternas ..  ]
 "101
-[; ;main.c: 101:     activarmenu[4] = ((void*)0);
-[e = *U + &U _activarmenu * -> -> -> 4 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux -> -> -> 0 `i `*v `uc ]
+[; ;main.c: 101:     motoresZinit();
+[e ( _motoresZinit ..  ]
 "102
-[; ;main.c: 102:     uint8_t *pActMenu = (unsigned char *) &activarmenu;
+[; ;main.c: 102:     pistonInit();
+[e ( _pistonInit ..  ]
+"104
+[; ;main.c: 104:     uint8_t activarmenu[5];
+[v _activarmenu `uc ~T0 @X0 -> 5 `i a ]
+"105
+[; ;main.c: 105:     activarmenu[4] = ((void*)0);
+[e = *U + &U _activarmenu * -> -> -> 4 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux -> -> -> 0 `i `*v `uc ]
+"106
+[; ;main.c: 106:     uint8_t *pActMenu = (unsigned char *) &activarmenu;
 [v _pActMenu `*uc ~T0 @X0 1 a ]
 [e = _pActMenu -> &U _activarmenu `*uc ]
-"103
-[; ;main.c: 103:     uint8_t tamanoarray;
+"107
+[; ;main.c: 107:     uint8_t tamanoarray;
 [v _tamanoarray `uc ~T0 @X0 1 a ]
-"104
-[; ;main.c: 104:     uint8_t calibrarSparc = 0;
+"108
+[; ;main.c: 108:     uint8_t calibrarSparc = 0;
 [v _calibrarSparc `uc ~T0 @X0 1 a ]
 [e = _calibrarSparc -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106:     uint8_t desechable = receive();
+"110
+[; ;main.c: 110:     uint8_t desechable = receive();
 [v _desechable `uc ~T0 @X0 1 a ]
 [e = _desechable ( _receive ..  ]
-"107
-[; ;main.c: 107:     while (calibrarSparc == 0) {
+"111
+[; ;main.c: 111:     while (calibrarSparc == 0) {
 [e $U 381  ]
 [e :U 382 ]
 {
-"108
-[; ;main.c: 108:         printf("Escribe init para calibar el SPARC y poder empezar el programa\n");
-[e ( _printf (1 :s 6C ]
-"109
-[; ;main.c: 109:         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
+"112
+[; ;main.c: 112:         printf("Escribe init para calibrar el SPARC y poder acceder al resto de las funciones\n");
+[e ( _printf (1 :s 8C ]
+"113
+[; ;main.c: 113:         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
 [e ( _scanf (2 , _pActMenu = _tamanoarray -> - -> # _activarmenu `ui -> -> 1 `i `ui `uc ]
-"110
-[; ;main.c: 110:         if ((activarmenu[0] == 'i' || activarmenu[0] == 'I') && activarmenu[1] == 'n' && activarmenu[2] == 'i' && activarmenu[3] == 't') {
+"114
+[; ;main.c: 114:         if ((activarmenu[0] == 'i' || activarmenu[0] == 'I') && activarmenu[1] == 'n' && activarmenu[2] == 'i' && activarmenu[3] == 't') {
 [e $ ! && && && || == -> *U + &U _activarmenu * -> -> -> 0 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 105 `ui == -> *U + &U _activarmenu * -> -> -> 0 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 73 `ui == -> *U + &U _activarmenu * -> -> -> 1 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 110 `ui == -> *U + &U _activarmenu * -> -> -> 2 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 105 `ui == -> *U + &U _activarmenu * -> -> -> 3 `i `ui `ux -> -> # *U &U _activarmenu `ui `ux `ui -> 116 `ui 384  ]
 {
-"111
-[; ;main.c: 111:             calibrarSparc = 1;
+"115
+[; ;main.c: 115:             calibrarSparc = 1;
 [e = _calibrarSparc -> -> 1 `i `uc ]
-"112
-[; ;main.c: 112:             printf("Initializing\n");
-[e ( _printf (1 :s 7C ]
-"113
-[; ;main.c: 113:         }
+"116
+[; ;main.c: 116:             printf("Inicializando...\n");
+[e ( _printf (1 :s 9C ]
+"117
+[; ;main.c: 117:         }
 }
 [e :U 384 ]
-"114
-[; ;main.c: 114:     }
+"118
+[; ;main.c: 118:     }
 }
 [e :U 381 ]
-"107
-[; ;main.c: 107:     while (calibrarSparc == 0) {
+"111
+[; ;main.c: 111:     while (calibrarSparc == 0) {
 [e $ == -> _calibrarSparc `i -> 0 `i 382  ]
 [e :U 383 ]
-"116
-[; ;main.c: 116:     while (1) {
+"120
+[; ;main.c: 120:     while (1) {
 [e :U 386 ]
 {
-"136
-[; ;main.c: 136:         printf("Ok,comN\n");
-[e ( _printf (1 :s 8C ]
-"137
-[; ;main.c: 137:         uint8_t opcionsel = receive();
-[v _opcionsel `uc ~T0 @X0 1 a ]
-[e = _opcionsel ( _receive ..  ]
-"138
-[; ;main.c: 138:         if (opcionsel == 'm' || opcionsel == 'M') {
-[e $ ! || == -> _opcionsel `ui -> 109 `ui == -> _opcionsel `ui -> 77 `ui 388  ]
+"121
+[; ;main.c: 121:         if (calibrarSparc == 1) {
+[e $ ! == -> _calibrarSparc `i -> 1 `i 388  ]
 {
-"139
-[; ;main.c: 139:             printf("Vas a mover el Sparc en X y Y\n");
-[e ( _printf (1 :s 9C ]
-"140
-[; ;main.c: 140:             printf("Ok,comV\n");
-[e ( _printf (1 :s 10C ]
-"141
-[; ;main.c: 141:             moverHaciaXY();
-[e ( _moverHaciaXY ..  ]
-"142
-[; ;main.c: 142:             printf("Ok,comF\n");
-[e ( _printf (1 :s 11C ]
-"143
-[; ;main.c: 143:         } else if (opcionsel == 'p' || opcionsel == 'P') {
-}
+"122
+[; ;main.c: 122:             moverHaciaX('0', '0', '5');
+[e ( _moverHaciaX (3 , , -> -> 48 `ui `uc -> -> 48 `ui `uc -> -> 53 `ui `uc ]
+"123
+[; ;main.c: 123:             moverHaciaY('0', '0', '5');
+[e ( _moverHaciaY (3 , , -> -> 48 `ui `uc -> -> 48 `ui `uc -> -> 53 `ui `uc ]
+"124
+[; ;main.c: 124:             _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"125
+[; ;main.c: 125:             moverHomeX();
+[e ( _moverHomeX ..  ]
+"126
+[; ;main.c: 126:             moverHomeY();
+[e ( _moverHomeY ..  ]
+"127
+[; ;main.c: 127:             while (!(llegoHomeX && llegoHomeY)) {
 [e $U 389  ]
+[e :U 390 ]
+{
+"129
+[; ;main.c: 129:             }
+}
+[e :U 389 ]
+"127
+[; ;main.c: 127:             while (!(llegoHomeX && llegoHomeY)) {
+[e $ ! && != -> _llegoHomeX `i -> 0 `i != -> _llegoHomeY `i -> 0 `i 390  ]
+[e :U 391 ]
+"131
+[; ;main.c: 131:             printf("SACANDO\n");
+[e ( _printf (1 :s 10C ]
+"132
+[; ;main.c: 132:             moverHaciaX('0', '1', '5');
+[e ( _moverHaciaX (3 , , -> -> 48 `ui `uc -> -> 49 `ui `uc -> -> 53 `ui `uc ]
+"133
+[; ;main.c: 133:             moverHaciaY('0', '1', '5');
+[e ( _moverHaciaY (3 , , -> -> 48 `ui `uc -> -> 49 `ui `uc -> -> 53 `ui `uc ]
+"134
+[; ;main.c: 134:             llegoHomeX = 0;
+[e = _llegoHomeX -> -> 0 `i `uc ]
+"135
+[; ;main.c: 135:             llegoHomeY = 0;
+[e = _llegoHomeY -> -> 0 `i `uc ]
+"136
+[; ;main.c: 136:             CurrentPosX = 0;
+[e = _CurrentPosX -> -> 0 `i `us ]
+"137
+[; ;main.c: 137:             CurrentPosY = 0;
+[e = _CurrentPosY -> -> 0 `i `us ]
+"138
+[; ;main.c: 138:             calibrarSparc = 0;
+[e = _calibrarSparc -> -> 0 `i `uc ]
+"139
+[; ;main.c: 139:             printf("Ya esta calibrado el SPARC\n");
+[e ( _printf (1 :s 11C ]
+"140
+[; ;main.c: 140:         }
+}
 [e :U 388 ]
-[e $ ! || == -> _opcionsel `ui -> 112 `ui == -> _opcionsel `ui -> 80 `ui 390  ]
+"141
+[; ;main.c: 141:         if (OcurrioIntEsq == 1) {
+[e $ ! == -> _OcurrioIntEsq `i -> 1 `i 392  ]
+{
+"142
+[; ;main.c: 142:             while (!(llegoHomeX && llegoHomeY)) {
+[e $U 393  ]
+[e :U 394 ]
 {
 "144
-[; ;main.c: 144:             printf("Presionar Z cierto numero de veces recibidas\n");
-[e ( _printf (1 :s 12C ]
-"145
-[; ;main.c: 145:             printf("Ok,comV\n");
-[e ( _printf (1 :s 13C ]
-"146
-[; ;main.c: 146:             funcionToques();
-[e ( _funcionToques ..  ]
-"147
-[; ;main.c: 147:             printf("Ok,comF\n");
-[e ( _printf (1 :s 14C ]
-"148
-[; ;main.c: 148:         } else if (opcionsel == 's' || opcionsel == 'S') {
+[; ;main.c: 144:             }
 }
-[e $U 391  ]
-[e :U 390 ]
-[e $ ! || == -> _opcionsel `ui -> 115 `ui == -> _opcionsel `ui -> 83 `ui 392  ]
-{
-"149
-[; ;main.c: 149:             printf("Piston para deslizar o dejar retraido?\n");
-[e ( _printf (1 :s 15C ]
-"150
-[; ;main.c: 150:             printf("Ok,comV\n");
-[e ( _printf (1 :s 16C ]
-"151
-[; ;main.c: 151:             slidePiston();
-[e ( _slidePiston ..  ]
-"152
-[; ;main.c: 152:             printf("Ok,comF\n");
-[e ( _printf (1 :s 17C ]
-"153
-[; ;main.c: 153:         } else if (opcionsel == 'h' || opcionsel == 'H') {
-}
-[e $U 393  ]
-[e :U 392 ]
-[e $ ! || == -> _opcionsel `ui -> 104 `ui == -> _opcionsel `ui -> 72 `ui 394  ]
-{
-"154
-[; ;main.c: 154:             printf("Vas a ir a homeX y home Y\n");
-[e ( _printf (1 :s 18C ]
-"155
-[; ;main.c: 155:             printf("Ok,comV\n");
-[e ( _printf (1 :s 19C ]
-"156
-[; ;main.c: 156:             moverHomeX();
-[e ( _moverHomeX ..  ]
-"157
-[; ;main.c: 157:             moverHomeY();
-[e ( _moverHomeY ..  ]
-"158
-[; ;main.c: 158:             while (!(llegoHomeX && llegoHomeY)) {
-[e $U 395  ]
-[e :U 396 ]
-{
-"160
-[; ;main.c: 160:             }
-}
+[e :U 393 ]
+"142
+[; ;main.c: 142:             while (!(llegoHomeX && llegoHomeY)) {
+[e $ ! && != -> _llegoHomeX `i -> 0 `i != -> _llegoHomeY `i -> 0 `i 394  ]
 [e :U 395 ]
-"158
-[; ;main.c: 158:             while (!(llegoHomeX && llegoHomeY)) {
-[e $ ! && != -> _llegoHomeX `i -> 0 `i != -> _llegoHomeY `i -> 0 `i 396  ]
-[e :U 397 ]
-"162
-[; ;main.c: 162:             moverHaciaX(0, 0, 5);
-[e ( _moverHaciaX (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 5 `i `uc ]
-"163
-[; ;main.c: 163:             moverHaciaY(0, 0, 5);
-[e ( _moverHaciaY (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 5 `i `uc ]
-"165
-[; ;main.c: 165:             llegoHomeX = 0;
+"146
+[; ;main.c: 146:             printf("Int3 Esquinas, recalibrando SPARC\n");
+[e ( _printf (1 :s 12C ]
+"147
+[; ;main.c: 147:             moverHaciaX('0', '1', '5');
+[e ( _moverHaciaX (3 , , -> -> 48 `ui `uc -> -> 49 `ui `uc -> -> 53 `ui `uc ]
+"148
+[; ;main.c: 148:             moverHaciaY('0', '1', '5');
+[e ( _moverHaciaY (3 , , -> -> 48 `ui `uc -> -> 49 `ui `uc -> -> 53 `ui `uc ]
+"149
+[; ;main.c: 149:             llegoHomeX = 0;
 [e = _llegoHomeX -> -> 0 `i `uc ]
-"166
-[; ;main.c: 166:             llegoHomeY = 0;
+"150
+[; ;main.c: 150:             llegoHomeY = 0;
 [e = _llegoHomeY -> -> 0 `i `uc ]
-"167
-[; ;main.c: 167:             CurrentPosX = 0;
+"151
+[; ;main.c: 151:             CurrentPosX = 0;
 [e = _CurrentPosX -> -> 0 `i `us ]
-"168
-[; ;main.c: 168:             CurrentPosY = 0;
+"152
+[; ;main.c: 152:             CurrentPosY = 0;
 [e = _CurrentPosY -> -> 0 `i `us ]
-"169
-[; ;main.c: 169:             printf("Ok,comF\n");
-[e ( _printf (1 :s 20C ]
-"170
-[; ;main.c: 170:         } else if (opcionsel == 'i' || opcionsel == 'I') {
+"153
+[; ;main.c: 153:             OcurrioIntEsq = 0;
+[e = _OcurrioIntEsq -> -> 0 `i `uc ]
+"159
+[; ;main.c: 159:         }
 }
-[e $U 398  ]
-[e :U 394 ]
-[e $ ! || == -> _opcionsel `ui -> 105 `ui == -> _opcionsel `ui -> 73 `ui 399  ]
+[e :U 392 ]
+"160
+[; ;main.c: 160:         printf("Ok,comN\n");
+[e ( _printf (1 :s 13C ]
+"161
+[; ;main.c: 161:         uint8_t opcionsel = receive();
+[v _opcionsel `uc ~T0 @X0 1 a ]
+[e = _opcionsel ( _receive ..  ]
+"162
+[; ;main.c: 162:         if (opcionsel == 'm' || opcionsel == 'M') {
+[e $ ! || == -> _opcionsel `ui -> 109 `ui == -> _opcionsel `ui -> 77 `ui 396  ]
 {
-"171
-[; ;main.c: 171:             printf("Vas a ir infinito X e infinito Y\n");
-[e ( _printf (1 :s 21C ]
-"172
-[; ;main.c: 172:             printf("Ok,comV\n");
-[e ( _printf (1 :s 22C ]
-"173
-[; ;main.c: 173:             moverXInfinito();
-[e ( _moverXInfinito ..  ]
-"174
-[; ;main.c: 174:             moverYInfinito();
-[e ( _moverYInfinito ..  ]
-"175
-[; ;main.c: 175:             printf("Ok,comF\n");
-[e ( _printf (1 :s 23C ]
-"176
-[; ;main.c: 176:         } else if (opcionsel == 'c' || opcionsel == 'C') {
+"163
+[; ;main.c: 163:             printf("Vas a mover el Sparc en X y Y\n");
+[e ( _printf (1 :s 14C ]
+"164
+[; ;main.c: 164:             printf("Ok,comV\n");
+[e ( _printf (1 :s 15C ]
+"165
+[; ;main.c: 165:             moverHaciaXY();
+[e ( _moverHaciaXY ..  ]
+"166
+[; ;main.c: 166:         } else if (opcionsel == 'p' || opcionsel == 'P') {
 }
-[e $U 400  ]
-[e :U 399 ]
-[e $ ! || == -> _opcionsel `ui -> 99 `ui == -> _opcionsel `ui -> 67 `ui 401  ]
+[e $U 397  ]
+[e :U 396 ]
+[e $ ! || == -> _opcionsel `ui -> 112 `ui == -> _opcionsel `ui -> 80 `ui 398  ]
+{
+"167
+[; ;main.c: 167:             printf("Presionar Z cierto numero de veces recibidas\n");
+[e ( _printf (1 :s 16C ]
+"168
+[; ;main.c: 168:             printf("Ok,comV\n");
+[e ( _printf (1 :s 17C ]
+"169
+[; ;main.c: 169:             INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"170
+[; ;main.c: 170:             funcionToques();
+[e ( _funcionToques ..  ]
+"171
+[; ;main.c: 171:             _delay((unsigned long)((250)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"172
+[; ;main.c: 172:             INTCONbits.INT0IF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"173
+[; ;main.c: 173:             INTCON3bits.INT2IF = 0;
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+"174
+[; ;main.c: 174:             INTCON3bits.INT1IF = 0;
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+"175
+[; ;main.c: 175:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"176
+[; ;main.c: 176:         } else if (opcionsel == 's' || opcionsel == 'S') {
+}
+[e $U 399  ]
+[e :U 398 ]
+[e $ ! || == -> _opcionsel `ui -> 115 `ui == -> _opcionsel `ui -> 83 `ui 400  ]
 {
 "177
-[; ;main.c: 177:             printf("Imprmir coordenada actual \n");
-[e ( _printf (1 :s 24C ]
+[; ;main.c: 177:             printf("Piston para deslizar o dejar retraido?\n");
+[e ( _printf (1 :s 18C ]
 "178
 [; ;main.c: 178:             printf("Ok,comV\n");
-[e ( _printf (1 :s 25C ]
+[e ( _printf (1 :s 19C ]
 "179
-[; ;main.c: 179:             impCoordActual();
-[e ( _impCoordActual ..  ]
+[; ;main.c: 179:             INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
 "180
-[; ;main.c: 180:             printf("Ok,comF\n");
-[e ( _printf (1 :s 26C ]
+[; ;main.c: 180:             slidePiston();
+[e ( _slidePiston ..  ]
 "181
-[; ;main.c: 181:         } else if (opcionsel == 'b' || opcionsel == 'B') {
-}
-[e $U 402  ]
-[e :U 401 ]
-[e $ ! || == -> _opcionsel `ui -> 98 `ui == -> _opcionsel `ui -> 66 `ui 403  ]
-{
+[; ;main.c: 181:             _delay((unsigned long)((250)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "182
-[; ;main.c: 182:             printf("Entraste a mover la base\n");
-[e ( _printf (1 :s 27C ]
+[; ;main.c: 182:             INTCONbits.INT0IF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
 "183
-[; ;main.c: 183:             printf("Ok,comV\n");
-[e ( _printf (1 :s 28C ]
+[; ;main.c: 183:             INTCON3bits.INT2IF = 0;
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
 "184
-[; ;main.c: 184:             modificarZ();
-[e ( _modificarZ ..  ]
+[; ;main.c: 184:             INTCON3bits.INT1IF = 0;
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
 "185
-[; ;main.c: 185:             printf("Ok,comF\n");
-[e ( _printf (1 :s 29C ]
-"186
-[; ;main.c: 186:         } else {
-}
-[e $U 404  ]
-[e :U 403 ]
-{
+[; ;main.c: 185:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "187
-[; ;main.c: 187:             printf("E,com\n");
-[e ( _printf (1 :s 30C ]
-"188
-[; ;main.c: 188:         }
+[; ;main.c: 187:         } else if (opcionsel == 'h' || opcionsel == 'H') {
 }
-[e :U 404 ]
-[e :U 402 ]
+[e $U 401  ]
 [e :U 400 ]
-[e :U 398 ]
-[e :U 393 ]
-[e :U 391 ]
-[e :U 389 ]
+[e $ ! || == -> _opcionsel `ui -> 104 `ui == -> _opcionsel `ui -> 72 `ui 402  ]
+{
+"188
+[; ;main.c: 188:             printf("Vas a ir a homeX y home Y\n");
+[e ( _printf (1 :s 20C ]
 "189
-[; ;main.c: 189:     }
+[; ;main.c: 189:             printf("Ok,comV\n");
+[e ( _printf (1 :s 21C ]
+"190
+[; ;main.c: 190:             moverHomeX();
+[e ( _moverHomeX ..  ]
+"191
+[; ;main.c: 191:             moverHomeY();
+[e ( _moverHomeY ..  ]
+"192
+[; ;main.c: 192:             while (!(llegoHomeX && llegoHomeY)) {
+[e $U 403  ]
+[e :U 404 ]
+{
+"194
+[; ;main.c: 194:             }
+}
+[e :U 403 ]
+"192
+[; ;main.c: 192:             while (!(llegoHomeX && llegoHomeY)) {
+[e $ ! && != -> _llegoHomeX `i -> 0 `i != -> _llegoHomeY `i -> 0 `i 404  ]
+[e :U 405 ]
+"196
+[; ;main.c: 196:             moverHaciaX('0', '1', '5');
+[e ( _moverHaciaX (3 , , -> -> 48 `ui `uc -> -> 49 `ui `uc -> -> 53 `ui `uc ]
+"197
+[; ;main.c: 197:             moverHaciaY('0', '1', '5');
+[e ( _moverHaciaY (3 , , -> -> 48 `ui `uc -> -> 49 `ui `uc -> -> 53 `ui `uc ]
+"199
+[; ;main.c: 199:             llegoHomeX = 0;
+[e = _llegoHomeX -> -> 0 `i `uc ]
+"200
+[; ;main.c: 200:             llegoHomeY = 0;
+[e = _llegoHomeY -> -> 0 `i `uc ]
+"201
+[; ;main.c: 201:             CurrentPosX = 0;
+[e = _CurrentPosX -> -> 0 `i `us ]
+"202
+[; ;main.c: 202:             CurrentPosY = 0;
+[e = _CurrentPosY -> -> 0 `i `us ]
+"203
+[; ;main.c: 203:             printf("Ok,comF\n");
+[e ( _printf (1 :s 22C ]
+"204
+[; ;main.c: 204:         } else if (opcionsel == 'i' || opcionsel == 'I') {
+}
+[e $U 406  ]
+[e :U 402 ]
+[e $ ! || == -> _opcionsel `ui -> 105 `ui == -> _opcionsel `ui -> 73 `ui 407  ]
+{
+"205
+[; ;main.c: 205:             printf("Vas a ir infinito X e infinito Y\n");
+[e ( _printf (1 :s 23C ]
+"206
+[; ;main.c: 206:             printf("Ok,comV\n");
+[e ( _printf (1 :s 24C ]
+"207
+[; ;main.c: 207:             moverXInfinito();
+[e ( _moverXInfinito ..  ]
+"208
+[; ;main.c: 208:             moverYInfinito();
+[e ( _moverYInfinito ..  ]
+"209
+[; ;main.c: 209:             OcurrioIntEsq = 1;
+[e = _OcurrioIntEsq -> -> 1 `i `uc ]
+"210
+[; ;main.c: 210:             printf("Ok,comF\n");
+[e ( _printf (1 :s 25C ]
+"211
+[; ;main.c: 211:         } else if (opcionsel == 'c' || opcionsel == 'C') {
+}
+[e $U 408  ]
+[e :U 407 ]
+[e $ ! || == -> _opcionsel `ui -> 99 `ui == -> _opcionsel `ui -> 67 `ui 409  ]
+{
+"212
+[; ;main.c: 212:             printf("Imprmir coordenada actual \n");
+[e ( _printf (1 :s 26C ]
+"213
+[; ;main.c: 213:             printf("Ok,comV\n");
+[e ( _printf (1 :s 27C ]
+"214
+[; ;main.c: 214:             impCoordActual();
+[e ( _impCoordActual ..  ]
+"215
+[; ;main.c: 215:             printf("Ok,comF\n");
+[e ( _printf (1 :s 28C ]
+"216
+[; ;main.c: 216:         } else if (opcionsel == 'b' || opcionsel == 'B') {
+}
+[e $U 410  ]
+[e :U 409 ]
+[e $ ! || == -> _opcionsel `ui -> 98 `ui == -> _opcionsel `ui -> 66 `ui 411  ]
+{
+"217
+[; ;main.c: 217:             printf("Entraste a mover la base\n");
+[e ( _printf (1 :s 29C ]
+"218
+[; ;main.c: 218:             printf("Ok,comV\n");
+[e ( _printf (1 :s 30C ]
+"219
+[; ;main.c: 219:             modificarZ();
+[e ( _modificarZ ..  ]
+"220
+[; ;main.c: 220:             printf("Ok,comF\n");
+[e ( _printf (1 :s 31C ]
+"221
+[; ;main.c: 221:         } else {
+}
+[e $U 412  ]
+[e :U 411 ]
+{
+"222
+[; ;main.c: 222:             printf("E,com\n");
+[e ( _printf (1 :s 32C ]
+"223
+[; ;main.c: 223:         }
+}
+[e :U 412 ]
+[e :U 410 ]
+[e :U 408 ]
+[e :U 406 ]
+[e :U 401 ]
+[e :U 399 ]
+[e :U 397 ]
+"224
+[; ;main.c: 224:     }
 }
 [e :U 385 ]
 [e $U 386  ]
 [e :U 387 ]
-"190
-[; ;main.c: 190: }
+"225
+[; ;main.c: 225: }
 [e :UE 380 ]
 }
-[a 3C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 51 69 115 113 117 105 110 97 115 10 0 ]
-[a 12C 80 114 101 115 105 111 110 97 114 32 90 32 99 105 101 114 116 111 32 110 117 109 101 114 111 32 100 101 32 118 101 99 101 115 32 114 101 99 105 98 105 100 97 115 10 0 ]
-[a 30C 69 44 99 111 109 10 0 ]
-[a 7C 73 110 105 116 105 97 108 105 122 105 110 103 10 0 ]
-[a 27C 69 110 116 114 97 115 116 101 32 97 32 109 111 118 101 114 32 108 97 32 98 97 115 101 10 0 ]
-[a 6C 69 115 99 114 105 98 101 32 105 110 105 116 32 112 97 114 97 32 99 97 108 105 98 97 114 32 101 108 32 83 80 65 82 67 32 121 32 112 111 100 101 114 32 101 109 112 101 122 97 114 32 101 108 32 112 114 111 103 114 97 109 97 10 0 ]
-[a 5C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 72 111 109 101 89 10 0 ]
-[a 9C 86 97 115 32 97 32 109 111 118 101 114 32 101 108 32 83 112 97 114 99 32 101 110 32 88 32 121 32 89 10 0 ]
-[a 21C 86 97 115 32 97 32 105 114 32 105 110 102 105 110 105 116 111 32 88 32 101 32 105 110 102 105 110 105 116 111 32 89 10 0 ]
-[a 18C 86 97 115 32 97 32 105 114 32 97 32 104 111 109 101 88 32 121 32 104 111 109 101 32 89 10 0 ]
+[a 8C 69 115 99 114 105 98 101 32 105 110 105 116 32 112 97 114 97 32 99 97 108 105 98 114 97 114 32 101 108 32 83 80 65 82 67 32 121 32 112 111 100 101 114 32 97 99 99 101 100 101 114 32 97 108 32 114 101 115 116 111 32 100 101 32 108 97 115 32 102 117 110 99 105 111 110 101 115 10 0 ]
+[a 5C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 51 69 115 113 117 105 110 97 115 10 0 ]
+[a 16C 80 114 101 115 105 111 110 97 114 32 90 32 99 105 101 114 116 111 32 110 117 109 101 114 111 32 100 101 32 118 101 99 101 115 32 114 101 99 105 98 105 100 97 115 10 0 ]
+[a 32C 69 44 99 111 109 10 0 ]
+[a 29C 69 110 116 114 97 115 116 101 32 97 32 109 111 118 101 114 32 108 97 32 98 97 115 101 10 0 ]
+[a 2C 79 107 44 99 111 111 114 89 10 0 ]
+[a 7C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 72 111 109 101 89 10 0 ]
+[a 14C 86 97 115 32 97 32 109 111 118 101 114 32 101 108 32 83 112 97 114 99 32 101 110 32 88 32 121 32 89 10 0 ]
+[a 23C 86 97 115 32 97 32 105 114 32 105 110 102 105 110 105 116 111 32 88 32 101 32 105 110 102 105 110 105 116 111 32 89 10 0 ]
+[a 20C 86 97 115 32 97 32 105 114 32 97 32 104 111 109 101 88 32 121 32 104 111 109 101 32 89 10 0 ]
 [a 1C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 48 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 32 89 10 0 ]
-[a 4C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 72 111 109 101 88 10 0 ]
-[a 2C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 49 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 32 88 10 0 ]
-[a 10C 79 107 44 99 111 109 86 10 0 ]
-[a 13C 79 107 44 99 111 109 86 10 0 ]
-[a 16C 79 107 44 99 111 109 86 10 0 ]
+[a 4C 79 107 44 99 111 111 114 88 10 0 ]
+[a 6C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 72 111 109 101 88 10 0 ]
+[a 3C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 49 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 32 88 10 0 ]
+[a 15C 79 107 44 99 111 109 86 10 0 ]
+[a 17C 79 107 44 99 111 109 86 10 0 ]
 [a 19C 79 107 44 99 111 109 86 10 0 ]
-[a 22C 79 107 44 99 111 109 86 10 0 ]
-[a 25C 79 107 44 99 111 109 86 10 0 ]
-[a 28C 79 107 44 99 111 109 86 10 0 ]
-[a 8C 79 107 44 99 111 109 78 10 0 ]
-[a 11C 79 107 44 99 111 109 70 10 0 ]
-[a 14C 79 107 44 99 111 109 70 10 0 ]
-[a 17C 79 107 44 99 111 109 70 10 0 ]
-[a 20C 79 107 44 99 111 109 70 10 0 ]
-[a 23C 79 107 44 99 111 109 70 10 0 ]
-[a 26C 79 107 44 99 111 109 70 10 0 ]
-[a 29C 79 107 44 99 111 109 70 10 0 ]
-[a 15C 80 105 115 116 111 110 32 112 97 114 97 32 100 101 115 108 105 122 97 114 32 111 32 100 101 106 97 114 32 114 101 116 114 97 105 100 111 63 10 0 ]
-[a 24C 73 109 112 114 109 105 114 32 99 111 111 114 100 101 110 97 100 97 32 97 99 116 117 97 108 32 10 0 ]
+[a 21C 79 107 44 99 111 109 86 10 0 ]
+[a 24C 79 107 44 99 111 109 86 10 0 ]
+[a 27C 79 107 44 99 111 109 86 10 0 ]
+[a 30C 79 107 44 99 111 109 86 10 0 ]
+[a 10C 83 65 67 65 78 68 79 10 0 ]
+[a 13C 79 107 44 99 111 109 78 10 0 ]
+[a 22C 79 107 44 99 111 109 70 10 0 ]
+[a 25C 79 107 44 99 111 109 70 10 0 ]
+[a 28C 79 107 44 99 111 109 70 10 0 ]
+[a 31C 79 107 44 99 111 109 70 10 0 ]
+[a 12C 73 110 116 51 32 69 115 113 117 105 110 97 115 44 32 114 101 99 97 108 105 98 114 97 110 100 111 32 83 80 65 82 67 10 0 ]
+[a 11C 89 97 32 101 115 116 97 32 99 97 108 105 98 114 97 100 111 32 101 108 32 83 80 65 82 67 10 0 ]
+[a 18C 80 105 115 116 111 110 32 112 97 114 97 32 100 101 115 108 105 122 97 114 32 111 32 100 101 106 97 114 32 114 101 116 114 97 105 100 111 63 10 0 ]
+[a 9C 73 110 105 99 105 97 108 105 122 97 110 100 111 46 46 46 10 0 ]
+[a 26C 73 109 112 114 109 105 114 32 99 111 111 114 100 101 110 97 100 97 32 97 99 116 117 97 108 32 10 0 ]

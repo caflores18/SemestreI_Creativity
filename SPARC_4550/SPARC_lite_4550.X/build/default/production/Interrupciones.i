@@ -5622,7 +5622,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./Interrupciones.h" 1
-# 16 "./Interrupciones.h"
+# 17 "./Interrupciones.h"
 void interruptsEnable(void);
 void interruptsDisable(void);
 void habilitarIntExternas(void);

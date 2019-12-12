@@ -3,9 +3,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./MotoresXYZ.h: 12: struct SystemaSPARC {
 [s S367 `us 1 `us 1 `us 1 ]
 [n S367 SystemaSPARC xWanted yWanted timesToPress ]
-"51 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h: 51: int abs (int);
-[v _abs `(i ~T0 @X0 0 ef1`i ]
 "3269 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
 [s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -21,6 +18,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3290
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
+"51 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h: 51: int abs (int);
+[v _abs `(i ~T0 @X0 0 ef1`i ]
 "18 ./UART.h
 [; ;./UART.h: 18: void printf (uint8_t *PointString);
 [v _printf `(v ~T0 @X0 0 ef1`*uc ]
@@ -648,68 +648,71 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ == -> _sparcEnMovimientoY `i -> 1 `i 370  ]
 [e :U 371 ]
 "18
-[; ;MotoresXYZ.c: 18:     coordinates.yWanted = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
-[e = . _coordinates 1 -> + + * - -> _coordYCentenas `i -> 48 `i -> 100 `i * - -> _coordYDecenas `i -> 48 `i -> 10 `i - -> _coordYUnidades `i -> 48 `i `us ]
+[; ;MotoresXYZ.c: 18:     LATDbits.LATD0 = 0;
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
 "19
-[; ;MotoresXYZ.c: 19:     yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5;
-[e = _yToAdvance -> * ( _abs (1 -> - -> . _coordinates 1 `ui -> _CurrentPosY `ui `i -> 5 `i `us ]
+[; ;MotoresXYZ.c: 19:     coordinates.yWanted = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
+[e = . _coordinates 1 -> + + * - -> _coordYCentenas `i -> 48 `i -> 100 `i * - -> _coordYDecenas `i -> 48 `i -> 10 `i - -> _coordYUnidades `i -> 48 `i `us ]
 "20
-[; ;MotoresXYZ.c: 20:     if (coordinates.yWanted > CurrentPosY) {
+[; ;MotoresXYZ.c: 20:     yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5;
+[e = _yToAdvance -> * ( _abs (1 -> - -> . _coordinates 1 `ui -> _CurrentPosY `ui `i -> 5 `i `us ]
+"21
+[; ;MotoresXYZ.c: 21:     if (coordinates.yWanted > CurrentPosY) {
 [e $ ! > -> . _coordinates 1 `ui -> _CurrentPosY `ui 372  ]
 {
-"21
-[; ;MotoresXYZ.c: 21:         LATDbits.LATD1 = 0;
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
 "22
-[; ;MotoresXYZ.c: 22:     } else if (coordinates.yWanted < CurrentPosY) {
+[; ;MotoresXYZ.c: 22:         LATDbits.LATD1 = 1;
+[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
+"23
+[; ;MotoresXYZ.c: 23:     } else if (coordinates.yWanted < CurrentPosY) {
 }
 [e $U 373  ]
 [e :U 372 ]
 [e $ ! < -> . _coordinates 1 `ui -> _CurrentPosY `ui 374  ]
 {
-"23
-[; ;MotoresXYZ.c: 23:         LATDbits.LATD1 = 1;
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
 "24
-[; ;MotoresXYZ.c: 24:     }
+[; ;MotoresXYZ.c: 24:         LATDbits.LATD1 = 0;
+[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
+"25
+[; ;MotoresXYZ.c: 25:     }
 }
 [e :U 374 ]
 [e :U 373 ]
-"25
-[; ;MotoresXYZ.c: 25:     if (coordinates.yWanted != CurrentPosY) {
+"26
+[; ;MotoresXYZ.c: 26:     if (coordinates.yWanted != CurrentPosY) {
 [e $ ! != -> . _coordinates 1 `ui -> _CurrentPosY `ui 375  ]
 {
-"26
-[; ;MotoresXYZ.c: 26:         printf("yToAdvance is: ");
-[e ( _printf (1 :s 1C ]
 "27
-[; ;MotoresXYZ.c: 27:         send(yToAdvance);
-[e ( _send (1 -> _yToAdvance `uc ]
+[; ;MotoresXYZ.c: 27:         printf("yToAdvance is: ");
+[e ( _printf (1 :s 1C ]
 "28
-[; ;MotoresXYZ.c: 28:         send('\n');
-[e ( _send (1 -> -> 10 `ui `uc ]
+[; ;MotoresXYZ.c: 28:         send(yToAdvance);
+[e ( _send (1 -> _yToAdvance `uc ]
 "29
-[; ;MotoresXYZ.c: 29:         sparcEnMovimientoY = 1;
+[; ;MotoresXYZ.c: 29:         send('\n');
+[e ( _send (1 -> -> 10 `ui `uc ]
+"30
+[; ;MotoresXYZ.c: 30:         sparcEnMovimientoY = 1;
 [e = _sparcEnMovimientoY -> -> 1 `i `uc ]
-"31
-[; ;MotoresXYZ.c: 31:         setNumPasosY(yToAdvance);
+"32
+[; ;MotoresXYZ.c: 32:         setNumPasosY(yToAdvance);
 [e ( _setNumPasosY (1 _yToAdvance ]
-"36
-[; ;MotoresXYZ.c: 36:         PWM_DutyCycleCCP2(50);
+"35
+[; ;MotoresXYZ.c: 35:         PWM_DutyCycleCCP2(50);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
-"38
-[; ;MotoresXYZ.c: 38:     } else printf("E,coorAcY\n");
+"37
+[; ;MotoresXYZ.c: 37:     } else printf("E,coorAcY\n");
 }
 [e $U 376  ]
 [e :U 375 ]
 [e ( _printf (1 :s 2C ]
 [e :U 376 ]
-"39
-[; ;MotoresXYZ.c: 39: }
+"38
+[; ;MotoresXYZ.c: 38: }
 [e :UE 368 ]
 }
-"41
-[; ;MotoresXYZ.c: 41: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades) {
+"40
+[; ;MotoresXYZ.c: 40: void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUnidades) {
 [v _moverHaciaX `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _moverHaciaX ]
@@ -717,19 +720,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _coordXDecenas `uc ~T0 @X0 1 r2 ]
 [v _coordXUnidades `uc ~T0 @X0 1 r3 ]
 [f ]
-"42
-[; ;MotoresXYZ.c: 42:     while (sparcEnMovimientoX == 1) {
+"41
+[; ;MotoresXYZ.c: 41:     while (sparcEnMovimientoX == 1) {
 [e $U 378  ]
 [e :U 379 ]
 {
-"44
-[; ;MotoresXYZ.c: 44:     }
+"43
+[; ;MotoresXYZ.c: 43:     }
 }
 [e :U 378 ]
-"42
-[; ;MotoresXYZ.c: 42:     while (sparcEnMovimientoX == 1) {
+"41
+[; ;MotoresXYZ.c: 41:     while (sparcEnMovimientoX == 1) {
 [e $ == -> _sparcEnMovimientoX `i -> 1 `i 379  ]
 [e :U 380 ]
+"45
+[; ;MotoresXYZ.c: 45:     LATDbits.LATD2 = 0;
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
 "46
 [; ;MotoresXYZ.c: 46:     coordinates.xWanted = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
 [e = . _coordinates 0 -> + + * - -> _coordXCentenas `i -> 48 `i -> 100 `i * - -> _coordXDecenas `i -> 48 `i -> 10 `i - -> _coordXUnidades `i -> 48 `i `us ]
@@ -741,8 +747,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! > -> . _coordinates 0 `ui -> _CurrentPosX `ui 381  ]
 {
 "50
-[; ;MotoresXYZ.c: 50:         LATDbits.LATD3 = 0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;MotoresXYZ.c: 50:         LATDbits.LATD3 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
 "51
 [; ;MotoresXYZ.c: 51:     } else if (coordinates.xWanted < CurrentPosX) {
 }
@@ -751,8 +757,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! < -> . _coordinates 0 `ui -> _CurrentPosX `ui 383  ]
 {
 "52
-[; ;MotoresXYZ.c: 52:         LATDbits.LATD3 = 1;
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[; ;MotoresXYZ.c: 52:         LATDbits.LATD3 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "53
 [; ;MotoresXYZ.c: 53:     }
 }
@@ -777,22 +783,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;MotoresXYZ.c: 60:         setNumPasosX(xToAdvance);
 [e ( _setNumPasosX (1 _xToAdvance ]
-"65
-[; ;MotoresXYZ.c: 65:         PWM_DutyCycleCCP1(50);
+"62
+[; ;MotoresXYZ.c: 62:         PWM_DutyCycleCCP1(50);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
-"67
-[; ;MotoresXYZ.c: 67:     } else printf("E,coorAcX\n");
+"64
+[; ;MotoresXYZ.c: 64:     } else printf("E,coorAcX\n");
 }
 [e $U 385  ]
 [e :U 384 ]
 [e ( _printf (1 :s 4C ]
 [e :U 385 ]
-"68
-[; ;MotoresXYZ.c: 68: }
+"65
+[; ;MotoresXYZ.c: 65: }
 [e :UE 377 ]
 }
-"70
-[; ;MotoresXYZ.c: 70: void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
+"67
+[; ;MotoresXYZ.c: 67: void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, uint8_t presionarZUnidades) {
 [v _presionarPantalla `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _presionarPantalla ]
@@ -800,41 +806,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _presionarZDecenas `uc ~T0 @X0 1 r2 ]
 [v _presionarZUnidades `uc ~T0 @X0 1 r3 ]
 [f ]
-"71
-[; ;MotoresXYZ.c: 71:     coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
+"68
+[; ;MotoresXYZ.c: 68:     coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
 [e = . _coordinates 2 -> + + * - -> _presionarZCentenas `i -> 48 `i -> 100 `i * - -> _presionarZDecenas `i -> 48 `i -> 10 `i - -> _presionarZUnidades `i -> 48 `i `us ]
-"73
-[; ;MotoresXYZ.c: 73:     if (coordinates.timesToPress != 0) {
+"70
+[; ;MotoresXYZ.c: 70:     if (coordinates.timesToPress != 0) {
 [e $ ! != -> . _coordinates 2 `ui -> -> 0 `i `ui 387  ]
 {
-"75
-[; ;MotoresXYZ.c: 75:         for (uint8_t toques = 0; toques < coordinates.timesToPress; toques++) {
+"71
+[; ;MotoresXYZ.c: 71:         if (coordinates.timesToPress < 16) {
+[e $ ! < -> . _coordinates 2 `ui -> -> 16 `i `ui 388  ]
+{
+"73
+[; ;MotoresXYZ.c: 73:             for (uint8_t toques = 0; toques < coordinates.timesToPress; toques++) {
 {
 [v _toques `uc ~T0 @X0 1 a ]
 [e = _toques -> -> 0 `i `uc ]
-[e $U 391  ]
-[e :U 388 ]
+[e $U 392  ]
+[e :U 389 ]
 {
+"74
+[; ;MotoresXYZ.c: 74:                 LATEbits.LATE0 = 0;
+[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
+"75
+[; ;MotoresXYZ.c: 75:                 _delay((unsigned long)((500)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "76
-[; ;MotoresXYZ.c: 76:             LATEbits.LATE0 = 1;
+[; ;MotoresXYZ.c: 76:                 LATEbits.LATE0 = 1;
 [e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
 "77
-[; ;MotoresXYZ.c: 77:             _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;MotoresXYZ.c: 77:                 _delay((unsigned long)((500)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "78
-[; ;MotoresXYZ.c: 78:             LATEbits.LATE0 = 0;
+[; ;MotoresXYZ.c: 78:                 LATEbits.LATE0 = 0;
 [e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
 "79
-[; ;MotoresXYZ.c: 79:             _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;MotoresXYZ.c: 79:             }
+}
+[e ++ _toques -> -> 1 `i `uc ]
+[e :U 392 ]
+[e $ < -> _toques `ui -> . _coordinates 2 `ui 389  ]
+[e :U 390 ]
+}
 "80
 [; ;MotoresXYZ.c: 80:         }
 }
-[e ++ _toques -> -> 1 `i `uc ]
-[e :U 391 ]
-[e $ < -> _toques `ui -> . _coordinates 2 `ui 388  ]
-[e :U 389 ]
-}
+[e :U 388 ]
 "81
 [; ;MotoresXYZ.c: 81:     }
 }
@@ -850,42 +867,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _moverHomeX ]
 [f ]
 "85
-[; ;MotoresXYZ.c: 85:     destinoHomeX = 1;
+[; ;MotoresXYZ.c: 85:     LATDbits.LATD2 = 0;
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+"86
+[; ;MotoresXYZ.c: 86:     destinoHomeX = 1;
 [e = _destinoHomeX -> -> 1 `i `uc ]
-"87
-[; ;MotoresXYZ.c: 87:     LATDbits.LATD3 = 0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "88
-[; ;MotoresXYZ.c: 88:     sparcEnMovimientoX = 1;
+[; ;MotoresXYZ.c: 88:     LATDbits.LATD3 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+"89
+[; ;MotoresXYZ.c: 89:     sparcEnMovimientoX = 1;
 [e = _sparcEnMovimientoX -> -> 1 `i `uc ]
-"90
-[; ;MotoresXYZ.c: 90:     PWM_DutyCycleCCP1(50);
+"91
+[; ;MotoresXYZ.c: 91:     PWM_DutyCycleCCP1(50);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
-"92
-[; ;MotoresXYZ.c: 92: }
-[e :UE 392 ]
+"93
+[; ;MotoresXYZ.c: 93: }
+[e :UE 393 ]
 }
-"94
-[; ;MotoresXYZ.c: 94: void moverHomeY(void) {
+"95
+[; ;MotoresXYZ.c: 95: void moverHomeY(void) {
 [v _moverHomeY `(v ~T0 @X0 1 ef ]
 {
 [e :U _moverHomeY ]
 [f ]
-"95
-[; ;MotoresXYZ.c: 95:     destinoHomeY = 1;
-[e = _destinoHomeY -> -> 1 `i `uc ]
+"96
+[; ;MotoresXYZ.c: 96:     LATDbits.LATD0 = 0;
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
 "97
-[; ;MotoresXYZ.c: 97:     LATDbits.LATD1 = 0;
+[; ;MotoresXYZ.c: 97:     destinoHomeY = 1;
+[e = _destinoHomeY -> -> 1 `i `uc ]
+"99
+[; ;MotoresXYZ.c: 99:     LATDbits.LATD1 = 0;
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"98
-[; ;MotoresXYZ.c: 98:     sparcEnMovimientoY = 1;
+"100
+[; ;MotoresXYZ.c: 100:     sparcEnMovimientoY = 1;
 [e = _sparcEnMovimientoY -> -> 1 `i `uc ]
 "101
 [; ;MotoresXYZ.c: 101:     PWM_DutyCycleCCP2(50);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
 "103
 [; ;MotoresXYZ.c: 103: }
-[e :UE 393 ]
+[e :UE 394 ]
 }
 "105
 [; ;MotoresXYZ.c: 105: void moverXInfinito() {
@@ -893,18 +916,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _moverXInfinito ]
 [f ]
-"107
-[; ;MotoresXYZ.c: 107:     LATDbits.LATD3 = 1;
+"106
+[; ;MotoresXYZ.c: 106:     LATDbits.LATD2 = 0;
+[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
+"108
+[; ;MotoresXYZ.c: 108:     LATDbits.LATD3 = 1;
 [e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
-"109
-[; ;MotoresXYZ.c: 109:     sparcEnMovimientoX = 1;
+"110
+[; ;MotoresXYZ.c: 110:     sparcEnMovimientoX = 1;
 [e = _sparcEnMovimientoX -> -> 1 `i `uc ]
 "112
 [; ;MotoresXYZ.c: 112:     PWM_DutyCycleCCP1(50);
 [e ( _PWM_DutyCycleCCP1 (1 -> -> 50 `i `uc ]
 "113
 [; ;MotoresXYZ.c: 113: }
-[e :UE 394 ]
+[e :UE 395 ]
 }
 "115
 [; ;MotoresXYZ.c: 115: void moverYInfinito() {
@@ -912,18 +938,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _moverYInfinito ]
 [f ]
-"117
-[; ;MotoresXYZ.c: 117:     LATDbits.LATD1 = 1;
+"116
+[; ;MotoresXYZ.c: 116:     LATDbits.LATD0 = 0;
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+"118
+[; ;MotoresXYZ.c: 118:     LATDbits.LATD1 = 1;
 [e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-"119
-[; ;MotoresXYZ.c: 119:     sparcEnMovimientoY = 1;
+"120
+[; ;MotoresXYZ.c: 120:     sparcEnMovimientoY = 1;
 [e = _sparcEnMovimientoY -> -> 1 `i `uc ]
 "122
 [; ;MotoresXYZ.c: 122:     PWM_DutyCycleCCP2(50);
 [e ( _PWM_DutyCycleCCP2 (1 -> -> 50 `i `uc ]
 "123
 [; ;MotoresXYZ.c: 123: }
-[e :UE 395 ]
+[e :UE 396 ]
 }
 "125
 [; ;MotoresXYZ.c: 125: void moverZArriba(void) {
@@ -939,7 +968,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "128
 [; ;MotoresXYZ.c: 128: }
-[e :UE 396 ]
+[e :UE 397 ]
 }
 "130
 [; ;MotoresXYZ.c: 130: void moverZAbajo(void) {
@@ -955,7 +984,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "133
 [; ;MotoresXYZ.c: 133: }
-[e :UE 397 ]
+[e :UE 398 ]
 }
 "135
 [; ;MotoresXYZ.c: 135: void apagarZ(void) {
@@ -971,7 +1000,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "138
 [; ;MotoresXYZ.c: 138: }
-[e :UE 398 ]
+[e :UE 399 ]
 }
 [a 1C 121 84 111 65 100 118 97 110 99 101 32 105 115 58 32 0 ]
 [a 3C 120 84 111 65 100 118 97 110 99 101 32 105 115 58 32 0 ]

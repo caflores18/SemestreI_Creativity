@@ -13,6 +13,5 @@ void printf (uint8_t *PointString);
      * hasta que se encuentra un caracter nulo */
 void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
     //Se escanea por UART un numero de caracteres y se guarda en el arreglo guardarscan
-uint8_t receiveNum(void); //Funcion para recibir numeros (por UART)
 #endif	/* COMUNICACION_H */
 

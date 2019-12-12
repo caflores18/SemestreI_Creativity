@@ -5718,8 +5718,6 @@ void printf (uint8_t *PointString);
 
 
 void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
-
-uint8_t receiveNum(void);
 # 5 "main.c" 2
 
 # 1 "./FuncionesMenu.h" 1
@@ -5747,7 +5745,7 @@ void modificarZ(void);
 # 6 "main.c" 2
 
 # 1 "./Gpio.h" 1
-# 23 "./Gpio.h"
+# 24 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
@@ -5756,7 +5754,7 @@ void motoresZinit(void);
 # 7 "main.c" 2
 
 # 1 "./Interrupciones.h" 1
-# 16 "./Interrupciones.h"
+# 17 "./Interrupciones.h"
 void interruptsEnable(void);
 void interruptsDisable(void);
 void habilitarIntExternas(void);
@@ -5858,6 +5856,7 @@ void errorUART(void);
 
 
 
+uint8_t OcurrioIntEsq = 0;
 
 __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
     if (INTCONbits.TMR0IF == 1) {
@@ -5866,7 +5865,9 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         }
         CurrentPosY = coordinates.yWanted;
         printf("Interrupcion TMR0, llegaste a coordenada deseada Y\n");
+        printf("Ok,coorY\n");
         sparcEnMovimientoY = 0;
+        LATDbits.LATD0 = 1;
         INTCONbits.TMR0IF = 0;
     }
     if (PIR1bits.TMR1IF == 1) {
@@ -5875,7 +5876,9 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         }
         CurrentPosX = coordinates.xWanted;
         printf("Interrupcion TMR1, llegaste a coordenada deseada X\n");
+        printf("Ok,coorX\n");
         sparcEnMovimientoX = 0;
+        LATDbits.LATD2 = 1;
         PIR1bits.TMR1IF = 0;
     }
     if (INTCONbits.INT0IF) {
@@ -5885,11 +5888,12 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         }
         moverHomeX();
         moverHomeY();
+        OcurrioIntEsq = 1;
         INTCONbits.INT0IF = 0;
     }
-    if (INTCON3bits.INT1IF == 1) {
+    if (INTCON3bits.INT2IF == 1) {
         _delay((unsigned long)((10)*(8000000/4000.0)));
-        if (PORTBbits.RB1 == 1) {
+        if (PORTBbits.RB2 == 1) {
             printf("Ocurrio la interrupcion limitSwitchHomeX\n");
         }
         PWM_DutyCycleCCP1(0);
@@ -5897,11 +5901,11 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         destinoHomeX = 0;
         llegoHomeX = 1;
         sparcEnMovimientoX = 0;
-        INTCON3bits.INT1IF = 0;
+        INTCON3bits.INT2IF = 0;
     }
-    if (INTCON3bits.INT2IF == 1) {
+    if (INTCON3bits.INT1IF == 1) {
         _delay((unsigned long)((10)*(8000000/4000.0)));
-        if (PORTBbits.RB2 == 1) {
+        if (PORTBbits.RB1 == 1) {
             printf("Ocurrio la interrupcion limitSwitchHomeY\n");
         }
         PWM_DutyCycleCCP2(0);
@@ -5909,7 +5913,7 @@ __attribute__((picinterrupt(("high_priority")))) void high_isr(void) {
         destinoHomeY = 0;
         llegoHomeY = 1;
         sparcEnMovimientoY = 0;
-        INTCON3bits.INT2IF = 0;
+        INTCON3bits.INT1IF = 0;
     }
 }
 
@@ -5935,11 +5939,9 @@ void main(void) {
     interruptsEnable();
     habilitarIntTMR0();
     habilitarIntTMR1();
-
+    habilitarIntExternas();
     motoresZinit();
     pistonInit();
-
-
 
     uint8_t activarmenu[5];
     activarmenu[4] = ((void*)0);
@@ -5949,33 +5951,81 @@ void main(void) {
 
     uint8_t desechable = receive();
     while (calibrarSparc == 0) {
-        printf("Escribe init para calibar el SPARC y poder empezar el programa\n");
+        printf("Escribe init para calibrar el SPARC y poder acceder al resto de las funciones\n");
         scanf(pActMenu, tamanoarray = (sizeof (activarmenu) - 1));
         if ((activarmenu[0] == 'i' || activarmenu[0] == 'I') && activarmenu[1] == 'n' && activarmenu[2] == 'i' && activarmenu[3] == 't') {
             calibrarSparc = 1;
-            printf("Initializing\n");
+            printf("Inicializando...\n");
         }
     }
 
     while (1) {
-# 136 "main.c"
+        if (calibrarSparc == 1) {
+            moverHaciaX('0', '0', '5');
+            moverHaciaY('0', '0', '5');
+            _delay((unsigned long)((100)*(8000000/4000.0)));
+            moverHomeX();
+            moverHomeY();
+            while (!(llegoHomeX && llegoHomeY)) {
+
+            }
+
+            printf("SACANDO\n");
+            moverHaciaX('0', '1', '5');
+            moverHaciaY('0', '1', '5');
+            llegoHomeX = 0;
+            llegoHomeY = 0;
+            CurrentPosX = 0;
+            CurrentPosY = 0;
+            calibrarSparc = 0;
+            printf("Ya esta calibrado el SPARC\n");
+        }
+        if (OcurrioIntEsq == 1) {
+            while (!(llegoHomeX && llegoHomeY)) {
+
+            }
+
+            printf("Int3 Esquinas, recalibrando SPARC\n");
+            moverHaciaX('0', '1', '5');
+            moverHaciaY('0', '1', '5');
+            llegoHomeX = 0;
+            llegoHomeY = 0;
+            CurrentPosX = 0;
+            CurrentPosY = 0;
+            OcurrioIntEsq = 0;
+
+
+
+
+
+        }
         printf("Ok,comN\n");
         uint8_t opcionsel = receive();
         if (opcionsel == 'm' || opcionsel == 'M') {
             printf("Vas a mover el Sparc en X y Y\n");
             printf("Ok,comV\n");
             moverHaciaXY();
-            printf("Ok,comF\n");
         } else if (opcionsel == 'p' || opcionsel == 'P') {
             printf("Presionar Z cierto numero de veces recibidas\n");
             printf("Ok,comV\n");
+            INTCONbits.GIE = 0;
             funcionToques();
-            printf("Ok,comF\n");
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+            INTCONbits.INT0IF = 0;
+            INTCON3bits.INT2IF = 0;
+            INTCON3bits.INT1IF = 0;
+            INTCONbits.GIE = 1;
         } else if (opcionsel == 's' || opcionsel == 'S') {
             printf("Piston para deslizar o dejar retraido?\n");
             printf("Ok,comV\n");
+            INTCONbits.GIE = 0;
             slidePiston();
-            printf("Ok,comF\n");
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+            INTCONbits.INT0IF = 0;
+            INTCON3bits.INT2IF = 0;
+            INTCON3bits.INT1IF = 0;
+            INTCONbits.GIE = 1;
+
         } else if (opcionsel == 'h' || opcionsel == 'H') {
             printf("Vas a ir a homeX y home Y\n");
             printf("Ok,comV\n");
@@ -5985,8 +6035,8 @@ void main(void) {
 
             }
 
-            moverHaciaX(0, 0, 5);
-            moverHaciaY(0, 0, 5);
+            moverHaciaX('0', '1', '5');
+            moverHaciaY('0', '1', '5');
 
             llegoHomeX = 0;
             llegoHomeY = 0;
@@ -5998,6 +6048,7 @@ void main(void) {
             printf("Ok,comV\n");
             moverXInfinito();
             moverYInfinito();
+            OcurrioIntEsq = 1;
             printf("Ok,comF\n");
         } else if (opcionsel == 'c' || opcionsel == 'C') {
             printf("Imprmir coordenada actual \n");

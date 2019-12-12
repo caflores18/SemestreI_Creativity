@@ -9,20 +9,44 @@
 #define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
 
 void moverHaciaXY(void) {
+    uint8_t charNoNumerico = 0;
     uint16_t validarCoordX = 0;
     uint16_t validarCoordY = 0;
-    //corregirCoord:
     printf("X:\n");
-    coordXCentenas = receiveNum();
-    coordXDecenas = receiveNum();
-    coordXUnidades = receiveNum();
+    coordXCentenas = receive();
+    coordXDecenas = receive();
+    coordXUnidades = receive();
     printf("Y:\n");
-    coordYCentenas = receiveNum();
-    coordYDecenas = receiveNum();
-    coordYUnidades = receiveNum();
+    coordYCentenas = receive();
+    coordYDecenas = receive();
+    coordYUnidades = receive();
     validarCoordX = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
     validarCoordY = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
-    if ((validarCoordX > 300) || (validarCoordY > 300)) {
+    if (coordXCentenas > 57 || coordXCentenas < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (coordXDecenas > 57 || coordXDecenas < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (coordXUnidades > 57 || coordXUnidades < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (coordYCentenas > 57 || coordYCentenas < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (coordYDecenas > 57 || coordYDecenas < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (coordYUnidades > 57 || coordYUnidades < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (((validarCoordX > 300) || (validarCoordY > 300)) || (charNoNumerico == 1)) {
         printf("Metiste una coordenada invalida, vuelve a intentar\n");
         printf("E,cNoV\n");
         //goto corregirCoord;
@@ -37,36 +61,60 @@ void moverHaciaXY(void) {
         send(coordYUnidades);
         send('\n');
         //Parte de arriba se puede borrar
-        moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
         moverHaciaX(coordXCentenas, coordXDecenas, coordXUnidades);
+        moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
+        printf("Ok,comF\n");
     }
 }
 
 void funcionToques(void) {
+    uint8_t charNoNumerico = 0;
     printf("TocarPantalla:\n");
-    presionarZCentenas = receiveNum(); //Guarda el valor de las centenas a presionar el eje Z de una coordenada
-    presionarZDecenas = receiveNum(); //Guarda el valor de las decenas a presionar el eje Z de una coordenada
-    presionarZUnidades = receiveNum(); //Guarda el valor de las unidades a presionar el eje Z de una coordenada
-    presionarPantalla(presionarZCentenas, presionarZDecenas, presionarZUnidades);
-}
-void slidePiston(void){
-    uint8_t selection;
-    selection = receiveNum();
-    if(selection == '1'){
-        piston = 1;
-    }else if (selection == '0'){
-        piston = 0;
-    }else{
-        //Por seguridad se va a retraer el piston
-        piston = 0; 
+    presionarZCentenas = receive(); //Guarda el valor de las centenas a presionar el eje Z de una coordenada
+    presionarZDecenas = receive(); //Guarda el valor de las decenas a presionar el eje Z de una coordenada
+    presionarZUnidades = receive(); //Guarda el valor de las unidades a presionar el eje Z de una coordenada
+    if (presionarZCentenas > 57 || presionarZCentenas < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (presionarZDecenas > 57 || presionarZDecenas < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (presionarZUnidades > 57 || presionarZUnidades < 48) {
+        //Si el caracter recibido no es valido se activa la bandera charNoNumerico
+        charNoNumerico = 1;
+    }
+    if (charNoNumerico == 1) {
+        printf("E,cNoV\n");
+    } else {
+        presionarPantalla(presionarZCentenas, presionarZDecenas, presionarZUnidades);
+        printf("Ok,comF\n");
     }
 }
+
+void slidePiston(void) {
+    uint8_t selection;
+    selection = receive();
+    if (selection == '1') {
+        piston = 1; //Trabaja con logica contraria
+        printf("Ok,comF\n");
+    } else if (selection == '0') {
+        piston = 0;
+        printf("Ok,comF\n");
+    } else {
+        printf("E,cNoV\n");
+        //Por seguridad se va a retraer el piston
+        piston = 1;
+    }
+}
+
 void impCoordActual(void) {
     printf("X: ");
     send((CurrentPosX * 0.01) + 48);
     send(((CurrentPosX % 100)*0.1) + 48);
     send(((CurrentPosX % 100) % 10) + 48);
-      printf(" ,Y: ");
+    printf(" ,Y: ");
     send((CurrentPosY * 0.01) + 48);
     send(((CurrentPosY % 100)*0.1) + 48);
     send(((CurrentPosY % 100) % 10) + 48);
@@ -75,12 +123,14 @@ void impCoordActual(void) {
 
 void modificarZ(void) {
     uint8_t OkEncendido = 0;
+    enableMotoresZ = 1;
     while (OkEncendido == 0) {
         if (PORTAbits.RA5 == 1) {
             __delay_ms(10);
             if (PORTAbits.RA5 == 1) {
                 printf("\nSaliendo\n");
                 apagarZ();
+                enableMotoresZ = 0;
                 OkEncendido = 1;
             }
         }
@@ -91,6 +141,7 @@ void modificarZ(void) {
                 do {
                     moverZArriba();
                 } while (PORTCbits.RC4 == 1);
+                apagarZ();
             }
         }
         if (PORTCbits.RC5 == 1) {
@@ -100,6 +151,7 @@ void modificarZ(void) {
                 do {
                     moverZAbajo();
                 } while (PORTCbits.RC5 == 1);
+                apagarZ();
             }
         }
     }

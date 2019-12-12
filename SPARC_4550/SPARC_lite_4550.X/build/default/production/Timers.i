@@ -5720,8 +5720,6 @@ void printf (uint8_t *PointString);
 
 
 void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
-
-uint8_t receiveNum(void);
 # 4 "Timers.c" 2
 
 # 1 "./UART.h" 1

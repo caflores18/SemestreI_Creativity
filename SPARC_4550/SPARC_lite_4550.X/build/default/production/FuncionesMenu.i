@@ -5707,7 +5707,7 @@ typedef uint32_t uint_fast32_t;
 
 
 # 1 "./Gpio.h" 1
-# 23 "./Gpio.h"
+# 24 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
@@ -5721,8 +5721,6 @@ void printf (uint8_t *PointString);
 
 
 void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
-
-uint8_t receiveNum(void);
 # 5 "FuncionesMenu.c" 2
 
 # 1 "./UART.h" 1
@@ -5814,20 +5812,44 @@ void apagarZ(void);
 
 
 void moverHaciaXY(void) {
+    uint8_t charNoNumerico = 0;
     uint16_t validarCoordX = 0;
     uint16_t validarCoordY = 0;
-
     printf("X:\n");
-    coordXCentenas = receiveNum();
-    coordXDecenas = receiveNum();
-    coordXUnidades = receiveNum();
+    coordXCentenas = receive();
+    coordXDecenas = receive();
+    coordXUnidades = receive();
     printf("Y:\n");
-    coordYCentenas = receiveNum();
-    coordYDecenas = receiveNum();
-    coordYUnidades = receiveNum();
+    coordYCentenas = receive();
+    coordYDecenas = receive();
+    coordYUnidades = receive();
     validarCoordX = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
     validarCoordY = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
-    if ((validarCoordX > 300) || (validarCoordY > 300)) {
+    if (coordXCentenas > 57 || coordXCentenas < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (coordXDecenas > 57 || coordXDecenas < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (coordXUnidades > 57 || coordXUnidades < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (coordYCentenas > 57 || coordYCentenas < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (coordYDecenas > 57 || coordYDecenas < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (coordYUnidades > 57 || coordYUnidades < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (((validarCoordX > 300) || (validarCoordY > 300)) || (charNoNumerico == 1)) {
         printf("Metiste una coordenada invalida, vuelve a intentar\n");
         printf("E,cNoV\n");
 
@@ -5842,36 +5864,60 @@ void moverHaciaXY(void) {
         send(coordYUnidades);
         send('\n');
 
-        moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
         moverHaciaX(coordXCentenas, coordXDecenas, coordXUnidades);
+        moverHaciaY(coordYCentenas, coordYDecenas, coordYUnidades);
+        printf("Ok,comF\n");
     }
 }
 
 void funcionToques(void) {
+    uint8_t charNoNumerico = 0;
     printf("TocarPantalla:\n");
-    presionarZCentenas = receiveNum();
-    presionarZDecenas = receiveNum();
-    presionarZUnidades = receiveNum();
-    presionarPantalla(presionarZCentenas, presionarZDecenas, presionarZUnidades);
-}
-void slidePiston(void){
-    uint8_t selection;
-    selection = receiveNum();
-    if(selection == '1'){
-        LATEbits.LATE0 = 1;
-    }else if (selection == '0'){
-        LATEbits.LATE0 = 0;
-    }else{
+    presionarZCentenas = receive();
+    presionarZDecenas = receive();
+    presionarZUnidades = receive();
+    if (presionarZCentenas > 57 || presionarZCentenas < 48) {
 
-        LATEbits.LATE0 = 0;
+        charNoNumerico = 1;
+    }
+    if (presionarZDecenas > 57 || presionarZDecenas < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (presionarZUnidades > 57 || presionarZUnidades < 48) {
+
+        charNoNumerico = 1;
+    }
+    if (charNoNumerico == 1) {
+        printf("E,cNoV\n");
+    } else {
+        presionarPantalla(presionarZCentenas, presionarZDecenas, presionarZUnidades);
+        printf("Ok,comF\n");
     }
 }
+
+void slidePiston(void) {
+    uint8_t selection;
+    selection = receive();
+    if (selection == '1') {
+        LATEbits.LATE0 = 1;
+        printf("Ok,comF\n");
+    } else if (selection == '0') {
+        LATEbits.LATE0 = 0;
+        printf("Ok,comF\n");
+    } else {
+        printf("E,cNoV\n");
+
+        LATEbits.LATE0 = 1;
+    }
+}
+
 void impCoordActual(void) {
     printf("X: ");
     send((CurrentPosX * 0.01) + 48);
     send(((CurrentPosX % 100)*0.1) + 48);
     send(((CurrentPosX % 100) % 10) + 48);
-      printf(" ,Y: ");
+    printf(" ,Y: ");
     send((CurrentPosY * 0.01) + 48);
     send(((CurrentPosY % 100)*0.1) + 48);
     send(((CurrentPosY % 100) % 10) + 48);
@@ -5880,12 +5926,14 @@ void impCoordActual(void) {
 
 void modificarZ(void) {
     uint8_t OkEncendido = 0;
+    LATDbits.LATD4 = 1;
     while (OkEncendido == 0) {
         if (PORTAbits.RA5 == 1) {
             _delay((unsigned long)((10)*(8000000/4000.0)));
             if (PORTAbits.RA5 == 1) {
                 printf("\nSaliendo\n");
                 apagarZ();
+                LATDbits.LATD4 = 0;
                 OkEncendido = 1;
             }
         }
@@ -5896,6 +5944,7 @@ void modificarZ(void) {
                 do {
                     moverZArriba();
                 } while (PORTCbits.RC4 == 1);
+                apagarZ();
             }
         }
         if (PORTCbits.RC5 == 1) {
@@ -5905,6 +5954,7 @@ void modificarZ(void) {
                 do {
                     moverZAbajo();
                 } while (PORTCbits.RC5 == 1);
+                apagarZ();
             }
         }
     }

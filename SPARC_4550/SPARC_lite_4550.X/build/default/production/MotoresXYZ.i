@@ -5726,12 +5726,10 @@ void printf (uint8_t *PointString);
 
 
 void scanf (uint8_t *guardarscan, uint8_t numcaracteres);
-
-uint8_t receiveNum(void);
 # 2 "MotoresXYZ.c" 2
 
 # 1 "./Gpio.h" 1
-# 23 "./Gpio.h"
+# 24 "./Gpio.h"
 void portInit(void);
 void motorXinit(void);
 void motorYinit(void);
@@ -5832,12 +5830,13 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
 
     }
 
+    LATDbits.LATD0 = 0;
     coordinates.yWanted = ((coordYCentenas - 48)*100)+((coordYDecenas - 48)*10)+(coordYUnidades - 48);
     yToAdvance = (abs(coordinates.yWanted - CurrentPosY))*5;
     if (coordinates.yWanted > CurrentPosY) {
-        LATDbits.LATD1 = 0;
-    } else if (coordinates.yWanted < CurrentPosY) {
         LATDbits.LATD1 = 1;
+    } else if (coordinates.yWanted < CurrentPosY) {
+        LATDbits.LATD1 = 0;
     }
     if (coordinates.yWanted != CurrentPosY) {
         printf("yToAdvance is: ");
@@ -5846,8 +5845,6 @@ void moverHaciaY(uint8_t coordYCentenas, uint8_t coordYDecenas, uint8_t coordYUn
         sparcEnMovimientoY = 1;
 
         setNumPasosY(yToAdvance);
-
-
 
 
         PWM_DutyCycleCCP2(50);
@@ -5860,13 +5857,14 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
 
     }
 
+    LATDbits.LATD2 = 0;
     coordinates.xWanted = ((coordXCentenas - 48)*100)+((coordXDecenas - 48)*10)+(coordXUnidades - 48);
     xToAdvance = (abs(coordinates.xWanted - CurrentPosX))*5;
 
     if (coordinates.xWanted > CurrentPosX) {
-        LATDbits.LATD3 = 0;
-    } else if (coordinates.xWanted < CurrentPosX) {
         LATDbits.LATD3 = 1;
+    } else if (coordinates.xWanted < CurrentPosX) {
+        LATDbits.LATD3 = 0;
     }
     if (coordinates.xWanted != CurrentPosX) {
         printf("xToAdvance is: ");
@@ -5875,9 +5873,6 @@ void moverHaciaX(uint8_t coordXCentenas, uint8_t coordXDecenas, uint8_t coordXUn
         sparcEnMovimientoX = 1;
 
         setNumPasosX(xToAdvance);
-
-
-
 
         PWM_DutyCycleCCP1(50);
 
@@ -5888,17 +5883,21 @@ void presionarPantalla(uint8_t presionarZCentenas, uint8_t presionarZDecenas, ui
     coordinates.timesToPress = ((presionarZCentenas - 48)*100)+((presionarZDecenas - 48)*10)+(presionarZUnidades - 48);
 
     if (coordinates.timesToPress != 0) {
+        if (coordinates.timesToPress < 16) {
 
-        for (uint8_t toques = 0; toques < coordinates.timesToPress; toques++) {
-            LATEbits.LATE0 = 1;
-            _delay((unsigned long)((100)*(8000000/4000.0)));
-            LATEbits.LATE0 = 0;
-            _delay((unsigned long)((100)*(8000000/4000.0)));
+            for (uint8_t toques = 0; toques < coordinates.timesToPress; toques++) {
+                LATEbits.LATE0 = 0;
+                _delay((unsigned long)((500)*(8000000/4000.0)));
+                LATEbits.LATE0 = 1;
+                _delay((unsigned long)((500)*(8000000/4000.0)));
+                LATEbits.LATE0 = 0;
+            }
         }
     }
 }
 
 void moverHomeX(void) {
+    LATDbits.LATD2 = 0;
     destinoHomeX = 1;
 
     LATDbits.LATD3 = 0;
@@ -5909,32 +5908,31 @@ void moverHomeX(void) {
 }
 
 void moverHomeY(void) {
+    LATDbits.LATD0 = 0;
     destinoHomeY = 1;
 
     LATDbits.LATD1 = 0;
     sparcEnMovimientoY = 1;
-
-
     PWM_DutyCycleCCP2(50);
 
 }
 
 void moverXInfinito() {
+    LATDbits.LATD2 = 0;
 
     LATDbits.LATD3 = 1;
 
     sparcEnMovimientoX = 1;
 
-
     PWM_DutyCycleCCP1(50);
 }
 
 void moverYInfinito() {
+    LATDbits.LATD0 = 0;
 
     LATDbits.LATD1 = 1;
 
     sparcEnMovimientoY = 1;
-
 
     PWM_DutyCycleCCP2(50);
 }

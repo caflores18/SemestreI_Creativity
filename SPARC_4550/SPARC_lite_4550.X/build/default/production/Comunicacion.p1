@@ -8,24 +8,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14
 [; ;./UART.h: 14: uint8_t receive();
 [v _receive `(uc ~T0 @X0 0 e? ]
-"4474 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4474:     struct {
-[s S178 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S178 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF SPPIF ]
-"4484
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4484:     struct {
-[s S179 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S179 . . TX1IF RC1IF . PSPIF ]
-"4473
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4473: typedef union {
-[u S177 `S178 1 `S179 1 ]
-[n S177 . . . ]
-"4492
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4492: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-[v _PIR1bits `VS177 ~T0 @X0 0 e@3998 ]
-"5419
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 5419: extern volatile unsigned char RCREG1 __attribute__((address(0xFAE)));
-[v _RCREG1 `Vuc ~T0 @X0 0 e@4014 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -616,68 +598,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Comunicacion.c: 23: }
 [e :UE 373 ]
 }
-"25
-[; ;Comunicacion.c: 25: uint8_t receiveNum(void) {
-[v _receiveNum `(uc ~T0 @X0 1 ef ]
-{
-[e :U _receiveNum ]
-[f ]
-"26
-[; ;Comunicacion.c: 26:     errorUART();
-[e ( _errorUART ..  ]
-"27
-[; ;Comunicacion.c: 27:     uint8_t recibido = 0;
-[v _recibido `uc ~T0 @X0 1 a ]
-[e = _recibido -> -> 0 `i `uc ]
-"28
-[; ;Comunicacion.c: 28:     while (recibido > 57 || recibido < 48) {
-[e $U 379  ]
-[e :U 380 ]
-{
-"30
-[; ;Comunicacion.c: 30:         while (PIR1bits.RCIF == 0) {
-[e $U 382  ]
-[e :U 383 ]
-{
-"32
-[; ;Comunicacion.c: 32:         }
-}
-[e :U 382 ]
-"30
-[; ;Comunicacion.c: 30:         while (PIR1bits.RCIF == 0) {
-[e $ == -> . . _PIR1bits 0 5 `i -> 0 `i 383  ]
-[e :U 384 ]
-"33
-[; ;Comunicacion.c: 33:         recibido = RCREG1;
-[e = _recibido _RCREG1 ]
-"34
-[; ;Comunicacion.c: 34:         RCREG1 = 0;
-[e = _RCREG1 -> -> 0 `i `uc ]
-"35
-[; ;Comunicacion.c: 35:         if (recibido > 57 || recibido < 48) {
-[e $ ! || > -> _recibido `i -> 57 `i < -> _recibido `i -> 48 `i 385  ]
-{
-"37
-[; ;Comunicacion.c: 37:             printf("Solo puedes introducir numeros, prueba de nuevo");
-[e ( _printf (1 :s 1C ]
-"38
-[; ;Comunicacion.c: 38:         }
-}
-[e :U 385 ]
-"39
-[; ;Comunicacion.c: 39:     }
-}
-[e :U 379 ]
-"28
-[; ;Comunicacion.c: 28:     while (recibido > 57 || recibido < 48) {
-[e $ || > -> _recibido `i -> 57 `i < -> _recibido `i -> 48 `i 380  ]
-[e :U 381 ]
-"40
-[; ;Comunicacion.c: 40:     return recibido;
-[e ) _recibido ]
-[e $UE 378  ]
-"41
-[; ;Comunicacion.c: 41: }
-[e :UE 378 ]
-}
-[a 1C 83 111 108 111 32 112 117 101 100 101 115 32 105 110 116 114 111 100 117 99 105 114 32 110 117 109 101 114 111 115 44 32 112 114 117 101 98 97 32 100 101 32 110 117 101 118 111 0 ]
