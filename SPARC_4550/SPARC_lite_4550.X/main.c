@@ -191,14 +191,14 @@ void main(void) {
             CurrentPosX = 0; //Se actualiza la posicion actual de X y Y a 0
             CurrentPosY = 0;
             printf("Ok,comF\n");
-        } else if (opcionsel == 'i' || opcionsel == 'I') {
+        }/*else if (opcionsel == 'i' || opcionsel == 'I') {
             printf("Vas a ir infinito X e infinito Y\n");
             printf("Ok,comV\n");
             moverXInfinito();
             moverYInfinito();
             OcurrioIntEsq = 1;
             printf("Ok,comF\n");
-        } else if (opcionsel == 'c' || opcionsel == 'C') {
+        }*/ else if (opcionsel == 'c' || opcionsel == 'C') {
             printf("Imprmir coordenada actual \n");
             printf("Ok,comV\n");
             impCoordActual();
