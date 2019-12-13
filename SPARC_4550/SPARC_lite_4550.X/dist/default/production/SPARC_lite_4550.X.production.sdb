@@ -93,10 +93,6 @@
 "95
 [v _moverHomeY moverHomeY `(v  1 e 1 0 ]
 [v i2_moverHomeY moverHomeY `(v  1 e 1 0 ]
-"105
-[v _moverXInfinito moverXInfinito `(v  1 e 1 0 ]
-"115
-[v _moverYInfinito moverYInfinito `(v  1 e 1 0 ]
 "125
 [v _moverZArriba moverZArriba `(v  1 e 1 0 ]
 "130
@@ -892,17 +888,7 @@
 {
 "52
 } 0
-"115 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
-[v _moverYInfinito moverYInfinito `(v  1 e 1 0 ]
-{
-"123
-} 0
-"105
-[v _moverXInfinito moverXInfinito `(v  1 e 1 0 ]
-{
-"113
-} 0
-"95
+"95 C:\Users\Alejandro\Desktop\SemestreI_Creativity\SPARC_4550\SPARC_lite_4550.X\MotoresXYZ.c
 [v _moverHomeY moverHomeY `(v  1 e 1 0 ]
 {
 "103
@@ -1091,17 +1077,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2532 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2525 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2537 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2540 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2532 1 fAsBytes 4 0 `S2537 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2540  1 a 4 39 ]
+[s S2530 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2533 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2525 1 fAsBytes 4 0 `S2530 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2533  1 a 4 39 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 33 ]
-[s S2608 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2601 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2611 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2608 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2611  1 a 2 43 ]
+[u S2604 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2601 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2604  1 a 2 43 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 38 ]
 "11
@@ -1294,14 +1280,14 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v i2___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2532 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-[s S2537 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2540 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2532 1 fAsBytes 4 0 `S2537 1 fAsWords 4 0 ]
-[v i2___flmul@prod __flmul `S2540  1 a 4 33 ]
+[s S2525 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2530 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2533 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2525 1 fAsBytes 4 0 `S2530 1 fAsWords 4 0 ]
+[v i2___flmul@prod __flmul `S2533  1 a 4 33 ]
 [v i2___flmul@grs __flmul `ul  1 a 4 27 ]
-[s S2608 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-[u S2611 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2608 1 nAsBytes 2 0 ]
-[v i2___flmul@temp __flmul `S2611  1 a 2 37 ]
+[s S2601 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[u S2604 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2601 1 nAsBytes 2 0 ]
+[v i2___flmul@temp __flmul `S2604  1 a 2 37 ]
 [v i2___flmul@bexp __flmul `uc  1 a 1 32 ]
 [v i2___flmul@aexp __flmul `uc  1 a 1 31 ]
 [v i2___flmul@sign __flmul `uc  1 a 1 26 ]

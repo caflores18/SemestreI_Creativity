@@ -178,13 +178,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ./FuncionesMenu.h
 [; ;./FuncionesMenu.h: 29: void slidePiston(void);
 [v _slidePiston `(v ~T0 @X0 0 ef ]
-"42 ./MotoresXYZ.h
-[; ;./MotoresXYZ.h: 42: void moverXInfinito(void);
-[v _moverXInfinito `(v ~T0 @X0 0 ef ]
-"44
-[; ;./MotoresXYZ.h: 44: void moverYInfinito(void);
-[v _moverYInfinito `(v ~T0 @X0 0 ef ]
-"30 ./FuncionesMenu.h
+"30
 [; ;./FuncionesMenu.h: 30: void impCoordActual(void);
 [v _impCoordActual `(v ~T0 @X0 0 ef ]
 "31
@@ -1366,81 +1360,57 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 193:             printf("Ok,comF\n");
 [e ( _printf (1 :s 22C ]
 "194
-[; ;main.c: 194:         } else if (opcionsel == 'i' || opcionsel == 'I') {
+[; ;main.c: 194:         } else if (opcionsel == 'c' || opcionsel == 'C') {
 }
 [e $U 406  ]
-[e :U 402 ]
-[e $ ! || == -> _opcionsel `ui -> 105 `ui == -> _opcionsel `ui -> 73 `ui 407  ]
-{
-"195
-[; ;main.c: 195:             printf("Vas a ir infinito X e infinito Y\n");
-[e ( _printf (1 :s 23C ]
-"196
-[; ;main.c: 196:             printf("Ok,comV\n");
-[e ( _printf (1 :s 24C ]
-"197
-[; ;main.c: 197:             moverXInfinito();
-[e ( _moverXInfinito ..  ]
-"198
-[; ;main.c: 198:             moverYInfinito();
-[e ( _moverYInfinito ..  ]
-"199
-[; ;main.c: 199:             OcurrioIntEsq = 1;
-[e = _OcurrioIntEsq -> -> 1 `i `uc ]
-"200
-[; ;main.c: 200:             printf("Ok,comF\n");
-[e ( _printf (1 :s 25C ]
 "201
-[; ;main.c: 201:         } else if (opcionsel == 'c' || opcionsel == 'C') {
-}
-[e $U 408  ]
-[e :U 407 ]
-[e $ ! || == -> _opcionsel `ui -> 99 `ui == -> _opcionsel `ui -> 67 `ui 409  ]
+[; ;main.c: 201: 
+[e :U 402 ]
+[e $ ! || == -> _opcionsel `ui -> 99 `ui == -> _opcionsel `ui -> 67 `ui 407  ]
 {
 "202
 [; ;main.c: 202:             printf("Imprmir coordenada actual \n");
-[e ( _printf (1 :s 26C ]
+[e ( _printf (1 :s 23C ]
 "203
 [; ;main.c: 203:             printf("Ok,comV\n");
-[e ( _printf (1 :s 27C ]
+[e ( _printf (1 :s 24C ]
 "204
 [; ;main.c: 204:             impCoordActual();
 [e ( _impCoordActual ..  ]
 "205
 [; ;main.c: 205:             printf("Ok,comF\n");
-[e ( _printf (1 :s 28C ]
+[e ( _printf (1 :s 25C ]
 "206
 [; ;main.c: 206:         } else if (opcionsel == 'b' || opcionsel == 'B') {
 }
-[e $U 410  ]
-[e :U 409 ]
-[e $ ! || == -> _opcionsel `ui -> 98 `ui == -> _opcionsel `ui -> 66 `ui 411  ]
+[e $U 408  ]
+[e :U 407 ]
+[e $ ! || == -> _opcionsel `ui -> 98 `ui == -> _opcionsel `ui -> 66 `ui 409  ]
 {
 "207
 [; ;main.c: 207:             printf("Entraste a mover la base\n");
-[e ( _printf (1 :s 29C ]
+[e ( _printf (1 :s 26C ]
 "208
 [; ;main.c: 208:             printf("Ok,comV\n");
-[e ( _printf (1 :s 30C ]
+[e ( _printf (1 :s 27C ]
 "209
 [; ;main.c: 209:             modificarZ();
 [e ( _modificarZ ..  ]
 "210
 [; ;main.c: 210:             printf("Ok,comF\n");
-[e ( _printf (1 :s 31C ]
+[e ( _printf (1 :s 28C ]
 "211
 [; ;main.c: 211:         } else {
 }
-[e $U 412  ]
-[e :U 411 ]
+[e $U 410  ]
+[e :U 409 ]
 {
 "212
 [; ;main.c: 212:             printf("E,com\n");
-[e ( _printf (1 :s 32C ]
+[e ( _printf (1 :s 29C ]
 "213
 [; ;main.c: 213:         }
 }
-[e :U 412 ]
 [e :U 410 ]
 [e :U 408 ]
 [e :U 406 ]
@@ -1460,12 +1430,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 8C 69 115 99 114 105 98 101 32 105 110 105 116 32 112 97 114 97 32 99 97 108 105 98 114 97 114 32 101 108 32 83 80 65 82 67 32 121 32 112 111 100 101 114 32 97 99 99 101 100 101 114 32 97 108 32 114 101 115 116 111 32 100 101 32 108 97 115 32 102 117 110 99 105 111 110 101 115 10 0 ]
 [a 5C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 51 69 115 113 117 105 110 97 115 10 0 ]
 [a 16C 80 114 101 115 105 111 110 97 114 32 90 32 99 105 101 114 116 111 32 110 117 109 101 114 111 32 100 101 32 118 101 99 101 115 32 114 101 99 105 98 105 100 97 115 10 0 ]
-[a 32C 69 44 99 111 109 10 0 ]
-[a 29C 69 110 116 114 97 115 116 101 32 97 32 109 111 118 101 114 32 108 97 32 98 97 115 101 10 0 ]
+[a 29C 69 44 99 111 109 10 0 ]
+[a 26C 69 110 116 114 97 115 116 101 32 97 32 109 111 118 101 114 32 108 97 32 98 97 115 101 10 0 ]
 [a 2C 79 107 44 99 111 111 114 89 10 0 ]
 [a 7C 79 99 117 114 114 105 111 32 108 97 32 105 110 116 101 114 114 117 112 99 105 111 110 32 108 105 109 105 116 83 119 105 116 99 104 72 111 109 101 89 10 0 ]
 [a 14C 86 97 115 32 97 32 109 111 118 101 114 32 101 108 32 83 112 97 114 99 32 101 110 32 88 32 121 32 89 10 0 ]
-[a 23C 86 97 115 32 97 32 105 114 32 105 110 102 105 110 105 116 111 32 88 32 101 32 105 110 102 105 110 105 116 111 32 89 10 0 ]
 [a 20C 86 97 115 32 97 32 105 114 32 97 32 104 111 109 101 88 32 121 32 104 111 109 101 32 89 10 0 ]
 [a 1C 73 110 116 101 114 114 117 112 99 105 111 110 32 84 77 82 48 44 32 108 108 101 103 97 115 116 101 32 97 32 99 111 111 114 100 101 110 97 100 97 32 100 101 115 101 97 100 97 32 89 10 0 ]
 [a 4C 79 107 44 99 111 111 114 88 10 0 ]
@@ -1477,15 +1446,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 21C 79 107 44 99 111 109 86 10 0 ]
 [a 24C 79 107 44 99 111 109 86 10 0 ]
 [a 27C 79 107 44 99 111 109 86 10 0 ]
-[a 30C 79 107 44 99 111 109 86 10 0 ]
 [a 10C 83 65 67 65 78 68 79 10 0 ]
 [a 13C 79 107 44 99 111 109 78 10 0 ]
 [a 22C 79 107 44 99 111 109 70 10 0 ]
 [a 25C 79 107 44 99 111 109 70 10 0 ]
 [a 28C 79 107 44 99 111 109 70 10 0 ]
-[a 31C 79 107 44 99 111 109 70 10 0 ]
 [a 12C 73 110 116 51 32 69 115 113 117 105 110 97 115 44 32 114 101 99 97 108 105 98 114 97 110 100 111 32 83 80 65 82 67 10 0 ]
 [a 11C 89 97 32 101 115 116 97 32 99 97 108 105 98 114 97 100 111 32 101 108 32 83 80 65 82 67 10 0 ]
 [a 18C 80 105 115 116 111 110 32 112 97 114 97 32 100 101 115 108 105 122 97 114 32 111 32 100 101 106 97 114 32 114 101 116 114 97 105 100 111 63 10 0 ]
 [a 9C 73 110 105 99 105 97 108 105 122 97 110 100 111 46 46 46 10 0 ]
-[a 26C 73 109 112 114 109 105 114 32 99 111 111 114 100 101 110 97 100 97 32 97 99 116 117 97 108 32 10 0 ]
+[a 23C 73 109 112 114 109 105 114 32 99 111 111 114 100 101 110 97 100 97 32 97 99 116 117 97 108 32 10 0 ]
