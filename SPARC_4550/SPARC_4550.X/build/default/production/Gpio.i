@@ -5622,19 +5622,59 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./Gpio.h" 1
-# 11 "./Gpio.h"
+# 23 "./Gpio.h"
 void portInit(void);
+void motorXinit(void);
+void motorYinit(void);
+void pistonInit(void);
+void motoresZinit(void);
 # 3 "Gpio.c" 2
 
 #pragma config FOSC = INTOSC_EC
-#pragma config MCLRE = OFF
+#pragma config MCLRE = ON
+#pragma config WDT = OFF
 
 #pragma config LVP = OFF
 
 
-
 void portInit ( void ) {
+
     ADCON1bits.PCFG = 0xFF;
     OSCCON = 0x70;
-    TRISBbits.TRISB0= 0;
+    UCONbits.USBEN = 0;
+    UCFGbits.UTRDIS = 1;
+
+}
+void motorXinit( void ) {
+
+    TRISDbits.RD2 = 0;
+    TRISDbits.RD3 = 0;
+    TRISCbits.RC2 = 0;
+    LATDbits.LATD2 = 0;
+    LATDbits.LATD3 = 0;
+    LATCbits.LATC2 = 0;
+
+}
+void motorYinit( void ) {
+
+    TRISDbits.RD0 = 0;
+    TRISDbits.RD1 = 0;
+    TRISCbits.RC1 = 0;
+    LATDbits.LATD0 = 0;
+    LATDbits.LATD1 = 0;
+    LATCbits.LC1 = 0;
+}
+void motoresZinit( void ){
+
+    TRISDbits.RD5 = 0;
+    TRISDbits.RD6 = 0;
+    TRISAbits.RA5 = 1;
+    LATDbits.LATD5 = 0;
+    LATDbits.LATD5 = 0;
+    LATDbits.LATD5 = 0;
+}
+void pistonInit(void){
+
+    TRISEbits.RE0 = 0;
+
 }

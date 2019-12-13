@@ -5622,26 +5622,30 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./Interrupciones.h" 1
-# 11 "./Interrupciones.h"
-void interruptsEnable();
-void interruptsDisable();
-void habilitarIntExternas();
+# 16 "./Interrupciones.h"
+void interruptsEnable(void);
+void interruptsDisable(void);
+void habilitarIntExternas(void);
+void habilitarIntTMR0(void);
+void habilitarIntTMR1(void);
 # 3 "Interrupciones.c" 2
 
-void interruptsEnable() {
+
+void interruptsEnable(void) {
 
     RCONbits.IPEN = 0;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
 }
-void interruptsDisable() {
+
+void interruptsDisable(void) {
 
     RCONbits.IPEN = 0;
     INTCONbits.PEIE = 0;
     INTCONbits.GIE = 0;
 }
 
-void habilitarIntExternas() {
+void habilitarIntExternas(void) {
 
 
     INTCONbits.INT0IF = 0;
@@ -5658,5 +5662,12 @@ void habilitarIntExternas() {
     INTCON3bits.INT2IE = 1;
     INTCON2bits.INTEDG2 = 1;
     TRISBbits.RB2 = 1;
+}
 
+void habilitarIntTMR0(void) {
+    INTCONbits.TMR0IE = 1;
+}
+
+void habilitarIntTMR1(void) {
+    PIE1bits.TMR1IE = 1;
 }

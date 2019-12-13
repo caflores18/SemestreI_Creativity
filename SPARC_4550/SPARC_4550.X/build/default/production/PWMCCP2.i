@@ -5623,23 +5623,112 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 # 1 "./PWMCCP2.h" 1
 # 11 "./PWMCCP2.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+# 11 "./PWMCCP2.h" 2
+
 void PWM_CCP2_init(void);
-void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle);
+
+void PWM_DutyCycleCCP2(uint8_t WantedDutyCycle);
 # 3 "PWMCCP2.c" 2
 
 void PWM_CCP2_init(void) {
     TRISCbits.RC1 = 0;
     CCP2CONbits.CCP2M = 0b1111;
-    PR2 = 124;
+
+    PR2 = 249;
     T2CONbits.T2CKPS = 0b11;
+
+    CCP2CONbits.DC2B = 0;
+    CCPR2L = 0;
     TMR2 = 0;
     T2CONbits.TMR2ON = 1;
 }
+void PWM_DutyCycleCCP2(uint8_t WantedDutyCycle) {
 
-void PWM_DutyCycleCCP2(unsigned char WantedDutyCycle) {
-
-    unsigned int PWMDutyValue;
-    PWMDutyValue = (WantedDutyCycle * 0.01)*500;
+    uint16_t PWMDutyValue;
+    PWMDutyValue = (WantedDutyCycle * 0.01)*1000;
 
     CCP2CONbits.DC2B = (PWMDutyValue & 0x03);
     CCPR2L = ((PWMDutyValue >> 2)&0xFF);

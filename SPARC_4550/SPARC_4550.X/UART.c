@@ -1,6 +1,7 @@
 #include <xc.h>
 #include <pic18f4550.h>
 #include "UART.h"
+#define _XTAL_FREQ 8000000 //Se trabaja el programa a 8 Mhz
 
 void UARTinit(void) {
     TRISCbits.RC6 = 1; //Se declara el TX como output
@@ -18,35 +19,45 @@ void UARTinit(void) {
     RCSTA1bits.CREN = 1; //Habilita recibir
 }
 
-unsigned char receive() {
-    unsigned char recibido;
+uint8_t receive() {
+    errorUART(); //Comprueba si no hubo errores en la comunicacion
+    uint8_t recibido;
     while (PIR1bits.RCIF == 0) {
         // Mientras RCRGEG1 este vacio nada hasta
     } //Cuando se lleno
     recibido = RCREG1; // se guarda lo que llego de RCREG1 en viene
     RCREG1 = 0; //Se resetea el registro recibidor
+    //__delay_ms(10);
     return recibido;
 }
 
-void send(unsigned char enviarpc) {
+void send(uint8_t enviarpc) {
+    errorUART(); //Comprueba si no hubo errores en la comunicacion
     while (TXSTA1bits.TRMT == 0) {
         //Mientres TSR este lleno no hace nada 
     } // Cuando se vacio 
     TXREG1 = enviarpc; // Se envia el nuevo caracter al registro de transmision USART
 }
 
-void printf(unsigned char *PointString) {
-    for (unsigned char i = 0; i < 255; i++) {
-        if (PointString[i] == NULL) {
-            break;
-        } else
-            send(PointString[i]);
+void errorUART(void) {
+    //Esta funcion no es de mi autoria, ha sido obtenida de:
+    //https://investigatronica.wordpress.com/2016/03/10/uso-de-la-uart-en-microcontroladores-se-cuelga-el-micro-o-deja-de-recibir/
+    uint8_t temp;
+    if (OERR) {//¿hubo desborde?
+        do {
+            temp = RCREG; //limpia pila
+            temp = RCREG; //limpia pila
+            temp = RCREG; //limpia pila
+            temp = RCREG; //limpia pila
+            CREN = 0; //deshabilita la recepcion
+            CREN = 1; //habilita la recepcion
+
+        } while (OERR);
+    }
+
+    if (FERR) {
+        temp = RCREG;
+        TXEN = 0;
+        TXEN = 1;
     }
 }
-
-void scanf(unsigned char *guardarscan, unsigned char numcaracteres) {
-    for (unsigned char i = 0; i < numcaracteres; i++) {
-        guardarscan[i] = receive();
-    }
-}
-

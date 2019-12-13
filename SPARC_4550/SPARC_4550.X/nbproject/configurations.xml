@@ -10,6 +10,11 @@
       <itemPath>PWMCCP1.h</itemPath>
       <itemPath>ADC.h</itemPath>
       <itemPath>Interrupciones.h</itemPath>
+      <itemPath>Comunicacion.h</itemPath>
+      <itemPath>Timers.h</itemPath>
+      <itemPath>FuncionesMenu.h</itemPath>
+      <itemPath>Leds.h</itemPath>
+      <itemPath>MotoresXYZ.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,6 +25,11 @@
       <itemPath>PWMCCP1.c</itemPath>
       <itemPath>ADC.c</itemPath>
       <itemPath>Interrupciones.c</itemPath>
+      <itemPath>Comunicacion.c</itemPath>
+      <itemPath>Timers.c</itemPath>
+      <itemPath>FuncionesMenu.c</itemPath>
+      <itemPath>Leds.c</itemPath>
+      <itemPath>MotoresXYZ.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -30,6 +40,11 @@
       <itemPath>PruebaPWMCCP1.c</itemPath>
       <itemPath>PruebaADC.c</itemPath>
       <itemPath>PruebaInterrupciones.c</itemPath>
+      <itemPath>PruebaTimers.c</itemPath>
+      <itemPath>PruebaMotoresX.c</itemPath>
+      <itemPath>PruebaMotoresY.c</itemPath>
+      <itemPath>JuntarMotorXY.c</itemPath>
+      <itemPath>blinkLED.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -156,6 +171,14 @@
         <property key="program-the-device-with-default-config-words" value="true"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <item path="JuntarMotorXY.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
       <PICkit3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="Freeze Peripherals" value="true"/>
@@ -179,7 +202,7 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-7fff"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -207,6 +230,30 @@
         <XC8-config-global>
         </XC8-config-global>
       </item>
+      <item path="PruebaInterrupciones.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="PruebaMotoresX.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="PruebaMotoresY.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
       <item path="PruebaPWMCCP1.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
@@ -216,6 +263,14 @@
         </XC8-config-global>
       </item>
       <item path="PruebaPWMCCP2.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="PruebaTimers.c" ex="true" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>
@@ -646,7 +701,15 @@
         <property key="stack-type" value="compiled"/>
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
-      <item path="main.c" ex="true" overriding="false">
+      <item path="blinkLED.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="main.c" ex="false" overriding="false">
         <HI-TECH-COMP>
         </HI-TECH-COMP>
         <HI-TECH-LINK>
